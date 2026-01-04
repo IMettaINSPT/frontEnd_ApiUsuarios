@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container">
+    <h1>Home</h1>
+
+    <div class="card">
+        <p>Sesión iniciada. Desde acá consumimos el backend con JWT.</p>
+
+        <a class="btn" href="/users">Ir a Usuarios</a>
+
+        <form method="post" action="/logout" style="margin-top:12px;">
+            <button class="btn danger" type="submit">Logout</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
