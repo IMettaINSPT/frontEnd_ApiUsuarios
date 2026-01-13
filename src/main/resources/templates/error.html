@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Error</title>
-</head>
+<head th:replace="~{fragments/layout :: head('Error')}"></head>
 <body>
-<h2 th:text="${title}">Error</h2>
-<p th:text="${message}">Ocurrió un error</p>
-<a href="/home">Volver</a>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container">
+    <div class="hero">
+        <h1 th:text="${title}">Error</h1>
+        <p th:text="${message}">Ocurrió un error.</p>
+        <div class="alert err" th:if="${status}">
+            Código: <b th:text="${status}">500</b>
+        </div>
+    </div>
+
+    <div class="grid" style="margin-top:16px;">
+        <a class="card" href="/menu">
+            <div>
+                <h3>Volver al menú</h3>
+                <p>Retornar al inicio y elegir otra opción.</p>
+            </div>
+            <div class="go">Ir →</div>
+        </a>
+
+        <a class="card" href="/login">
+            <div>
+                <h3>Ir al login</h3>
+                <p>Si tu sesión expiró, volvé a iniciar sesión.</p>
+            </div>
+            <div class="go">Ir →</div>
+        </a>
+    </div>
+</div>
+
 </body>
 </html>

@@ -1,7 +1,9 @@
 package com.tp.frontend.service;
 
 import com.tp.frontend.client.UsersApiClient;
-import com.tp.frontend.dto.UserDTO;
+import com.tp.frontend.dto.User.UserRequest;
+import com.tp.frontend.dto.User.UserResponse;
+import com.tp.frontend.dto.User.UserUpdate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,11 +17,23 @@ public class UserService {
         this.usersApiClient = usersApiClient;
     }
 
-    public List<UserDTO> getAllUsers(String jwt) {
+    public List<UserResponse> list(String jwt) {
         return usersApiClient.list(jwt);
     }
 
-    public void deleteUser(Long id, String jwt) {
-        usersApiClient.delete(id, jwt);
+    public UserResponse get(Long id, String jwt) {
+        return usersApiClient.getById(jwt, id);
+    }
+
+    public void create(UserRequest dto, String jwt) {
+        usersApiClient.create(jwt, dto);
+    }
+
+    public void update(Long id, UserUpdate dto, String jwt) {
+         usersApiClient.update(jwt, id, dto);
+    }
+
+    public void delete(Long id, String jwt) {
+        usersApiClient.delete(jwt, id);
     }
 }

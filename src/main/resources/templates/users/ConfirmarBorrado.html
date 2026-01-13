@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/layout :: head('Confirmar eliminación')}"></head>
+
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container" style="max-width: 820px;">
+
+    <div class="hero">
+        <h1>Confirmar eliminación</h1>
+        <p>Esta acción es <b>permanente</b> y no se puede deshacer.</p>
+    </div>
+
+    <div class="card" style="margin-top:14px;">
+        <div class="alert err">
+            <b>Advertencia:</b> si eliminás este usuario, se perderá el acceso y su referencia en el sistema.
+        </div>
+
+        <div style="display:grid; gap:8px; margin-top:12px;">
+            <div><span style="color:var(--muted);">ID:</span> <b th:text="${user.id}"></b></div>
+            <div><span style="color:var(--muted);">Usuario:</span> <b th:text="${user.username}"></b></div>
+            <div><span style="color:var(--muted);">Rol:</span> <b th:text="${user.rol}"></b></div>
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
+            <a class="btn" href="/users">Cancelar</a>
+
+            <form th:action="@{'/users/' + ${user.id} + '/delete'}" method="post" style="display:inline;">
+                <button type="submit" class="btn btn-danger">
+                    Sí, eliminar definitivamente
+                </button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<!-- Anti "back cache": si el navegador guarda la página en BFCache, forzamos reload -->
+<script>
+    window.addEventListener('pageshow', function (event) {
+        if (event.persisted) window.location.reload();
+    });
+</script>
+
+</body>
+</html>

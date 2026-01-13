@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/layout :: head('Detalle de Usuario')}"></head>
+
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container">
+
+  <div class="hero">
+    <h1>Detalle de usuario</h1>
+    <p>Visualización y edición según rol.</p>
+
+    <div class="alert ok" th:if="${msg}" th:text="${msg}"></div>
+    <div class="alert err" th:if="${error}" th:text="${error}"></div>
+  </div>
+
+  <div class="grid">
+
+    <div class="card" style="grid-column: span 12;">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+        <div>
+          <h3 style="margin:0;">Usuario</h3>
+          <p style="margin:0; color: var(--muted);">ID: <b th:text="${user.id}"></b></p>
+        </div>
+        <a class="btn" href="/users">← Volver</a>
+      </div>
+
+      <!-- ADMIN: editable (backend solo permite password/enabled) -->
+      <div sec:authorize="hasRole('ADMIN')" style="margin-top: 14px;">
+        <form th:action="@{'/users/' + ${user.id}}" method="post" th:object="${update}">
+          <div style="display:grid; grid-template-columns: 1fr 240px; gap:12px; align-items:end;">
+            <div>
+              <label style="display:block; font-weight:800; margin-bottom:6px;">Usuario</label>
+              <input type="text" th:value="${user.username}" disabled
+                     style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); color: var(--text); outline:none; opacity:.85;">
+              <div style="color:var(--muted); font-size:12px; margin-top:6px;">Rol: <b th:text="${user.rol}"></b></div>
+            </div>
+
+            <div>
+              <label style="display:block; font-weight:800; margin-bottom:6px;">Habilitado</label>
+              <select th:field="*{enabled}"
+                      style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); color: var(--text); outline:none;">
+                <option th:value="true">SI</option>
+                <option th:value="false">NO</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-top:12px;">
+            <label style="display:block; font-weight:800; margin-bottom:6px;">Nueva contraseña (opcional)</label>
+            <input type="password" th:field="*{password}" placeholder="••••••••"
+                   style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); color: var(--text); outline:none;">
+          </div>
+
+          <div style="display:flex; gap:10px; margin-top: 12px; flex-wrap:wrap;">
+            <button class="btn btn-primary" type="submit">Guardar cambios</button>
+            <a class="btn btn-danger"
+               th:href="@{'/users/' + ${user.id} + '/confirm-delete'}">
+              Eliminar usuario
+            </a>
+          </div>
+        </form>
+      </div>
+
+      <!-- No ADMIN: read-only -->
+      <div sec:authorize="!hasRole('ADMIN')" style="margin-top: 14px;">
+        <div class="alert ok">
+          <b>Modo lectura:</b> tu rol no permite editar usuarios.
+        </div>
+
+        <div style="display:grid; gap:8px; margin-top:10px;">
+          <div><span style="color:var(--muted);">Usuario:</span> <b th:text="${user.username}"></b></div>
+          <div><span style="color:var(--muted);">Rol:</span> <b th:text="${user.rol}"></b></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  
+
+</div>
+</body>
+</html>

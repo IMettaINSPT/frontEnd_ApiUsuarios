@@ -1,28 +1,49 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Login</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
-</head>
+<head th:replace="~{fragments/layout :: head('Login')}"></head>
+
 <body>
-<div class="container">
-    <h1>FrontEnd (Thymeleaf)</h1>
-    <h2>Iniciar sesión</h2>
+<div class="container" style="max-width: 520px;">
 
-    <div class="alert error" th:if="${error}" th:text="${error}"></div>
+    <div class="hero" style="margin-top: 40px;">
+        <h1>Iniciar sesión</h1>
+        <p>Accedé al sistema con tus credenciales.</p>
 
-    <form method="post" action="/do-login" class="card">
-        <label>Usuario</label>
-        <input type="text" name="username" required />
+        <div class="alert ok" th:if="${msg}" th:text="${msg}"></div>
+        <div class="alert err" th:if="${error}" th:text="${error}"></div>
+    </div>
 
-        <label>Contraseña</label>
-        <input type="password" name="password" required />
+    <div class="card" style="margin-top: 14px;">
 
-        <button type="submit">Entrar</button>
-    </form>
+        <form method="post" action="/do-login" autocomplete="on">
 
-    <p class="hint">Si el backend está en otra PC, cambiá <code>backend.base-url</code> en application.properties</p>
+            <div style="display:grid; gap:10px;">
+                <div>
+                    <label style="display:block; font-weight:700; margin-bottom:6px;">Usuario</label>
+                    <input type="text" name="username" required
+                           placeholder="Ej: admin"
+                           style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); color: var(--text); outline:none;">
+                </div>
+
+                <div>
+                    <label style="display:block; font-weight:700; margin-bottom:6px;">Contraseña</label>
+                    <input type="password" name="password" required
+                           placeholder="••••••••"
+                           style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); color: var(--text); outline:none;">
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width:100%; margin-top:6px;">
+                    Entrar
+                </button>
+            </div>
+
+            <div style="margin-top: 14px; color: var(--muted); font-size: 13px; line-height:1.4;">
+                Tip: si el backend está en otra PC/VM, configurá <b>backend.base-url</b> en <code>application.properties</code>.
+            </div>
+
+        </form>
+
+    </div>
 </div>
 </body>
 </html>

@@ -1,56 +1,43 @@
 package com.tp.frontend.client;
 
-import com.tp.frontend.dto.UserDTO;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.*;
+import com.tp.frontend.dto.User.UserResponse;         // tu "response"
+import com.tp.frontend.dto.User.UserRequest;   // tu "request" de alta
+import com.tp.frontend.dto.User.UserUpdate;   // crear este DTO en front (ver abajo)
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Component
-public class UsersApiClient {
-
-    private final RestTemplate restTemplate;
-
-    @Value("${backend.base-url}")
-    private String backendBaseUrl;
+public class UsersApiClient extends BaseApiClient {
 
     public UsersApiClient(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
+        super(restTemplate);
     }
 
-    public List<UserDTO> list(String jwt) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setBearerAuth(jwt);
-        HttpEntity<Void> entity = new HttpEntity<>(headers);
-
-        ResponseEntity<UserDTO[]> response = restTemplate.exchange(
-                backendBaseUrl + "/api/usuarios",
-                HttpMethod.GET,
-                entity,
-                UserDTO[].class
-        );
-
-        return Arrays.asList(response.getBody());
+    // GET /api/usuarios
+    public List<UserResponse> list(String jwt) {
+        return get(jwt, "/api/usuarios", new ParameterizedTypeReference<List<UserResponse>>() {});
     }
 
-    public void delete(Long id, String jwt) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setBearerAuth(jwt);
-        HttpEntity<Void> entity = new HttpEntity<>(headers);
+    // GET /api/usuarios/{id}
+    public UserResponse getById(String jwt, Long id) {
+        return get(jwt, "/api/usuarios/" + id, new ParameterizedTypeReference<UserResponse>() {});
+    }
 
-        try {
-            restTemplate.exchange(
-                    backendBaseUrl + "/api/usuarios/" + id,
-                    HttpMethod.DELETE,
-                    entity,
-                    Void.class
-            );
-        } catch (HttpStatusCodeException ex) {
-            throw ex; // lo maneja el controller
-        }
+    // POST /api/usuarios  (UsuarioRequest)
+    public void create(String jwt, UserRequest dto) {
+        post(jwt, "/api/usuarios", dto, UserResponse.class);
+    }
+
+    // PUT /api/usuarios/{id} (UsuarioUpdateRequest)
+    public void update(String jwt, Long id, UserUpdate dto) {
+        put(jwt, "/api/usuarios/" + id, dto, UserResponse.class);
+    }
+
+    // DELETE /api/usuarios/{id}
+    public void delete(String jwt, Long id) {
+        delete(jwt, "/api/usuarios/" + id);
     }
 }

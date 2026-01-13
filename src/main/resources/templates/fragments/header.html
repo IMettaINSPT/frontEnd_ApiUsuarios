@@ -1,17 +1,55 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <body>
 <div th:fragment="topbar">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-        <div>
-            Usuario: <b th:text="${#authentication.name}">user</b>
-        </div>
 
-        <form method="post" action="/logout">
-            <button type="submit">Logout</button>
-        </form>
+    <div class="topbar">
+        <div class="topbar-inner">
+            <div class="brand">
+                <span>TP Seguridad Bancaria</span>
+                <span class="badge" th:text="${#authorization.expression('hasRole(''ADMIN'')') ? 'ADMIN' :
+                                      (#authorization.expression('hasRole(''INVESTIGADOR'')') ? 'INVESTIGADOR' : 'VIGILANTE')}">
+          ROL
+        </span>
+            </div>
+            <div class="right">
+        <span style="color: var(--muted); font-weight:600;">
+          <span th:text="${#authentication.name}">usuario</span>
+        </span>
+
+                <a class="btn btn-primary" href="/menu">Menú</a>
+
+                <a class="btn" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')" href="/users">Usuarios</a>
+                <a class="btn" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')" href="/juicios">Juicios</a>
+                <a class="btn" sec:authorize="hasRole('VIGILANTE')" href="/vigilantes/me">Mi perfil</a>
+
+                <form action="/logout" method="post" style="display:inline;">
+                    <button class="btn btn-danger" type="submit">Logout</button>
+                </form>
+            </div>
+        </div>
     </div>
-    <hr/>
+
 </div>
+<script>
+    // Evita que el navegador muestre páginas cacheadas del historial (BFCache)
+    // Si la sesión ya no existe, el reload hará que Spring Security redirija a /login.
+    window.addEventListener('pageshow', function (event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    });
+
+    // Algunos navegadores no marcan persisted, pero vuelven desde cache igual:
+    // si detectamos navegación "back/forward", forzamos reload.
+    try {
+        const navEntries = performance.getEntriesByType("navigation");
+        if (navEntries && navEntries.length && navEntries[0].type === "back_forward") {
+            window.location.reload();
+        }
+    } catch (e) {}
+</script>
+
 </body>
 </html>

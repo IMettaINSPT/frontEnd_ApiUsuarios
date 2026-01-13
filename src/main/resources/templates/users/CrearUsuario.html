@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/layout :: head('Nuevo usuario')}"></head>
+
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container" style="max-width: 720px;">
+
+    <div class="hero">
+        <h1>Crear usuario</h1>
+        <p>Disponible solo para <b>ADMIN</b>.</p>
+    </div>
+
+    <div class="card" style="margin-top: 14px;">
+        <form th:action="@{/users}" method="post">
+
+            <div style="display:grid; gap:12px;">
+                <div>
+                    <label style="display:block; font-weight:800; margin-bottom:6px;">Usuario</label>
+                    <input type="text" name="username" required
+                           placeholder="Ej: juan"
+                           style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); color: var(--text); outline:none;">
+                </div>
+
+                <div>
+                    <label style="display:block; font-weight:800; margin-bottom:6px;">Contraseña</label>
+                    <input type="password" name="password" required
+                           placeholder="••••••••"
+                           style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); color: var(--text); outline:none;">
+                </div>
+
+                <div>
+                    <label style="display:block; font-weight:800; margin-bottom:6px;">Tipo</label>
+                    <select id="rol" name="tipo" required onchange="onRolChange()"
+                            style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); color: var(--text); outline:none;">
+                        <option value="ADMIN">ADMIN</option>
+                        <option value="INVESTIGADOR">INVESTIGADOR</option>
+                        <option value="VIGILANTE">VIGILANTE</option>
+                    </select>
+                </div>
+
+                <!-- Solo aplica si rol = VIGILANTE -->
+                <div id="vigilanteBlock" style="display:none;">
+                    <label style="display:block; font-weight:800; margin-bottom:6px;">Vigilante a asociar</label>
+                    <select id="vigilanteId" name="vigilanteId"
+                            style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); color: var(--text); outline:none;">
+                        <option value="">-- Seleccionar vigilante --</option>
+                        <option th:each="v : ${vigilantesDisponibles}"
+                                th:value="${v.id}"
+                                th:text="${v.codigo + ' (edad ' + v.edad + ')'}">
+                        </option>
+                    </select>
+
+                    <div class="alert err" style="margin-top:10px;" th:if="${!hayVigilantesDisponibles}">
+                        No hay vigilantes disponibles para asociar. Creá un vigilante primero o liberá uno existente.
+                    </div>
+                </div>
+
+                <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:6px;">
+                    <button id="submitBtn" class="btn btn-primary" type="submit">Crear</button>
+                    <a class="btn" href="/users">Cancelar</a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <script th:inline="javascript">
+        const hayVigilantes = /*[[${hayVigilantesDisponibles}]]*/ false;
+
+        function onRolChange() {
+            const rol = document.getElementById('rol')?.value;
+            const block = document.getElementById('vigilanteBlock');
+            const vigilanteSelect = document.getElementById('vigilanteId');
+            const submitBtn = document.getElementById('submitBtn');
+
+            if (!rol || !block || !vigilanteSelect || !submitBtn) return;
+
+            if (rol === 'VIGILANTE') {
+                block.style.display = 'block';
+                if (!hayVigilantes) {
+                    vigilanteSelect.disabled = true;
+                    submitBtn.disabled = true;
+                } else {
+                    vigilanteSelect.disabled = false;
+                    submitBtn.disabled = false;
+                }
+            } else {
+                block.style.display = 'none';
+                vigilanteSelect.value = '';
+                vigilanteSelect.disabled = true;
+                submitBtn.disabled = false;
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => onRolChange());
+    </script>
+
+</div>
+</body>
+</html>

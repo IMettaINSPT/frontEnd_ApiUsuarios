@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/layout :: head('Menú')}"></head>
+
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container">
+
+    <div class="hero">
+        <h1>Menú principal</h1>
+        <p>Accedé a las funciones habilitadas según tu rol.</p>
+    </div>
+
+    <div class="grid">
+
+        <!-- ADMIN + INVESTIGADOR -->
+        <a class="card" href="/users" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')">
+            <div>
+                <h3>Usuarios</h3>
+                <p>Listado y detalle. Edición solo ADMIN.</p>
+            </div>
+            <div class="go">Ir →</div>
+        </a>
+
+        <a class="card" href="/juicios" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')">
+            <div>
+                <h3>Juicios</h3>
+                <p>CRUD completo con restricciones por rol.</p>
+            </div>
+            <div class="go">Ir →</div>
+        </a>
+
+        <a class="card" href="/jueces" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')">
+            <div>
+                <h3>Jueces</h3>
+                <p>Gestión de jueces asociados a juicios.</p>
+            </div>
+            <div class="go">Ir →</div>
+        </a>
+
+        <a class="card" href="/bancos" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')">
+            <div>
+                <h3>Bancos</h3>
+                <p>ABM de bancos.</p>
+            </div>
+            <div class="go">Ir →</div>
+        </a>
+
+        <a class="card" href="/sucursales" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')">
+            <div>
+                <h3>Sucursales</h3>
+                <p>ABM y consultas relacionadas.</p>
+            </div>
+            <div class="go">Ir →</div>
+        </a>
+
+        <a class="card" href="/bandas" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')">
+            <div>
+                <h3>Bandas</h3>
+                <p>ABM de bandas delictivas.</p>
+            </div>
+            <div class="go">Ir →</div>
+        </a>
+
+        <a class="card" href="/asaltos" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')">
+            <div>
+                <h3>Asaltos</h3>
+                <p>Registro de asaltos a sucursales.</p>
+            </div>
+            <div class="go">Ir →</div>
+        </a>
+
+        <a class="card" href="/personasDetenidas" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')">
+            <div>
+                <h3>Personas detenidas</h3>
+                <p>ABM y consulta de asaltos vinculados.</p>
+            </div>
+            <div class="go">Ir →</div>
+        </a>
+
+        <a class="card" href="/contratos" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')">
+            <div>
+                <h3>Contratos</h3>
+                <p>ABM + filtros por sucursal/vigilante.</p>
+            </div>
+            <div class="go">Ir →</div>
+        </a>
+
+        <!-- VIGILANTE -->
+        <a class="card" href="/vigilantes/me" sec:authorize="hasRole('VIGILANTE')">
+            <div>
+                <h3>Mi perfil</h3>
+                <p>Ver información personal del vigilante.</p>
+            </div>
+            <div class="go">Ir →</div>
+        </a>
+
+    </div>
+
+</div>
+</body>
+</html>
