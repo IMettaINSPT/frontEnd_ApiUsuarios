@@ -1,6 +1,6 @@
 package com.tp.frontend.client;
 
-import org.springframework.beans.factory.annotation.Value;
+import com.tp.frontend.config.FrontendProperties;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
@@ -8,57 +8,44 @@ import org.springframework.web.client.RestTemplate;
 public abstract class BaseApiClient {
 
     protected final RestTemplate restTemplate;
+    protected final String baseUrl;
 
-    @Value("${backend.base-url}")
-    protected String backendBaseUrl;
-
-    protected BaseApiClient(RestTemplate restTemplate) {
+    protected BaseApiClient(RestTemplate restTemplate, FrontendProperties props) {
         this.restTemplate = restTemplate;
+        this.baseUrl = props.getBackendBaseUrl();
     }
 
-    protected HttpEntity<?> authEntity(String jwt, Object body) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setBearerAuth(jwt);
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        return new HttpEntity<>(body, headers);
+    protected <T> T get(String path, String jwt, Class<T> clazz) {
+        HttpEntity<Void> entity = new HttpEntity<>(headers(jwt));
+        return restTemplate.exchange(baseUrl + path, HttpMethod.GET, entity, clazz).getBody();
     }
 
-    protected <T> T get(String jwt, String path, ParameterizedTypeReference<T> type) {
-        ResponseEntity<T> resp = restTemplate.exchange(
-                backendBaseUrl + path,
-                HttpMethod.GET,
-                authEntity(jwt, null),
-                type
-        );
-        return resp.getBody();
+    protected <T> T get(String path, String jwt, ParameterizedTypeReference<T> typeRef) {
+        HttpEntity<Void> entity = new HttpEntity<>(headers(jwt));
+        return restTemplate.exchange(baseUrl + path, HttpMethod.GET, entity, typeRef).getBody();
     }
 
-    protected <T> T post(String jwt, String path, Object body, Class<T> responseType) {
-        ResponseEntity<T> resp = restTemplate.exchange(
-                backendBaseUrl + path,
-                HttpMethod.POST,
-                authEntity(jwt, body),
-                responseType
-        );
-        return resp.getBody();
+    protected <T> T post(String path, Object body, String jwt, Class<T> clazz) {
+        HttpEntity<Object> entity = new HttpEntity<>(body, headers(jwt));
+        return restTemplate.exchange(baseUrl + path, HttpMethod.POST, entity, clazz).getBody();
     }
 
-    protected <T> T put(String jwt, String path, Object body, Class<T> responseType) {
-        ResponseEntity<T> resp = restTemplate.exchange(
-                backendBaseUrl + path,
-                HttpMethod.PUT,
-                authEntity(jwt, body),
-                responseType
-        );
-        return resp.getBody();
+    protected <T> T put(String path, Object body, String jwt, Class<T> clazz) {
+        HttpEntity<Object> entity = new HttpEntity<>(body, headers(jwt));
+        return restTemplate.exchange(baseUrl + path, HttpMethod.PUT, entity, clazz).getBody();
     }
 
-    protected void delete(String jwt, String path) {
-        restTemplate.exchange(
-                backendBaseUrl + path,
-                HttpMethod.DELETE,
-                authEntity(jwt, null),
-                Void.class
-        );
+    protected void delete(String path, String jwt) {
+        HttpEntity<Void> entity = new HttpEntity<>(headers(jwt));
+        restTemplate.exchange(baseUrl + path, HttpMethod.DELETE, entity, Void.class);
+    }
+
+    private HttpHeaders headers(String jwt) {
+        HttpHeaders h = new HttpHeaders();
+        h.setContentType(MediaType.APPLICATION_JSON);
+        if (jwt != null && !jwt.isBlank()) {
+            h.setBearerAuth(jwt);
+        }
+        return h;
     }
 }

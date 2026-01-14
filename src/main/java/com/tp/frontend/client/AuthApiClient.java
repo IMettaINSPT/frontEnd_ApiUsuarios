@@ -1,48 +1,27 @@
 package com.tp.frontend.client;
 
+import com.tp.frontend.config.FrontendProperties;
 import com.tp.frontend.dto.Login.LoginRequest;
 import com.tp.frontend.dto.Login.LoginResponse;
 import com.tp.frontend.dto.Login.MeResponse;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 @Component
-public class AuthApiClient {
+public class AuthApiClient extends BaseApiClient {
 
-    private final RestTemplate restTemplate;
-
-    @Value("${backend.base-url}")
-    private String backendBaseUrl;
-
-    public AuthApiClient(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
+    public AuthApiClient(RestTemplate restTemplate, FrontendProperties props) {
+        super(restTemplate, props);
     }
 
+    // POST /api/auth/login
     public LoginResponse login(LoginRequest dto) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<LoginRequest> entity = new HttpEntity<>(dto, headers);
-
-        return restTemplate.postForObject(
-                backendBaseUrl + "/api/auth/login",
-                entity,
-                LoginResponse.class
-        );
+        // login NO lleva JWT
+        return post("/api/auth/login", dto, null, LoginResponse.class);
     }
 
+    // GET /api/auth/me
     public MeResponse me(String jwt) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setBearerAuth(jwt);
-        HttpEntity<Void> entity = new HttpEntity<>(headers);
-
-        ResponseEntity<MeResponse> resp = restTemplate.exchange(
-                backendBaseUrl + "/api/auth/me",
-                HttpMethod.GET,
-                entity,
-                MeResponse.class
-        );
-        return resp.getBody();
+        return get("/api/auth/me", jwt, MeResponse.class);
     }
 }

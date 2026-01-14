@@ -40,6 +40,13 @@
             </div>
             <div class="go">Ir →</div>
         </a>
+        <a class="card" href="/vigilantes" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')">
+            <div>
+                <h3>Vigilantes</h3>
+                <p>Listado y detalle. Edición/alta solo ADMIN.</p>
+            </div>
+            <div class="go">Ir →</div>
+        </a>
 
         <a class="card" href="/bancos" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')">
             <div>

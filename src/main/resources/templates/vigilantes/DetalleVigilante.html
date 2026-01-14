@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/layout :: head('Detalle Vigilante')}"></head>
+
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container">
+
+    <div class="hero">
+        <h1>Vigilante</h1>
+        <p>Detalle del vigilante. Edición solo ADMIN.</p>
+    </div>
+
+    <div class="grid" style="grid-template-columns: 1fr;">
+        <div class="card">
+
+            <!-- Cabecera -->
+            <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
+                <div>
+                    <h3 th:text="${item.codigo}">VIG-001</h3>
+                    <p class="muted">ID <span th:text="${item.id}">1</span></p>
+                </div>
+
+                <div style="display:flex; gap:10px; align-items:center;">
+                    <a class="btn" th:href="@{/vigilantes}">Volver</a>
+
+                    <a class="btn btn-danger"
+                       sec:authorize="hasRole('ADMIN')"
+                       th:href="@{/vigilantes/{id}/confirm-delete(id=${item.id})}">
+                        Eliminar
+                    </a>
+                </div>
+            </div>
+
+            <!-- Vista SOLO LECTURA (no admin) -->
+            <div sec:authorize="!hasRole('ADMIN')" style="margin-top: 14px; display:grid; gap:10px;">
+                <div><b>Código:</b> <span th:text="${item.codigo}">VIG-001</span></div>
+                <div><b>Edad:</b> <span th:text="${item.edad}">30</span></div>
+            </div>
+
+            <!-- Edición (solo ADMIN) -->
+            <div sec:authorize="hasRole('ADMIN')" style="margin-top: 14px;">
+                <form th:action="@{/vigilantes/{id}(id=${item.id})}" th:object="${update}" method="post">
+
+                    <div style="display:grid; gap:14px;">
+                        <div>
+                            <label><b>Código</b></label>
+                            <input class="input" type="text" th:field="*{codigo}">
+                            <small class="muted" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></small>
+                        </div>
+
+                        <div>
+                            <label><b>Edad</b></label>
+                            <input class="input" type="number" th:field="*{edad}" min="18">
+                            <small class="muted" th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></small>
+                        </div>
+                    </div>
+
+                    <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top: 18px;">
+                        <button class="btn btn-primary" type="submit">Guardar cambios</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
