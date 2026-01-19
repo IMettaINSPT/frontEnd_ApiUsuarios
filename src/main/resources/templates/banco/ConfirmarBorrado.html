@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Confirmar borrado')}"></head>
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container">
+    <div class="hero">
+        <h1>Eliminar banco</h1>
+        <p>Confirmación de borrado.</p>
+    </div>
+
+    <div class="grid" style="grid-template-columns: 1fr;">
+        <div class="card">
+            <h3 th:text="${item.codigo}">BAN-01</h3>
+            <p class="muted" th:text="${item.domicilioCentral}">Domicilio</p>
+
+            <form th:action="@{/bancos/{id}/delete(id=${item.id})}" method="post" style="margin-top:16px;">
+                <div class="go" style="display:flex; justify-content:flex-end; gap:10px;">
+                    <a class="btn" th:href="@{/bancos/{id}(id=${item.id})}">Cancelar</a>
+                    <button class="btn btn-danger" type="submit">Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,616 +1,1074 @@
-2026-01-13 22:57:08.569 INFO 
+2026-01-18 18:48:26.665 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
-2026-01-13 22:57:09.083 INFO 
+2026-01-18 18:48:26.812 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
-                c.t.f.FrontEndApplicationTests - Starting FrontEndApplicationTests using Java 21.0.9 with PID 1736 (started by Ivo in C:\Users\Ivo\Repos\frontEnd_ApiUsuarios)
-2026-01-13 22:57:09.086 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                c.t.f.FrontEndApplicationTests - No active profile set, falling back to 1 default profile: "default"
-2026-01-13 22:57:16.151 WARN 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.w.c.s.GenericWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authApiClient': Injection of autowired dependencies failed
-2026-01-13 22:57:16.182 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.b.a.l.ConditionEvaluationReportLogger - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2026-01-13 22:57:16.261 ERROR
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authApiClient': Injection of autowired dependencies failed
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:514)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1418)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:960)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:464)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
-	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
-	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
-	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
-	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1458)
-	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:552)
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
-	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191)
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130)
-	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
-	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:378)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
-	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310)
-	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735)
-	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
-	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:290)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279)
-	at java.base/java.util.Optional.orElseGet(Optional.java:364)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278)
-	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
-	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
-	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'backend.base-url' in value "${backend.base-url}"
-	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:180)
-	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126)
-	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:239)
-	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210)
-	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:200)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:921)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1374)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:784)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:767)
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:508)
-	... 95 common frames omitted
-2026-01-13 22:57:16.308 WARN 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.test.context.TestContextManager - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] to prepare test instance [com.tp.frontend.FrontEndApplicationTests@360e9c06]
-java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@101a461c testClass = com.tp.frontend.FrontEndApplicationTests, locations = [], classes = [com.tp.frontend.FrontEndApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = ["org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true"], contextCustomizers = [org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@790da477, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@5e7cd6cc, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@aba625, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@169bb4dd, org.springframework.boot.test.context.SpringBootTestAnnotation@f3a7871b], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:180)
-	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191)
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130)
-	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
-	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:378)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
-	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310)
-	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735)
-	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
-	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:290)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279)
-	at java.base/java.util.Optional.orElseGet(Optional.java:364)
-	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278)
-	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
-	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
-	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authApiClient': Injection of autowired dependencies failed
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:514)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1418)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:960)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:464)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
-	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
-	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
-	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
-	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1458)
-	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:552)
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
-	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
-	... 73 common frames omitted
-Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'backend.base-url' in value "${backend.base-url}"
-	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:180)
-	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126)
-	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:239)
-	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210)
-	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:200)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:921)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1374)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:784)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:767)
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:508)
-	... 95 common frames omitted
-2026-01-13 23:15:33.239 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
-2026-01-13 23:15:34.189 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 5564 (C:\Users\Ivo\Repos\frontEnd_ApiUsuarios\target\classes started by Ivo in C:\Users\Ivo\Repos\frontEnd_ApiUsuarios)
-2026-01-13 23:15:34.191 INFO 
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 9892 (C:\Users\Ivo\Repos\frontEnd_ApiUsuarios\target\classes started by Ivo in C:\Users\Ivo\Repos\frontEnd_ApiUsuarios)
+2026-01-18 18:48:26.816 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
-2026-01-13 23:15:47.935 INFO 
+2026-01-18 18:48:30.410 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
-2026-01-13 23:15:50.940 INFO 
+2026-01-18 18:48:30.436 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
-2026-01-13 23:15:50.959 INFO 
+2026-01-18 18:48:30.441 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-01-13 23:15:50.961 INFO 
+2026-01-18 18:48:30.442 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
-2026-01-13 23:15:51.544 INFO 
+2026-01-18 18:48:30.598 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-01-13 23:15:51.547 INFO 
+2026-01-18 18:48:30.600 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
-                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 16759 ms
-2026-01-13 23:15:53.029 WARN 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authApiClient': Injection of autowired dependencies failed
-2026-01-13 23:15:53.050 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.a.catalina.core.StandardService - Stopping service [Tomcat]
-2026-01-13 23:15:53.137 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.b.a.l.ConditionEvaluationReportLogger - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2026-01-13 23:15:53.558 ERROR
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authApiClient': Injection of autowired dependencies failed
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:514)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1418)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:960)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:464)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1358)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1347)
-	at com.tp.frontend.FrontEndApplication.main(FrontEndApplication.java:10)
-Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'backend.base-url' in value "${backend.base-url}"
-	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:180)
-	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126)
-	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:239)
-	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210)
-	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:200)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:921)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1374)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:784)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:767)
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145)
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:508)
-	... 17 common frames omitted
-2026-01-13 23:18:42.684 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
-2026-01-13 23:18:42.803 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 9560 (C:\Users\Ivo\Repos\frontEnd_ApiUsuarios\target\classes started by Ivo in C:\Users\Ivo\Repos\frontEnd_ApiUsuarios)
-2026-01-13 23:18:42.805 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
-2026-01-13 23:18:46.253 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
-2026-01-13 23:18:46.280 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
-2026-01-13 23:18:46.287 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-01-13 23:18:46.288 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
-2026-01-13 23:18:46.436 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-01-13 23:18:46.438 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3438 ms
-2026-01-13 23:18:47.292 WARN 
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3628 ms
+2026-01-18 18:48:31.186 WARN 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: 19f7d8c6-ec9f-4a9b-a034-e95e29801770
+Using generated security password: 3584edfb-4d89-4344-a885-79bb9ed6b78e
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2026-01-13 23:18:48.243 INFO 
+2026-01-18 18:48:31.799 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
-                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@52d3fafd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7f0b93b4, org.springframework.security.web.context.SecurityContextHolderFilter@78da899f, org.springframework.security.web.header.HeaderWriterFilter@262a1fad, org.springframework.web.filter.CorsFilter@1376883, org.springframework.security.web.authentication.logout.LogoutFilter@7e8279e5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@51da32e5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@33d60b7e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1f736d00, org.springframework.security.web.access.ExceptionTranslationFilter@3cc79c02, org.springframework.security.web.access.intercept.AuthorizationFilter@5ae15]
-2026-01-13 23:18:49.076 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
-2026-01-13 23:18:49.142 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
-2026-01-13 23:18:49.160 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 8.494 seconds (process running for 13.655)
-2026-01-13 23:19:04.279 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-01-13 23:19:04.280 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-01-13 23:19:04.284 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
-2026-01-13 23:19:14.590 INFO 
-                sid=- rid=774c237c ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
-                user=admin role=-
-                c.t.f.controller.AuthController - Intento de login user=admin passwordLength=8
-2026-01-13 23:19:14.790 DEBUG
-                sid=- rid=774c237c ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
-                user=admin role=-
-                o.s.web.client.RestTemplate - HTTP POST http://localhost:8080/api/auth/login
-2026-01-13 23:19:15.042 DEBUG
-                sid=- rid=774c237c ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
-                user=admin role=-
-                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
-2026-01-13 23:19:15.098 DEBUG
-                sid=- rid=774c237c ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
-                user=admin role=-
-                o.s.web.client.RestTemplate - Writing [com.tp.frontend.dto.Login.LoginRequest@22d06126] as "application/json"
-2026-01-13 23:19:16.937 DEBUG
-                sid=- rid=774c237c ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
-                user=admin role=-
-                o.s.web.client.RestTemplate - Response 400 BAD_REQUEST
-2026-01-13 23:19:16.976 WARN 
-                sid=- rid=774c237c ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
-                user=admin role=-
-                c.t.f.controller.AuthController - Login inválido user=admin status=400 BAD_REQUEST
-2026-01-13 23:19:27.688 INFO 
-                sid=BEDE5829F53F68D6CDE3BDB53F0D758D rid=bc782d5e ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
-                user=admin role=
-                c.t.f.controller.AuthController - Intento de login user=admin passwordLength=9
-2026-01-13 23:19:27.689 DEBUG
-                sid=BEDE5829F53F68D6CDE3BDB53F0D758D rid=bc782d5e ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
-                user=admin role=
-                o.s.web.client.RestTemplate - HTTP POST http://localhost:8080/api/auth/login
-2026-01-13 23:19:27.690 DEBUG
-                sid=BEDE5829F53F68D6CDE3BDB53F0D758D rid=bc782d5e ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
-                user=admin role=
-                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
-2026-01-13 23:19:27.691 DEBUG
-                sid=BEDE5829F53F68D6CDE3BDB53F0D758D rid=bc782d5e ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
-                user=admin role=
-                o.s.web.client.RestTemplate - Writing [com.tp.frontend.dto.Login.LoginRequest@28136a2e] as "application/json"
-2026-01-13 23:19:28.543 DEBUG
-                sid=BEDE5829F53F68D6CDE3BDB53F0D758D rid=bc782d5e ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
-                user=admin role=
-                o.s.web.client.RestTemplate - Response 200 OK
-2026-01-13 23:19:28.548 DEBUG
-                sid=BEDE5829F53F68D6CDE3BDB53F0D758D rid=bc782d5e ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
-                user=admin role=
-                o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.Login.LoginResponse]
-2026-01-13 23:19:28.610 DEBUG
-                sid=BEDE5829F53F68D6CDE3BDB53F0D758D rid=bc782d5e ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
-                user=admin role=
-                o.s.web.client.RestTemplate - HTTP GET http://localhost:8080/api/auth/me
-2026-01-13 23:19:28.611 DEBUG
-                sid=BEDE5829F53F68D6CDE3BDB53F0D758D rid=bc782d5e ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
-                user=admin role=
-                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
-2026-01-13 23:19:28.666 DEBUG
-                sid=BEDE5829F53F68D6CDE3BDB53F0D758D rid=bc782d5e ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
-                user=admin role=
-                o.s.web.client.RestTemplate - Response 200 OK
-2026-01-13 23:19:28.670 DEBUG
-                sid=BEDE5829F53F68D6CDE3BDB53F0D758D rid=bc782d5e ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
-                user=admin role=
-                o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.Login.MeResponse]
-2026-01-13 23:19:28.675 INFO 
-                sid=BEDE5829F53F68D6CDE3BDB53F0D758D rid=bc782d5e ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
-                user=admin role=
-                c.t.f.controller.AuthController - Login OK user=admin role=ADMIN
-2026-01-13 23:34:48.758 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
-2026-01-13 23:34:48.968 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 11624 (C:\Users\Ivo\Repos\frontEnd_ApiUsuarios\target\classes started by Ivo in C:\Users\Ivo\Repos\frontEnd_ApiUsuarios)
-2026-01-13 23:34:48.970 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
-2026-01-13 23:34:55.333 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
-2026-01-13 23:34:55.375 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
-2026-01-13 23:34:55.383 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-01-13 23:34:55.384 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
-2026-01-13 23:34:55.641 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-01-13 23:34:55.650 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6422 ms
-2026-01-13 23:34:56.521 WARN 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 50023cc2-dba8-41e4-bdb7-20af4f18c546
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2026-01-13 23:34:57.368 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1f736d00, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@523a7801, org.springframework.security.web.context.SecurityContextHolderFilter@33d60b7e, org.springframework.security.web.header.HeaderWriterFilter@78da899f, org.springframework.web.filter.CorsFilter@718fd7c1, org.springframework.security.web.authentication.logout.LogoutFilter@3e546734, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4872669f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@483f286e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4bc6da03, org.springframework.security.web.access.ExceptionTranslationFilter@6be6931f, org.springframework.security.web.access.intercept.AuthorizationFilter@52d3fafd]
-2026-01-13 23:34:58.148 INFO 
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4bc6da03, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4f59a516, org.springframework.security.web.context.SecurityContextHolderFilter@483f286e, org.springframework.security.web.header.HeaderWriterFilter@33d60b7e, org.springframework.web.filter.CorsFilter@4e22368c, org.springframework.security.web.authentication.logout.LogoutFilter@f2276c9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@33f2cfda, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@68ef01a5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@411cd156, org.springframework.security.web.access.ExceptionTranslationFilter@e7b265e, org.springframework.security.web.access.intercept.AuthorizationFilter@1f736d00]
+2026-01-18 18:48:32.353 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
-2026-01-13 23:34:58.269 INFO 
+2026-01-18 18:48:32.408 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
-2026-01-13 23:34:58.290 INFO 
+2026-01-18 18:48:32.427 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
-                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 12.459 seconds (process running for 20.958)
-2026-01-13 23:35:09.357 INFO 
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 7.259 seconds (process running for 9.46)
+2026-01-18 18:48:55.503 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-01-13 23:35:09.358 INFO 
+2026-01-18 18:48:55.504 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-01-13 23:35:09.361 INFO 
+2026-01-18 18:48:55.506 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
-                o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
-2026-01-13 23:35:21.143 INFO 
-                sid=A5D54D226764C7E0EBECB19105FFBB53 rid=89abe060 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-01-18 18:49:17.143 INFO 
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=9fe4c3eb ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
                 user=admin role=
                 c.t.f.controller.AuthController - Intento de login user=admin passwordLength=9
-2026-01-13 23:35:21.356 DEBUG
-                sid=A5D54D226764C7E0EBECB19105FFBB53 rid=89abe060 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+2026-01-18 18:49:17.192 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=9fe4c3eb ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
                 user=admin role=
-                o.s.web.client.RestTemplate - HTTP POST http://localhost:8080/api/auth/login
-2026-01-13 23:35:21.597 DEBUG
-                sid=A5D54D226764C7E0EBECB19105FFBB53 rid=89abe060 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                o.s.web.client.RestTemplate - HTTP POST http://192.168.0.43:8080/api/auth/login
+2026-01-18 18:49:17.333 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=9fe4c3eb ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
                 user=admin role=
                 o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
-2026-01-13 23:35:21.672 DEBUG
-                sid=A5D54D226764C7E0EBECB19105FFBB53 rid=89abe060 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+2026-01-18 18:49:17.366 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=9fe4c3eb ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
                 user=admin role=
-                o.s.web.client.RestTemplate - Writing [com.tp.frontend.dto.Login.LoginRequest@6d040cc4] as "application/json"
-2026-01-13 23:35:22.816 DEBUG
-                sid=A5D54D226764C7E0EBECB19105FFBB53 rid=89abe060 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                o.s.web.client.RestTemplate - Writing [com.tp.frontend.dto.Login.LoginRequest@286a8d0d] as "application/json"
+2026-01-18 18:49:17.950 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=9fe4c3eb ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
                 user=admin role=
                 o.s.web.client.RestTemplate - Response 200 OK
-2026-01-13 23:35:22.836 DEBUG
-                sid=A5D54D226764C7E0EBECB19105FFBB53 rid=89abe060 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+2026-01-18 18:49:17.953 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=9fe4c3eb ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
                 user=admin role=
                 o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.Login.LoginResponse]
-2026-01-13 23:35:22.949 DEBUG
-                sid=A5D54D226764C7E0EBECB19105FFBB53 rid=89abe060 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+2026-01-18 18:49:17.989 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=9fe4c3eb ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
                 user=admin role=
-                o.s.web.client.RestTemplate - HTTP GET http://localhost:8080/api/auth/me
-2026-01-13 23:35:22.951 DEBUG
-                sid=A5D54D226764C7E0EBECB19105FFBB53 rid=89abe060 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/auth/me
+2026-01-18 18:49:17.991 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=9fe4c3eb ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
                 user=admin role=
                 o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
-2026-01-13 23:35:22.964 DEBUG
-                sid=A5D54D226764C7E0EBECB19105FFBB53 rid=89abe060 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+2026-01-18 18:49:17.999 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=9fe4c3eb ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
                 user=admin role=
                 o.s.web.client.RestTemplate - Response 200 OK
-2026-01-13 23:35:22.965 DEBUG
-                sid=A5D54D226764C7E0EBECB19105FFBB53 rid=89abe060 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+2026-01-18 18:49:18.000 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=9fe4c3eb ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
                 user=admin role=
                 o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.Login.MeResponse]
-2026-01-13 23:35:22.969 INFO 
-                sid=A5D54D226764C7E0EBECB19105FFBB53 rid=89abe060 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+2026-01-18 18:49:18.004 INFO 
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=9fe4c3eb ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
                 user=admin role=
                 c.t.f.controller.AuthController - Login OK user=admin role=ADMIN
-2026-01-13 23:35:29.545 DEBUG
-                sid=A5D54D226764C7E0EBECB19105FFBB53 rid=b7eca107 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+2026-01-18 18:49:24.525 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=2655f657 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
                 user=admin role=ADMIN
-                o.s.web.client.RestTemplate - HTTP GET http://localhost:8080/api/vigilantes
-2026-01-13 23:35:29.565 DEBUG
-                sid=A5D54D226764C7E0EBECB19105FFBB53 rid=b7eca107 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/vigilantes
+2026-01-18 18:49:24.544 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=2655f657 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
                 user=admin role=ADMIN
                 o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
-2026-01-13 23:35:31.221 DEBUG
-                sid=A5D54D226764C7E0EBECB19105FFBB53 rid=b7eca107 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+2026-01-18 18:49:25.687 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=2655f657 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
                 user=admin role=ADMIN
                 o.s.web.client.RestTemplate - Response 200 OK
-2026-01-13 23:35:31.223 DEBUG
-                sid=A5D54D226764C7E0EBECB19105FFBB53 rid=b7eca107 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+2026-01-18 18:49:25.688 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=2655f657 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
                 user=admin role=ADMIN
                 o.s.web.client.RestTemplate - Reading to [java.util.List<com.tp.frontend.dto.Vigilante.VigilanteResponse>]
+2026-01-18 18:49:27.721 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=1aa20500 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/1 status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/vigilantes/1
+2026-01-18 18:49:27.722 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=1aa20500 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/1 status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 18:49:28.862 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=1aa20500 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/1 status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 18:49:28.864 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=1aa20500 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/1 status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.Vigilante.VigilanteResponse]
+2026-01-18 18:49:41.446 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=991e0428 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/vigilantes
+2026-01-18 18:49:41.447 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=991e0428 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 18:49:42.590 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=991e0428 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 18:49:42.592 DEBUG
+                sid=79A6F3CAEBCBB95431F3773117B6183E rid=991e0428 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Reading to [java.util.List<com.tp.frontend.dto.Vigilante.VigilanteResponse>]
+2026-01-18 18:49:56.152 INFO 
+                sid=- rid=25f8584c ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=VIG01 role=-
+                c.t.f.controller.AuthController - Intento de login user=VIG01 passwordLength=9
+2026-01-18 18:49:56.153 DEBUG
+                sid=- rid=25f8584c ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=VIG01 role=-
+                o.s.web.client.RestTemplate - HTTP POST http://192.168.0.43:8080/api/auth/login
+2026-01-18 18:49:56.154 DEBUG
+                sid=- rid=25f8584c ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=VIG01 role=-
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 18:49:56.154 DEBUG
+                sid=- rid=25f8584c ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=VIG01 role=-
+                o.s.web.client.RestTemplate - Writing [com.tp.frontend.dto.Login.LoginRequest@49dbbc79] as "application/json"
+2026-01-18 18:49:56.663 DEBUG
+                sid=- rid=25f8584c ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=VIG01 role=-
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 18:49:56.664 DEBUG
+                sid=- rid=25f8584c ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=VIG01 role=-
+                o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.Login.LoginResponse]
+2026-01-18 18:49:56.665 DEBUG
+                sid=- rid=25f8584c ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=VIG01 role=-
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/auth/me
+2026-01-18 18:49:56.666 DEBUG
+                sid=- rid=25f8584c ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=VIG01 role=-
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 18:49:56.674 DEBUG
+                sid=- rid=25f8584c ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=VIG01 role=-
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 18:49:56.674 DEBUG
+                sid=- rid=25f8584c ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=VIG01 role=-
+                o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.Login.MeResponse]
+2026-01-18 18:49:56.675 INFO 
+                sid=- rid=25f8584c ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=VIG01 role=-
+                c.t.f.controller.AuthController - Login OK user=VIG01 role=VIGILANTE
+2026-01-18 18:49:56.694 DEBUG
+                sid=358F9E54EA3607983507058CC3F6AFBD rid=0f4459ae ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/me status=
+                user=VIG01 role=VIGILANTE
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/vigilantes/me
+2026-01-18 18:49:56.695 DEBUG
+                sid=358F9E54EA3607983507058CC3F6AFBD rid=0f4459ae ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/me status=
+                user=VIG01 role=VIGILANTE
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 18:49:57.838 DEBUG
+                sid=358F9E54EA3607983507058CC3F6AFBD rid=0f4459ae ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/me status=
+                user=VIG01 role=VIGILANTE
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 18:49:57.839 DEBUG
+                sid=358F9E54EA3607983507058CC3F6AFBD rid=0f4459ae ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/me status=
+                user=VIG01 role=VIGILANTE
+                o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.Vigilante.VigilanteResponse]
+2026-01-18 18:51:48.212 INFO 
+                sid=- rid=cf4f91b2 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                c.t.f.controller.AuthController - Intento de login user=InvPrueba passwordLength=9
+2026-01-18 18:51:48.213 DEBUG
+                sid=- rid=cf4f91b2 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                o.s.web.client.RestTemplate - HTTP POST http://192.168.0.43:8080/api/auth/login
+2026-01-18 18:51:48.214 DEBUG
+                sid=- rid=cf4f91b2 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 18:51:48.215 DEBUG
+                sid=- rid=cf4f91b2 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                o.s.web.client.RestTemplate - Writing [com.tp.frontend.dto.Login.LoginRequest@7a5eff89] as "application/json"
+2026-01-18 18:51:49.038 DEBUG
+                sid=- rid=cf4f91b2 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 18:51:49.040 DEBUG
+                sid=- rid=cf4f91b2 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.Login.LoginResponse]
+2026-01-18 18:51:49.044 DEBUG
+                sid=- rid=cf4f91b2 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/auth/me
+2026-01-18 18:51:49.045 DEBUG
+                sid=- rid=cf4f91b2 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 18:51:49.054 DEBUG
+                sid=- rid=cf4f91b2 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 18:51:49.055 DEBUG
+                sid=- rid=cf4f91b2 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.Login.MeResponse]
+2026-01-18 18:51:49.056 INFO 
+                sid=- rid=cf4f91b2 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                c.t.f.controller.AuthController - Login OK user=InvPrueba role=INVESTIGADOR
+2026-01-18 18:51:51.567 DEBUG
+                sid=63FF3DE2B53FE6B853E45369222062D0 rid=ffcd8c10 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/usuarios
+2026-01-18 18:51:51.571 DEBUG
+                sid=63FF3DE2B53FE6B853E45369222062D0 rid=ffcd8c10 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 18:51:53.450 DEBUG
+                sid=63FF3DE2B53FE6B853E45369222062D0 rid=ffcd8c10 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 18:51:53.450 DEBUG
+                sid=63FF3DE2B53FE6B853E45369222062D0 rid=ffcd8c10 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - Reading to [java.util.List<com.tp.frontend.dto.User.UserResponse>]
+2026-01-18 18:51:59.420 DEBUG
+                sid=63FF3DE2B53FE6B853E45369222062D0 rid=090d7c98 ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/usuarios/2
+2026-01-18 18:51:59.422 DEBUG
+                sid=63FF3DE2B53FE6B853E45369222062D0 rid=090d7c98 ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 18:52:00.562 DEBUG
+                sid=63FF3DE2B53FE6B853E45369222062D0 rid=090d7c98 ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 18:52:00.563 DEBUG
+                sid=63FF3DE2B53FE6B853E45369222062D0 rid=090d7c98 ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.User.UserResponse]
+2026-01-18 18:52:00.566 DEBUG
+                sid=63FF3DE2B53FE6B853E45369222062D0 rid=090d7c98 ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/vigilantes/disponibles
+2026-01-18 18:52:00.567 DEBUG
+                sid=63FF3DE2B53FE6B853E45369222062D0 rid=090d7c98 ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 18:52:01.541 DEBUG
+                sid=63FF3DE2B53FE6B853E45369222062D0 rid=090d7c98 ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 18:52:01.542 DEBUG
+                sid=63FF3DE2B53FE6B853E45369222062D0 rid=090d7c98 ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - Reading to [java.util.List<com.tp.frontend.dto.Vigilante.VigilanteResponse>]
+2026-01-18 18:52:01.565 ERROR
+                sid=63FF3DE2B53FE6B853E45369222062D0 rid=090d7c98 ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=InvPrueba role=INVESTIGADOR
+                org.thymeleaf.TemplateEngine - [THYMELEAF][http-nio-8081-exec-2] Exception processing template "users/DetalleUsuario": An error happened during template parsing (template: "class path resource [templates/users/DetalleUsuario.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/users/DetalleUsuario.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1431)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.tp.frontend.config.NoCacheFilter.doFilterInternal(NoCacheFilter.java:21)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.tp.frontend.config.MdcFilter.doFilterInternal(MdcFilter.java:51)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:225)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "item.codigo" (template: "users/DetalleUsuario" - line 20, col 13)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 100 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "item.codigo" (template: "users/DetalleUsuario" - line 20, col 13)
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 102 common frames omitted
+Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'codigo' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:224)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:111)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorLValue.getValue(PropertyOrFieldReference.java:416)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:98)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:114)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	... 121 common frames omitted
+2026-01-18 18:52:01.575 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/users/DetalleUsuario.html]")] with root cause
+org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'codigo' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:224)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:111)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorLValue.getValue(PropertyOrFieldReference.java:416)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:98)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:114)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
+	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1431)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.tp.frontend.config.NoCacheFilter.doFilterInternal(NoCacheFilter.java:21)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.tp.frontend.config.MdcFilter.doFilterInternal(MdcFilter.java:51)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:225)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-01-18 19:21:13.962 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-01-18 19:21:14.157 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 9280 (C:\Users\Ivo\Repos\frontEnd_ApiUsuarios\target\classes started by Ivo in C:\Users\Ivo\Repos\frontEnd_ApiUsuarios)
+2026-01-18 19:21:14.161 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-01-18 19:21:17.793 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-01-18 19:21:17.823 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-01-18 19:21:17.828 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-18 19:21:17.829 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-01-18 19:21:17.979 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-01-18 19:21:17.981 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3661 ms
+2026-01-18 19:21:18.885 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 0a905bc6-671f-42f6-98ac-41d4582b4e6c
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-01-18 19:21:19.648 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@131a7516, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5ae15, org.springframework.security.web.context.SecurityContextHolderFilter@1e01b133, org.springframework.security.web.header.HeaderWriterFilter@1de4bee0, org.springframework.web.filter.CorsFilter@577536e0, org.springframework.security.web.authentication.logout.LogoutFilter@5809fa26, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6be6931f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b4125ed, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@12219f6a, org.springframework.security.web.access.ExceptionTranslationFilter@2ac519dc, org.springframework.security.web.access.intercept.AuthorizationFilter@1c61eda5]
+2026-01-18 19:21:20.834 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-01-18 19:21:21.024 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-01-18 19:21:21.050 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 8.657 seconds (process running for 11.101)
+2026-01-18 19:21:27.064 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-18 19:21:27.065 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-01-18 19:21:27.068 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-01-18 19:21:38.482 INFO 
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=5bbad8f4 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                c.t.f.controller.AuthController - Intento de login user=admin passwordLength=9
+2026-01-18 19:21:38.545 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=5bbad8f4 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                o.s.web.client.RestTemplate - HTTP POST http://192.168.0.43:8080/api/auth/login
+2026-01-18 19:21:38.739 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=5bbad8f4 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 19:21:38.781 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=5bbad8f4 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                o.s.web.client.RestTemplate - Writing [com.tp.frontend.dto.Login.LoginRequest@5a8dd41d] as "application/json"
+2026-01-18 19:21:39.371 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=5bbad8f4 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 19:21:39.375 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=5bbad8f4 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.Login.LoginResponse]
+2026-01-18 19:21:39.418 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=5bbad8f4 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/auth/me
+2026-01-18 19:21:39.420 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=5bbad8f4 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 19:21:39.429 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=5bbad8f4 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 19:21:39.430 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=5bbad8f4 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.Login.MeResponse]
+2026-01-18 19:21:39.434 INFO 
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=5bbad8f4 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                c.t.f.controller.AuthController - Login OK user=admin role=ADMIN
+2026-01-18 19:21:43.104 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=cd946237 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/usuarios
+2026-01-18 19:21:43.115 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=cd946237 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 19:21:44.250 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=cd946237 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 19:21:44.251 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=cd946237 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Reading to [java.util.List<com.tp.frontend.dto.User.UserResponse>]
+2026-01-18 19:21:47.157 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=784224da ip=0:0:0:0:0:0:0:1 method=GET path=/users/1 status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/usuarios/1
+2026-01-18 19:21:47.159 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=784224da ip=0:0:0:0:0:0:0:1 method=GET path=/users/1 status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 19:21:48.341 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=784224da ip=0:0:0:0:0:0:0:1 method=GET path=/users/1 status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 19:21:48.342 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=784224da ip=0:0:0:0:0:0:0:1 method=GET path=/users/1 status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.User.UserResponse]
+2026-01-18 19:21:48.345 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=784224da ip=0:0:0:0:0:0:0:1 method=GET path=/users/1 status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/vigilantes/disponibles
+2026-01-18 19:21:48.347 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=784224da ip=0:0:0:0:0:0:0:1 method=GET path=/users/1 status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 19:21:49.839 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=784224da ip=0:0:0:0:0:0:0:1 method=GET path=/users/1 status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 19:21:49.840 DEBUG
+                sid=FCBAE4F6455F7DDE64421559AE96C750 rid=784224da ip=0:0:0:0:0:0:0:1 method=GET path=/users/1 status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Reading to [java.util.List<com.tp.frontend.dto.Vigilante.VigilanteResponse>]
+2026-01-18 19:51:06.439 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-01-18 19:51:06.570 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 6360 (C:\Users\Ivo\Repos\frontEnd_ApiUsuarios\target\classes started by Ivo in C:\Users\Ivo\Repos\frontEnd_ApiUsuarios)
+2026-01-18 19:51:06.575 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-01-18 19:51:10.031 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-01-18 19:51:10.061 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-01-18 19:51:10.067 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-18 19:51:10.068 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-01-18 19:51:10.231 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-01-18 19:51:10.233 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3462 ms
+2026-01-18 19:51:10.775 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 3752b7cc-3777-422a-8d36-1d0eee188c95
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-01-18 19:51:11.382 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@131a7516, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5ae15, org.springframework.security.web.context.SecurityContextHolderFilter@1e01b133, org.springframework.security.web.header.HeaderWriterFilter@1de4bee0, org.springframework.web.filter.CorsFilter@577536e0, org.springframework.security.web.authentication.logout.LogoutFilter@5809fa26, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6be6931f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b4125ed, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@12219f6a, org.springframework.security.web.access.ExceptionTranslationFilter@2ac519dc, org.springframework.security.web.access.intercept.AuthorizationFilter@1c61eda5]
+2026-01-18 19:51:11.968 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-01-18 19:51:12.023 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-01-18 19:51:12.041 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 7.142 seconds (process running for 9.435)
+2026-01-18 19:52:20.926 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-18 19:52:20.930 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-01-18 19:52:20.934 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2026-01-18 19:52:31.545 INFO 
+                sid=892773FAEC5D2747A89D144E59828F24 rid=7b378129 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                c.t.f.controller.AuthController - Intento de login user=admin passwordLength=9
+2026-01-18 19:52:31.598 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=7b378129 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                o.s.web.client.RestTemplate - HTTP POST http://192.168.0.43:8080/api/auth/login
+2026-01-18 19:52:31.741 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=7b378129 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 19:52:31.784 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=7b378129 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                o.s.web.client.RestTemplate - Writing [com.tp.frontend.dto.Login.LoginRequest@68c01905] as "application/json"
+2026-01-18 19:52:32.333 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=7b378129 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 19:52:32.337 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=7b378129 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.Login.LoginResponse]
+2026-01-18 19:52:32.370 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=7b378129 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/auth/me
+2026-01-18 19:52:32.373 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=7b378129 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 19:52:32.384 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=7b378129 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 19:52:32.385 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=7b378129 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.Login.MeResponse]
+2026-01-18 19:52:32.389 INFO 
+                sid=892773FAEC5D2747A89D144E59828F24 rid=7b378129 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=
+                c.t.f.controller.AuthController - Login OK user=admin role=ADMIN
+2026-01-18 19:52:37.458 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=00a4fe2e ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/usuarios
+2026-01-18 19:52:37.470 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=00a4fe2e ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 19:52:38.632 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=00a4fe2e ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 19:52:38.634 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=00a4fe2e ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Reading to [java.util.List<com.tp.frontend.dto.User.UserResponse>]
+2026-01-18 19:52:41.029 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=6cef7f47 ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/usuarios/2
+2026-01-18 19:52:41.030 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=6cef7f47 ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 19:52:42.191 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=6cef7f47 ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 19:52:42.192 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=6cef7f47 ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.User.UserResponse]
+2026-01-18 19:52:42.195 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=6cef7f47 ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/vigilantes/disponibles
+2026-01-18 19:52:42.197 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=6cef7f47 ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 19:52:43.185 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=6cef7f47 ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 19:52:43.187 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=6cef7f47 ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Reading to [java.util.List<com.tp.frontend.dto.Vigilante.VigilanteResponse>]
+2026-01-18 19:52:52.808 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=e13cafaf ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/usuarios
+2026-01-18 19:52:52.809 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=e13cafaf ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 19:52:53.973 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=e13cafaf ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 19:52:53.974 DEBUG
+                sid=892773FAEC5D2747A89D144E59828F24 rid=e13cafaf ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                o.s.web.client.RestTemplate - Reading to [java.util.List<com.tp.frontend.dto.User.UserResponse>]
+2026-01-18 19:53:10.730 INFO 
+                sid=- rid=8d9c2e92 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                c.t.f.controller.AuthController - Intento de login user=InvPrueba passwordLength=9
+2026-01-18 19:53:10.731 DEBUG
+                sid=- rid=8d9c2e92 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                o.s.web.client.RestTemplate - HTTP POST http://192.168.0.43:8080/api/auth/login
+2026-01-18 19:53:10.732 DEBUG
+                sid=- rid=8d9c2e92 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 19:53:10.733 DEBUG
+                sid=- rid=8d9c2e92 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                o.s.web.client.RestTemplate - Writing [com.tp.frontend.dto.Login.LoginRequest@61ef63a2] as "application/json"
+2026-01-18 19:53:11.276 DEBUG
+                sid=- rid=8d9c2e92 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 19:53:11.277 DEBUG
+                sid=- rid=8d9c2e92 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.Login.LoginResponse]
+2026-01-18 19:53:11.279 DEBUG
+                sid=- rid=8d9c2e92 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/auth/me
+2026-01-18 19:53:11.279 DEBUG
+                sid=- rid=8d9c2e92 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 19:53:11.286 DEBUG
+                sid=- rid=8d9c2e92 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 19:53:11.287 DEBUG
+                sid=- rid=8d9c2e92 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.Login.MeResponse]
+2026-01-18 19:53:11.288 INFO 
+                sid=- rid=8d9c2e92 ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=InvPrueba role=-
+                c.t.f.controller.AuthController - Login OK user=InvPrueba role=INVESTIGADOR
+2026-01-18 19:53:13.755 DEBUG
+                sid=94B1FC8FE67D27194E1C5FC03186E470 rid=7b9b5eaf ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/usuarios
+2026-01-18 19:53:13.755 DEBUG
+                sid=94B1FC8FE67D27194E1C5FC03186E470 rid=7b9b5eaf ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 19:53:14.928 DEBUG
+                sid=94B1FC8FE67D27194E1C5FC03186E470 rid=7b9b5eaf ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 19:53:14.929 DEBUG
+                sid=94B1FC8FE67D27194E1C5FC03186E470 rid=7b9b5eaf ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - Reading to [java.util.List<com.tp.frontend.dto.User.UserResponse>]
+2026-01-18 19:53:17.269 DEBUG
+                sid=94B1FC8FE67D27194E1C5FC03186E470 rid=9148420e ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/usuarios/2
+2026-01-18 19:53:17.270 DEBUG
+                sid=94B1FC8FE67D27194E1C5FC03186E470 rid=9148420e ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 19:53:18.500 DEBUG
+                sid=94B1FC8FE67D27194E1C5FC03186E470 rid=9148420e ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 19:53:18.502 DEBUG
+                sid=94B1FC8FE67D27194E1C5FC03186E470 rid=9148420e ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.User.UserResponse]
+2026-01-18 19:53:18.504 DEBUG
+                sid=94B1FC8FE67D27194E1C5FC03186E470 rid=9148420e ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/vigilantes/disponibles
+2026-01-18 19:53:18.505 DEBUG
+                sid=94B1FC8FE67D27194E1C5FC03186E470 rid=9148420e ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 19:53:19.498 DEBUG
+                sid=94B1FC8FE67D27194E1C5FC03186E470 rid=9148420e ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 19:53:19.499 DEBUG
+                sid=94B1FC8FE67D27194E1C5FC03186E470 rid=9148420e ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=InvPrueba role=INVESTIGADOR
+                o.s.web.client.RestTemplate - Reading to [java.util.List<com.tp.frontend.dto.Vigilante.VigilanteResponse>]
+2026-01-18 19:55:06.936 INFO 
+                sid=- rid=2cdd456b ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - Intento de login user=admin passwordLength=9
+2026-01-18 19:55:06.937 DEBUG
+                sid=- rid=2cdd456b ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=-
+                o.s.web.client.RestTemplate - HTTP POST http://192.168.0.43:8080/api/auth/login
+2026-01-18 19:55:06.938 DEBUG
+                sid=- rid=2cdd456b ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=-
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 19:55:06.938 DEBUG
+                sid=- rid=2cdd456b ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=-
+                o.s.web.client.RestTemplate - Writing [com.tp.frontend.dto.Login.LoginRequest@730089ea] as "application/json"
+2026-01-18 19:55:07.524 DEBUG
+                sid=- rid=2cdd456b ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=-
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 19:55:07.525 DEBUG
+                sid=- rid=2cdd456b ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=-
+                o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.Login.LoginResponse]
+2026-01-18 19:55:07.527 DEBUG
+                sid=- rid=2cdd456b ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=-
+                o.s.web.client.RestTemplate - HTTP GET http://192.168.0.43:8080/api/auth/me
+2026-01-18 19:55:07.527 DEBUG
+                sid=- rid=2cdd456b ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=-
+                o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+2026-01-18 19:55:07.536 DEBUG
+                sid=- rid=2cdd456b ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=-
+                o.s.web.client.RestTemplate - Response 200 OK
+2026-01-18 19:55:07.536 DEBUG
+                sid=- rid=2cdd456b ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=-
+                o.s.web.client.RestTemplate - Reading to [com.tp.frontend.dto.Login.MeResponse]
+2026-01-18 19:55:07.537 INFO 
+                sid=- rid=2cdd456b ip=0:0:0:0:0:0:0:1 method=POST path=/do-login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - Login OK user=admin role=ADMIN

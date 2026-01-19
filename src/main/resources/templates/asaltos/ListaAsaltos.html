@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/layout :: head('Asaltos')}"></head>
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container">
+    <div class="hero">
+        <h1>Asaltos</h1>
+        <p>Listado general de asaltos.</p>
+    </div>
+
+    <div class="grid" style="grid-template-columns: 1fr;">
+        <div class="card">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+                <div>
+                    <h3>Listado</h3>
+                    <p class="muted">Ver detalle para editar (ADMIN) o consultar.</p>
+                </div>
+                <div style="display:flex; gap:10px;">
+                    <a class="btn" th:href="@{/asaltos/reporte}">Reporte / Búsqueda</a>
+                    <a class="btn btn-primary" sec:authorize="hasRole('ADMIN')" th:href="@{/asaltos/new}">+ Nuevo asalto</a>
+                </div>
+            </div>
+
+            <div style="margin-top: 14px;">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th style="width:90px;">ID</th>
+                        <th>Fecha</th>
+                        <th>Sucursal</th>
+                        <th>Persona detenida</th>
+                        <th style="width:140px;">Acción</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="a : ${items}">
+                        <td th:text="${a.id}">1</td>
+                        <td th:text="${a.fechaAsalto}">2026-01-01</td>
+
+                        <td th:with="s=${sucursalesMap[a.sucursalId]}"
+                            th:text="${s != null ? (s.codigo + ' - ' + s.domicilio) : ('ID ' + a.sucursalId)}">
+                            SUC-01
+                        </td>
+
+                        <td th:with="p=${personasMap[a.personaDetenidaId]}"
+                            th:text="${p != null ? (p.codigo + ' - ' + p.nombre + (p.bandaNombre != null ? (' (' + p.bandaNombre + ')') : '')) : ('ID ' + a.personaDetenidaId)}">
+                            PD-01 - Juan
+                        </td>
+
+                        <td><a class="btn" th:href="@{/asaltos/{id}(id=${a.id})}">Ver</a></td>
+                    </tr>
+
+                    <tr th:if="${items == null or #lists.isEmpty(items)}">
+                        <td colspan="5" class="muted">No hay asaltos cargados.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="go" style="display:flex; justify-content:flex-end; margin-top: 10px;">
+                <a class="btn" th:href="@{/}">Volver al menú</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Crear juez')}"></head>
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container">
+    <div class="hero">
+        <h1>Nuevo juez</h1>
+        <p>Alta de juez (solo ADMIN).</p>
+    </div>
+
+    <div class="grid" style="grid-template-columns: 1fr;">
+        <div class="card">
+            <form th:action="@{/templates/juez}" th:object="${form}" method="post">
+                <div style="display:grid; gap:14px;">
+                    <div>
+                        <label><b>Código</b></label>
+                        <input class="input" type="text" th:field="*{codigo}">
+                    </div>
+                    <div>
+                        <label><b>Nombre</b></label>
+                        <input class="input" type="text" th:field="*{nombre}">
+                    </div>
+                    <div>
+                        <label><b>Apellido</b></label>
+                        <input class="input" type="text" th:field="*{apellido}">
+                    </div>
+                </div>
+
+                <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top:18px;">
+                    <a class="btn" th:href="@{/templates/juez}">Cancelar</a>
+                    <button class="btn btn-primary" type="submit">Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -29,14 +29,14 @@ public class VigilantesController {
     @GetMapping
     public String list(HttpSession session, Model model) {
         model.addAttribute("items", service.list(jwt(session)));
-        return "ListaVigilantes";
+        return "vigilantes/ListaVigilantes";
     }
 
     // ADMIN
     @GetMapping("/new")
     public String newForm(Model model) {
         model.addAttribute("form", new VigilanteRequest());
-        return "CrearVigilante";
+        return "vigilantes/CrearVigilante";
     }
 
     // ADMIN
@@ -44,7 +44,7 @@ public class VigilantesController {
     public String create(@Valid @ModelAttribute("form") VigilanteRequest form,
                          BindingResult br,
                          HttpSession session) {
-        if (br.hasErrors()) return "CrearVigilante";
+        if (br.hasErrors()) return "vigilantes/CrearVigilante";
         service.create(jwt(session), form);
         return "redirect:/vigilantes";
     }
@@ -60,7 +60,7 @@ public class VigilantesController {
 
         model.addAttribute("item", item);
         model.addAttribute("update", update);
-        return "DetalleVigilante";
+        return "vigilantes/DetalleVigilante";
     }
 
     // ADMIN (editar)
@@ -72,7 +72,7 @@ public class VigilantesController {
                          Model model) {
         if (br.hasErrors()) {
             model.addAttribute("item", service.getById(jwt(session), id));
-            return "DetalleVigilante";
+            return "vigilantes/DetalleVigilante";
         }
         service.update(jwt(session), id, update);
         return "redirect:/vigilantes/" + id;
@@ -82,7 +82,7 @@ public class VigilantesController {
     @GetMapping("/{id}/confirm-delete")
     public String confirmDelete(@PathVariable Long id, HttpSession session, Model model) {
         model.addAttribute("item", service.getById(jwt(session), id));
-        return "ConfirmarBorrado";
+        return "vigilantes/ConfirmarBorrado";
     }
 
     // ADMIN

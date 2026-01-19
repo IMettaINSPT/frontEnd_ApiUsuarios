@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/layout :: head('Contratos')}"></head>
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container">
+    <div class="hero">
+        <h1>Contratos</h1>
+        <p>Contrataciones de vigilantes por sucursal y fecha. CRUD solo ADMIN.</p>
+    </div>
+
+    <div class="grid" style="grid-template-columns: 1fr;">
+        <div class="card">
+
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+                <div>
+                    <h3>Listado</h3>
+                    <p class="muted">Podés filtrar por sucursal o vigilante usando IDs.</p>
+                </div>
+                <div sec:authorize="hasRole('ADMIN')">
+                    <a class="btn btn-primary" th:href="@{/contratos/new}">+ Nuevo contrato</a>
+                </div>
+            </div>
+
+            <form method="get" th:action="@{/contratos}" style="margin-top: 14px; display:flex; gap:10px; flex-wrap:wrap;">
+                <input class="input" type="number" name="sucursalId" placeholder="Sucursal ID"
+                       th:value="${filterSucursalId}">
+                <input class="input" type="number" name="vigilanteId" placeholder="Vigilante ID"
+                       th:value="${filterVigilanteId}">
+                <button class="btn" type="submit">Filtrar</button>
+                <a class="btn" th:href="@{/contratos}">Limpiar</a>
+            </form>
+
+            <div style="margin-top: 14px;">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th style="width:90px;">ID</th>
+                        <th>Fecha</th>
+                        <th>Con arma</th>
+                        <th>SucursalId</th>
+                        <th>VigilanteId</th>
+                        <th style="width:140px;">Acción</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="c : ${items}">
+                        <td th:text="${c.id}">1</td>
+                        <td th:text="${c.fechaContrato}">2026-01-01</td>
+                        <td th:text="${c.conArma}">false</td>
+                        <td th:text="${c.sucursalId}">5</td>
+                        <td th:text="${c.vigilanteId}">9</td>
+                        <td><a class="btn" th:href="@{/contratos/{id}(id=${c.id})}">Ver</a></td>
+                    </tr>
+
+                    <tr th:if="${items == null or #lists.isEmpty(items)}">
+                        <td colspan="6" class="muted">No hay contratos cargados.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="go" style="display:flex; justify-content:flex-end; margin-top: 10px;">
+                <a class="btn" th:href="@{/}">Volver al menú</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

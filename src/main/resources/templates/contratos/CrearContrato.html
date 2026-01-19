@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Crear contrato')}"></head>
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container">
+    <div class="hero">
+        <h1>Nuevo contrato</h1>
+        <p>Alta de contratación (solo ADMIN).</p>
+    </div>
+
+    <div class="grid" style="grid-template-columns: 1fr;">
+        <div class="card">
+            <form th:action="@{/contratos}" th:object="${form}" method="post">
+                <div style="display:grid; gap:14px;">
+                    <div>
+                        <label><b>Fecha contrato</b></label>
+                        <input class="input" type="date" th:field="*{fechaContrato}">
+                    </div>
+
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <input type="checkbox" th:field="*{conArma}">
+                        <label><b>Contratado con arma</b></label>
+                    </div>
+
+                    <div>
+                        <label><b>Sucursal ID</b></label>
+                        <input class="input" type="number" min="1" step="1" th:field="*{sucursalId}">
+                    </div>
+
+                    <div>
+                        <label><b>Vigilante ID</b></label>
+                        <input class="input" type="number" min="1" step="1" th:field="*{vigilanteId}">
+                    </div>
+                </div>
+
+                <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top:18px;">
+                    <a class="btn" th:href="@{/contratos}">Cancelar</a>
+                    <button class="btn btn-primary" type="submit">Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

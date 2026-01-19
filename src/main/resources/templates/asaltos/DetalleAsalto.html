@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/layout :: head('Detalle asalto')}"></head>
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container">
+  <div class="hero">
+    <h1>Asalto</h1>
+    <p>Detalle del asalto. Edición solo ADMIN.</p>
+  </div>
+
+  <div class="grid" style="grid-template-columns: 1fr;">
+    <div class="card" th:with="s=${sucursalesMap[item.sucursalId]}, p=${personasMap[item.personaDetenidaId]}">
+
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
+        <div>
+          <h3>Asalto <span th:text="${item.id}">1</span></h3>
+          <p class="muted">Fecha <span th:text="${item.fechaAsalto}">2026-01-01</span></p>
+          <p class="muted">Sucursal: <span th:text="${s != null ? (s.codigo + ' - ' + s.domicilio) : ('ID ' + item.sucursalId)}"></span></p>
+          <p class="muted">Persona: <span th:text="${p != null ? (p.codigo + ' - ' + p.nombre) : ('ID ' + item.personaDetenidaId)}"></span></p>
+        </div>
+
+        <div style="display:flex; gap:10px; align-items:center;">
+          <a class="btn" th:href="@{/asaltos}">Volver</a>
+          <a class="btn btn-danger" sec:authorize="hasRole('ADMIN')"
+             th:href="@{/asaltos/{id}/confirm-delete(id=${item.id})}">Eliminar</a>
+        </div>
+      </div>
+
+      <div sec:authorize="hasRole('ADMIN')" style="margin-top: 14px;">
+        <form th:action="@{/asaltos/{id}(id=${item.id})}" th:object="${update}" method="post">
+          <div style="display:grid; gap:14px;">
+
+            <div>
+              <label><b>Fecha del asalto</b></label>
+              <input class="input" type="date" th:field="*{fechaAsalto}">
+            </div>
+
+            <div>
+              <label><b>Sucursal</b></label>
+              <select class="input" th:field="*{sucursalId}">
+                <option th:each="su : ${sucursales}" th:value="${su.id}"
+                        th:text="${su.codigo + ' - ' + su.domicilio + ' (ID ' + su.id + ')'}"></option>
+              </select>
+            </div>
+
+            <div>
+              <label><b>Persona detenida</b></label>
+              <select class="input" th:field="*{personaDetenidaId}">
+                <option th:each="pe : ${personas}" th:value="${pe.id}"
+                        th:text="${pe.codigo + ' - ' + pe.nombre + (pe.bandaNombre != null ? (' (' + pe.bandaNombre + ')') : '') + ' (ID ' + pe.id + ')'}"></option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="go" style="display:flex; justify-content:flex-end; margin-top:18px;">
+            <button class="btn btn-primary" type="submit">Guardar cambios</button>
+          </div>
+        </form>
+      </div>
+
+      <div sec:authorize="!hasRole('ADMIN')" style="margin-top: 14px; display:grid; gap:10px;">
+        <div><b>Fecha:</b> <span th:text="${item.fechaAsalto}"></span></div>
+        <div><b>SucursalId:</b> <span th:text="${item.sucursalId}"></span></div>
+        <div><b>PersonaId:</b> <span th:text="${item.personaDetenidaId}"></span></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

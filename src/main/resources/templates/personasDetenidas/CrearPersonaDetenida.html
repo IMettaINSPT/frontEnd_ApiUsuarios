@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Crear persona detenida')}"></head>
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container">
+    <div class="hero">
+        <h1>Nueva persona detenida</h1>
+        <p>Alta de persona detenida (solo ADMIN).</p>
+    </div>
+
+    <div class="grid" style="grid-template-columns: 1fr;">
+        <div class="card">
+            <form th:action="@{/personasDetenidas}" th:object="${form}" method="post">
+                <div style="display:grid; gap:14px;">
+                    <div>
+                        <label><b>Código</b></label>
+                        <input class="input" type="text" th:field="*{codigo}">
+                    </div>
+
+                    <div>
+                        <label><b>Nombre</b></label>
+                        <input class="input" type="text" th:field="*{nombre}">
+                    </div>
+
+                    <div>
+                        <label><b>Banda</b></label>
+                        <select class="input" th:field="*{bandaId}">
+                            <option th:value="" th:selected="*{bandaId} == null">Sin banda</option>
+                            <option th:each="b : ${bandas}"
+                                    th:value="${b.id}"
+                                    th:text="${b.nombre + ' (miembros: ' + b.numeroMiembros + ')'}">
+                            </option>
+                        </select>
+                        <p class="muted" style="margin-top:6px;">Si no corresponde, dejá “Sin banda”.</p>
+                    </div>
+                </div>
+
+                <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top:18px;">
+                    <a class="btn" th:href="@{/personasDetenidas}">Cancelar</a>
+                    <button class="btn btn-primary" type="submit">Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

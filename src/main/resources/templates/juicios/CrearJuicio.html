@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Crear juicio')}"></head>
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container">
+    <div class="hero">
+        <h1>Nuevo juicio</h1>
+        <p>Alta de juicio (solo ADMIN).</p>
+    </div>
+
+    <div class="grid" style="grid-template-columns: 1fr;">
+        <div class="card">
+            <form th:action="@{/juicios}" th:object="${form}" method="post">
+                <div style="display:grid; gap:14px;">
+                    <div>
+                        <label><b>Fecha</b></label>
+                        <input class="input" type="date" th:field="*{fecha}">
+                    </div>
+
+                    <div>
+                        <label><b>Resultado</b></label>
+                        <select class="input" th:field="*{resultado}">
+                            <option value="" disabled selected>Seleccione…</option>
+                            <option th:each="r : ${resultados}" th:value="${r}" th:text="${r}"></option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label><b>Juez ID</b></label>
+                        <input class="input" type="number" min="1" step="1" th:field="*{juezId}">
+                    </div>
+
+                    <div>
+                        <label><b>Persona detenida ID</b></label>
+                        <input class="input" type="number" min="1" step="1" th:field="*{personaDetenidaId}">
+                    </div>
+                </div>
+
+                <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top:18px;">
+                    <a class="btn" th:href="@{/juicios}">Cancelar</a>
+                    <button class="btn btn-primary" type="submit">Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Confirmar borrado')}"></head>
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container">
+    <div class="hero">
+        <h1>Eliminar contrato</h1>
+        <p>Confirmación de borrado.</p>
+    </div>
+
+    <div class="grid" style="grid-template-columns: 1fr;">
+        <div class="card">
+            <h3>Contrato <span th:text="${item.id}">1</span></h3>
+            <p class="muted">
+                Fecha <span th:text="${item.fechaContrato}">2026-01-01</span> · Con arma <span th:text="${item.conArma}">false</span>
+            </p>
+
+            <form th:action="@{/contratos/{id}/delete(id=${item.id})}" method="post" style="margin-top:16px;">
+                <div class="go" style="display:flex; justify-content:flex-end; gap:10px;">
+                    <a class="btn" th:href="@{/contratos/{id}(id=${item.id})}">Cancelar</a>
+                    <button class="btn btn-danger" type="submit">Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

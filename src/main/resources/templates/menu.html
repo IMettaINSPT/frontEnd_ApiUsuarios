@@ -80,6 +80,15 @@
             <div class="go">Ir →</div>
         </a>
 
+        <a class="card" href="/reportes" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')">
+
+        <div>
+            <h3>Reportes</h3>
+            <p>Reportes varios.</p>
+        </div>
+        <div class="go">Ir →</div>
+        </a>
+
         <a class="card" href="/personasDetenidas" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')">
             <div>
                 <h3>Personas detenidas</h3>

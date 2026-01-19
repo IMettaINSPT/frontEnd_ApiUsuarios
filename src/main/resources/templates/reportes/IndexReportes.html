@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Reportes')}"></head>
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container">
+  <div class="hero">
+    <h1>Reportes</h1>
+    <p>Panel de reportes del sistema. (Por ahora: Asaltos)</p>
+  </div>
+
+  <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:14px;">
+    <div class="card">
+      <h3>Reporte de asaltos</h3>
+      <p class="muted">Buscá asaltos por sucursal y/o fechas (exacta o rango).</p>
+
+      <div class="go" style="display:flex; justify-content:flex-end; margin-top: 14px;">
+        <a class="btn btn-primary" th:href="@{/asaltos/reporte}">Abrir</a>
+      </div>
+    </div>
+
+    <!-- placeholder para futuros reportes -->
+    <div class="card" style="opacity: 0.75;">
+      <h3>Próximamente</h3>
+      <p class="muted">Acá vas a sumar reportes de contratos, juicios, etc.</p>
+      <div class="go" style="display:flex; justify-content:flex-end; margin-top: 14px;">
+        <button class="btn" type="button" disabled>Disponible más adelante</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="go" style="display:flex; justify-content:flex-end; margin-top: 12px;">
+    <a class="btn" th:href="@{/}">Volver al menú</a>
+  </div>
+</div>
+
+</body>
+</html>

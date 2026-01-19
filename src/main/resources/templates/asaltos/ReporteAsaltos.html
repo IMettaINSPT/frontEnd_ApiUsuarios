@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Reporte de asaltos')}"></head>
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container">
+    <div class="hero">
+        <h1>Reporte de asaltos</h1>
+        <p>Buscá por sucursal y/o rango de fechas.</p>
+    </div>
+
+    <div class="grid" style="grid-template-columns: 1fr;">
+        <div class="card">
+
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+                <div>
+                    <h3>Filtros</h3>
+                    <p class="muted">Podés usar fecha exacta o rango (desde/hasta). Si ponés todo, el backend decide la prioridad.</p>
+                </div>
+                <div style="display:flex; gap:10px;">
+                    <a class="btn" th:href="@{/asaltos}">Volver a listado</a>
+                </div>
+            </div>
+
+            <form method="get" th:action="@{/asaltos/reporte}" style="margin-top: 14px; display:grid; gap:14px;">
+                <div>
+                    <label><b>Sucursal</b></label>
+                    <select class="input" name="sucursalId">
+                        <option th:value="" th:selected="${filterSucursalId == null}">Todas</option>
+                        <option th:each="s : ${sucursales}"
+                                th:value="${s.id}"
+                                th:selected="${filterSucursalId != null and filterSucursalId == s.id}"
+                                th:text="${s.codigo + ' - ' + s.domicilio + ' (ID ' + s.id + ')'}"></option>
+                    </select>
+                </div>
+
+                <div style="display:grid; grid-template-columns: repeat(3, minmax(180px, 1fr)); gap:12px;">
+                    <div>
+                        <label><b>Fecha exacta</b></label>
+                        <input class="input" type="date" name="fecha" th:value="${filterFecha}">
+                    </div>
+                    <div>
+                        <label><b>Desde</b></label>
+                        <input class="input" type="date" name="desde" th:value="${filterDesde}">
+                    </div>
+                    <div>
+                        <label><b>Hasta</b></label>
+                        <input class="input" type="date" name="hasta" th:value="${filterHasta}">
+                    </div>
+                </div>
+
+                <div class="go" style="display:flex; justify-content:flex-end; gap:10px;">
+                    <a class="btn" th:href="@{/asaltos/reporte}">Limpiar</a>
+                    <button class="btn btn-primary" type="submit">Buscar</button>
+                </div>
+            </form>
+
+            <div style="margin-top: 18px;">
+                <h3>Resultados</h3>
+
+                <table class="table" style="margin-top: 10px;">
+                    <thead>
+                    <tr>
+                        <th style="width:90px;">ID</th>
+                        <th>Fecha</th>
+                        <th>Sucursal</th>
+                        <th>Persona detenida</th>
+                        <th style="width:140px;">Acción</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="a : ${items}">
+                        <td th:text="${a.id}">1</td>
+                        <td th:text="${a.fechaAsalto}">2026-01-01</td>
+
+                        <td th:with="s=${sucursalesMap[a.sucursalId]}"
+                            th:text="${s != null ? (s.codigo + ' - ' + s.domicilio) : ('ID ' + a.sucursalId)}"></td>
+
+                        <td th:with="p=${personasMap[a.personaDetenidaId]}"
+                            th:text="${p != null ? (p.codigo + ' - ' + p.nombre + (p.bandaNombre != null ? (' (' + p.bandaNombre + ')') : '')) : ('ID ' + a.personaDetenidaId)}"></td>
+
+                        <td><a class="btn" th:href="@{/asaltos/{id}(id=${a.id})}">Ver</a></td>
+                    </tr>
+
+                    <tr th:if="${items == null or #lists.isEmpty(items)}">
+                        <td colspan="5" class="muted">No hay resultados para esos filtros.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

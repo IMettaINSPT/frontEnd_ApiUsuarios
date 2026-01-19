@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Crear asalto')}"></head>
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container">
+    <div class="hero">
+        <h1>Nuevo asalto</h1>
+        <p>Alta de asalto (solo ADMIN).</p>
+    </div>
+
+    <div class="grid" style="grid-template-columns: 1fr;">
+        <div class="card">
+            <form th:action="@{/asaltos}" th:object="${form}" method="post">
+                <div style="display:grid; gap:14px;">
+
+                    <div>
+                        <label><b>Fecha del asalto</b></label>
+                        <input class="input" type="date" th:field="*{fechaAsalto}">
+                    </div>
+
+                    <div>
+                        <label><b>Sucursal</b></label>
+                        <select class="input" th:field="*{sucursalId}">
+                            <option value="" disabled selected>Seleccione…</option>
+                            <option th:each="s : ${sucursales}" th:value="${s.id}"
+                                    th:text="${s.codigo + ' - ' + s.domicilio + ' (ID ' + s.id + ')'}"></option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label><b>Persona detenida</b></label>
+                        <select class="input" th:field="*{personaDetenidaId}">
+                            <option value="" disabled selected>Seleccione…</option>
+                            <option th:each="p : ${personas}" th:value="${p.id}"
+                                    th:text="${p.codigo + ' - ' + p.nombre + (p.bandaNombre != null ? (' (' + p.bandaNombre + ')') : '') + ' (ID ' + p.id + ')'}"></option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top:18px;">
+                    <a class="btn" th:href="@{/asaltos}">Cancelar</a>
+                    <button class="btn btn-primary" type="submit">Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

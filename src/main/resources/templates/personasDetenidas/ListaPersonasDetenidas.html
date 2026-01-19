@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/layout :: head('Personas detenidas')}"><title>""</title></head>
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container">
+    <div class="hero">
+        <h1>Personas detenidas</h1>
+        <p>Listado de detenidos (y su banda si corresponde).</p>
+    </div>
+
+    <div class="grid" style="grid-template-columns: 1fr;">
+        <div class="card">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+                <div>
+                    <h3>Listado</h3>
+                    <p class="muted">Alta/edición solo ADMIN.</p>
+                </div>
+                <div sec:authorize="hasRole('ADMIN')">
+                    <a class="btn btn-primary" th:href="@{/personasDetenidas/new}">+ Nueva persona</a>
+                </div>
+            </div>
+
+            <div style="margin-top: 14px;">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th style="width:90px;">ID</th>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Banda</th>
+                        <th style="width:140px;">Acción</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="p : ${items}">
+                        <td th:text="${p.id}">1</td>
+                        <td th:text="${p.codigo}">PD-01</td>
+                        <td th:text="${p.nombre}">Juan Pérez</td>
+                        <td th:text="${p.bandaNombre != null ? p.bandaNombre : 'Sin banda'}">Sin banda</td>
+                        <td><a class="btn" th:href="@{/personasDetenidas/{id}(id=${p.id})}">Ver</a></td>
+                    </tr>
+
+                    <tr th:if="${items == null or #lists.isEmpty(items)}">
+                        <td colspan="5" class="muted">No hay personas detenidas cargadas.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="go" style="display:flex; justify-content:flex-end; margin-top: 10px;">
+                <a class="btn" th:href="@{/}">Volver al menú</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

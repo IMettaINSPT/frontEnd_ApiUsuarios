@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Crear sucursal')}"></head>
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container">
+  <div class="hero">
+    <h1>Nueva sucursal</h1>
+    <p>Elegí el banco desde un combo.</p>
+  </div>
+
+  <div class="grid" style="grid-template-columns: 1fr;">
+    <div class="card">
+      <form th:action="@{/sucursales}" th:object="${form}" method="post">
+        <div style="display:grid; gap:14px;">
+          <div>
+            <label><b>Código</b></label>
+            <input class="input" type="text" th:field="*{codigo}">
+          </div>
+
+          <div>
+            <label><b>Domicilio</b></label>
+            <input class="input" type="text" th:field="*{domicilio}">
+          </div>
+
+          <div>
+            <label><b>Nro. empleados</b></label>
+            <input class="input" type="number" min="0" step="1" th:field="*{nroEmpleados}">
+          </div>
+
+          <div>
+            <label><b>Banco</b></label>
+            <select class="input" th:field="*{bancoId}">
+              <option value="" disabled selected>Seleccione un banco…</option>
+              <option th:each="b : ${bancos}"
+                      th:value="${b.id}"
+                      th:text="${b.codigo + ' - ' + b.domicilioCentral}">
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top:18px;">
+          <a class="btn" th:href="@{/sucursales}">Cancelar</a>
+          <button class="btn btn-primary" type="submit">Crear</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

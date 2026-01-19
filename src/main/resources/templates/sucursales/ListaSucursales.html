@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/layout :: head('Sucursales')}"></head>
+<body>
+<div th:replace="~{fragments/header :: topbar}"></div>
+
+<div class="container">
+  <div class="hero">
+    <h1>Sucursales</h1>
+    <p>Listado con banco relacionado (código + domicilio central).</p>
+  </div>
+
+  <div class="grid" style="grid-template-columns: 1fr;">
+    <div class="card">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+        <div>
+          <h3>Listado</h3>
+          <p class="muted">El backend trae bancoCodigo, y además resolvemos domicilioCentral desde Bancos.</p>
+        </div>
+        <div sec:authorize="hasRole('ADMIN')">
+          <a class="btn btn-primary" th:href="@{/sucursales/new}">+ Nueva sucursal</a>
+        </div>
+      </div>
+
+      <div style="margin-top: 14px;">
+        <table class="table">
+          <thead>
+          <tr>
+            <th style="width:90px;">ID</th>
+            <th>Código</th>
+            <th>Domicilio</th>
+            <th>Empleados</th>
+            <th>Banco</th>
+            <th style="width:140px;">Acción</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="s : ${items}">
+            <td th:text="${s.id}">1</td>
+            <td th:text="${s.codigo}">SUC-01</td>
+            <td th:text="${s.domicilio}">Calle 123</td>
+            <td th:text="${s.nroEmpleados}">10</td>
+
+            <td th:with="b=${bancosMap[s.bancoId]}"
+                th:text="${s.bancoCodigo + ' - ' + (b != null ? b.domicilioCentral : '(domicilio N/D)')}">
+              BAN-01 - Av...
+            </td>
+
+            <td><a class="btn" th:href="@{/sucursales/{id}(id=${s.id})}">Ver</a></td>
+          </tr>
+
+          <tr th:if="${items == null or #lists.isEmpty(items)}">
+            <td colspan="6" class="muted">No hay sucursales cargadas.</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="go" style="display:flex; justify-content:flex-end; margin-top: 10px;">
+        <a class="btn" th:href="@{/}">Volver al menú</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
