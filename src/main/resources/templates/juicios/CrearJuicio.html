@@ -28,19 +28,43 @@
                     </div>
 
                     <div>
-                        <label><b>Juez ID</b></label>
-                        <input class="input" type="number" min="1" step="1" th:field="*{juezId}">
+                        <label><b>Juez</b></label>
+
+                        <!-- Mensaje si no hay jueces cargados -->
+                        <div class="notice" th:if="${#lists.isEmpty(jueces)}" style="margin:8px 0 0;">
+                            No hay jueces disponibles. Primero cargá al menos un juez.
+                        </div>
+
+                        <select class="input" th:field="*{juezId}" th:disabled="${#lists.isEmpty(jueces)}">
+                            <option value="" disabled selected>Seleccione…</option>
+                            <option th:each="j : ${jueces}"
+                                    th:value="${j.id}"
+                                    th:text="${'#' + j.id + ' - ' + j.apellido + ', ' + j.nombre + ' (' + j.codigo + ')'}">
+                            </option>
+                        </select>
                     </div>
 
                     <div>
-                        <label><b>Persona detenida ID</b></label>
-                        <input class="input" type="number" min="1" step="1" th:field="*{personaDetenidaId}">
+                        <label><b>Persona detenida</b></label>
+
+                        <!-- Mensaje si no hay personas detenidas cargadas -->
+                        <div class="notice" th:if="${#lists.isEmpty(personasDetenidas)}" style="margin:8px 0 0;">
+                            No hay personas detenidas disponibles. Primero cargá al menos una persona detenida.
+                        </div>
+
+                        <select class="input" th:field="*{personaDetenidaId}" th:disabled="${#lists.isEmpty(personasDetenidas)}">
+                            <option value="" disabled selected>Seleccione…</option>
+                            <option th:each="p : ${personasDetenidas}"
+                                    th:value="${p.id}"
+                                    th:text="${'#' + p.id + ' - ' + p.nombre + ' (' + p.codigo + ')' + (p.bandaNombre != null ? ' - ' + p.bandaNombre : '')}">
+                            </option>
+                        </select>
                     </div>
                 </div>
 
                 <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top:18px;">
                     <a class="btn" th:href="@{/juicios}">Cancelar</a>
-                    <button class="btn btn-primary" type="submit">Crear</button>
+                    <button class="btn btn-primary" type="submit" th:disabled="${!canCreate}">Crear</button>
                 </div>
             </form>
         </div>

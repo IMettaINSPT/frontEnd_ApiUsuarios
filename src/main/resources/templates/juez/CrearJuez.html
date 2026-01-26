@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Crear juez')}"></head>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/layout :: head('Nuevo juez')}"></head>
+
 <body>
 <div th:replace="~{fragments/header :: topbar}"></div>
 
@@ -10,31 +13,32 @@
         <p>Alta de juez (solo ADMIN).</p>
     </div>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
-        <div class="card">
-            <form th:action="@{/templates/juez}" th:object="${form}" method="post">
-                <div style="display:grid; gap:14px;">
-                    <div>
-                        <label><b>Código</b></label>
-                        <input class="input" type="text" th:field="*{codigo}">
-                    </div>
-                    <div>
-                        <label><b>Nombre</b></label>
-                        <input class="input" type="text" th:field="*{nombre}">
-                    </div>
-                    <div>
-                        <label><b>Apellido</b></label>
-                        <input class="input" type="text" th:field="*{apellido}">
-                    </div>
-                </div>
+    <!-- ✅ th:object -->
+    <form class="card" th:action="@{/jueces}" th:object="${form}" method="post">
+        <div class="grid" style="grid-template-columns: 1fr; gap: 12px;">
 
-                <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top:18px;">
-                    <a class="btn" th:href="@{/templates/juez}">Cancelar</a>
-                    <button class="btn btn-primary" type="submit">Crear</button>
-                </div>
-            </form>
+            <div>
+                <label><b>Código</b></label>
+                <input class="input" type="text" th:field="*{codigo}" placeholder="JZ-01" required>
+            </div>
+
+            <div>
+                <label><b>Nombre</b></label>
+                <input class="input" type="text" th:field="*{nombre}" placeholder="Juan" required>
+            </div>
+
+            <div>
+                <label><b>Apellido</b></label>
+                <input class="input" type="text" th:field="*{apellido}" placeholder="Pérez" required>
+            </div>
+
+            <div style="display:flex; justify-content:flex-end; gap:10px;">
+                <a class="btn" th:href="@{/jueces}">Cancelar</a>
+                <button class="btn btn-primary" type="submit">Crear</button>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
+
 </body>
 </html>
