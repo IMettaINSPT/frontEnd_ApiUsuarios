@@ -1,57 +1,110 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="~{fragments/layout :: head('Jueces')}"></head>
+
 <body>
 <div th:replace="~{fragments/header :: topbar}"></div>
 
 <div class="container">
+
     <div class="hero">
         <h1>Jueces</h1>
-        <p>Listado de jueces. Alta/edición solo ADMIN.</p>
+        <p>Listado general. Solo <b>ADMIN</b> puede crear/editar/eliminar.</p>
+
+        <div class="alert ok" th:if="${msg}" th:text="${msg}"></div>
+        <div class="alert err" th:if="${error}" th:text="${error}"></div>
     </div>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
-        <div class="card">
-            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-                <div>
-                    <h3>Listado</h3>
-                    <p class="muted">Abrí el detalle para ver y (si sos ADMIN) editar.</p>
-                </div>
-                <div sec:authorize="hasRole('ADMIN')">
-                    <a class="btn btn-primary" th:href="@{/templates/juez/new}">+ Nuevo juez</a>
-                </div>
-            </div>
+    <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top: 14px; flex-wrap:wrap;">
+        <div style="color: var(--muted); font-size: 13px;">
+            Doble click en una fila para ver detalle.
+        </div>
 
-            <div style="margin-top: 14px;">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th style="width:90px;">ID</th>
-                        <th>Código</th>
-                        <th>Nombre</th>
-                        <th style="width:140px;">Acción</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="j : ${items}">
-                        <td th:text="${j.id}">1</td>
-                        <td th:text="${j.codigo}">JZ-01</td>
-                        <td th:text="${j.nombre + ' ' + j.apellido}">Nombre Apellido</td>
-                        <td><a class="btn" th:href="@{/templates/juez/{id}(id=${j.id})}">Ver</a></td>
-                    </tr>
-
-                    <tr th:if="${items == null or #lists.isEmpty(items)}">
-                        <td colspan="4" class="muted">No hay jueces cargados.</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="go" style="display:flex; justify-content:flex-end; margin-top: 10px;">
-                <a class="btn" th:href="@{/}">Volver al menú</a>
-            </div>
+        <div sec:authorize="hasRole('ADMIN')">
+            <a class="btn btn-primary" href="/jueces/new">+ Nuevo juez</a>
         </div>
     </div>
+
+    <div class="card" style="margin-top: 12px; padding: 0;">
+        <style>
+            .tbl { width:100%; border-collapse: collapse; }
+            .tbl th, .tbl td { padding: 12px 14px; text-align:left; border-bottom: 1px solid rgba(255,255,255,.08); }
+            .tbl th { color: var(--muted); font-weight:800; font-size: 12px; letter-spacing:.04em; text-transform: uppercase; }
+            .tbl tr { cursor:pointer; }
+            .tbl tbody tr:hover { background: rgba(96,165,250,.10); }
+            .actions { display:flex; gap:8px; align-items:center; justify-content:flex-start; }
+            .iconbtn {
+                border: 1px solid rgba(255,255,255,.10);
+                background: rgba(255,255,255,.06);
+                border-radius: 10px;
+                padding: 8px 10px;
+                color: var(--text);
+                cursor:pointer;
+                text-decoration:none;
+                font-weight: 800;
+            }
+            .iconbtn:hover { box-shadow: 0 0 0 4px var(--ring); border-color: rgba(96,165,250,.35); }
+            .iconbtn.danger { border-color: rgba(248,113,113,.30); background: rgba(248,113,113,.10); color: var(--danger); }
+            .chip {
+                display:inline-block; padding: 4px 10px; border-radius: 999px;
+                border: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.06);
+                font-size: 12px; font-weight: 800;
+            }
+        </style>
+
+        <table class="tbl">
+            <thead>
+            <tr>
+                <th style="width: 90px;">ID</th>
+                <th style="width: 160px;">Código</th>
+                <th>Nombre</th>
+                <th sec:authorize="hasRole('ADMIN')" style="width: 180px;">Acciones</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="j : ${items}"
+                th:attr="data-id=${j.id}"
+                ondblclick="goDetail(this)">
+
+                <td th:text="${j.id}"></td>
+                <td>
+                    <span class="chip" th:text="${j.codigo}"></span>
+                </td>
+                <td>
+                    <b th:text="${j.nombre + ' ' + j.apellido}"></b>
+                </td>
+
+                <td sec:authorize="hasRole('ADMIN')">
+                    <div class="actions">
+                        <!-- Detalle/Editar -->
+                        <a class="iconbtn" th:href="@{'/jueces/' + ${j.id}}" title="Editar">✏</a>
+
+                        <!-- Confirmación de borrado -->
+                        <a class="iconbtn danger"
+                           th:href="@{'/jueces/' + ${j.id} + '/confirm-delete'}"
+                           title="Eliminar">✖</a>
+                    </div>
+                </td>
+            </tr>
+
+            <tr th:if="${items == null or #lists.isEmpty(items)}">
+                <td colspan="4" class="muted" style="padding: 14px;">No hay jueces cargados.</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
 </div>
+
+<script>
+    function goDetail(row) {
+        const id = row.getAttribute("data-id");
+        window.location.href = "/jueces/" + id;
+    }
+</script>
+
 </body>
 </html>
