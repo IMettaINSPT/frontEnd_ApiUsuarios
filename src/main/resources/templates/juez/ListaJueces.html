@@ -18,7 +18,7 @@
                     <p class="muted">Abrí el detalle para ver y (si sos ADMIN) editar.</p>
                 </div>
                 <div sec:authorize="hasRole('ADMIN')">
-                    <a class="btn btn-primary" th:href="@{/templates/juez/new}">+ Nuevo juez</a>
+                    <a class="btn btn-primary" th:href="@{/jueces/new}">+ Nuevo juez</a>
                 </div>
             </div>
 
@@ -37,7 +37,7 @@
                         <td th:text="${j.id}">1</td>
                         <td th:text="${j.codigo}">JZ-01</td>
                         <td th:text="${j.nombre + ' ' + j.apellido}">Nombre Apellido</td>
-                        <td><a class="btn" th:href="@{/templates/juez/{id}(id=${j.id})}">Ver</a></td>
+                        <td><a class="btn" th:href="@{/jueces/{id}(id=${j.id})}">Ver</a></td>
                     </tr>
 
                     <tr th:if="${items == null or #lists.isEmpty(items)}">

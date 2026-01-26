@@ -12,7 +12,7 @@
 
     <div class="grid" style="grid-template-columns: 1fr;">
         <div class="card">
-            <form th:action="@{/templates/juez}" th:object="${form}" method="post">
+            <form th:action="@{/jueces}" th:object="${form}" method="post">
                 <div style="display:grid; gap:14px;">
                     <div>
                         <label><b>Código</b></label>
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top:18px;">
-                    <a class="btn" th:href="@{/templates/juez}">Cancelar</a>
+                    <a class="btn" th:href="@{/jueces}">Cancelar</a>
                     <button class="btn btn-primary" type="submit">Crear</button>
                 </div>
             </form>

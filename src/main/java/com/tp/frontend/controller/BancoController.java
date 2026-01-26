@@ -11,7 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/banco")
+@RequestMapping("/bancos")
 public class BancoController {
 
     private final BancoService service;
@@ -63,7 +63,7 @@ public class BancoController {
                          @ModelAttribute("update") BancoUpdate update,
                          HttpSession session) {
         service.update(jwt(session), id, update);
-        return "redirect:/banco/" + id;
+        return "redirect:/bancos/" + id;
     }
 
     @PreAuthorize("hasRole('ADMIN')")

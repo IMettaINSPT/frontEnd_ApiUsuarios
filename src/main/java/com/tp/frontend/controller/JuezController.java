@@ -65,7 +65,7 @@ public class JuezController {
                          HttpSession session,
                          Model model) {
         service.update(jwt(session), id, update);
-        return "redirect:/juez/" + id;
+        return "redirect:/jueces/" + id;
     }
 
     @PreAuthorize("hasRole('ADMIN')")
