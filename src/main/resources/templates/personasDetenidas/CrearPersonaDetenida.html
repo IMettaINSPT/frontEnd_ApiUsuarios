@@ -27,7 +27,7 @@
                     <div>
                         <label><b>Banda</b></label>
                         <select class="input" th:field="*{bandaId}">
-                            <option th:value="" th:selected="*{bandaId} == null">Sin banda</option>
+                            <option th:value="''" th:selected="*{bandaId} == null">Sin banda</option>
                             <option th:each="b : ${bandas}"
                                     th:value="${b.id}"
                                     th:text="${b.nombre + ' (miembros: ' + b.numeroMiembros + ')'}">

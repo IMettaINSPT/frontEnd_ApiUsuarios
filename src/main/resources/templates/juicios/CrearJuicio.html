@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Crear juicio')}"></head>
+<head th:replace="~{fragments/layout :: head('Crear juicio')}"><title>""</title></head>
 <body>
 <div th:replace="~{fragments/header :: topbar}"></div>
 
@@ -27,16 +27,37 @@
                         </select>
                     </div>
 
-                    <div>
-                        <label><b>Juez ID</b></label>
-                        <input class="input" type="number" min="1" step="1" th:field="*{juezId}">
+                    <div id="juezBlock">
+                        <label style="display:block; font-weight:800; margin-bottom:6px;">Juez a asociar</label>
+                        <label for="juezId"></label><select id="juezId" name="juezId"
+                                                            style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid #444; background:#2b2b2b; color: var(--text); outline:none;">
+                            <option value="">-- Seleccionar vigilante --</option>
+                            <option th:each="v : ${juecesDisponibles}"
+                                    th:value="${v.id}"
+                                    th:text="${v.codigo + ' (nombre y apellido ' + v.nombre + ' - '+ v.apellido +')'}">
+                            </option>
+                        </select>
+
+                        <div class="alert err" style="margin-top:10px;" th:if="${!hayJuecesDisponibles}">
+                            No hay jueces disponibles para asociar. Creá un juez primero.
+                        </div>
                     </div>
 
-                    <div>
-                        <label><b>Persona detenida ID</b></label>
-                        <input class="input" type="number" min="1" step="1" th:field="*{personaDetenidaId}">
+                    <div id="personaDetenidaBlock" >
+                        <label style="display:block; font-weight:800; margin-bottom:6px;">Vigilante a asociar</label>
+                        <select id="personaDetenidaId" name="personaDetenidaId"
+                                style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid #444; background:#2b2b2b; color: var(--text); outline:none;">
+                            <option value="">-- Seleccionar vigilante --</option>
+                            <option th:each="v : ${personasDetenidaDisponibles}"
+                                    th:value="${v.id}"
+                                    th:text="${v.codigo + ' (nombre ' + v.nombre + ')'}">
+                            </option>
+                        </select>
+
+                        <div class="alert err" style="margin-top:10px;" th:if="${!hayPersonasDetenidaDisponibles}">
+                            No hay personas Detenidas disponibles para asociar. Creá una personas detenida.
+                        </div>
                     </div>
-                </div>
 
                 <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top:18px;">
                     <a class="btn" th:href="@{/juicios}">Cancelar</a>

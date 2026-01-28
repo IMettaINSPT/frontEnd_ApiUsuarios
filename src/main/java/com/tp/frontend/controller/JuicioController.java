@@ -2,7 +2,9 @@ package com.tp.frontend.controller;
 
 import com.tp.frontend.dto.Juicio.JuicioRequest;
 import com.tp.frontend.dto.Juicio.JuicioUpdate;
+import com.tp.frontend.service.JuezService;
 import com.tp.frontend.service.JuicioService;
+import com.tp.frontend.service.PersonaDetenidaService;
 import com.tp.frontend.web.SessionKeys;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -15,9 +17,14 @@ import org.springframework.web.bind.annotation.*;
 public class JuicioController {
 
     private final JuicioService service;
+    private final JuezService juezService;
+    private final PersonaDetenidaService personaDetenidaService;
 
-    public JuicioController(JuicioService service) {
+
+    public JuicioController(JuicioService service, JuezService juezService, PersonaDetenidaService personaDetenidaService) {
         this.service = service;
+        this.juezService = juezService;
+        this.personaDetenidaService = personaDetenidaService;
     }
 
     private String jwt(HttpSession session) {
@@ -32,9 +39,24 @@ public class JuicioController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/new")
-    public String newForm(Model model) {
+    public String newForm(Model model, HttpSession session) {
         model.addAttribute("form", new JuicioRequest());
         model.addAttribute("resultados", new String[]{"EN_PROCESO", "CONDENADO", "ABSULTO"});
+
+        String jwt = (String) session.getAttribute(SessionKeys.JWT);
+
+        var juecesDisponibles = juezService.list(jwt);
+        if (juecesDisponibles == null) juecesDisponibles = java.util.List.of();
+
+        var personasDetenidasDisponibles = personaDetenidaService.list(jwt);
+        if (personasDetenidasDisponibles == null) personasDetenidasDisponibles = java.util.List.of();
+
+        model.addAttribute("juecesDisponibles", juecesDisponibles);
+        model.addAttribute("hayJuecesDisponibles", !juecesDisponibles.isEmpty());
+
+        model.addAttribute("personasDetenidaDisponibles", personasDetenidasDisponibles);
+        model.addAttribute("hayPersonasDetenidaDisponibles", !personasDetenidasDisponibles.isEmpty());
+
         return "juicios/CrearJuicio";
     }
 

@@ -2,7 +2,7 @@ package com.tp.frontend.controller;
 
 import com.tp.frontend.dto.Banco.BancoResponse;
 import com.tp.frontend.dto.Sucursal.SucursalRequest;
-import com.tp.frontend.dto.Sucursal.SucursalUpdate;
+import com.tp.frontend.dto.Sucursal.SucursalUpdateRequest;
 import com.tp.frontend.service.BancoService;
 import com.tp.frontend.service.SucursalService;
 import com.tp.frontend.web.SessionKeys;
@@ -53,8 +53,11 @@ public class SucursalController {
     @GetMapping("/new")
     public String newForm(HttpSession session, Model model) {
         String token = jwt(session);
+        var disponibles = bancoService.list(token);
         model.addAttribute("form", new SucursalRequest());
-        model.addAttribute("bancos", bancos(token)); // combo
+        model.addAttribute("bancos", disponibles); // combo
+        model.addAttribute("hayBancos", !disponibles.isEmpty()); // combo
+
         return "sucursales/CrearSucursal";
     }
 
@@ -70,7 +73,7 @@ public class SucursalController {
         String token = jwt(session);
         var item = sucursalService.get(token, id);
 
-        var update = new SucursalUpdate();
+        var update = new SucursalUpdateRequest();
         update.setCodigo(item.getCodigo());
         update.setDomicilio(item.getDomicilio());
         update.setNroEmpleados(item.getNroEmpleados());
@@ -86,7 +89,7 @@ public class SucursalController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/{id}")
-    public String update(@PathVariable Long id, @ModelAttribute("update") SucursalUpdate update, HttpSession session) {
+    public String update(@PathVariable Long id, @ModelAttribute("update") SucursalUpdateRequest update, HttpSession session) {
         sucursalService.update(jwt(session), id, update);
         return "redirect:/sucursales/" + id;
     }

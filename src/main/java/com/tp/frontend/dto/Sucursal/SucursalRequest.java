@@ -1,20 +1,40 @@
 package com.tp.frontend.dto.Sucursal;
-
 public class SucursalRequest {
+
     private String codigo;
     private String domicilio;
-    private Integer numeroEmpleados;
+    private Integer nroEmpleados;
     private Long bancoId;
 
-    public String getCodigo() { return codigo; }
-    public void setCodigo(String codigo) { this.codigo = codigo; }
+    public String getCodigo() {
+        return codigo;
+    }
 
-    public String getDomicilio() { return domicilio; }
-    public void setDomicilio(String domicilio) { this.domicilio = domicilio; }
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
 
-    public Integer getNumeroEmpleados() { return numeroEmpleados; }
-    public void setNumeroEmpleados(Integer numeroEmpleados) { this.numeroEmpleados = numeroEmpleados; }
+    public String getDomicilio() {
+        return domicilio;
+    }
 
-    public Long getBancoId() { return bancoId; }
-    public void setBancoId(Long bancoId) { this.bancoId = bancoId; }
+    public void setDomicilio(String domicilio) {
+        this.domicilio = domicilio;
+    }
+
+    public Integer getNroEmpleados() {
+        return nroEmpleados;
+    }
+
+    public void setNroEmpleados(Integer nroEmpleados) {
+        this.nroEmpleados = nroEmpleados;
+    }
+
+    public Long getBancoId() {
+        return bancoId;
+    }
+
+    public void setBancoId(Long bancoId) {
+        this.bancoId = bancoId;
+    }
 }

@@ -31,13 +31,18 @@
 
           <div>
             <label><b>Banco</b></label>
-            <select class="input" th:field="*{bancoId}">
-              <option value="" disabled selected>Seleccione un banco…</option>
-              <option th:each="b : ${bancos}"
-                      th:value="${b.id}"
-                      th:text="${b.codigo + ' - ' + b.domicilioCentral}">
-              </option>
-            </select>
+            <label>
+              <select class="input" th:field="*{bancoId}">
+                <option value="" disabled selected>Seleccione un banco…</option>
+                <option th:each="b : ${bancos}"
+                        th:value="${b.id}"
+                        th:text="${b.codigo + ' - ' + b.domicilioCentral}">
+                </option>
+              </select>
+            </label>
+          </div>
+          <div class="alert err" style="margin-top:10px;" th:if="${!hayBancos}">
+            No hay bancos disponibles para asociar. Creá uno.
           </div>
         </div>
 

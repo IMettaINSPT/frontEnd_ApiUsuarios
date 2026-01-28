@@ -3,7 +3,7 @@ package com.tp.frontend.client;
 import com.tp.frontend.config.FrontendProperties;
 import com.tp.frontend.dto.Sucursal.SucursalRequest;
 import com.tp.frontend.dto.Sucursal.SucursalResponse;
-import com.tp.frontend.dto.Sucursal.SucursalUpdate;
+import com.tp.frontend.dto.Sucursal.SucursalUpdateRequest;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -29,7 +29,7 @@ public class SucursalesApiClient extends BaseApiClient {
         return post("/api/sucursales", dto, jwt, SucursalResponse.class);
     }
 
-    public SucursalResponse update(String jwt, Long id, SucursalUpdate dto) {
+    public SucursalResponse update(String jwt, Long id, SucursalUpdateRequest dto) {
         return put("/api/sucursales/" + id, dto, jwt, SucursalResponse.class);
     }
 
