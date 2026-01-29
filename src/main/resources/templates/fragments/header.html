@@ -18,7 +18,7 @@
           <span th:text="${#authentication.name}">usuario</span>
         </span>
 
-                <a class="btn btn-primary" href="/menu">Menú</a>
+                <a class="btn btn-primary" href="/dashboard">Dashboard</a>
 
                 <a class="btn" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')" href="/users">Usuarios</a>
                 <a class="btn" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')" href="/juicios">Juicios</a>

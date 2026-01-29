@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+<div th:fragment="sidebar">
+    <aside class="sidebar">
+        <div class="sb-brand">
+            <div class="sb-title">Panel</div>
+            <div class="sb-sub">TP Seguridad Bancaria</div>
+        </div>
+
+        <nav class="sb-nav">
+            <a class="sb-link" href="/dashboard">🏠 Dashboard</a>
+            <a class="sb-link" href="/menu">📌 Menú</a>
+
+            <div class="sb-section" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')">
+                <div class="sb-section-title">Gestión</div>
+                <a class="sb-link" href="/bancos">🏦 Bancos</a>
+                <a class="sb-link" href="/sucursales">🏢 Sucursales</a>
+                <a class="sb-link" href="/contratos">📝 Contratos</a>
+                <a class="sb-link" href="/asaltos">🚨 Asaltos</a>
+                <a class="sb-link" href="/bandas">👥 Bandas</a>
+                <a class="sb-link" href="/personasDetenidas">🧾 Personas detenidas</a>
+                <a class="sb-link" href="/juicios">⚖️ Juicios</a>
+                <a class="sb-link" href="/jueces">👨‍⚖️ Jueces</a>
+                <a class="sb-link" href="/users">👤 Usuarios</a>
+            </div>
+
+            <div class="sb-section" sec:authorize="hasRole('VIGILANTE')">
+                <div class="sb-section-title">Mi cuenta</div>
+                <a class="sb-link" href="/vigilantes/me">🛡️ Mi perfil</a>
+            </div>
+        </nav>
+    </aside>
+</div>
+</body>
+</html>

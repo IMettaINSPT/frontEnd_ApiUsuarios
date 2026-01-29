@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Dashboard')}"></head>
+
+<body>
+<div class="app-shell">
+    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+
+    <main class="main">
+        <div th:replace="~{fragments/header :: topbar}"></div>
+
+        <div class="container" style="max-width: 1250px;">
+            <div class="hero" style="margin-bottom: 16px;">
+                <h1>Dashboard</h1>
+                <p>Resumen de métricas principales del sistema</p>
+            </div>
+
+            <!-- KPIs -->
+            <div class="grid">
+                <div class="card" style="grid-column: span 3;">
+                    <div class="card-title">Bancos</div>
+                    <div class="card-value" th:text="${summary.bancos}">0</div>
+                </div>
+
+                <div class="card" style="grid-column: span 3;">
+                    <div class="card-title">Sucursales</div>
+                    <div class="card-value" th:text="${summary.sucursales}">0</div>
+                </div>
+
+                <div class="card" style="grid-column: span 3;">
+                    <div class="card-title">Contratos</div>
+                    <div class="card-value" th:text="${summary.contratos}">0</div>
+                </div>
+
+                <div class="card" style="grid-column: span 3;">
+                    <div class="card-title">Vigilantes</div>
+                    <div class="card-value" th:text="${summary.vigilantes}">0</div>
+                </div>
+
+                <div class="card" style="grid-column: span 3;">
+                    <div class="card-title">Usuarios</div>
+                    <div class="card-value" th:text="${summary.usuarios}">0</div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="grid" style="margin-top: 14px;">
+                <div class="card" style="grid-column: span 6;">
+                    <div class="card-title">Asaltos (últimos 6 meses)</div>
+                    <div class="card-sub">Cantidad por mes</div>
+                    <canvas id="chartAsaltos"></canvas>
+                </div>
+
+                <div class="card" style="grid-column: span 3;">
+                    <div class="card-title">Usuarios por rol</div>
+                    <div class="card-sub">Distribución</div>
+                    <canvas id="chartRoles"></canvas>
+                </div>
+
+                <div class="card" style="grid-column: span 3;">
+                    <div class="card-title">Contratos</div>
+                    <div class="card-sub">Con arma vs sin arma</div>
+                    <canvas id="chartArma"></canvas>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+<script th:inline="javascript">
+    const summary = /*[[${summary}]]*/ null;
+
+    // Asaltos por mes
+    const asaltosLabels = (summary?.asaltosPorMes || []).map(x => x.mes);
+    const asaltosData   = (summary?.asaltosPorMes || []).map(x => x.cantidad);
+
+    new Chart(document.getElementById('chartAsaltos'), {
+        type: 'bar',
+        data: {
+            labels: asaltosLabels,
+            datasets: [{ label: 'Asaltos', data: asaltosData }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: true } }
+        }
+    });
+
+    // Usuarios por rol
+    const rolesMap = summary?.usuariosPorRol || {};
+    const rolesLabels = Object.keys(rolesMap);
+    const rolesData = Object.values(rolesMap);
+
+    new Chart(document.getElementById('chartRoles'), {
+        type: 'doughnut',
+        data: {
+            labels: rolesLabels,
+            datasets: [{ data: rolesData }]
+        },
+        options: { responsive: true }
+    });
+
+    // Contratos con arma vs sin arma
+    const armaMap = summary?.contratosPorArma || {};
+    const armaLabels = Object.keys(armaMap);
+    const armaData = Object.values(armaMap);
+
+    new Chart(document.getElementById('chartArma'), {
+        type: 'pie',
+        data: {
+            labels: armaLabels,
+            datasets: [{ data: armaData }]
+        },
+        options: { responsive: true }
+    });
+</script>
+
+<style>
+    /* Shell con sidebar */
+    .app-shell{ display:flex; min-height:100vh; }
+    .main{ flex:1; }
+
+    .sidebar{
+        width: 270px;
+        background: rgba(15,23,42,.92);
+        border-right: 1px solid rgba(255,255,255,.08);
+        padding: 18px 14px;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow: auto;
+        backdrop-filter: blur(10px);
+    }
+    .sb-brand{ padding: 10px 10px 16px; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 14px; }
+    .sb-title{ font-weight: 800; font-size: 18px; }
+    .sb-sub{ color: var(--muted); font-size: 12px; margin-top: 4px; }
+
+    .sb-nav{ display:flex; flex-direction:column; gap: 6px; }
+    .sb-link{
+        display:block;
+        padding: 10px 10px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,.08);
+        background: rgba(255,255,255,.03);
+    }
+    .sb-link:hover{
+        border-color: rgba(96,165,250,.35);
+        box-shadow: 0 0 0 4px rgba(96,165,250,.12);
+    }
+    .sb-section{ margin-top: 10px; }
+    .sb-section-title{
+        margin: 14px 6px 8px;
+        font-size: 12px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: .08em;
+    }
+
+    @media (max-width: 920px){
+        .sidebar{ display:none; }
+        .container{ padding-left: 14px; padding-right: 14px; }
+    }
+</style>
+
+</body>
+</html>

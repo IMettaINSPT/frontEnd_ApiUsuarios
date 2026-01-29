@@ -108,11 +108,10 @@ public class AuthController {
 
             log.info("Login OK user={} role={}", meUsername, role);
 
-            // 6) Redirect por rol
             if ("VIGILANTE".equalsIgnoreCase(role)) {
                 return "redirect:/vigilantes/me";
             }
-            return "redirect:/menu";
+            return "redirect:/dashboard";
 
         } catch (HttpStatusCodeException ex) {
 
