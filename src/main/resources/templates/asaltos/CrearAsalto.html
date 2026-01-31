@@ -34,7 +34,7 @@
                         <select class="input" th:field="*{personaDetenidaId}">
                             <option value="" disabled selected>Seleccione…</option>
                             <option th:each="p : ${personas}" th:value="${p.id}"
-                                    th:text="${p.codigo + ' - ' + p.nombre + (p.bandaNombre != null ? (' (' + p.bandaNombre + ')') : '') + ' (ID ' + p.id + ')'}"></option>
+                                    th:text="${p.banda != null ? 'Banda #' + p.banda.numeroBanda : 'Sin banda'}"></option>
                         </select>
                     </div>
 

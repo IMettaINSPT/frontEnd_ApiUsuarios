@@ -14,6 +14,7 @@
         <div class="card">
             <form th:action="@{/contratos}" th:object="${form}" method="post">
                 <div style="display:grid; gap:14px;">
+
                     <div>
                         <label><b>Fecha contrato</b></label>
                         <input class="input" type="date" th:field="*{fechaContrato}">
@@ -24,24 +25,61 @@
                         <label><b>Contratado con arma</b></label>
                     </div>
 
-                    <div>
-                        <label><b>Sucursal ID</b></label>
-                        <input class="input" type="number" min="1" step="1" th:field="*{sucursalId}">
+                    <!-- Vigilante -->
+                    <div id="vigilanteBlock">
+                        <label style="display:block; font-weight:800; margin-bottom:6px;" for="vigilanteId">
+                            Vigilante a asociar
+                        </label>
+
+                        <select class="input"
+                                id="vigilanteId"
+                                th:field="*{vigilanteId}">
+                            <option value="">-- Seleccionar vigilante --</option>
+                            <option th:each="v : ${vigilantesDisponibles}"
+                                    th:value="${v.id}"
+                                    th:text="|Código: ${v.codigo}|">
+                            </option>
+                        </select>
+
+                        <div class="alert err" style="margin-top:10px;" th:if="${!hayVigilantesDisponibles}">
+                            No hay vigilantes disponibles para asociar.
+                        </div>
                     </div>
 
-                    <div>
-                        <label><b>Vigilante ID</b></label>
-                        <input class="input" type="number" min="1" step="1" th:field="*{vigilanteId}">
+                    <!-- Sucursal -->
+                    <div id="sucursalBlock">
+                        <label style="display:block; font-weight:800; margin-bottom:6px;" for="sucursalId">
+                            Sucursal a asociar
+                        </label>
+
+                        <select class="input"
+                                id="sucursalId"
+                                th:field="*{sucursalId}">
+                            <option value="">-- Seleccionar sucursal --</option>
+                            <option th:each="s : ${sucursalesDisponibles}"
+                                    th:value="${s.id}"
+                                    th:text="|Domicilio: ${s.domicilio}|">
+                            </option>
+                        </select>
+
+                        <div class="alert err" style="margin-top:10px;" th:if="${!haySucursalesDisponibles}">
+                            No hay sucursales disponibles para asociar.
+                        </div>
                     </div>
+
                 </div>
 
                 <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top:18px;">
                     <a class="btn" th:href="@{/contratos}">Cancelar</a>
-                    <button class="btn btn-primary" type="submit">Crear</button>
+                    <button class="btn btn-primary" type="submit"
+                            th:disabled="${!hayVigilantesDisponibles or !haySucursalesDisponibles}">
+                        Crear
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
 </body>
 </html>

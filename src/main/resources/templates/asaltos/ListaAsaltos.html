@@ -45,7 +45,7 @@
                         </td>
 
                         <td th:with="p=${personasMap[a.personaDetenidaId]}"
-                            th:text="${p != null ? (p.codigo + ' - ' + p.nombre + (p.bandaNombre != null ? (' (' + p.bandaNombre + ')') : '')) : ('ID ' + a.personaDetenidaId)}">
+                            th:text="${p.banda != null ? 'Banda #' + p.banda.numeroBanda : 'Sin banda'}">
                             PD-01 - Juan
                         </td>
 

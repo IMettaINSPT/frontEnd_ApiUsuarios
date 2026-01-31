@@ -55,7 +55,7 @@ public class ReportesController {
 
         Map<Long, PersonaDetenidaResponse> personasMap =
                 personaDetenidaService.list(token).stream()
-                        .collect(Collectors.toMap(PersonaDetenidaResponse::getId, Function.identity()));
+                        .collect(Collectors.toMap(PersonaDetenidaResponse::id, Function.identity()));
 
         model.addAttribute("ultimosAsaltos", ultimosAsaltos);
         model.addAttribute("sucursalesMap", sucursalesMap);

@@ -3,6 +3,7 @@ package com.tp.frontend.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tp.frontend.client.VigilantesApiClient;
 import com.tp.frontend.service.UserService;
+import com.tp.frontend.service.VigilanteService;
 import com.tp.frontend.web.SessionKeys;
 import com.tp.frontend.dto.User.UserResponse;
 import com.tp.frontend.dto.User.UserRequest;
@@ -21,11 +22,11 @@ public class UsersController {
     private ObjectMapper objectMapper;
 
     private final UserService userService;
-    private final VigilantesApiClient vigilantesApiClient;
+    private final VigilanteService vigilanteService;
 
-    public UsersController(UserService userService, VigilantesApiClient vigilantesApiClient) {
+    public UsersController(UserService userService, VigilanteService vigilanteService) {
         this.userService = userService;
-        this.vigilantesApiClient = vigilantesApiClient;
+        this.vigilanteService = vigilanteService;
     }
 
     // =========================
@@ -57,7 +58,7 @@ public class UsersController {
 
         // Para el caso de rol VIGILANTE, el front debe poder elegir un Vigilante disponible.
         String jwt = (String) session.getAttribute(SessionKeys.JWT);
-        var disponibles = vigilantesApiClient.disponibles(jwt);
+        var disponibles = vigilanteService.disponibles(jwt);
         model.addAttribute("vigilantesDisponibles", disponibles);
         model.addAttribute("hayVigilantesDisponibles", !disponibles.isEmpty());
 
@@ -108,7 +109,7 @@ public class UsersController {
         model.addAttribute("update", update);
 
         // Para ADMIN: si edita y cambia rol a VIGILANTE, necesita lista de opciones.
-        var disponibles = vigilantesApiClient.disponibles(jwt);
+        var disponibles = vigilanteService.disponibles(jwt);
         model.addAttribute("vigilantesDisponibles", disponibles);
         model.addAttribute("hayVigilantesDisponibles", !disponibles.isEmpty());
 

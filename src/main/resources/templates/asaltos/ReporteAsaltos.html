@@ -78,7 +78,7 @@
                             th:text="${s != null ? (s.codigo + ' - ' + s.domicilio) : ('ID ' + a.sucursalId)}"></td>
 
                         <td th:with="p=${personasMap[a.personaDetenidaId]}"
-                            th:text="${p != null ? (p.codigo + ' - ' + p.nombre + (p.bandaNombre != null ? (' (' + p.bandaNombre + ')') : '')) : ('ID ' + a.personaDetenidaId)}"></td>
+                            th:text="${p.banda != null ? 'Banda #' + p.banda.numeroBanda : 'Sin banda'}"></td>
 
                         <td><a class="btn" th:href="@{/asaltos/{id}(id=${a.id})}">Ver</a></td>
                     </tr>

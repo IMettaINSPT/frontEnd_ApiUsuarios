@@ -46,7 +46,7 @@ public class AsaltoController {
 
     private Map<Long, PersonaDetenidaResponse> personasMap(String token) {
         return personaDetenidaService.list(token).stream()
-                .collect(Collectors.toMap(PersonaDetenidaResponse::getId, Function.identity()));
+                .collect(Collectors.toMap(PersonaDetenidaResponse::id, Function.identity()));
     }
 
     // ===== LISTADO (sin filtros) =====

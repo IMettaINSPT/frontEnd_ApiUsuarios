@@ -18,7 +18,7 @@
                     <h3 th:text="${item.codigo}">PD-01</h3>
                     <p class="muted">ID <span th:text="${item.id}">1</span></p>
                     <p class="muted">
-                        Banda: <span th:text="${item.bandaNombre != null ? item.bandaNombre : 'Sin banda'}"></span>
+                        Banda: <span th:text="${item.banda != null ? 'Banda #' + item.banda.numeroBanda : 'Sin banda'}"></span>
                     </p>
                 </div>
 
@@ -44,13 +44,16 @@
 
                         <div>
                             <label><b>Banda</b></label>
-                            <select class="input" th:field="*{bandaId}">
-                                <option th:value="" th:selected="*{bandaId} == null">Sin banda</option>
-                                <option th:each="b : ${bandas}"
-                                        th:value="${b.id}"
-                                        th:text="${b.nombre + ' (miembros: ' + b.numeroMiembros + ')'}">
-                                </option>
-                            </select>
+                            <label>
+                                <select class="input" th:field="*{bandaId}">
+                                    <option th:value="''" th:selected="*{bandaId} == null">Sin banda</option>
+                                    <option th:each="b : ${bandas}"
+                                            th:value="${b.id}"
+                                            th:text="${b.numeroBanda + ' (miembros: ' + b.numeroMiembros + ')'}">
+                                    </option>
+                                </select>
+                            </label>
+
                         </div>
                     </div>
 
@@ -63,7 +66,15 @@
             <div sec:authorize="!hasRole('ADMIN')" style="margin-top: 14px; display:grid; gap:10px;">
                 <div><b>Código:</b> <span th:text="${item.codigo}"></span></div>
                 <div><b>Nombre:</b> <span th:text="${item.nombre}"></span></div>
-                <div><b>Banda:</b> <span th:text="${item.bandaNombre != null ? item.bandaNombre : 'Sin banda'}"></span></div>
+                <label>
+                    <select class="input" th:field="*{bandaId}">
+                        <option value="">Sin banda</option>
+                        <option th:each="b : ${bandas}"
+                                th:value="${b.id()}"
+                                th:text="${'Banda ' + b.numeroBanda() + ' (miembros: ' + b.numeroMiembros() + ')'}">
+                        </option>
+                    </select>
+                </label>
             </div>
 
         </div>

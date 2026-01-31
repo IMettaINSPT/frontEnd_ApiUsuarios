@@ -52,10 +52,8 @@ public class PersonasDetenidasController {
     public String detail(@PathVariable Long id, HttpSession session, Model model) {
         var item = personaService.get(jwt(session), id);
 
-        var update = new PersonaDetenidaUpdate();
-        update.setCodigo(item.getCodigo());
-        update.setNombre(item.getNombre());
-        update.setBandaId(item.getBandaId());
+        Long bandaId = (item.banda() != null) ? item.banda().id() : null;
+        var update = new PersonaDetenidaUpdate(item.codigo(), item.nombre(), bandaId);
 
         model.addAttribute("item", item);
         model.addAttribute("update", update);

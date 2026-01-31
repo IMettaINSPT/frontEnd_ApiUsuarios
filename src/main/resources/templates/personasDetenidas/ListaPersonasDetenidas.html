@@ -38,7 +38,7 @@
                         <td th:text="${p.id}">1</td>
                         <td th:text="${p.codigo}">PD-01</td>
                         <td th:text="${p.nombre}">Juan Pérez</td>
-                        <td th:text="${p.bandaNombre != null ? p.bandaNombre : 'Sin banda'}">Sin banda</td>
+                        <td th:text="${p.banda != null ? 'Banda #' + p.banda.numeroBanda : 'Sin banda'}">Sin banda</td>
                         <td><a class="btn" th:href="@{/personasDetenidas/{id}(id=${p.id})}">Ver</a></td>
                     </tr>
 

@@ -3,6 +3,8 @@ package com.tp.frontend.controller;
 import com.tp.frontend.dto.contrato.ContratoRequest;
 import com.tp.frontend.dto.contrato.ContratoUpdate;
 import com.tp.frontend.service.ContratoService;
+import com.tp.frontend.service.SucursalService;
+import com.tp.frontend.service.VigilanteService;
 import com.tp.frontend.web.SessionKeys;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -15,9 +17,13 @@ import org.springframework.web.bind.annotation.*;
 public class ContratosController {
 
     private final ContratoService service;
+    private final SucursalService sucursalService;
+    private final VigilanteService vigilanteService;
 
-    public ContratosController(ContratoService service) {
+    public ContratosController(ContratoService service, SucursalService sucursalService, VigilanteService vigilanteService) {
         this.service = service;
+        this.sucursalService = sucursalService;
+        this.vigilanteService = vigilanteService;
     }
 
     private String jwt(HttpSession session) {
@@ -48,11 +54,25 @@ public class ContratosController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/new")
-    public String newForm(Model model) {
+    public String newForm(Model model, HttpSession session)  {
         var form = new ContratoRequest();
         form.setConArma(Boolean.FALSE);
+        String jwt = (String) session.getAttribute(SessionKeys.JWT);
+
 
         model.addAttribute("form", form);
+
+        //sucursal
+        var sucdisponibles = sucursalService.list(jwt);
+        model.addAttribute("sucursalesDisponibles", sucdisponibles);
+        model.addAttribute("haySucursalesDisponibles", !sucdisponibles.isEmpty());
+
+        // vigilantes
+        var vigdisponibles = vigilanteService.disponibles(jwt);
+        model.addAttribute("vigilantesDisponibles", vigdisponibles);
+        model.addAttribute("hayVigilantesDisponibles", !vigdisponibles.isEmpty());
+
+
         return "contratos/CrearContrato";
     }
 

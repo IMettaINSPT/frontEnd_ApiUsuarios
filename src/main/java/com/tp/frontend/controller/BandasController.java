@@ -49,8 +49,8 @@ public class BandasController {
         var item = service.get(jwt(session), id);
 
         var update = new BandaUpdate();
-        update.setNumeroBanda(item.getNumeroBanda());
-        update.setNumeroMiembros(item.getNumeroMiembros());
+        update.setNumeroBanda(item.numeroBanda());
+        update.setNumeroMiembros(item.numeroMiembros());
 
         model.addAttribute("item", item);
         model.addAttribute("update", update);

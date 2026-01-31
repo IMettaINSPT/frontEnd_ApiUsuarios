@@ -34,8 +34,8 @@
 
                 <div>
                     <label style="display:block; font-weight:800; margin-bottom:6px;">Tipo</label>
-                    <select id="rol" name="tipo" required onchange="onRolChange()"
-                            style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); color: var(--text); outline:none;">
+                    <label for="rol"></label><select id="rol" name="tipo" required onchange="onRolChange()"
+                                                     style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); color: var(--text); outline:none;">
                         <option value="ADMIN">ADMIN</option>
                         <option value="INVESTIGADOR">INVESTIGADOR</option>
                         <option value="VIGILANTE">VIGILANTE</option>
@@ -45,8 +45,8 @@
                 <!-- Solo aplica si rol = VIGILANTE -->
                 <div id="vigilanteBlock" style="display:none;">
                     <label style="display:block; font-weight:800; margin-bottom:6px;">Vigilante a asociar</label>
-                    <select id="vigilanteId" name="vigilanteId"
-                            style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); color: var(--text); outline:none;">
+                    <label for="vigilanteId"></label><select id="vigilanteId" name="vigilanteId"
+                                                             style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); color: var(--text); outline:none;">
                         <option value="">-- Seleccionar vigilante --</option>
                         <option th:each="v : ${vigilantesDisponibles}"
                                 th:value="${v.id}"
