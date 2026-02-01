@@ -1,37 +1,23 @@
 <!DOCTYPE html>
-<html lang="es"
-      xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Error')}"><title>""</title></head>
-
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Error')}"></head>
 <body>
-<div class="app-shell">
-    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+<div th:replace="~{fragments/header :: topbar}"></div>
 
-    <main class="main">
-        <div th:replace="~{fragments/header :: topbar}"></div>
-
-        <div class="container" style="max-width: 700px; margin-top: 60px;">
-            <div class="card" style="text-align:center; padding:40px;">
-                <h1 style="font-size:32px; margin-bottom:10px;">
-                    ⚠️ Ocurrió un problema
-                </h1>
-
-                <p style="color:var(--muted); margin-bottom:20px;">
-                    No fue posible procesar la solicitud en este momento.
-                </p>
-
-                <p style="font-size:14px; color:var(--muted);">
-                    Por favor intentá nuevamente más tarde.
-                </p>
-
-                <div style="margin-top:30px;">
-                    <a th:href="@{/dashboard}" class="btn btn-primary">
-                        Volver al inicio
-                    </a>
-                </div>
-            </div>
+<div class="container">
+    <div class="hero">
+        <h1 th:text="${title}">Error</h1>
+        <p th:text="${message}">Ocurrió un error.</p>
+        <div class="alert err" th:if="${status}">
+            Código: <b th:text="${status}">500</b>
         </div>
-    </main>
+    </div>
+
+    <p style="color:var(--muted); font-size:13px;" th:if="${errorId}">
+        Código de referencia: <b th:text="${errorId}">ABC123</b>
+    </p>
+
 </div>
+
 </body>
 </html>
