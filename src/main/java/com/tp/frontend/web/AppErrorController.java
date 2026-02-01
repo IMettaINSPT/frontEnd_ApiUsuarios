@@ -34,6 +34,6 @@ public class AppErrorController implements ErrorController {
         }
         Object errorId = request.getAttribute("ERROR_ID");
         model.addAttribute("errorId", errorId);
-        return "error"; // templates/error.html
+        return "error/error"; // templates/error.html
     }
 }
