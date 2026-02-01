@@ -13,23 +13,10 @@
         </div>
     </div>
 
-    <div class="grid" style="margin-top:16px;">
-        <a class="card" href="/menu">
-            <div>
-                <h3>Volver al menú</h3>
-                <p>Retornar al inicio y elegir otra opción.</p>
-            </div>
-            <div class="go">Ir →</div>
-        </a>
+    <p style="color:var(--muted); font-size:13px;" th:if="${errorId}">
+        Código de referencia: <b th:text="${errorId}">ABC123</b>
+    </p>
 
-        <a class="card" href="/login">
-            <div>
-                <h3>Ir al login</h3>
-                <p>Si tu sesión expiró, volvé a iniciar sesión.</p>
-            </div>
-            <div class="go">Ir →</div>
-        </a>
-    </div>
 </div>
 
 </body>
