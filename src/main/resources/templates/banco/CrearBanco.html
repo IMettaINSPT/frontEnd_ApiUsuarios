@@ -1,36 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Crear banco')}"></head>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Crear Banco</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}"/>
+</head>
 <body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<main class="container" style="max-width:720px;margin-top:32px;">
+    <h1>Crear Banco</h1>
 
-<div class="container">
-    <div class="hero">
-        <h1>Nuevo banco</h1>
-        <p>Alta de banco (solo ADMIN).</p>
-    </div>
+    <form th:action="@{/bancos}" th:object="${form}" method="post" data-validate novalidate>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
-        <div class="card">
-            <form th:action="@{/bancos}" th:object="${form}" method="post">
-                <div style="display:grid; gap:14px;">
-                    <div>
-                        <label><b>Código</b></label>
-                        <input class="input" type="text" th:field="*{codigo}">
-                    </div>
-                    <div>
-                        <label><b>Domicilio central</b></label>
-                        <input class="input" type="text" th:field="*{domicilioCentral}">
-                    </div>
-                </div>
-
-                <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top:18px;">
-                    <a class="btn" th:href="@{/bancos}">Cancelar</a>
-                    <button class="btn btn-primary" type="submit">Crear</button>
-                </div>
-            </form>
+        <div th:if="${#fields.hasGlobalErrors()}" class="alert alert-danger">
+            <ul style="margin:0;">
+                <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
+            </ul>
         </div>
-    </div>
-</div>
+
+        <div class="mb-3">
+            <label for="codigo" class="form-label">Código</label>
+            <input id="codigo" type="text" th:field="*{codigo}" required minlength="1" maxlength="20"
+                   class="form-control"
+                   th:classappend="${#fields.hasErrors('codigo')} ? 'is-invalid' : ''"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
+            <div class="invalid-feedback" th:if="${!#fields.hasErrors('codigo')}">El código es obligatorio.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="domicilioCentral" class="form-label">Domicilio Central</label>
+            <input id="domicilioCentral" type="text" th:field="*{domicilioCentral}" required minlength="1" maxlength="120"
+                   class="form-control"
+                   th:classappend="${#fields.hasErrors('domicilioCentral')} ? 'is-invalid' : ''"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('domicilioCentral')}" th:errors="*{domicilioCentral}"></div>
+            <div class="invalid-feedback" th:if="${!#fields.hasErrors('domicilioCentral')}">El domicilio es obligatorio.</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" data-submit>Guardar</button>
+        <a class="btn btn-secondary" th:href="@{/bancos}">Cancelar</a>
+    </form>
+</main>
+
+<script th:src="@{/js/form-validation.js}"></script>
 </body>
 </html>

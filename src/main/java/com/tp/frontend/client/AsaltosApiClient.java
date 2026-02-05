@@ -1,65 +1,82 @@
 package com.tp.frontend.client;
 
-import com.tp.frontend.config.FrontendProperties;
-import com.tp.frontend.dto.Asalto.AsaltoRequest;
-import com.tp.frontend.dto.Asalto.AsaltoResponse;
-import com.tp.frontend.dto.Asalto.AsaltoUpdate;
+import com.tp.frontend.dto.Asalto.*;
+import com.tp.frontend.dto.Error.ApiError;
+import com.tp.frontend.exception.ApiErrorException;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class AsaltosApiClient extends BaseApiClient {
 
-    public AsaltosApiClient(RestTemplate restTemplate, FrontendProperties props) {
-        super(restTemplate, props);
+    public AsaltosApiClient(WebClient webClient) {
+        super(webClient);
     }
 
-    public List<AsaltoResponse> list(String jwt) {
-        return get("/api/asaltos", jwt, new ParameterizedTypeReference<List<AsaltoResponse>>() {});
-    }
-
-    public List<AsaltoResponse> search(String jwt,
-                                       Long sucursalId,
-                                       LocalDate fecha,
-                                       LocalDate desde,
-                                       LocalDate hasta) {
-
-        List<String> params = new ArrayList<>();
-
-        if (sucursalId != null) params.add("sucursalId=" + sucursalId);
-        if (fecha != null) params.add("fecha=" + enc(fecha.toString()));
-        if (desde != null) params.add("desde=" + enc(desde.toString()));
-        if (hasta != null) params.add("hasta=" + enc(hasta.toString()));
-
-        String path = "/api/asaltos" + (params.isEmpty() ? "" : "?" + String.join("&", params));
-
-        return get(path, jwt, new ParameterizedTypeReference<List<AsaltoResponse>>() {});
-    }
-
-    private String enc(String v) {
-        return URLEncoder.encode(v, StandardCharsets.UTF_8);
-    }
-
-    public AsaltoResponse getById(String jwt, Long id) {
-        return get("/api/asaltos/" + id, jwt, AsaltoResponse.class);
-    }
-
-    public AsaltoResponse create(String jwt, AsaltoRequest dto) {
-        return post("/api/asaltos", dto, jwt, AsaltoResponse.class);
-    }
-
-    public AsaltoResponse update(String jwt, Long id, AsaltoUpdate dto) {
-        return put("/api/asaltos/" + id, dto, jwt, AsaltoResponse.class);
+    public AsaltoResponse create(String jwt, AsaltoRequest req) {
+        return post("/asaltos", jwt, req, AsaltoResponse.class);
     }
 
     public void delete(String jwt, Long id) {
-        delete("/api/asaltos/" + id, jwt);
+        delete("/asaltos" + id, jwt);
+    }
+    public AsaltoResponse update(String jwt, Long id, AsaltoUpdate req) {
+        return put("/asaltos/" + id, jwt, req, AsaltoResponse.class);
+    }
+
+    public AsaltoResponse getById(String jwt, Long id) {
+        return get("/asaltos/" + id, jwt, AsaltoResponse.class);
+    }
+
+    public List<AsaltoResponse> search(
+            String jwt,
+            Long sucursalId,
+            LocalDate fecha,
+            LocalDate desde,
+            LocalDate hasta
+    ) {
+        return webClient.get()
+                .uri(uriBuilder -> {
+                    var ub = uriBuilder.path("/asaltos");
+                    if (sucursalId != null) {
+                        ub.queryParam("sucursalId", sucursalId);
+                    }
+                    if (fecha != null) {
+                        ub.queryParam("fecha", fecha);
+                    }
+                    if (desde != null) {
+                        ub.queryParam("desde", desde);
+                    }
+                    if (hasta != null) {
+                        ub.queryParam("hasta", hasta);
+                    }
+
+                    return ub.build();
+                })
+                .headers(h -> applyAuth(h, jwt))
+                .retrieve()
+                .onStatus(s -> s.is4xxClientError() || s.is5xxServerError(),
+                        resp -> resp.bodyToMono(ApiError.class)
+                                .defaultIfEmpty(new ApiError())
+                                .flatMap(err -> Mono.error(
+                                        new ApiErrorException(err, resp.statusCode().value())
+                                ))
+                )
+                .bodyToMono(new ParameterizedTypeReference<List<AsaltoResponse>>() {})
+                .block();
+    }
+
+
+    public List<AsaltoResponse> list(String jwt) {
+        return getList(
+                "/asaltos",
+                jwt,
+                new ParameterizedTypeReference<List<AsaltoResponse>>() {}
+        );
     }
 }

@@ -20,7 +20,7 @@ public class AsaltoService {
 
     public List<AsaltoResponse> list(String jwt) { return api.list(jwt); }
 
-    public List<AsaltoResponse> search(String jwt, Long sucursalId, LocalDate fecha, LocalDate desde, LocalDate hasta) {
+    public List<AsaltoResponse> reporte(String jwt, Long sucursalId, LocalDate fecha, LocalDate desde, LocalDate hasta) {
         return api.search(jwt, sucursalId, fecha, desde, hasta);
     }
 

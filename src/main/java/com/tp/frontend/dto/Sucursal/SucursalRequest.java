@@ -1,9 +1,18 @@
 package com.tp.frontend.dto.Sucursal;
-public class SucursalRequest {
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+public class SucursalRequest {
+    @NotBlank(message="El codigo es obligatoria")
     private String codigo;
+    @NotBlank(message="El codigo es obligatoria")
     private String domicilio;
+
+    @NotNull(message="El codigo es obligatoria")
     private Integer nroEmpleados;
+
+    @NotNull(message="El banco es obligatoria")
     private Long bancoId;
 
     public String getCodigo() {

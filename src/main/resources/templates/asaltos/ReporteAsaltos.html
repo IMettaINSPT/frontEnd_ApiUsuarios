@@ -10,20 +10,21 @@
         <p>Buscá por sucursal y/o rango de fechas.</p>
     </div>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
+    <div class="grid grid-1">
         <div class="card">
 
-            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+            <div class="row row-between row-top gap-16">
                 <div>
                     <h3>Filtros</h3>
-                    <p class="muted">Podés usar fecha exacta o rango (desde/hasta). Si ponés todo, el backend decide la prioridad.</p>
+                    <p class="muted">Podés usar fecha exacta o rango (desde/hasta).</p>
                 </div>
-                <div style="display:flex; gap:10px;">
+                <div class="row gap-10">
                     <a class="btn" th:href="@{/asaltos}">Volver a listado</a>
                 </div>
             </div>
 
-            <form method="get" th:action="@{/asaltos/reporte}" style="margin-top: 14px; display:grid; gap:14px;">
+            <form method="get" th:action="@{/asaltos/reporte}" class="mt-14 stack gap-14">
+
                 <div>
                     <label><b>Sucursal</b></label>
                     <select class="input" name="sucursalId">
@@ -31,11 +32,12 @@
                         <option th:each="s : ${sucursales}"
                                 th:value="${s.id}"
                                 th:selected="${filterSucursalId != null and filterSucursalId == s.id}"
-                                th:text="${s.codigo + ' - ' + s.domicilio + ' (ID ' + s.id + ')'}"></option>
+                                th:text="${s.codigo + ' - ' + s.domicilio}">
+                        </option>
                     </select>
                 </div>
 
-                <div style="display:grid; grid-template-columns: repeat(3, minmax(180px, 1fr)); gap:12px;">
+                <div class="grid grid-2">
                     <div>
                         <label><b>Fecha exacta</b></label>
                         <input class="input" type="date" name="fecha" th:value="${filterFecha}">
@@ -50,19 +52,18 @@
                     </div>
                 </div>
 
-                <div class="go" style="display:flex; justify-content:flex-end; gap:10px;">
+                <div class="go go-right gap-10">
                     <a class="btn" th:href="@{/asaltos/reporte}">Limpiar</a>
                     <button class="btn btn-primary" type="submit">Buscar</button>
                 </div>
             </form>
 
-            <div style="margin-top: 18px;">
+            <div class="mt-18">
                 <h3>Resultados</h3>
 
-                <table class="table" style="margin-top: 10px;">
+                <table class="mt-16">
                     <thead>
                     <tr>
-                        <th style="width:90px;">ID</th>
                         <th>Fecha</th>
                         <th>Sucursal</th>
                         <th>Persona detenida</th>
@@ -70,21 +71,22 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="a : ${items}">
-                        <td th:text="${a.id}">1</td>
+                    <tr th:each="a : ${items}"
+                        th:with="s=${sucursalesMap[a.sucursalId]}, p=${personasMap[a.personaDetenidaId]}">
                         <td th:text="${a.fechaAsalto}">2026-01-01</td>
 
-                        <td th:with="s=${sucursalesMap[a.sucursalId]}"
-                            th:text="${s != null ? (s.codigo + ' - ' + s.domicilio) : ('ID ' + a.sucursalId)}"></td>
+                        <td th:text="${s != null ? (s.codigo + ' - ' + s.domicilio) : '(sucursal no disponible)'}"></td>
 
-                        <td th:with="p=${personasMap[a.personaDetenidaId]}"
-                            th:text="${p.banda != null ? 'Banda #' + p.banda.numeroBanda : 'Sin banda'}"></td>
+                        <td>
+                            <span th:text="${p != null ? (p.codigo + ' - ' + p.nombre) : '(persona no disponible)'}"></span>
+                            <span th:if="${p != null}"> • <span th:text="${p.banda != null ? 'Banda #' + p.banda.numeroBanda : 'Sin banda'}"></span></span>
+                        </td>
 
                         <td><a class="btn" th:href="@{/asaltos/{id}(id=${a.id})}">Ver</a></td>
                     </tr>
 
                     <tr th:if="${items == null or #lists.isEmpty(items)}">
-                        <td colspan="5" class="muted">No hay resultados para esos filtros.</td>
+                        <td colspan="4" class="muted">No hay resultados para esos filtros.</td>
                     </tr>
                     </tbody>
                 </table>

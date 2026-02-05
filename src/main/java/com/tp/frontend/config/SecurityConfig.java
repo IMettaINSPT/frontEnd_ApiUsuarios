@@ -3,38 +3,87 @@ package com.tp.frontend.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@EnableWebSecurity
+@EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 
     @Bean
-    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        http.csrf(AbstractHttpConfigurer::disable);
+        http
+                // ---------------------------------
+                // CSRF
+                // ---------------------------------
+                .csrf(csrf -> csrf.disable()) // OK para MVC + API backend separado
 
-        http.authorizeHttpRequests(auth -> auth
-                .requestMatchers("/login", "/do-login", "/css/**", "/js/**").permitAll()
-                .requestMatchers("/vigilantes/me").hasRole("VIGILANTE")
-                .requestMatchers("/users/**").hasAnyRole("ADMIN", "INVESTIGADOR")
-                .anyRequest().authenticated()
-        );
+                // ---------------------------------
+                // AUTORIZACIÓN
+                // ---------------------------------
+                .authorizeHttpRequests(auth -> auth
+                        // Públicos
+                        .requestMatchers(
+                                "/login",
+                                "/logout-success",
+                                "/error",
+                                "/css/**",
+                                "/js/**",
+                                "/images/**",
+                                "/favicon.ico"
+                        ).permitAll()
 
-        // Si alguien no autenticado entra a /menu o cualquier ruta:
-        http.exceptionHandling(ex -> ex
-                .authenticationEntryPoint((req, res, e) -> res.sendRedirect("/login"))
-        );
+                        // Perfil propio
+                        .requestMatchers("/users/me").authenticated()
 
-        http.logout(logout -> logout
-                .logoutUrl("/logout")
-                .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID")
-                .logoutSuccessUrl("/login?logout")
-        );
+                        // Administración
+                        .requestMatchers("/users/**").hasRole("ADMIN")
 
-        http.headers(headers -> headers.cacheControl(Customizer.withDefaults()));
+                        // Todo lo demás requiere login
+                        .anyRequest().authenticated()
+                )
+
+                // ---------------------------------
+                // LOGIN
+                // ---------------------------------
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .loginProcessingUrl("/login")
+                        .defaultSuccessUrl("/", true)
+                        .failureUrl("/login?error")
+                        .permitAll()
+                )
+
+                // ---------------------------------
+                // LOGOUT
+                // ---------------------------------
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login?logout")
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
+                        .permitAll()
+                )
+
+                // ---------------------------------
+                // SESIÓN
+                // ---------------------------------
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+                )
+
+                // ---------------------------------
+                // ACCESO DENEGADO (opcional, PRO)
+                // ---------------------------------
+                .exceptionHandling(ex -> ex
+                        .accessDeniedPage("/") // o "/error/403" si querés
+                );
 
         return http.build();
     }

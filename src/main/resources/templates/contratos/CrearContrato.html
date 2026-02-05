@@ -1,85 +1,84 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Crear contrato')}"></head>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Crear Contrato</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}"/>
+</head>
 <body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<main class="container" style="max-width:720px;margin-top:32px;">
+    <h1>Crear Contrato</h1>
 
-<div class="container">
-    <div class="hero">
-        <h1>Nuevo contrato</h1>
-        <p>Alta de contratación (solo ADMIN).</p>
-    </div>
+    <form th:action="@{/contratos}" th:object="${form}" method="post" data-validate novalidate>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
-        <div class="card">
-            <form th:action="@{/contratos}" th:object="${form}" method="post">
-                <div style="display:grid; gap:14px;">
-
-                    <div>
-                        <label><b>Fecha contrato</b></label>
-                        <input class="input" type="date" th:field="*{fechaContrato}">
-                    </div>
-
-                    <div style="display:flex; align-items:center; gap:10px;">
-                        <input type="checkbox" th:field="*{conArma}">
-                        <label><b>Contratado con arma</b></label>
-                    </div>
-
-                    <!-- Vigilante -->
-                    <div id="vigilanteBlock">
-                        <label style="display:block; font-weight:800; margin-bottom:6px;" for="vigilanteId">
-                            Vigilante a asociar
-                        </label>
-
-                        <select class="input"
-                                id="vigilanteId"
-                                th:field="*{vigilanteId}">
-                            <option value="">-- Seleccionar vigilante --</option>
-                            <option th:each="v : ${vigilantesDisponibles}"
-                                    th:value="${v.id}"
-                                    th:text="|Código: ${v.codigo}|">
-                            </option>
-                        </select>
-
-                        <div class="alert err" style="margin-top:10px;" th:if="${!hayVigilantesDisponibles}">
-                            No hay vigilantes disponibles para asociar.
-                        </div>
-                    </div>
-
-                    <!-- Sucursal -->
-                    <div id="sucursalBlock">
-                        <label style="display:block; font-weight:800; margin-bottom:6px;" for="sucursalId">
-                            Sucursal a asociar
-                        </label>
-
-                        <select class="input"
-                                id="sucursalId"
-                                th:field="*{sucursalId}">
-                            <option value="">-- Seleccionar sucursal --</option>
-                            <option th:each="s : ${sucursalesDisponibles}"
-                                    th:value="${s.id}"
-                                    th:text="|Domicilio: ${s.domicilio}|">
-                            </option>
-                        </select>
-
-                        <div class="alert err" style="margin-top:10px;" th:if="${!haySucursalesDisponibles}">
-                            No hay sucursales disponibles para asociar.
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top:18px;">
-                    <a class="btn" th:href="@{/contratos}">Cancelar</a>
-                    <button class="btn btn-primary" type="submit"
-                            th:disabled="${!hayVigilantesDisponibles or !haySucursalesDisponibles}">
-                        Crear
-                    </button>
-                </div>
-            </form>
+        <div th:if="${#fields.hasGlobalErrors()}" class="alert alert-danger">
+            <ul style="margin:0;">
+                <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
+            </ul>
         </div>
-    </div>
-</div>
 
+        <div class="mb-3">
+            <label for="fechaContrato" class="form-label">Fecha</label>
+            <input id="fechaContrato" type="date" th:field="*{fechaContrato}" required
+                   class="form-control"
+                   th:classappend="${#fields.hasErrors('fechaContrato')} ? 'is-invalid' : ''"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('fechaContrato')}" th:errors="*{fechaContrato}"></div>
+            <div class="invalid-feedback" th:if="${!#fields.hasErrors('fechaContrato')}">La fecha es obligatoria.</div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">¿Con arma?</label>
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="radio"
+                       th:field="*{conArma}"
+                       id="conArmaSi"
+                       value="true" required>
+                <label class="form-check-label" for="conArmaSi">Sí</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="radio"
+                       th:field="*{conArma}"
+                       id="conArmaNo"
+                       value="false" required>
+                <label class="form-check-label" for="conArmaNo">No</label>
+            </div>
+
+            <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('conArma')}" th:errors="*{conArma}"></div>
+            <div class="invalid-feedback d-none"></div>
+        </div>
+
+        <div class="mb-3">
+            <label for="sucursalId" class="form-label">Sucursal</label>
+            <select id="sucursalId" th:field="*{sucursalId}" required
+                    class="form-select"
+                    th:classappend="${#fields.hasErrors('sucursalId')} ? 'is-invalid' : ''">
+                <option value="" selected>-- Seleccionar --</option>
+                <option th:each="s : ${sucursales}" th:value="${s.id}" th:text="${s.codigo}"></option>
+            </select>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('sucursalId')}" th:errors="*{sucursalId}"></div>
+            <div class="invalid-feedback" th:if="${!#fields.hasErrors('sucursalId')}">Seleccioná una sucursal.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="vigilanteId" class="form-label">Vigilante</label>
+            <select id="vigilanteId" th:field="*{vigilanteId}" required
+                    class="form-select"
+                    th:classappend="${#fields.hasErrors('vigilanteId')} ? 'is-invalid' : ''">
+                <option value="" selected>-- Seleccionar --</option>
+                <option th:each="v : ${vigilantes}" th:value="${v.id}" th:text="${v.codigo}"></option>
+            </select>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('vigilanteId')}" th:errors="*{vigilanteId}"></div>
+            <div class="invalid-feedback" th:if="${!#fields.hasErrors('vigilanteId')}">Seleccioná un vigilante.</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" data-submit>Guardar</button>
+        <a class="btn btn-secondary" th:href="@{/contratos}">Cancelar</a>
+    </form>
+</main>
+
+<script th:src="@{/js/form-validation.js}"></script>
 </body>
 </html>

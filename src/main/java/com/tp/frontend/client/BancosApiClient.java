@@ -1,39 +1,39 @@
 package com.tp.frontend.client;
 
-import com.tp.frontend.config.FrontendProperties;
-import com.tp.frontend.dto.Banco.BancoRequest;
-import com.tp.frontend.dto.Banco.BancoResponse;
-import com.tp.frontend.dto.Banco.BancoUpdate;
+import com.tp.frontend.dto.Banco.*;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
 
 @Component
 public class BancosApiClient extends BaseApiClient {
 
-    public BancosApiClient(RestTemplate restTemplate, FrontendProperties props) {
-        super(restTemplate, props);
+    public BancosApiClient(WebClient webClient) {
+        super(webClient);
     }
 
-    public List<BancoResponse> list(String jwt) {
-        return get("/api/bancos", jwt, new ParameterizedTypeReference<List<BancoResponse>>() {});
-    }
-
-    public BancoResponse getById(String jwt, Long id) {
-        return get("/api/bancos/" + id, jwt, BancoResponse.class);
-    }
-
-    public BancoResponse create(String jwt, BancoRequest dto) {
-        return post("/api/bancos", dto, jwt, BancoResponse.class);
-    }
-
-    public BancoResponse update(String jwt, Long id, BancoUpdate dto) {
-        return put("/api/bancos/" + id, dto, jwt, BancoResponse.class);
+    public BancoResponse create(String jwt, BancoRequest req) {
+        return post("/bancos", jwt, req, BancoResponse.class);
     }
 
     public void delete(String jwt, Long id) {
-        delete("/api/bancos/" + id, jwt);
+        delete("/bancos" + id, jwt);
+    }
+    public BancoResponse update(String jwt, Long id, BancoUpdate req) {
+        return put("/bancos/"+ id, jwt, req, BancoResponse.class);
+    }
+
+    public BancoResponse getById(String jwt, Long id) {
+        return get("/bancos/" + id, jwt, BancoResponse.class);
+    }
+
+    public List<BancoResponse> list(String jwt) {
+        return getList(
+                "/bancos",
+                jwt,
+                new ParameterizedTypeReference<List<BancoResponse>>() {}
+        );
     }
 }

@@ -1,104 +1,97 @@
-<!DOCTYPE html>
-<html lang="es"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments/layout :: head('Nuevo usuario')}"></head>
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Alta Usuario')}"></head>
 
 <body>
 <div th:replace="~{fragments/header :: topbar}"></div>
 
-<div class="container" style="max-width: 720px;">
-
+<main class="container" style="max-width:720px;margin-top:32px;">
     <div class="hero">
-        <h1>Crear usuario</h1>
-        <p>Disponible solo para <b>ADMIN</b>.</p>
+        <h1>Alta Usuario</h1>
+        <p>Crear usuario (ADMIN).</p>
     </div>
 
-    <div class="card" style="margin-top: 14px;">
-        <form th:action="@{/users}" method="post">
+    <div class="card mt-14">
 
-            <div style="display:grid; gap:12px;">
+        <form th:action="@{/users}" th:object="${form}" method="post" data-validate novalidate>
+
+            <div th:if="${#fields.hasGlobalErrors()}" class="alert err">
+                <ul class="list">
+                    <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
+                </ul>
+            </div>
+
+            <div class="stack gap-14">
+
                 <div>
-                    <label style="display:block; font-weight:800; margin-bottom:6px;">Usuario</label>
-                    <input type="text" name="username" required
-                           placeholder="Ej: juan"
-                           style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); color: var(--text); outline:none;">
+                    <label class="label" for="username">Usuario</label>
+                    <input id="username" class="input" type="text" th:field="*{username}" required minlength="3" maxlength="50"
+                           th:classappend="${#fields.hasErrors('username')} ? ' is-invalid' : ''"/>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+                    <div class="invalid-feedback" th:if="${!#fields.hasErrors('username')}">El usuario es obligatorio.</div>
                 </div>
 
                 <div>
-                    <label style="display:block; font-weight:800; margin-bottom:6px;">Contraseña</label>
-                    <input type="password" name="password" required
-                           placeholder="••••••••"
-                           style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); color: var(--text); outline:none;">
+                    <label class="label" for="password">Contraseña</label>
+                    <input id="password" class="input" type="password" th:field="*{password}" required minlength="4" maxlength="80"
+                           th:classappend="${#fields.hasErrors('password')} ? ' is-invalid' : ''"/>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                    <div class="invalid-feedback" th:if="${!#fields.hasErrors('password')}">La contraseña es obligatoria.</div>
                 </div>
 
                 <div>
-                    <label style="display:block; font-weight:800; margin-bottom:6px;">Tipo</label>
-                    <label for="rol"></label><select id="rol" name="tipo" required onchange="onRolChange()"
-                                                     style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); color: var(--text); outline:none;">
+                    <label class="label" for="tipo">Tipo</label>
+                    <select id="tipo" class="input" th:field="*{tipo}" required
+                            th:classappend="${#fields.hasErrors('tipo')} ? ' is-invalid' : ''">
+                        <option value="" selected>-- Seleccionar --</option>
                         <option value="ADMIN">ADMIN</option>
                         <option value="INVESTIGADOR">INVESTIGADOR</option>
                         <option value="VIGILANTE">VIGILANTE</option>
                     </select>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('tipo')}" th:errors="*{tipo}"></div>
+                    <div class="invalid-feedback" th:if="${!#fields.hasErrors('tipo')}">Seleccioná un tipo.</div>
                 </div>
 
-                <!-- Solo aplica si rol = VIGILANTE -->
-                <div id="vigilanteBlock" style="display:none;">
-                    <label style="display:block; font-weight:800; margin-bottom:6px;">Vigilante a asociar</label>
-                    <label for="vigilanteId"></label><select id="vigilanteId" name="vigilanteId"
-                                                             style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.18); color: var(--text); outline:none;">
-                        <option value="">-- Seleccionar vigilante --</option>
-                        <option th:each="v : ${vigilantesDisponibles}"
-                                th:value="${v.id}"
-                                th:text="${v.codigo + ' (edad ' + v.edad + ')'}">
-                        </option>
+                <div>
+                    <label class="label" for="vigilanteId">Vigilante asociado</label>
+                    <select id="vigilanteId" class="input" th:field="*{vigilanteId}"
+                            th:classappend="${#fields.hasErrors('vigilanteId')} ? ' is-invalid' : ''">
+                        <option value="" selected>-- Seleccionar --</option>
+                        <option th:each="v : ${vigilantes}" th:value="${v.id}" th:text="${v.codigo}"></option>
                     </select>
-
-                    <div class="alert err" style="margin-top:10px;" th:if="${!hayVigilantesDisponibles}">
-                        No hay vigilantes disponibles para asociar. Creá un vigilante primero o liberá uno existente.
-                    </div>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('vigilanteId')}" th:errors="*{vigilanteId}"></div>
+                    <div class="invalid-feedback" id="vigilanteHelp">Solo es obligatorio si el tipo es VIGILANTE.</div>
                 </div>
 
-                <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:6px;">
-                    <button id="submitBtn" class="btn btn-primary" type="submit">Crear</button>
-                    <a class="btn" href="/users">Cancelar</a>
-                </div>
             </div>
 
+            <div class="go go-right gap-10 mt-18">
+                <button type="submit" class="btn btn-primary" data-submit>Guardar</button>
+                <a class="btn" th:href="@{/users}">Cancelar</a>
+            </div>
         </form>
+
     </div>
+</main>
 
-    <script th:inline="javascript">
-        const hayVigilantes = /*[[${hayVigilantesDisponibles}]]*/ false;
+<script th:src="@{/js/form-validation.js}"></script>
+<script>
+    (function () {
+        const tipo = document.getElementById('tipo');
+        const vigilante = document.getElementById('vigilanteId');
+        const help = document.getElementById('vigilanteHelp');
 
-        function onRolChange() {
-            const rol = document.getElementById('rol')?.value;
-            const block = document.getElementById('vigilanteBlock');
-            const vigilanteSelect = document.getElementById('vigilanteId');
-            const submitBtn = document.getElementById('submitBtn');
-
-            if (!rol || !block || !vigilanteSelect || !submitBtn) return;
-
-            if (rol === 'VIGILANTE') {
-                block.style.display = 'block';
-                if (!hayVigilantes) {
-                    vigilanteSelect.disabled = true;
-                    submitBtn.disabled = true;
-                } else {
-                    vigilanteSelect.disabled = false;
-                    submitBtn.disabled = false;
-                }
-            } else {
-                block.style.display = 'none';
-                vigilanteSelect.value = '';
-                vigilanteSelect.disabled = true;
-                submitBtn.disabled = false;
-            }
+        function sync() {
+            const isVig = (tipo.value || '').toUpperCase() === 'VIGILANTE';
+            vigilante.required = isVig;
+            vigilante.disabled = !isVig;
+            if (!isVig) vigilante.value = '';
+            help.style.display = isVig ? 'none' : 'block';
         }
 
-        window.addEventListener('DOMContentLoaded', () => onRolChange());
-    </script>
-
-</div>
+        tipo.addEventListener('change', sync);
+        sync();
+    })();
+</script>
 </body>
 </html>

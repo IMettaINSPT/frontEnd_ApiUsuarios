@@ -1,23 +1,19 @@
 package com.tp.frontend.dto.Asalto;
 
+import jakarta.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
-public class AsaltoUpdate {
+public record AsaltoUpdate(
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    private LocalDate fechaAsalto;
+    @NotNull(message="La fecha es obligatoria")
+     LocalDate fechaAsalto,
 
-    private Long sucursalId;
-    private Long personaDetenidaId;
+    @NotNull(message="La sucursal es obligatorio")
+     Long sucursalId,
 
-    public LocalDate getFechaAsalto() { return fechaAsalto; }
-    public void setFechaAsalto(LocalDate fechaAsalto) { this.fechaAsalto = fechaAsalto; }
-
-    public Long getSucursalId() { return sucursalId; }
-    public void setSucursalId(Long sucursalId) { this.sucursalId = sucursalId; }
-
-    public Long getPersonaDetenidaId() { return personaDetenidaId; }
-    public void setPersonaDetenidaId(Long personaDetenidaId) { this.personaDetenidaId = personaDetenidaId; }
-}
+    @NotNull(message="La persona detenida es obligatorio")
+     Long personaDetenidaId
+){}

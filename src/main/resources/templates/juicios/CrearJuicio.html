@@ -1,71 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Crear juicio')}"><title>""</title></head>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Alta Juicio</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}"/>
+</head>
 <body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<main class="container" style="max-width:720px;margin-top:32px;">
+    <h1>Alta Juicio</h1>
 
-<div class="container">
-    <div class="hero">
-        <h1>Nuevo juicio</h1>
-        <p>Alta de juicio (solo ADMIN).</p>
-    </div>
+    <form th:action="@{/juicios}" th:object="${form}" method="post" data-validate novalidate>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
-        <div class="card">
-            <form th:action="@{/juicios}" th:object="${form}" method="post">
-                <div style="display:grid; gap:14px;">
-                    <div>
-                        <label><b>Fecha</b></label>
-                        <input class="input" type="date" th:field="*{fecha}">
-                    </div>
-
-                    <div>
-                        <label><b>Resultado</b></label>
-                        <select class="input" th:field="*{resultado}">
-                            <option value="" disabled selected>Seleccione…</option>
-                            <option th:each="r : ${resultados}" th:value="${r}" th:text="${r}"></option>
-                        </select>
-                    </div>
-
-                    <div id="juezBlock">
-                        <label style="display:block; font-weight:800; margin-bottom:6px;">Juez a asociar</label>
-                        <label for="juezId"></label><select id="juezId" name="juezId"
-                                                            style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid #444; background:#2b2b2b; color: var(--text); outline:none;">
-                            <option value="">-- Seleccionar vigilante --</option>
-                            <option th:each="v : ${juecesDisponibles}"
-                                    th:value="${v.id}"
-                                    th:text="${v.codigo + ' (nombre y apellido ' + v.nombre + ' - '+ v.apellido +')'}">
-                            </option>
-                        </select>
-
-                        <div class="alert err" style="margin-top:10px;" th:if="${!hayJuecesDisponibles}">
-                            No hay jueces disponibles para asociar. Creá un juez primero.
-                        </div>
-                    </div>
-
-                    <div id="personaDetenidaBlock" >
-                        <label style="display:block; font-weight:800; margin-bottom:6px;">Vigilante a asociar</label>
-                        <select id="personaDetenidaId" name="personaDetenidaId"
-                                style="width:100%; padding:10px 12px; border-radius:10px; border:1px solid #444; background:#2b2b2b; color: var(--text); outline:none;">
-                            <option value="">-- Seleccionar vigilante --</option>
-                            <option th:each="v : ${personasDetenidaDisponibles}"
-                                    th:value="${v.id}"
-                                    th:text="${v.codigo + ' (nombre ' + v.nombre + ')'}">
-                            </option>
-                        </select>
-
-                        <div class="alert err" style="margin-top:10px;" th:if="${!hayPersonasDetenidaDisponibles}">
-                            No hay personas Detenidas disponibles para asociar. Creá una personas detenida.
-                        </div>
-                    </div>
-
-                <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top:18px;">
-                    <a class="btn" th:href="@{/juicios}">Cancelar</a>
-                    <button class="btn btn-primary" type="submit">Crear</button>
-                </div>
-            </form>
+        <div th:if="${#fields.hasGlobalErrors()}" class="alert alert-danger">
+            <ul style="margin:0;">
+                <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
+            </ul>
         </div>
-    </div>
-</div>
+
+        <div class="mb-3">
+            <label for="fecha" class="form-label">Fecha</label>
+            <input id="fecha" type="date" th:field="*{fecha}" required
+                   class="form-control"
+                   th:classappend="${#fields.hasErrors('fecha')} ? 'is-invalid' : ''"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></div>
+            <div class="invalid-feedback" th:if="${!#fields.hasErrors('fecha')}">La fecha es obligatoria.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="resultado" class="form-label">Resultado</label>
+            <input id="resultado" type="text" th:field="*{resultado}" required minlength="2" maxlength="50"
+                   class="form-control"
+                   th:classappend="${#fields.hasErrors('resultado')} ? 'is-invalid' : ''"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('resultado')}" th:errors="*{resultado}"></div>
+            <div class="invalid-feedback" th:if="${!#fields.hasErrors('resultado')}">El resultado es obligatorio.</div>
+            <!-- Si querés evitar typos, cambiá a un <select> con opciones (CONDENADO/ABSULTO/EN_PROCESO) -->
+        </div>
+
+        <div class="mb-3">
+            <label for="juezId" class="form-label">Juez</label>
+            <select id="juezId" th:field="*{juezId}" required
+                    class="form-select"
+                    th:classappend="${#fields.hasErrors('juezId')} ? 'is-invalid' : ''">
+                <option value="" selected>-- Seleccionar --</option>
+                <option th:each="j : ${jueces}" th:value="${j.id}" th:text="${j.nombre + ' ' + j.apellido}"></option>
+            </select>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('juezId')}" th:errors="*{juezId}"></div>
+            <div class="invalid-feedback" th:if="${!#fields.hasErrors('juezId')}">Seleccioná un juez.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="personaDetenidaId" class="form-label">Persona detenida</label>
+            <select id="personaDetenidaId" th:field="*{personaDetenidaId}" required
+                    class="form-select"
+                    th:classappend="${#fields.hasErrors('personaDetenidaId')} ? 'is-invalid' : ''">
+                <option value="" selected>-- Seleccionar --</option>
+                <option th:each="p : ${personasDetenidas}" th:value="${p.id}" th:text="${p.nombre}"></option>
+            </select>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('personaDetenidaId')}" th:errors="*{personaDetenidaId}"></div>
+            <div class="invalid-feedback" th:if="${!#fields.hasErrors('personaDetenidaId')}">Seleccioná una persona detenida.</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" data-submit>Guardar</button>
+        <a class="btn btn-secondary" th:href="@{/juicios}">Cancelar</a>
+    </form>
+</main>
+
+<script th:src="@{/js/form-validation.js}"></script>
 </body>
 </html>

@@ -1,62 +1,81 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments/layout :: head('Detalle juez')}"><title>""</title></head>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/layout :: head('Detalle Juez')}"></head>
+
 <body>
 <div th:replace="~{fragments/header :: topbar}"></div>
 
 <div class="container">
+
     <div class="hero">
         <h1>Juez</h1>
         <p>Detalle del juez. Edición solo ADMIN.</p>
     </div>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
+    <div class="grid grid-1">
         <div class="card">
 
-            <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
+            <div class="row row-between row-top gap-16">
                 <div>
-                    <h3 th:text="${item.codigo}">JZ-01</h3>
-                    <p class="muted">ID <span th:text="${item.id}">1</span></p>
+                    <h3 th:text="${item.codigo}">Codigo</h3>
+                    <p class="muted">Nombre <span th:text="${item.nombre}">ABC</span></p>
+                    <p class="muted">Apellido <span th:text="${item.apellido}">ABC</span></p>
                 </div>
 
-                <div style="display:flex; gap:10px; align-items:center;">
+                <div class="row gap-10">
                     <a class="btn" th:href="@{/jueces}">Volver</a>
                     <a class="btn btn-danger" sec:authorize="hasRole('ADMIN')"
-                       th:href="@{/jueces/{id}/confirm-delete(id=${item.id})}">Eliminar</a>
+                       th:href="@{/jueces/{id}/confirm-delete(id=${item.id})}">
+                        Eliminar
+                    </a>
                 </div>
             </div>
 
-            <div sec:authorize="!hasRole('ADMIN')" style="margin-top: 14px; display:grid; gap:10px;">
-                <div><b>Código:</b> <span th:text="${item.codigo}">JZ-01</span></div>
-                <div><b>Nombre:</b> <span th:text="${item.nombre}">Nombre</span></div>
-                <div><b>Apellido:</b> <span th:text="${item.apellido}">Apellido</span></div>
+            <!-- Errores globales -->
+            <div th:if="${#fields.hasGlobalErrors()}" class="alert err mt-14">
+                <ul class="list">
+                    <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
+                </ul>
             </div>
 
-            <div sec:authorize="hasRole('ADMIN')" style="margin-top: 14px;">
+            <!-- Solo lectura -->
+            <div sec:authorize="!hasRole('ADMIN')" class="stack mt-14 gap-10">
+                <div><b>Nombre:</b> <span th:text="${item.nombre}"></span></div>
+                <div><b>Matrícula:</b> <span th:text="${item.matricula}"></span></div>
+            </div>
+
+            <!-- Edición -->
+            <div sec:authorize="hasRole('ADMIN')" class="mt-14">
                 <form th:action="@{/jueces/{id}(id=${item.id})}" th:object="${update}" method="post">
-                    <div style="display:grid; gap:14px;">
-                        <div>
-                            <label><b>Código</b></label>
-                            <input class="input" type="text" th:field="*{codigo}">
-                        </div>
+
+                    <div class="stack gap-14">
                         <div>
                             <label><b>Nombre</b></label>
-                            <input class="input" type="text" th:field="*{nombre}">
+                            <input class="input" type="text" th:field="*{nombre}"
+                                   th:classappend="${#fields.hasErrors('nombre')} ? ' is-invalid' : ''">
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
                         </div>
+
                         <div>
-                            <label><b>Apellido</b></label>
-                            <input class="input" type="text" th:field="*{apellido}">
+                            <label><b>Matrícula</b></label>
+                            <input class="input" type="text" th:field="*{matricula}"
+                                   th:classappend="${#fields.hasErrors('matricula')} ? ' is-invalid' : ''">
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('matricula')}" th:errors="*{matricula}"></div>
                         </div>
                     </div>
 
-                    <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top: 18px;">
+                    <div class="go go-right mt-18">
                         <button class="btn btn-primary" type="submit">Guardar cambios</button>
                     </div>
+
                 </form>
             </div>
 
         </div>
     </div>
+
 </div>
 </body>
 </html>

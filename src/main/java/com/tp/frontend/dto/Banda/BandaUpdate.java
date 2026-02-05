@@ -1,12 +1,10 @@
 package com.tp.frontend.dto.Banda;
 
-public class BandaUpdate {
-    private Integer numeroBanda;
-    private Integer numeroMiembros;
+import jakarta.validation.constraints.NotNull;
 
-    public Integer getNumeroBanda() { return numeroBanda; }
-    public void setNumeroBanda(Integer numeroBanda) { this.numeroBanda = numeroBanda; }
+public record BandaUpdate (
+    @NotNull(message="El numero de banda es obligatoria")
+     Integer numeroBanda,
 
-    public Integer getNumeroMiembros() { return numeroMiembros; }
-    public void setNumeroMiembros(Integer numeroMiembros) { this.numeroMiembros = numeroMiembros; }
-}
+    @NotNull(message="El numero de miembros es obligatoria")
+     Integer numeroMiembros){}

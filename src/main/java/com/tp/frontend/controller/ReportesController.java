@@ -8,6 +8,8 @@ import com.tp.frontend.service.PersonaDetenidaService;
 import com.tp.frontend.service.SucursalService;
 import com.tp.frontend.web.SessionKeys;
 import jakarta.servlet.http.HttpSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +24,8 @@ import java.util.stream.Collectors;
 @Controller
 @RequestMapping("/reportes")
 public class ReportesController {
+
+    private static final Logger log = LoggerFactory.getLogger(ReportesController.class);
 
     private final AsaltoService asaltoService;
     private final SucursalService sucursalService;
@@ -42,8 +46,8 @@ public class ReportesController {
     @GetMapping
     public String index(HttpSession session, Model model) {
         String token = jwt(session);
+        log.info("GET /reportes");
 
-        // Últimos 5 asaltos por fecha
         List<AsaltoResponse> ultimosAsaltos = asaltoService.list(token).stream()
                 .sorted(Comparator.comparing(AsaltoResponse::getFechaAsalto).reversed())
                 .limit(5)

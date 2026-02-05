@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Confirmar borrado')}"><title>""</title></head>
+<head th:replace="~{fragments/layout :: head('Confirmar borrado')}"></head>
 <body>
 <div th:replace="~{fragments/header :: topbar}"></div>
 
@@ -10,11 +10,14 @@
         <p>Confirmación de borrado.</p>
     </div>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
+    <div class="grid grid-1">
         <div class="card">
-            <h3 th:text="${item.codigo}">PD-01</h3>
-            <form th:action="@{/sucursales/{id}/delete(id=${item.id})}" method="post" style="margin-top:16px;">
-                <div class="go" style="display:flex; justify-content:flex-end; gap:10px;">
+            <h3 th:text="${item.codigo}">SUC-01</h3>
+
+            <div th:if="${deleteError != null}" class="alert err mt-14" th:text="${deleteError}"></div>
+
+            <form th:action="@{/sucursales/{id}/delete(id=${item.id})}" method="post" class="mt-16">
+                <div class="go go-right gap-10">
                     <a class="btn" th:href="@{/sucursales/{id}(id=${item.id})}">Cancelar</a>
                     <button class="btn btn-danger" type="submit">Eliminar</button>
                 </div>

@@ -10,24 +10,24 @@
         <p>Listado general de asaltos.</p>
     </div>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
+    <div class="grid grid-1">
         <div class="card">
-            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+
+            <div class="row row-between row-top gap-16">
                 <div>
                     <h3>Listado</h3>
                     <p class="muted">Ver detalle para editar (ADMIN) o consultar.</p>
                 </div>
-                <div style="display:flex; gap:10px;">
+                <div class="row gap-10">
                     <a class="btn" th:href="@{/asaltos/reporte}">Reporte / Búsqueda</a>
                     <a class="btn btn-primary" sec:authorize="hasRole('ADMIN')" th:href="@{/asaltos/new}">+ Nuevo asalto</a>
                 </div>
             </div>
 
-            <div style="margin-top: 14px;">
-                <table class="table">
+            <div class="mt-14">
+                <table>
                     <thead>
                     <tr>
-                        <th style="width:90px;">ID</th>
                         <th>Fecha</th>
                         <th>Sucursal</th>
                         <th>Persona detenida</th>
@@ -35,33 +35,35 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="a : ${items}">
-                        <td th:text="${a.id}">1</td>
+                    <tr th:each="a : ${items}"
+                        th:with="s=${sucursalesMap[a.sucursalId]}, p=${personasMap[a.personaDetenidaId]}">
                         <td th:text="${a.fechaAsalto}">2026-01-01</td>
 
-                        <td th:with="s=${sucursalesMap[a.sucursalId]}"
-                            th:text="${s != null ? (s.codigo + ' - ' + s.domicilio) : ('ID ' + a.sucursalId)}">
+                        <td th:text="${s != null ? (s.codigo + ' - ' + s.domicilio) : '(sucursal no disponible)'}">
                             SUC-01
                         </td>
 
-                        <td th:with="p=${personasMap[a.personaDetenidaId]}"
-                            th:text="${p.banda != null ? 'Banda #' + p.banda.numeroBanda : 'Sin banda'}">
-                            PD-01 - Juan
+                        <td>
+                            <span th:text="${p != null ? (p.codigo + ' - ' + p.nombre) : '(persona no disponible)'}"></span>
+                            <span th:if="${p != null}"> • <span th:text="${p.banda != null ? 'Banda #' + p.banda.numeroBanda : 'Sin banda'}"></span></span>
                         </td>
 
-                        <td><a class="btn" th:href="@{/asaltos/{id}(id=${a.id})}">Ver</a></td>
+                        <td>
+                            <a class="btn" th:href="@{/asaltos/{id}(id=${a.id})}">Ver</a>
+                        </td>
                     </tr>
 
                     <tr th:if="${items == null or #lists.isEmpty(items)}">
-                        <td colspan="5" class="muted">No hay asaltos cargados.</td>
+                        <td colspan="4" class="muted">No hay asaltos cargados.</td>
                     </tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="go" style="display:flex; justify-content:flex-end; margin-top: 10px;">
+            <div class="go go-right mt-16">
                 <a class="btn" th:href="@{/}">Volver al menú</a>
             </div>
+
         </div>
     </div>
 </div>

@@ -1,37 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Crear banda')}"></head>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Alta Banda</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}"/>
+</head>
 <body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<main class="container" style="max-width:720px;margin-top:32px;">
+    <h1>Alta Banda</h1>
 
-<div class="container">
-    <div class="hero">
-        <h1>Nueva banda</h1>
-        <p>Alta de banda (solo ADMIN).</p>
-    </div>
+    <form th:action="@{/bandas}" th:object="${form}" method="post" data-validate novalidate>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
-        <div class="card">
-            <form th:action="@{/bandas}" th:object="${form}" method="post">
-                <div style="display:grid; gap:14px;">
-                    <div>
-                        <label><b>Número de banda</b></label>
-                        <input class="input" type="number" min="1" step="1" th:field="*{numeroBanda}">
-                    </div>
-
-                    <div>
-                        <label><b>Número de miembros</b></label>
-                        <input class="input" type="number" min="0" step="1" th:field="*{numeroMiembros}">
-                    </div>
-                </div>
-
-                <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top:18px;">
-                    <a class="btn" th:href="@{/bandas}">Cancelar</a>
-                    <button class="btn btn-primary" type="submit">Crear</button>
-                </div>
-            </form>
+        <div th:if="${#fields.hasGlobalErrors()}" class="alert alert-danger">
+            <ul style="margin:0;">
+                <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
+            </ul>
         </div>
-    </div>
-</div>
+
+        <div class="mb-3">
+            <label for="numeroBanda" class="form-label">Número de banda</label>
+            <input id="numeroBanda" type="number" th:field="*{numeroBanda}" required min="1" step="1"
+                   class="form-control"
+                   th:classappend="${#fields.hasErrors('numeroBanda')} ? 'is-invalid' : ''"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('numeroBanda')}" th:errors="*{numeroBanda}"></div>
+            <div class="invalid-feedback" th:if="${!#fields.hasErrors('numeroBanda')}">El número de banda es obligatorio.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="numeroMiembros" class="form-label">Número de miembros</label>
+            <input id="numeroMiembros" type="number" th:field="*{numeroMiembros}" required min="1" step="1"
+                   class="form-control"
+                   th:classappend="${#fields.hasErrors('numeroMiembros')} ? 'is-invalid' : ''"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('numeroMiembros')}" th:errors="*{numeroMiembros}"></div>
+            <div class="invalid-feedback" th:if="${!#fields.hasErrors('numeroMiembros')}">El número de miembros es obligatorio.</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" data-submit>Guardar</button>
+        <a class="btn btn-secondary" th:href="@{/bandas}">Cancelar</a>
+    </form>
+</main>
+
+<script th:src="@{/js/form-validation.js}"></script>
 </body>
 </html>

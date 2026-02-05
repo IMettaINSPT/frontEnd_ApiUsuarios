@@ -1,27 +1,25 @@
 package com.tp.frontend.client;
 
-import com.tp.frontend.config.FrontendProperties;
-import com.tp.frontend.dto.Login.LoginRequest;
-import com.tp.frontend.dto.Login.LoginResponse;
-import com.tp.frontend.dto.Login.MeResponse;
+import com.tp.frontend.dto.Login.*;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 
 @Component
 public class AuthApiClient extends BaseApiClient {
 
-    public AuthApiClient(RestTemplate restTemplate, FrontendProperties props) {
-        super(restTemplate, props);
+    public AuthApiClient(WebClient webClient) {
+        super(webClient);
     }
 
     // POST /api/auth/login
+    // NO lleva JWT (todavía no existe)
     public LoginResponse login(LoginRequest dto) {
-        // login NO lleva JWT
-        return post("/api/auth/login", dto, null, LoginResponse.class);
+        return post("/auth/login", null, dto, LoginResponse.class);
     }
 
     // GET /api/auth/me
+    // SÍ lleva JWT
     public MeResponse me(String jwt) {
-        return get("/api/auth/me", jwt, MeResponse.class);
+        return get("/auth/me", jwt, MeResponse.class);
     }
 }

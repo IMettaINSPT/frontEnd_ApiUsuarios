@@ -1,58 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Crear sucursal')}"></head>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Alta Sucursal</title>
+  <link rel="stylesheet" th:href="@{/css/app.css}"/>
+</head>
 <body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<main class="container" style="max-width:720px;margin-top:32px;">
+  <h1>Alta Sucursal</h1>
 
-<div class="container">
-  <div class="hero">
-    <h1>Nueva sucursal</h1>
-    <p>Elegí el banco desde un combo.</p>
-  </div>
+  <form th:action="@{/sucursales}" th:object="${form}" method="post" data-validate novalidate>
 
-  <div class="grid" style="grid-template-columns: 1fr;">
-    <div class="card">
-      <form th:action="@{/sucursales}" th:object="${form}" method="post">
-        <div style="display:grid; gap:14px;">
-          <div>
-            <label><b>Código</b></label>
-            <input class="input" type="text" th:field="*{codigo}">
-          </div>
-
-          <div>
-            <label><b>Domicilio</b></label>
-            <input class="input" type="text" th:field="*{domicilio}">
-          </div>
-
-          <div>
-            <label><b>Nro. empleados</b></label>
-            <input class="input" type="number" min="0" step="1" th:field="*{nroEmpleados}">
-          </div>
-
-          <div>
-            <label><b>Banco</b></label>
-            <label>
-              <select class="input" th:field="*{bancoId}">
-                <option value="" disabled selected>Seleccione un banco…</option>
-                <option th:each="b : ${bancos}"
-                        th:value="${b.id}"
-                        th:text="${b.codigo + ' - ' + b.domicilioCentral}">
-                </option>
-              </select>
-            </label>
-          </div>
-          <div class="alert err" style="margin-top:10px;" th:if="${!hayBancos}">
-            No hay bancos disponibles para asociar. Creá uno.
-          </div>
-        </div>
-
-        <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top:18px;">
-          <a class="btn" th:href="@{/sucursales}">Cancelar</a>
-          <button class="btn btn-primary" type="submit">Crear</button>
-        </div>
-      </form>
+    <div th:if="${#fields.hasGlobalErrors()}" class="alert alert-danger">
+      <ul style="margin:0;">
+        <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
+      </ul>
     </div>
-  </div>
-</div>
+
+    <div class="mb-3">
+      <label for="codigo" class="form-label">Código</label>
+      <input id="codigo" type="text" th:field="*{codigo}" required maxlength="20"
+             class="form-control"
+             th:classappend="${#fields.hasErrors('codigo')} ? 'is-invalid' : ''"/>
+      <div class="invalid-feedback" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
+      <div class="invalid-feedback" th:if="${!#fields.hasErrors('codigo')}">El código es obligatorio.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="domicilio" class="form-label">Domicilio</label>
+      <input id="domicilio" type="text" th:field="*{domicilio}" required maxlength="120"
+             class="form-control"
+             th:classappend="${#fields.hasErrors('domicilio')} ? 'is-invalid' : ''"/>
+      <div class="invalid-feedback" th:if="${#fields.hasErrors('domicilio')}" th:errors="*{domicilio}"></div>
+      <div class="invalid-feedback" th:if="${!#fields.hasErrors('domicilio')}">El domicilio es obligatorio.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="nroEmpleados" class="form-label">Nro. Empleados</label>
+      <input id="nroEmpleados" type="number" th:field="*{nroEmpleados}" required min="0" step="1"
+             class="form-control"
+             th:classappend="${#fields.hasErrors('nroEmpleados')} ? 'is-invalid' : ''"/>
+      <div class="invalid-feedback" th:if="${#fields.hasErrors('nroEmpleados')}" th:errors="*{nroEmpleados}"></div>
+      <div class="invalid-feedback" th:if="${!#fields.hasErrors('nroEmpleados')}">Ingresá un número válido.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="bancoId" class="form-label">Banco</label>
+      <select id="bancoId" th:field="*{bancoId}" required
+              class="form-select"
+              th:classappend="${#fields.hasErrors('bancoId')} ? 'is-invalid' : ''">
+        <option value="" selected>-- Seleccionar --</option>
+        <option th:each="b : ${bancos}" th:value="${b.id}" th:text="${b.codigo}"></option>
+      </select>
+      <div class="invalid-feedback" th:if="${#fields.hasErrors('bancoId')}" th:errors="*{bancoId}"></div>
+      <div class="invalid-feedback" th:if="${!#fields.hasErrors('bancoId')}">Seleccioná un banco.</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" data-submit>Guardar</button>
+    <a class="btn btn-secondary" th:href="@{/sucursales}">Cancelar</a>
+  </form>
+</main>
+
+<script th:src="@{/js/form-validation.js}"></script>
 </body>
 </html>

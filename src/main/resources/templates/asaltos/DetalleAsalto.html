@@ -10,61 +10,103 @@
     <p>Detalle del asalto. Edición solo ADMIN.</p>
   </div>
 
-  <div class="grid" style="grid-template-columns: 1fr;">
-    <div class="card" th:with="s=${sucursalesMap[item.sucursalId]}, p=${personasMap[item.personaDetenidaId]}">
+  <div class="grid grid-1">
+    <div class="card"
+         th:with="s=${sucursalesMap[item.sucursalId]},
+                      p=${personasMap[item.personaDetenidaId]}">
 
-      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
+      <div class="row row-between row-top gap-16">
         <div>
-          <h3>Asalto <span th:text="${item.id}">1</span></h3>
-          <p class="muted">Fecha <span th:text="${item.fechaAsalto}">2026-01-01</span></p>
-          <p class="muted">Sucursal: <span th:text="${s != null ? (s.codigo + ' - ' + s.domicilio) : ('ID ' + item.sucursalId)}"></span></p>
-          <p class="muted">Persona: <span th:text="${p != null ? (p.codigo + ' - ' + p.nombre) : ('ID ' + item.personaDetenidaId)}"></span></p>
+          <h3>Asalto</h3>
+
+          <p class="muted">
+            Fecha:
+            <span th:text="${item.fechaAsalto}">2026-01-01</span>
+          </p>
+
+          <p class="muted">
+            Sucursal:
+            <span th:text="${s != null ? (s.codigo + ' - ' + s.domicilio) : '(sucursal no disponible)'}"></span>
+          </p>
+
+          <p class="muted">
+            Persona detenida:
+            <span th:text="${p != null ? (p.codigo + ' - ' + p.nombre) : '(persona no disponible)'}"></span>
+            <span th:if="${p != null}">
+                            • <span th:text="${p.banda != null ? 'Banda #' + p.banda.numeroBanda : 'Sin banda'}"></span>
+                        </span>
+          </p>
         </div>
 
-        <div style="display:flex; gap:10px; align-items:center;">
+        <div class="row gap-10">
           <a class="btn" th:href="@{/asaltos}">Volver</a>
           <a class="btn btn-danger" sec:authorize="hasRole('ADMIN')"
-             th:href="@{/asaltos/{id}/confirm-delete(id=${item.id})}">Eliminar</a>
+             th:href="@{/asaltos/{id}/confirm-delete(id=${item.id})}">
+            Eliminar
+          </a>
         </div>
       </div>
 
-      <div sec:authorize="hasRole('ADMIN')" style="margin-top: 14px;">
+      <!-- Global errors -->
+      <div th:if="${#fields.hasGlobalErrors()}" class="alert err mt-14">
+        <ul class="list">
+          <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
+        </ul>
+      </div>
+
+      <!-- SOLO LECTURA -->
+      <div sec:authorize="!hasRole('ADMIN')" class="stack mt-14 gap-10">
+        <div><b>Fecha:</b> <span th:text="${item.fechaAsalto}"></span></div>
+        <div><b>Sucursal:</b> <span th:text="${s != null ? (s.codigo + ' - ' + s.domicilio) : '(sucursal no disponible)'}"></span></div>
+        <div>
+          <b>Persona:</b>
+          <span th:text="${p != null ? (p.codigo + ' - ' + p.nombre) : '(persona no disponible)'}"></span>
+          <span th:if="${p != null}"> • <span th:text="${p.banda != null ? 'Banda #' + p.banda.numeroBanda : 'Sin banda'}"></span></span>
+        </div>
+      </div>
+
+      <!-- EDICIÓN -->
+      <div sec:authorize="hasRole('ADMIN')" class="mt-14">
         <form th:action="@{/asaltos/{id}(id=${item.id})}" th:object="${update}" method="post">
-          <div style="display:grid; gap:14px;">
+          <div class="stack gap-14">
 
             <div>
               <label><b>Fecha del asalto</b></label>
-              <input class="input" type="date" th:field="*{fechaAsalto}">
+              <input class="input" type="date" th:field="*{fechaAsalto}"
+                     th:classappend="${#fields.hasErrors('fechaAsalto')} ? ' is-invalid' : ''">
+              <div class="invalid-feedback" th:if="${#fields.hasErrors('fechaAsalto')}" th:errors="*{fechaAsalto}"></div>
             </div>
 
             <div>
               <label><b>Sucursal</b></label>
-              <select class="input" th:field="*{sucursalId}">
-                <option th:each="su : ${sucursales}" th:value="${su.id}"
-                        th:text="${su.codigo + ' - ' + su.domicilio + ' (ID ' + su.id + ')'}"></option>
+              <select class="input" th:field="*{sucursalId}"
+                      th:classappend="${#fields.hasErrors('sucursalId')} ? ' is-invalid' : ''">
+                <option th:each="su : ${sucursales}"
+                        th:value="${su.id}"
+                        th:text="${su.codigo + ' - ' + su.domicilio}">
+                </option>
               </select>
+              <div class="invalid-feedback" th:if="${#fields.hasErrors('sucursalId')}" th:errors="*{sucursalId}"></div>
             </div>
 
             <div>
               <label><b>Persona detenida</b></label>
-              <select class="input" th:field="*{personaDetenidaId}">
-                <option th:each="pe : ${personas}" th:value="${pe.id}"
-                        th:text="${p.banda != null ? 'Banda #' + p.banda.numeroBanda : 'Sin banda'}"></option>
+              <select class="input" th:field="*{personaDetenidaId}"
+                      th:classappend="${#fields.hasErrors('personaDetenidaId')} ? ' is-invalid' : ''">
+                <option th:each="pe : ${personas}"
+                        th:value="${pe.id}"
+                        th:text="${pe.codigo + ' - ' + pe.nombre + (pe.banda != null ? ' • Banda #' + pe.banda.numeroBanda : ' • Sin banda')}">
+                </option>
               </select>
+              <div class="invalid-feedback" th:if="${#fields.hasErrors('personaDetenidaId')}" th:errors="*{personaDetenidaId}"></div>
             </div>
 
           </div>
 
-          <div class="go" style="display:flex; justify-content:flex-end; margin-top:18px;">
+          <div class="go go-right mt-18">
             <button class="btn btn-primary" type="submit">Guardar cambios</button>
           </div>
         </form>
-      </div>
-
-      <div sec:authorize="!hasRole('ADMIN')" style="margin-top: 14px; display:grid; gap:10px;">
-        <div><b>Fecha:</b> <span th:text="${item.fechaAsalto}"></span></div>
-        <div><b>SucursalId:</b> <span th:text="${item.sucursalId}"></span></div>
-        <div><b>PersonaId:</b> <span th:text="${item.personaDetenidaId}"></span></div>
       </div>
 
     </div>

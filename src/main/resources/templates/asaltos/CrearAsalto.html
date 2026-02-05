@@ -1,50 +1,80 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Crear asalto')}"></head>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/layout :: head('Nuevo asalto')}"></head>
 <body>
 <div th:replace="~{fragments/header :: topbar}"></div>
 
 <div class="container">
     <div class="hero">
         <h1>Nuevo asalto</h1>
-        <p>Alta de asalto (solo ADMIN).</p>
+        <p>Alta de asalto. Solo ADMIN.</p>
     </div>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
+    <div class="grid grid-1">
         <div class="card">
+
+            <!-- Global errors -->
+            <div th:if="${#fields.hasGlobalErrors()}" class="alert err">
+                <ul class="list">
+                    <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
+                </ul>
+            </div>
+
             <form th:action="@{/asaltos}" th:object="${form}" method="post">
-                <div style="display:grid; gap:14px;">
+
+                <div class="stack gap-14">
 
                     <div>
                         <label><b>Fecha del asalto</b></label>
-                        <input class="input" type="date" th:field="*{fechaAsalto}">
+                        <input class="input" type="date" th:field="*{fechaAsalto}"
+                               th:classappend="${#fields.hasErrors('fechaAsalto')} ? ' is-invalid' : ''">
+                        <div class="invalid-feedback"
+                             th:if="${#fields.hasErrors('fechaAsalto')}"
+                             th:errors="*{fechaAsalto}">
+                        </div>
                     </div>
 
                     <div>
                         <label><b>Sucursal</b></label>
-                        <select class="input" th:field="*{sucursalId}">
-                            <option value="" disabled selected>Seleccione…</option>
-                            <option th:each="s : ${sucursales}" th:value="${s.id}"
-                                    th:text="${s.codigo + ' - ' + s.domicilio + ' (ID ' + s.id + ')'}"></option>
+                        <select class="input" th:field="*{sucursalId}"
+                                th:classappend="${#fields.hasErrors('sucursalId')} ? ' is-invalid' : ''">
+                            <option value="" selected>-- Seleccionar --</option>
+                            <option th:each="s : ${sucursales}"
+                                    th:value="${s.id}"
+                                    th:text="${s.codigo + ' - ' + s.domicilio}">
+                            </option>
                         </select>
+                        <div class="invalid-feedback"
+                             th:if="${#fields.hasErrors('sucursalId')}"
+                             th:errors="*{sucursalId}">
+                        </div>
                     </div>
 
                     <div>
                         <label><b>Persona detenida</b></label>
-                        <select class="input" th:field="*{personaDetenidaId}">
-                            <option value="" disabled selected>Seleccione…</option>
-                            <option th:each="p : ${personas}" th:value="${p.id}"
-                                    th:text="${p.banda != null ? 'Banda #' + p.banda.numeroBanda : 'Sin banda'}"></option>
+                        <select class="input" th:field="*{personaDetenidaId}"
+                                th:classappend="${#fields.hasErrors('personaDetenidaId')} ? ' is-invalid' : ''">
+                            <option value="" selected>-- Seleccionar --</option>
+                            <option th:each="p : ${personas}"
+                                    th:value="${p.id}"
+                                    th:text="${p.codigo + ' - ' + p.nombre + (p.banda != null ? ' • Banda #' + p.banda.numeroBanda : ' • Sin banda')}">
+                            </option>
                         </select>
+                        <div class="invalid-feedback"
+                             th:if="${#fields.hasErrors('personaDetenidaId')}"
+                             th:errors="*{personaDetenidaId}">
+                        </div>
                     </div>
 
                 </div>
 
-                <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top:18px;">
+                <div class="go go-right gap-10 mt-18">
                     <a class="btn" th:href="@{/asaltos}">Cancelar</a>
-                    <button class="btn btn-primary" type="submit">Crear</button>
+                    <button class="btn btn-primary" type="submit">Guardar</button>
                 </div>
+
             </form>
+
         </div>
     </div>
 </div>

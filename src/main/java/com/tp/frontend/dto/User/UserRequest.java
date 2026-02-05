@@ -1,12 +1,19 @@
 package com.tp.frontend.dto.User;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 public class UserRequest {
+    @NotBlank(message="El usuario es obligatoria")
     private String username;
+    @NotBlank(message="La contraseña es obligatoria")
     private String password;
     /**
      * Backend espera: tipo = ADMIN | INVESTIGADOR | VIGILANTE
      */
+    @NotBlank(message="El tipo es obligatoria")
     private String tipo;
+
     private Long vigilanteId;
 
     public String getUsername() { return username; }

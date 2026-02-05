@@ -1,74 +1,130 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments/layout :: head('Detalle contrato')}"></head>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/layout :: head('Detalle Contrato')}"></head>
+
 <body>
 <div th:replace="~{fragments/header :: topbar}"></div>
 
 <div class="container">
+
     <div class="hero">
         <h1>Contrato</h1>
         <p>Detalle del contrato. Edición solo ADMIN.</p>
     </div>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
-        <div class="card">
+    <div class="grid grid-1">
+        <div class="card"
+             th:with="sLabel=${sucursalLabelMap[item.sucursalId]},
+                      vLabel=${vigilanteLabelMap[item.vigilanteId]}">
 
-            <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
+            <div class="row row-between row-top gap-16">
                 <div>
-                    <h3>Contrato <span th:text="${item.id}">1</span></h3>
+                    <h3 th:text="${contratoLabel != null ? contratoLabel : 'Contrato'}">Contrato</h3>
+
                     <p class="muted">
-                        Fecha <span th:text="${item.fechaContrato}">2026-01-01</span> · Con arma <span th:text="${item.conArma}">false</span>
+                        Sucursal:
+                        <span th:text="${sLabel != null ? sLabel : '(sucursal no disponible)'}"></span>
                     </p>
+
+                    <p class="muted">
+                        Vigilante:
+                        <span th:text="${vLabel != null ? vLabel : '(vigilante no disponible)'}"></span>
+                    </p>
+
+                    <p class="muted">
+                        Periodo:
+                        <span th:text="${item.fechaContrato}">2026-02-01</span>
+                        <span>→</span>
+                        <span th:text="${item.conArma}">false</span>
+                    </p>
+
                 </div>
 
-                <div style="display:flex; gap:10px; align-items:center;">
+                <div class="row gap-10">
                     <a class="btn" th:href="@{/contratos}">Volver</a>
+
                     <a class="btn btn-danger" sec:authorize="hasRole('ADMIN')"
-                       th:href="@{/contratos/{id}/confirm-delete(id=${item.id})}">Eliminar</a>
+                       th:href="@{/contratos/{id}/confirm-delete(id=${item.id})}">
+                        Eliminar
+                    </a>
                 </div>
             </div>
 
-            <div sec:authorize="!hasRole('ADMIN')" style="margin-top: 14px; display:grid; gap:10px;">
-                <div><b>Fecha:</b> <span th:text="${item.fechaContrato}">2026-01-01</span></div>
-                <div><b>Con arma:</b> <span th:text="${item.conArma}">false</span></div>
-                <div><b>SucursalId:</b> <span th:text="${item.sucursalId}">5</span></div>
-                <div><b>VigilanteId:</b> <span th:text="${item.vigilanteId}">9</span></div>
+            <!-- Errores globales -->
+            <div th:if="${#fields.hasGlobalErrors()}" class="alert err mt-14">
+                <ul class="list">
+                    <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
+                </ul>
             </div>
 
-            <div sec:authorize="hasRole('ADMIN')" style="margin-top: 14px;">
-                <form th:action="@{/contratos/{id}(id=${item.id})}" th:object="${update}" method="post">
-                    <div style="display:grid; gap:14px;">
+            <!-- Solo lectura -->
+            <div sec:authorize="!hasRole('ADMIN')" class="stack mt-14 gap-10">
+                <div><b>Sucursal:</b> <span th:text="${sLabel}"></span></div>
+                <div><b>Vigilante:</b> <span th:text="${vLabel}"></span></div>
+                <div><b>Periodo:</b> <span th:text="${item.fechaContrato}"></span></div>
+                <div><b>Con Arma:</b> <span th:text="${item.conArma != null ? '$ ' + item.conArma : 'Nos'}"></span></div>
+                <div th:if="${item.estado != null}"><b>Estado:</b> <span th:text="${item.estado}"></span></div>
+            </div>
+
+            <!-- Edición -->
+            <div sec:authorize="hasRole('ADMIN')" class="mt-14">
+                <form th:action="@{/contratos/{id}(id=${item.id})}"
+                      th:object="${update}"
+                      method="post">
+
+                    <div class="stack gap-14">
 
                         <div>
-                            <label><b>Fecha contrato</b></label>
-                            <input class="input" type="date" th:field="*{fechaContrato}">
+                            <label><b>Fecha Contrato</b></label>
+                            <input class="input" type="date" th:field="*{fechaContrato}"
+                                   th:classappend="${#fields.hasErrors('fechaContrato')} ? ' is-invalid' : ''">
                         </div>
-
-                        <div style="display:flex; align-items:center; gap:10px;">
-                            <input type="checkbox" th:field="*{conArma}">
-                            <label><b>Contratado con arma</b></label>
+                        <div>
+                            <label><b>Sucursal</b></label>
+                            <select class="input" th:field="*{sucursalId}"
+                                    th:classappend="${#fields.hasErrors('sucursalId')} ? ' is-invalid' : ''">
+                                <option th:each="s : ${sucursales}"
+                                        th:value="${s.id}"
+                                        th:text="${sucursalLabelMap[s.id]}">
+                                </option>
+                            </select>
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('sucursalId')}" th:errors="*{sucursalId}"></div>
                         </div>
 
                         <div>
-                            <label><b>Sucursal ID</b></label>
-                            <input class="input" type="number" min="1" step="1" th:field="*{sucursalId}">
+                            <label><b>Vigilante</b>
+                            <select class="input" th:field="*{vigilanteId}"
+                                    th:classappend="${#fields.hasErrors('vigilanteId')} ? ' is-invalid' : ''">
+                                <option th:each="v : ${vigilantes}"
+                                        th:value="${v.id}"
+                                        th:text="${vigilanteLabelMap[v.id]}">
+                                </option>
+                            </select></label>
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('vigilanteId')}" th:errors="*{vigilanteId}"></div>
                         </div>
 
+                        <!-- Si tu DTO tiene estado editable -->
                         <div>
-                            <label><b>Vigilante ID</b></label>
-                            <input class="input" type="number" min="1" step="1" th:field="*{vigilanteId}">
+                            <label><b>Estado</b></label>
+                            <input class="input" type="text" th:field="*{estado}"
+                                   th:classappend="${#fields.hasErrors('estado')} ? ' is-invalid' : ''">
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}"></div>
                         </div>
 
                     </div>
 
-                    <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top:18px;">
+                    <div class="go go-right mt-18">
                         <button class="btn btn-primary" type="submit">Guardar cambios</button>
                     </div>
+
                 </form>
             </div>
 
         </div>
     </div>
+
 </div>
 </body>
 </html>

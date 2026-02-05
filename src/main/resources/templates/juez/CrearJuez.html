@@ -1,40 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Crear juez')}"></head>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Alta Juez</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}"/>
+</head>
 <body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<main class="container" style="max-width:720px;margin-top:32px;">
+    <h1>Alta Juez</h1>
 
-<div class="container">
-    <div class="hero">
-        <h1>Nuevo juez</h1>
-        <p>Alta de juez (solo ADMIN).</p>
-    </div>
+    <form th:action="@{/jueces}" th:object="${form}" method="post" data-validate novalidate>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
-        <div class="card">
-            <form th:action="@{/jueces}" th:object="${form}" method="post">
-                <div style="display:grid; gap:14px;">
-                    <div>
-                        <label><b>Código</b></label>
-                        <input class="input" type="text" th:field="*{codigo}">
-                    </div>
-                    <div>
-                        <label><b>Nombre</b></label>
-                        <input class="input" type="text" th:field="*{nombre}">
-                    </div>
-                    <div>
-                        <label><b>Apellido</b></label>
-                        <input class="input" type="text" th:field="*{apellido}">
-                    </div>
-                </div>
-
-                <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top:18px;">
-                    <a class="btn" th:href="@{/jueces}">Cancelar</a>
-                    <button class="btn btn-primary" type="submit">Crear</button>
-                </div>
-            </form>
+        <div th:if="${#fields.hasGlobalErrors()}" class="alert alert-danger">
+            <ul style="margin:0;">
+                <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
+            </ul>
         </div>
-    </div>
-</div>
+
+        <div class="mb-3">
+            <label for="codigo" class="form-label">Código</label>
+            <input id="codigo" type="text" th:field="*{codigo}" required maxlength="20"
+                   class="form-control"
+                   th:classappend="${#fields.hasErrors('codigo')} ? 'is-invalid' : ''"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
+            <div class="invalid-feedback" th:if="${!#fields.hasErrors('codigo')}">El código es obligatorio.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input id="nombre" type="text" th:field="*{nombre}" required maxlength="50"
+                   class="form-control"
+                   th:classappend="${#fields.hasErrors('nombre')} ? 'is-invalid' : ''"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+            <div class="invalid-feedback" th:if="${!#fields.hasErrors('nombre')}">El nombre es obligatorio.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input id="apellido" type="text" th:field="*{apellido}" required maxlength="50"
+                   class="form-control"
+                   th:classappend="${#fields.hasErrors('apellido')} ? 'is-invalid' : ''"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
+            <div class="invalid-feedback" th:if="${!#fields.hasErrors('apellido')}">El apellido es obligatorio.</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" data-submit>Guardar</button>
+        <a class="btn btn-secondary" th:href="@{/jueces}">Cancelar</a>
+    </form>
+</main>
+
+<script th:src="@{/js/form-validation.js}"></script>
 </body>
 </html>

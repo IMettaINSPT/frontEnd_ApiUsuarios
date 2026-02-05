@@ -19,6 +19,9 @@ public class AuthService {
         return authApiClient.login(new LoginRequest(username, password));
     }
 
+    public LoginResponse login(LoginRequest req) {
+        return login(req.getUsername(), req.getPassword());
+    }
     public MeResponse me(String jwt) {
         return authApiClient.me(jwt);
     }

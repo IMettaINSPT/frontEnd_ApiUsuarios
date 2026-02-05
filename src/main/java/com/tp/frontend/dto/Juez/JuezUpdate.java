@@ -1,16 +1,14 @@
 package com.tp.frontend.dto.Juez;
 
-public class JuezUpdate {
-    private String codigo;
-    private String nombre;
-    private String apellido;
+import jakarta.validation.constraints.NotBlank;
 
-    public String getCodigo() { return codigo; }
-    public void setCodigo(String codigo) { this.codigo = codigo; }
+public record JuezUpdate (
+    @NotBlank(message="El codigo es obligatoria")
+     String codigo,
 
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    @NotBlank(message="El nombre es obligatoria")
+     String nombre,
 
-    public String getApellido() { return apellido; }
-    public void setApellido(String apellido) { this.apellido = apellido; }
-}
+    @NotBlank(message="El apellido es obligatoria")
+     String apellido
+){}

@@ -1,54 +1,57 @@
 package com.tp.frontend.client;
 
-import com.tp.frontend.config.FrontendProperties;
-import com.tp.frontend.dto.Vigilante.VigilanteRequest;
-import com.tp.frontend.dto.Vigilante.VigilanteResponse;
-import com.tp.frontend.dto.Vigilante.VigilanteUpdate;
+import com.tp.frontend.dto.Vigilante.*;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
 
 @Component
 public class VigilantesApiClient extends BaseApiClient {
 
-    public VigilantesApiClient(RestTemplate restTemplate, FrontendProperties props) {
-        super(restTemplate, props);
+    public VigilantesApiClient(WebClient webClient) {
+        super(webClient);
     }
 
-    // GET /api/vigilantes
-    public List<VigilanteResponse> list(String jwt) {
-        return get("/api/vigilantes", jwt, new ParameterizedTypeReference<List<VigilanteResponse>>() {});
+    public VigilanteResponse create(String jwt, VigilanteRequest req) {
+        return post("/vigilantes", jwt, req, VigilanteResponse.class);
     }
 
-    // GET /api/vigilantes/{id}
-    public VigilanteResponse getById(String jwt, Long id) {
-        return get("/api/vigilantes/" + id, jwt, VigilanteResponse.class);
-    }
-
-    // POST /api/vigilantes
-    public VigilanteResponse create(String jwt, VigilanteRequest dto) {
-        return post("/api/vigilantes", dto, jwt, VigilanteResponse.class);
-    }
-
-    // PUT /api/vigilantes/{id}
-    public VigilanteResponse update(String jwt, Long id, VigilanteUpdate dto) {
-        return put("/api/vigilantes/" + id, dto, jwt, VigilanteResponse.class);
-    }
-
-    // DELETE /api/vigilantes/{id}
     public void delete(String jwt, Long id) {
-        delete("/api/vigilantes/" + id, jwt);
+        delete("/vigilantes" + id, jwt);
+    }
+    public VigilanteResponse update(String jwt, Long id, VigilanteUpdate req) {
+        return put("/vigilantes"+ id, jwt, req, VigilanteResponse.class);
     }
 
-    // GET /api/vigilantes/disponibles
-    public List<VigilanteResponse> disponibles(String jwt) {
-        return get("/api/vigilantes/disponibles", jwt, new ParameterizedTypeReference<List<VigilanteResponse>>() {});
+    public VigilanteResponse getById(String jwt, Long id) {
+        return get("/vigilantes/" + id, jwt, VigilanteResponse.class);
     }
 
-    // GET /api/vigilantes/me
-    public VigilanteResponse me(String jwt) {
-        return get("/api/vigilantes/me", jwt, VigilanteResponse.class);
+    public VigilanteResponse getMeProfile(String jwt) {
+        return get("/vigilantes/me" , jwt, VigilanteResponse.class);
     }
+
+    public List<VigilanteResponse> list(String jwt) {
+        return getList(
+                "/vigilantes/listar",
+                jwt,
+                new ParameterizedTypeReference<List<VigilanteResponse>>() {}
+        );
+    }
+    public List<VigilanteResponse> available(String jwt) {
+        return getList(
+                "/vigilantes/disponibles",
+                jwt,
+                new ParameterizedTypeReference<List<VigilanteResponse>>() {}
+        );
+    }
+    public Long availableCount(String jwt) {
+        return get(
+                "/vigilantes/disponiblesCount",
+                jwt, Long.class
+        );
+    }
+
 }

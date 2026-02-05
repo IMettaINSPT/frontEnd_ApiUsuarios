@@ -1,18 +1,16 @@
 package com.tp.frontend.client;
 
-import com.tp.frontend.config.FrontendProperties;
 import com.tp.frontend.dto.Dashboard.DashboardSummaryResponse;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
-
+import org.springframework.web.reactive.function.client.WebClient;
 @Component
 public class DashboardApiClient extends BaseApiClient {
 
-    public DashboardApiClient(RestTemplate restTemplate, FrontendProperties props) {
-        super(restTemplate, props);
+    public DashboardApiClient(WebClient webClient) {
+        super(webClient);
     }
 
     public DashboardSummaryResponse summary(String jwt) {
-        return get("/api/dashboard/summary", jwt, DashboardSummaryResponse.class);
+        return get("/dashboard/summary", jwt, DashboardSummaryResponse.class);
     }
 }

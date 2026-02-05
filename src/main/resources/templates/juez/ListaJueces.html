@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments/layout :: head('Jueces')}"></head>
+<head th:replace="~{fragments/layout :: head('jueces')}"></head>
 <body>
 <div th:replace="~{fragments/header :: topbar}"></div>
 
 <div class="container">
     <div class="hero">
-        <h1>Jueces</h1>
+        <h1>jueces</h1>
         <p>Listado de jueces. Alta/edición solo ADMIN.</p>
     </div>
 
@@ -26,7 +26,7 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th style="width:90px;">ID</th>
+
                         <th>Código</th>
                         <th>Nombre</th>
                         <th style="width:140px;">Acción</th>

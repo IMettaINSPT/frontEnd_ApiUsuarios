@@ -1,39 +1,39 @@
 package com.tp.frontend.client;
 
-import com.tp.frontend.config.FrontendProperties;
-import com.tp.frontend.dto.Juez.JuezRequest;
-import com.tp.frontend.dto.Juez.JuezResponse;
-import com.tp.frontend.dto.Juez.JuezUpdate;
+import com.tp.frontend.dto.Juez.*;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
 
 @Component
 public class JuecesApiClient extends BaseApiClient {
 
-    public JuecesApiClient(RestTemplate restTemplate, FrontendProperties props) {
-        super(restTemplate, props);
+    public JuecesApiClient(WebClient webClient) {
+        super(webClient);
     }
 
-    public List<JuezResponse> list(String jwt) {
-        return get("/api/jueces", jwt, new ParameterizedTypeReference<List<JuezResponse>>() {});
-    }
-
-    public JuezResponse getById(String jwt, Long id) {
-        return get("/api/jueces/" + id, jwt, JuezResponse.class);
-    }
-
-    public JuezResponse create(String jwt, JuezRequest dto) {
-        return post("/api/jueces", dto, jwt, JuezResponse.class);
-    }
-
-    public JuezResponse update(String jwt, Long id, JuezUpdate dto) {
-        return put("/api/jueces/" + id, dto, jwt, JuezResponse.class);
+    public JuezResponse create(String jwt, JuezRequest req) {
+        return post("/jueces", jwt, req, JuezResponse.class);
     }
 
     public void delete(String jwt, Long id) {
-        delete("/api/jueces/" + id, jwt);
+        delete("/jueces/" +id, jwt);
+    }
+    public JuezResponse update(String jwt, Long id, JuezUpdate req) {
+        return put("/jueces/" +id, jwt, req, JuezResponse.class);
+    }
+
+    public JuezResponse getById(String jwt, Long id) {
+        return get("/jueces/" + id, jwt, JuezResponse.class);
+    }
+
+    public List<JuezResponse> list(String jwt) {
+        return getList(
+                "/jueces",
+                jwt,
+                new ParameterizedTypeReference<List<JuezResponse>>() {}
+        );
     }
 }

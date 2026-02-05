@@ -22,6 +22,7 @@ public class VigilanteService {
     public VigilanteResponse create(String jwt, VigilanteRequest dto) { return api.create(jwt, dto); }
     public VigilanteResponse update(String jwt, Long id, VigilanteUpdate dto) { return api.update(jwt, id, dto); }
     public void delete(String jwt, Long id) { api.delete(jwt, id); }
-    public List<VigilanteResponse> disponibles(String jwt) { return api.disponibles(jwt); }
-    public VigilanteResponse me(String jwt) { return api.me(jwt); }
+    public List<VigilanteResponse> disponibles(String jwt) { return api.available(jwt); }
+    public Long cantDisponibles(String jwt) { return api.availableCount(jwt); }
+    public VigilanteResponse me(String jwt) { return api.getMeProfile(jwt); }
 }

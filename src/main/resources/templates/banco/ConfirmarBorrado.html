@@ -10,13 +10,15 @@
         <p>Confirmación de borrado.</p>
     </div>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
+    <div class="grid grid-1">
         <div class="card">
             <h3 th:text="${item.codigo}">BAN-01</h3>
             <p class="muted" th:text="${item.domicilioCentral}">Domicilio</p>
 
-            <form th:action="@{/bancos/{id}/delete(id=${item.id})}" method="post" style="margin-top:16px;">
-                <div class="go" style="display:flex; justify-content:flex-end; gap:10px;">
+            <div th:if="${deleteError != null}" class="alert err" th:text="${deleteError}"></div>
+
+            <form th:action="@{/bancos/{id}/delete(id=${item.id})}" method="post" class="mt-16">
+                <div class="go go-right gap-10">
                     <a class="btn" th:href="@{/bancos/{id}(id=${item.id})}">Cancelar</a>
                     <button class="btn btn-danger" type="submit">Eliminar</button>
                 </div>

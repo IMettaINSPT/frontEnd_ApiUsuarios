@@ -14,17 +14,16 @@
         <p>Detalle del vigilante. Edición solo ADMIN.</p>
     </div>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
+    <div class="grid grid-1">
         <div class="card">
 
-            <!-- Cabecera -->
-            <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
+            <div class="row row-between row-top gap-16">
                 <div>
                     <h3 th:text="${item.codigo}">VIG-001</h3>
-                    <p class="muted">ID <span th:text="${item.id}">1</span></p>
+                    <p class="muted">Edad <span th:text="${item.edad}">1</span></p>
                 </div>
 
-                <div style="display:flex; gap:10px; align-items:center;">
+                <div class="row gap-10">
                     <a class="btn" th:href="@{/vigilantes}">Volver</a>
 
                     <a class="btn btn-danger"
@@ -35,31 +34,44 @@
                 </div>
             </div>
 
+            <!-- Errores globales -->
+            <div th:if="${#fields.hasGlobalErrors()}" class="alert err mt-14">
+                <ul class="list">
+                    <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
+                </ul>
+            </div>
+
             <!-- Vista SOLO LECTURA (no admin) -->
-            <div sec:authorize="!hasRole('ADMIN')" style="margin-top: 14px; display:grid; gap:10px;">
+            <div sec:authorize="!hasRole('ADMIN')" class="stack mt-14 gap-10">
                 <div><b>Código:</b> <span th:text="${item.codigo}">VIG-001</span></div>
                 <div><b>Edad:</b> <span th:text="${item.edad}">30</span></div>
             </div>
 
             <!-- Edición (solo ADMIN) -->
-            <div sec:authorize="hasRole('ADMIN')" style="margin-top: 14px;">
+            <div sec:authorize="hasRole('ADMIN')" class="mt-14">
                 <form th:action="@{/vigilantes/{id}(id=${item.id})}" th:object="${update}" method="post">
 
-                    <div style="display:grid; gap:14px;">
+                    <div class="stack gap-14">
                         <div>
                             <label><b>Código</b></label>
-                            <input class="input" type="text" th:field="*{codigo}">
-                            <small class="muted" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></small>
+                            <input class="input" type="text" th:field="*{codigo}"
+                                   th:classappend="${#fields.hasErrors('codigo')} ? ' is-invalid' : ''">
+                            <div class="invalid-feedback"
+                                 th:if="${#fields.hasErrors('codigo')}"
+                                 th:errors="*{codigo}"></div>
                         </div>
 
                         <div>
                             <label><b>Edad</b></label>
-                            <input class="input" type="number" th:field="*{edad}" min="18">
-                            <small class="muted" th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></small>
+                            <input class="input" type="number" th:field="*{edad}" min="18"
+                                   th:classappend="${#fields.hasErrors('edad')} ? ' is-invalid' : ''">
+                            <div class="invalid-feedback"
+                                 th:if="${#fields.hasErrors('edad')}"
+                                 th:errors="*{edad}"></div>
                         </div>
                     </div>
 
-                    <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top: 18px;">
+                    <div class="go go-right gap-10 mt-18">
                         <button class="btn btn-primary" type="submit">Guardar cambios</button>
                     </div>
                 </form>

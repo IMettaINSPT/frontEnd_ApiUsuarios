@@ -1,70 +1,84 @@
 package com.tp.frontend.web;
 
-import jakarta.servlet.RequestDispatcher;
+import com.tp.frontend.dto.Error.ApiError;
+import com.tp.frontend.exception.ApiErrorException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.access.AccessDeniedException;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.client.HttpStatusCodeException;
-import org.springframework.web.client.ResourceAccessException;
-import org.springframework.web.servlet.ModelAndView;
-
+import org.springframework.web.reactive.function.client.WebClientRequestException;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
-@ControllerAdvice
+@ControllerAdvice(annotations = Controller.class)
+@Order(Ordered.HIGHEST_PRECEDENCE)
 public class GlobalExceptionHandler {
 
     private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
-    private ModelAndView forwardError(HttpServletRequest request, int status, Exception ex) {
+    @ExceptionHandler(ApiErrorException.class)
+    public String handleApiErrorException(ApiErrorException ex, HttpServletRequest request, Model model) {
+        ApiError apiError = ex.getApiError();
+        String rid = UUID.randomUUID().toString();
 
-        // 1) Genero un ID para rastrear en logs (opcional pero MUY útil)
-        String errorId = UUID.randomUUID().toString().substring(0, 8);
+        log.warn("FRONT ApiErrorException rid={} path={} status={} code={} msg={}",
+                rid,
+                request.getRequestURI(),
+                ex.getHttpStatus(),
+                apiError != null ? apiError.getCode() : null,
+                apiError != null ? apiError.getMessage() : ex.getMessage()
+        );
 
-        // 2) Datos útiles del request
-        String method = request.getMethod();
-        String uri = request.getRequestURI();
-        String query = request.getQueryString();
-        String fullPath = (query == null) ? uri : (uri + "?" + query);
+        model.addAttribute("rid", rid);
+        model.addAttribute("path", request.getRequestURI());
+        model.addAttribute("timestamp", LocalDateTime.now());
+//siempre int para que no rompa
+        model.addAttribute("status", ex.getHttpStatus());
+        model.addAttribute("errorMessage",
+                apiError != null && apiError.getMessage() != null ? apiError.getMessage() : ex.getMessage());
 
-        // 3) Log con stacktrace (IMPORTANTE: pasar "ex" como último parámetro)
-        log.error("[ERROR_ID={}] {} {} -> status={} | {}",
-                errorId, method, fullPath, status, ex.toString(), ex);
+        model.addAttribute("apiError", apiError);
 
-        // 4) Seteo el status para el controller /error (sin mensaje técnico)
-        request.setAttribute(RequestDispatcher.ERROR_STATUS_CODE, status);
-
-        // (Opcional) Le paso el errorId a la vista para que el usuario lo mencione
-        request.setAttribute("ERROR_ID", errorId);
-
-        ModelAndView mv = new ModelAndView("forward:/error");
-        mv.setStatus(HttpStatus.valueOf(status));
-        return mv;
+        return "error";
     }
 
-    @ExceptionHandler(AccessDeniedException.class)
-    public ModelAndView accessDenied(HttpServletRequest request, AccessDeniedException ex) {
-        return forwardError(request, HttpStatus.FORBIDDEN.value(), ex);
-    }
+    @ExceptionHandler(WebClientRequestException.class)
+    public String handleWebClientRequestException(WebClientRequestException ex, HttpServletRequest request, Model model) {
+        String rid = UUID.randomUUID().toString();
 
-    @ExceptionHandler(ResourceAccessException.class)
-    public ModelAndView backendDown(HttpServletRequest request, ResourceAccessException ex) {
-        // backend caído / timeout / DNS
-        return forwardError(request, HttpStatus.SERVICE_UNAVAILABLE.value(), ex);
-    }
+        log.error("FRONT WebClientRequestException rid={} path={} msg={}",
+                rid, request.getRequestURI(), ex.getMessage(), ex);
 
-    @ExceptionHandler(HttpStatusCodeException.class)
-    public ModelAndView httpError(HttpServletRequest request, HttpStatusCodeException ex) {
-        // errores 4xx/5xx devueltos por el backend
-        return forwardError(request, ex.getStatusCode().value(), ex);
+        model.addAttribute("rid", rid);
+        model.addAttribute("path", request.getRequestURI());
+        model.addAttribute("timestamp", LocalDateTime.now());
+
+        model.addAttribute("status", HttpStatus.SERVICE_UNAVAILABLE.value());
+        model.addAttribute("errorMessage", "No se pudo conectar con el backend (red/timeout). Probá de nuevo en unos segundos.");
+
+        return "error";
     }
 
     @ExceptionHandler(Exception.class)
-    public ModelAndView generic(HttpServletRequest request, Exception ex) {
-        // cualquier otro error del frontend
-        return forwardError(request, HttpStatus.INTERNAL_SERVER_ERROR.value(), ex);
+    public String handleGeneric(Exception ex, HttpServletRequest request, Model model) {
+        String rid = UUID.randomUUID().toString();
+
+        log.error("FRONT GenericException rid={} path={} exClass={} msg={}",
+                rid, request.getRequestURI(), ex.getClass().getName(), ex.getMessage(), ex);
+
+        model.addAttribute("rid", rid);
+        model.addAttribute("path", request.getRequestURI());
+        model.addAttribute("timestamp", LocalDateTime.now());
+
+        model.addAttribute("status", HttpStatus.INTERNAL_SERVER_ERROR.value());
+        model.addAttribute("errorMessage", "Error interno del servidor.");
+
+        return "error";
     }
 }

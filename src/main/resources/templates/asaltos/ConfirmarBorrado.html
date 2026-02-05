@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Confirmar borrado')}"></head>
+<head th:replace="~{fragments/layout :: head('Eliminar asalto')}"></head>
 <body>
 <div th:replace="~{fragments/header :: topbar}"></div>
 
 <div class="container">
     <div class="hero">
         <h1>Eliminar asalto</h1>
-        <p>Confirmación de borrado.</p>
+        <p>Esta acción no se puede deshacer.</p>
     </div>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
-        <div class="card">
-            <h3>Asalto <span th:text="${item.id}">1</span></h3>
-            <p class="muted">Fecha <span th:text="${item.fechaAsalto}">2026-01-01</span></p>
+    <div class="grid grid-1">
+        <div class="card"
+             th:with="s=${sucursalesMap[item.sucursalId]},
+                      p=${personasMap[item.personaDetenidaId]}">
 
-            <form th:action="@{/asaltos/{id}/delete(id=${item.id})}" method="post" style="margin-top:16px;">
-                <div class="go" style="display:flex; justify-content:flex-end; gap:10px;">
+            <div class="alert warn">
+                ¿Seguro que querés eliminar el asalto del
+                <b th:text="${item.fechaAsalto}">2026-01-01</b>
+                en
+                <b th:text="${s != null ? (s.codigo + ' - ' + s.domicilio) : '(sucursal no disponible)'}"></b>
+                con
+                <b th:text="${p != null ? (p.codigo + ' - ' + p.nombre) : '(persona no disponible)'}"></b>?
+            </div>
+
+            <div th:if="${deleteError != null}" class="alert err mt-14" th:text="${deleteError}"></div>
+
+            <form th:action="@{/asaltos/{id}/delete(id=${item.id})}" method="post" class="mt-16">
+                <div class="go go-right gap-10">
                     <a class="btn" th:href="@{/asaltos/{id}(id=${item.id})}">Cancelar</a>
-                    <button class="btn btn-danger" type="submit">Eliminar</button>
+                    <button class="btn btn-danger" type="submit">Sí, eliminar</button>
                 </div>
             </form>
         </div>

@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Confirmar borrado')}"><title>""</title></head>
+<head th:replace="~{fragments/layout :: head('Eliminar Juez')}"></head>
+
 <body>
 <div th:replace="~{fragments/header :: topbar}"></div>
 
 <div class="container">
+
     <div class="hero">
         <h1>Eliminar juez</h1>
-        <p>Confirmación de borrado.</p>
+        <p>Esta acción no se puede deshacer.</p>
     </div>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
+    <div class="grid grid-1">
         <div class="card">
-            <h3 th:text="${item.codigo}">JZ-01</h3>
-            <p class="muted" th:text="${item.nombre + ' ' + item.apellido}">Nombre Apellido</p>
 
-            <form th:action="@{/jueces/{id}/delete(id=${item.id})}" method="post" style="margin-top:16px;">
-                <div class="go" style="display:flex; justify-content:flex-end; gap:10px;">
+            <div class="alert warn">
+                ¿Seguro que querés eliminar a
+                <b th:text="${item.nombre}">Nombre</b>
+                ?
+            </div>
+
+            <div th:if="${deleteError != null}" class="alert err mt-14" th:text="${deleteError}"></div>
+
+            <form th:action="@{/jueces/{id}/delete(id=${item.id})}" method="post" class="mt-16">
+                <div class="go go-right gap-10">
                     <a class="btn" th:href="@{/jueces/{id}(id=${item.id})}">Cancelar</a>
-                    <button class="btn btn-danger" type="submit">Eliminar</button>
+                    <button class="btn btn-danger" type="submit">Sí, eliminar</button>
                 </div>
             </form>
+
         </div>
     </div>
+
 </div>
 </body>
 </html>

@@ -2,7 +2,6 @@
 <html lang="es"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-
 <head th:replace="~{fragments/layout :: head('Detalle de usuario')}"></head>
 
 <body>
@@ -11,11 +10,11 @@
 <div class="container" style="max-width: 900px;">
 
   <!-- Mensajes -->
-  <div th:if="${msg}" class="alert ok" style="margin-top:14px;" th:text="${msg}"></div>
-  <div th:if="${error}" class="alert err" style="margin-top:14px;" th:text="${error}"></div>
+  <div th:if="${msg}" class="alert ok mt-14" th:text="${msg}"></div>
+  <div th:if="${error}" class="alert err mt-14" th:text="${error}"></div>
 
   <div class="hero">
-    <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-end; flex-wrap:wrap;">
+    <div class="row row-between row-top gap-16">
       <div>
         <h1>Detalle de usuario</h1>
         <p>Información y edición básica.</p>
@@ -25,78 +24,68 @@
   </div>
 
   <!-- Datos del usuario -->
-  <div class="card" style="margin-top: 14px;">
-    <h2 style="margin-top:0;">Datos</h2>
+  <div class="card mt-14">
+    <h2 class="h2">Datos</h2>
 
-    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+    <div class="grid grid-2 gap-14 mt-14">
       <div>
-        <div style="font-weight:800; margin-bottom:6px;">ID</div>
-        <div th:text="${user != null ? user.id : '-'}">-</div>
-      </div>
-      <div>
-        <div style="font-weight:800; margin-bottom:6px;">Username</div>
+        <div class="label">Username</div>
         <div th:text="${user != null ? user.username : '-'}">-</div>
       </div>
       <div>
-        <div style="font-weight:800; margin-bottom:6px;">Rol</div>
+        <div class="label">Rol</div>
         <div th:text="${user != null ? user.rol : '-'}">-</div>
       </div>
       <div>
-        <div style="font-weight:800; margin-bottom:6px;">Habilitado</div>
+        <div class="label">Habilitado</div>
         <div th:text="${user != null && user.enabled} ? 'Sí' : 'No'">No</div>
       </div>
     </div>
 
-    <!-- Mensaje si es vigilante -->
     <div th:if="${user != null and user.rol != null and user.rol.equalsIgnoreCase('VIGILANTE')}"
-         class="alert"
-         style="margin-top:14px; background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10);">
+         class="alert soft mt-14">
       <b>Nota:</b> Este usuario tiene rol <b>VIGILANTE</b>.
       El perfil de vigilante asociado <b>no se puede modificar</b> desde esta pantalla.
     </div>
   </div>
 
   <!-- Editar usuario (ADMIN) -->
-  <div class="card" style="margin-top: 14px;" sec:authorize="hasRole('ADMIN')">
-    <h2 style="margin-top:0;">Editar (ADMIN)</h2>
-    <p style="margin-top:-8px; opacity:.85;">
+  <div class="card mt-14" sec:authorize="hasRole('ADMIN')">
+    <h2 class="h2">Editar (ADMIN)</h2>
+    <p class="muted">
       El backend permite actualizar <b>enabled</b> y <b>password</b>.
       Si dejás la contraseña vacía, no se cambia.
     </p>
 
-    <form th:action="@{/users/{id}(id=${user.id})}" method="post" th:object="${update}">
-      <div style="display:grid; gap:12px; max-width: 560px;">
+    <form th:action="@{/users/{id}(id=${user.id})}" method="post" th:object="${update}" class="mt-14">
+      <div class="stack gap-14" style="max-width: 560px;">
 
         <div>
-          <label style="display:block; font-weight:800; margin-bottom:6px;">
-            Nueva contraseña (opcional)
-          </label>
-          <input type="password" th:field="*{password}" placeholder="(vacío = no cambia)"
-                 style="width:100%; padding:10px 12px; border-radius:10px;
-                                  border:1px solid rgba(255,255,255,.12);
-                                  background: rgba(0,0,0,.18);
-                                  color: var(--text); outline:none;">
+          <label class="label">Nueva contraseña (opcional)</label>
+          <input class="input" type="password" th:field="*{password}" placeholder="(vacío = no cambia)">
+          <!-- Si querés mostrar validación SSR de @Size -->
+          <div class="invalid-feedback" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
         </div>
 
-        <div style="display:flex; align-items:center; gap:10px;">
+        <div class="row gap-10">
           <input type="checkbox" id="enabledCheck" th:field="*{enabled}">
-          <label for="enabledCheck" style="font-weight:800;">Usuario habilitado</label>
+          <label for="enabledCheck" class="label">Usuario habilitado</label>
         </div>
 
-        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:6px;">
+        <div class="go go-right">
           <button class="btn btn-primary" type="submit">Guardar cambios</button>
         </div>
+
       </div>
     </form>
 
-    <!-- Eliminar (si tu controller tiene este endpoint; si no, sacalo) -->
-    <form th:action="@{/users/{id}/delete(id=${user.id})}" method="post" style="margin-top:12px;">
-      <button class="btn btn-danger" type="submit"
-              onclick="return confirm('¿Eliminar usuario?');">Eliminar</button>
-    </form>
+    <div class="mt-14">
+      <a class="btn btn-danger" th:href="@{/users/{id}/confirm-delete(id=${user.id})}">
+        Eliminar
+      </a>
+    </div>
   </div>
 
 </div>
-
 </body>
 </html>

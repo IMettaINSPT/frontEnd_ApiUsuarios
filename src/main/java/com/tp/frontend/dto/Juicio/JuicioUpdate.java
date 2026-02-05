@@ -1,28 +1,24 @@
 package com.tp.frontend.dto.Juicio;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
-public class JuicioUpdate {
+public record JuicioUpdate (
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    private LocalDate fecha;
+    @NotNull(message="La fecha es obligatoria")
+     LocalDate fecha,
 
-    private String resultado;
+    // Ej: "CONDENADO", "ABSULTO", "EN_PROCESO" (según tu backend)
+    @NotBlank(message="El resultado es obligatoria")
+     String resultado,
 
-    private Long juezId;
-    private Long personaDetenidaId;
+    @NotNull(message="El juez es obligatoria")
+     Long juezId,
 
-    public LocalDate getFecha() { return fecha; }
-    public void setFecha(LocalDate fecha) { this.fecha = fecha; }
-
-    public String getResultado() { return resultado; }
-    public void setResultado(String resultado) { this.resultado = resultado; }
-
-    public Long getJuezId() { return juezId; }
-    public void setJuezId(Long juezId) { this.juezId = juezId; }
-
-    public Long getPersonaDetenidaId() { return personaDetenidaId; }
-    public void setPersonaDetenidaId(Long personaDetenidaId) { this.personaDetenidaId = personaDetenidaId; }
-}
+    @NotNull(message="La persona detenida es obligatoria")
+     Long personaDetenidaId
+){}

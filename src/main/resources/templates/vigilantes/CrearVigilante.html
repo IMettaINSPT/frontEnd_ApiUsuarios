@@ -1,46 +1,46 @@
-<!DOCTYPE html>
-<html lang="es"
-      xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Nuevo Vigilante')}"></head>
-
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Alta Vigilante</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}"/>
+</head>
 <body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<main class="container" style="max-width:720px;margin-top:32px;">
+    <h1>Alta Vigilante</h1>
 
-<div class="container">
+    <form th:action="@{/vigilantes}" th:object="${form}" method="post" data-validate novalidate>
 
-    <div class="hero">
-        <h1>Nuevo vigilante</h1>
-        <p>Cargá los datos del vigilante.</p>
-    </div>
-
-    <div class="grid" style="grid-template-columns: 1fr;">
-        <div class="card">
-
-            <form th:action="@{/vigilantes}" th:object="${form}" method="post">
-
-                <div style="display:grid; gap:14px; margin-top: 8px;">
-                    <div>
-                        <label><b>Código</b></label>
-                        <input class="input" type="text" th:field="*{codigo}" placeholder="Ej: VIG-001">
-                        <small class="muted" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></small>
-                    </div>
-
-                    <div>
-                        <label><b>Edad</b></label>
-                        <input class="input" type="number" th:field="*{edad}" min="18" placeholder="Ej: 30">
-                        <small class="muted" th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></small>
-                    </div>
-                </div>
-
-                <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top: 18px;">
-                    <a class="btn" th:href="@{/vigilantes}">Cancelar</a>
-                    <button class="btn btn-primary" type="submit">Crear</button>
-                </div>
-            </form>
-
+        <div th:if="${#fields.hasGlobalErrors()}" class="alert alert-danger">
+            <ul style="margin:0;">
+                <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
+            </ul>
         </div>
-    </div>
 
-</div>
+        <div class="mb-3">
+            <label for="codigo" class="form-label">Código</label>
+            <input id="codigo" type="text" th:field="*{codigo}" required maxlength="20"
+                   class="form-control"
+                   th:classappend="${#fields.hasErrors('codigo')} ? 'is-invalid' : ''"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
+            <div class="invalid-feedback" th:if="${!#fields.hasErrors('codigo')}">El código es obligatorio.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="edad" class="form-label">Edad</label>
+            <input id="edad" type="number" th:field="*{edad}" required min="18" step="1"
+                   class="form-control"
+                   th:classappend="${#fields.hasErrors('edad')} ? 'is-invalid' : ''"/>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></div>
+            <div class="invalid-feedback" th:if="${!#fields.hasErrors('edad')}">La edad mínima es 18.</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" data-submit>Guardar</button>
+        <a class="btn btn-secondary" th:href="@{/vigilantes}">Cancelar</a>
+    </form>
+</main>
+
+<script th:src="@{/js/form-validation.js}"></script>
 </body>
 </html>

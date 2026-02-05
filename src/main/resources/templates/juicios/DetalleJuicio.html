@@ -1,72 +1,146 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments/layout :: head('Detalle juicio')}"></head>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/layout :: head('Detalle Juicio')}"></head>
+
 <body>
 <div th:replace="~{fragments/header :: topbar}"></div>
 
 <div class="container">
+
     <div class="hero">
         <h1>Juicio</h1>
         <p>Detalle del juicio. Edición solo ADMIN.</p>
     </div>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
+    <div class="grid grid-1">
         <div class="card">
 
-            <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
+            <!-- Header -->
+            <div class="row row-between row-top gap-16"
+                 th:with="j=${juecesMap[item.juezId]},
+                          contratoLabel=${contratoLabelMap[item.contratoId]}">
+
                 <div>
-                    <h3>Juicio <span th:text="${item.id}">1</span></h3>
-                    <p class="muted">Fecha <span th:text="${item.fecha}">2026-01-01</span> · Resultado <span th:text="${item.resultado}">EN_PROCESO</span></p>
+                    <h3>Juicio</h3>
+
+                    <p class="muted">
+                        Fecha:
+                        <span th:text="${item.fecha}">2026-02-05</span>
+                    </p>
+
+                    <p class="muted">
+                        Juez:
+                        <span th:text="${j != null ? j.nombre : '(juez no disponible)'}"></span>
+                    </p>
+
+                    <p class="muted">
+                        Contrato:
+                        <span th:text="${contratoLabel != null ? contratoLabel : '(contrato no disponible)'}"></span>
+                    </p>
                 </div>
 
-                <div style="display:flex; gap:10px; align-items:center;">
+                <div class="row gap-10">
                     <a class="btn" th:href="@{/juicios}">Volver</a>
-                    <a class="btn btn-danger" sec:authorize="hasRole('ADMIN')"
-                       th:href="@{/juicios/{id}/confirm-delete(id=${item.id})}">Eliminar</a>
+
+                    <a class="btn btn-danger"
+                       sec:authorize="hasRole('ADMIN')"
+                       th:href="@{/juicios/{id}/confirm-delete(id=${item.id})}">
+                        Eliminar
+                    </a>
                 </div>
             </div>
 
-            <div sec:authorize="!hasRole('ADMIN')" style="margin-top: 14px; display:grid; gap:10px;">
-                <div><b>Fecha:</b> <span th:text="${item.fecha}">2026-01-01</span></div>
-                <div><b>Resultado:</b> <span th:text="${item.resultado}">EN_PROCESO</span></div>
-                <div><b>JuezId:</b> <span th:text="${item.juezId}">10</span></div>
-                <div><b>PersonaId:</b> <span th:text="${item.personaDetenidaId}">20</span></div>
+            <!-- Errores globales -->
+            <div th:if="${#fields.hasGlobalErrors()}" class="alert err mt-14">
+                <ul class="list">
+                    <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
+                </ul>
             </div>
 
-            <div sec:authorize="hasRole('ADMIN')" style="margin-top: 14px;">
-                <form th:action="@{/juicios/{id}(id=${item.id})}" th:object="${update}" method="post">
-                    <div style="display:grid; gap:14px;">
+            <!-- SOLO LECTURA -->
+            <div sec:authorize="!hasRole('ADMIN')" class="stack mt-14 gap-10">
+                <div>
+                    <b>Fecha:</b>
+                    <span th:text="${item.fecha}"></span>
+                </div>
+                <div>
+                    <b>Juez:</b>
+                    <span th:text="${juecesMap[item.juezId]?.nombre}"></span>
+                </div>
+                <div>
+                    <b>Contrato:</b>
+                    <span th:text="${contratoLabelMap[item.contratoId]}"></span>
+                </div>
+            </div>
+
+            <!-- EDICIÓN -->
+            <div sec:authorize="hasRole('ADMIN')" class="mt-14">
+                <form th:action="@{/juicios/{id}(id=${item.id})}"
+                      th:object="${update}"
+                      method="post">
+
+                    <div class="stack gap-14">
+
                         <div>
                             <label><b>Fecha</b></label>
-                            <input class="input" type="date" th:field="*{fecha}">
+                            <input class="input"
+                                   type="date"
+                                   th:field="*{fecha}"
+                                   th:classappend="${#fields.hasErrors('fecha')} ? ' is-invalid' : ''">
+                            <div class="invalid-feedback"
+                                 th:if="${#fields.hasErrors('fecha')}"
+                                 th:errors="*{fecha}">
+                            </div>
                         </div>
 
                         <div>
-                            <label><b>Resultado</b></label>
-                            <select class="input" th:field="*{resultado}">
-                                <option th:each="r : ${resultados}" th:value="${r}" th:text="${r}"></option>
+                            <label><b>Juez</b>
+                            <select class="input"
+                                    th:field="*{juezId}"
+                                    th:classappend="${#fields.hasErrors('juezId')} ? ' is-invalid' : ''">
+                                <option th:each="j : ${jueces}"
+                                        th:value="${j.id}"
+                                        th:text="${j.nombre}">
+                                </option>
+                            </select></label>
+                            <div class="invalid-feedback"
+                                 th:if="${#fields.hasErrors('juezId')}"
+                                 th:errors="*{juezId}">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label><b>Contrato</b></label>
+                            <select class="input"
+                                    th:field="*{contratoId}"
+                                    th:classappend="${#fields.hasErrors('contratoId')} ? ' is-invalid' : ''">
+                                <option th:each="c : ${contratos}"
+                                        th:value="${c.id}"
+                                        th:text="${contratoLabelMap[c.id]}">
+                                </option>
                             </select>
+                            <div class="invalid-feedback"
+                                 th:if="${#fields.hasErrors('contratoId')}"
+                                 th:errors="*{contratoId}">
+                            </div>
                         </div>
 
-                        <div>
-                            <label><b>Juez ID</b></label>
-                            <input class="input" type="number" min="1" step="1" th:field="*{juezId}">
-                        </div>
-
-                        <div>
-                            <label><b>Persona detenida ID</b></label>
-                            <input class="input" type="number" min="1" step="1" th:field="*{personaDetenidaId}">
-                        </div>
                     </div>
 
-                    <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top: 18px;">
-                        <button class="btn btn-primary" type="submit">Guardar cambios</button>
+                    <div class="go go-right mt-18">
+                        <button class="btn btn-primary" type="submit">
+                            Guardar cambios
+                        </button>
                     </div>
+
                 </form>
             </div>
 
         </div>
     </div>
+
 </div>
 </body>
 </html>

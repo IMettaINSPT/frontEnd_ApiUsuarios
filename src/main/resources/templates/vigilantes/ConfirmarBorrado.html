@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="es"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/layout :: head('Eliminar Vigilante')}"></head>
 
 <body>
@@ -13,17 +12,19 @@
         <p>Esta acción no se puede deshacer.</p>
     </div>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
+    <div class="grid grid-1">
         <div class="card">
 
-            <div class="alert alert-warn" style="margin-bottom: 12px;">
+            <div class="alert warn">
                 ¿Seguro que querés eliminar el vigilante
                 <b th:text="${item.codigo}">VIG-001</b>
-                (ID <span th:text="${item.id}">1</span>)?
+                ?
             </div>
 
-            <form th:action="@{/vigilantes/{id}/delete(id=${item.id})}" method="post">
-                <div class="go" style="display:flex; justify-content:flex-end; gap:10px;">
+            <div th:if="${deleteError != null}" class="alert err mt-14" th:text="${deleteError}"></div>
+
+            <form th:action="@{/vigilantes/{id}/delete(id=${item.id})}" method="post" class="mt-16">
+                <div class="go go-right gap-10">
                     <a class="btn" th:href="@{/vigilantes/{id}(id=${item.id})}">Cancelar</a>
                     <button class="btn btn-danger" type="submit">Sí, eliminar</button>
                 </div>

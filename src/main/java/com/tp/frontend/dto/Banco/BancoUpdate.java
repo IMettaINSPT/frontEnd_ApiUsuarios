@@ -1,12 +1,11 @@
 package com.tp.frontend.dto.Banco;
 
-public class BancoUpdate {
-    private String codigo;
-    private String domicilioCentral;
+import jakarta.validation.constraints.NotBlank;
 
-    public String getCodigo() { return codigo; }
-    public void setCodigo(String codigo) { this.codigo = codigo; }
+public record BancoUpdate(
+    @NotBlank(message="El codigo es obligatorio")
+     String codigo,
 
-    public String getDomicilioCentral() { return domicilioCentral; }
-    public void setDomicilioCentral(String domicilioCentral) { this.domicilioCentral = domicilioCentral; }
-}
+    @NotBlank(message="El domicilio es obligatorio")
+     String domicilioCentral
+){}

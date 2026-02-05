@@ -2,48 +2,90 @@
 <html lang="es"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments/layout :: head('Confirmar eliminación')}"></head>
+<head th:replace="~{fragments/layout :: head('Detalle de usuario')}"></head>
 
 <body>
 <div th:replace="~{fragments/header :: topbar}"></div>
 
-<div class="container" style="max-width: 820px;">
+<div class="container" style="max-width: 900px;">
+
+    <!-- Mensajes -->
+    <div th:if="${msg}" class="alert ok mt-14" th:text="${msg}"></div>
+    <div th:if="${error}" class="alert err mt-14" th:text="${error}"></div>
 
     <div class="hero">
-        <h1>Confirmar eliminación</h1>
-        <p>Esta acción es <b>permanente</b> y no se puede deshacer.</p>
+        <div class="row row-between row-top gap-16">
+            <div>
+                <h1>Detalle de usuario</h1>
+                <p>Información y edición básica.</p>
+            </div>
+            <a class="btn" th:href="@{/users}">Volver</a>
+        </div>
     </div>
 
-    <div class="card" style="margin-top:14px;">
-        <div class="alert err">
-            <b>Advertencia:</b> si eliminás este usuario, se perderá el acceso y su referencia en el sistema.
+    <!-- Datos del usuario -->
+    <div class="card mt-14">
+        <h2 class="h2">Datos</h2>
+
+        <div class="grid grid-2 gap-14 mt-14">
+            <div>
+                <div class="label">Username</div>
+                <div th:text="${user != null ? user.username : '-'}">-</div>
+            </div>
+            <div>
+                <div class="label">Rol</div>
+                <div th:text="${user != null ? user.rol : '-'}">-</div>
+            </div>
+            <div>
+                <div class="label">Habilitado</div>
+                <div th:text="${user != null && user.enabled} ? 'Sí' : 'No'">No</div>
+            </div>
         </div>
 
-        <div style="display:grid; gap:8px; margin-top:12px;">
-            <div><span style="color:var(--muted);">ID:</span> <b th:text="${user.id}"></b></div>
-            <div><span style="color:var(--muted);">Usuario:</span> <b th:text="${user.username}"></b></div>
-            <div><span style="color:var(--muted);">Rol:</span> <b th:text="${user.rol}"></b></div>
+        <div th:if="${user != null and user.rol != null and user.rol.equalsIgnoreCase('VIGILANTE')}"
+             class="alert soft mt-14">
+            <b>Nota:</b> Este usuario tiene rol <b>VIGILANTE</b>.
+            El perfil de vigilante asociado <b>no se puede modificar</b> desde esta pantalla.
         </div>
+    </div>
 
-        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
-            <a class="btn" href="/users">Cancelar</a>
+    <!-- Editar usuario (ADMIN) -->
+    <div class="card mt-14" sec:authorize="hasRole('ADMIN')">
+        <h2 class="h2">Editar (ADMIN)</h2>
+        <p class="muted">
+            El backend permite actualizar <b>enabled</b> y <b>password</b>.
+            Si dejás la contraseña vacía, no se cambia.
+        </p>
 
-            <form th:action="@{'/users/' + ${user.id} + '/delete'}" method="post" style="display:inline;">
-                <button type="submit" class="btn btn-danger">
-                    Sí, eliminar definitivamente
-                </button>
-            </form>
+        <form th:action="@{/users/{id}(id=${user.id})}" method="post" th:object="${update}" class="mt-14">
+            <div class="stack gap-14" style="max-width: 560px;">
+
+                <div>
+                    <label class="label">Nueva contraseña (opcional)</label>
+                    <input class="input" type="password" th:field="*{password}" placeholder="(vacío = no cambia)">
+                    <!-- Si querés mostrar validación SSR de @Size -->
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                </div>
+
+                <div class="row gap-10">
+                    <input type="checkbox" id="enabledCheck" th:field="*{enabled}">
+                    <label for="enabledCheck" class="label">Usuario habilitado</label>
+                </div>
+
+                <div class="go go-right">
+                    <button class="btn btn-primary" type="submit">Guardar cambios</button>
+                </div>
+
+            </div>
+        </form>
+
+        <div class="mt-14">
+            <a class="btn btn-danger" th:href="@{/users/{id}/confirm-delete(id=${user.id})}">
+                Eliminar
+            </a>
         </div>
     </div>
 
 </div>
-
-<!-- Anti "back cache": si el navegador guarda la página en BFCache, forzamos reload -->
-<script>
-    window.addEventListener('pageshow', function (event) {
-        if (event.persisted) window.location.reload();
-    });
-</script>
-
 </body>
 </html>

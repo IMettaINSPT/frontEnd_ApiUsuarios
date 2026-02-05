@@ -1,57 +1,83 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments/layout :: head('Detalle banda')}"></head>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/layout :: head('Detalle Banda')}"></head>
+
 <body>
 <div th:replace="~{fragments/header :: topbar}"></div>
 
 <div class="container">
+
     <div class="hero">
         <h1>Banda</h1>
-        <p>Detalle. Edición solo ADMIN.</p>
+        <p>Detalle de banda. Edición solo ADMIN.</p>
     </div>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
+    <div class="grid grid-1">
         <div class="card">
-            <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px;">
+
+            <div class="row row-between row-top gap-16">
                 <div>
-                    <h3>Banda <span th:text="${item.numeroBanda}">10</span></h3>
-                    <p class="muted">ID <span th:text="${item.id}">1</span></p>
+                    <h3 th:text="${'Banda #' + item.numeroBanda}">Banda #1</h3>
+                    <p class="muted">Numero Miembros <span th:text="${item.numeroMiembros}">1</span></p>
                 </div>
 
-                <div style="display:flex; gap:10px; align-items:center;">
+                <div class="row gap-10">
                     <a class="btn" th:href="@{/bandas}">Volver</a>
                     <a class="btn btn-danger" sec:authorize="hasRole('ADMIN')"
-                       th:href="@{/bandas/{id}/confirm-delete(id=${item.id})}">Eliminar</a>
+                       th:href="@{/bandas/{id}/confirm-delete(id=${item.id})}">
+                        Eliminar
+                    </a>
                 </div>
             </div>
 
-            <div sec:authorize="hasRole('ADMIN')" style="margin-top: 14px;">
+            <!-- Errores globales -->
+            <div th:if="${#fields.hasGlobalErrors()}" class="alert err mt-14">
+                <ul class="list">
+                    <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
+                </ul>
+            </div>
+
+            <!-- Solo lectura -->
+            <div sec:authorize="!hasRole('ADMIN')" class="stack mt-14 gap-10">
+                <div><b>Número:</b> <span th:text="${item.numeroBanda}">1</span></div>
+            </div>
+
+            <!-- Edición -->
+            <div sec:authorize="hasRole('ADMIN')" class="mt-14">
                 <form th:action="@{/bandas/{id}(id=${item.id})}" th:object="${update}" method="post">
-                    <div style="display:grid; gap:14px;">
+
+                    <div class="stack gap-14">
                         <div>
                             <label><b>Número de banda</b></label>
-                            <input class="input" type="number" min="1" step="1" th:field="*{numeroBanda}">
+                            <input class="input" type="number" min="1" step="1"
+                                   th:field="*{numeroBanda}"
+                                   th:classappend="${#fields.hasErrors('numeroBanda')} ? ' is-invalid' : ''">
+                            <div class="invalid-feedback"
+                                 th:if="${#fields.hasErrors('numeroBanda')}"
+                                 th:errors="*{numeroBanda}"></div>
                         </div>
 
+                        <!-- Si tu DTO tiene más campos, copiá el patrón:
                         <div>
-                            <label><b>Número de miembros</b></label>
-                            <input class="input" type="number" min="0" step="1" th:field="*{numeroMiembros}">
+                          <label><b>Campo</b></label>
+                          <input class="input" th:field="*{campo}"
+                                 th:classappend="${#fields.hasErrors('campo')} ? ' is-invalid' : ''">
+                          <div class="invalid-feedback" th:if="${#fields.hasErrors('campo')}" th:errors="*{campo}"></div>
                         </div>
+                        -->
                     </div>
 
-                    <div class="go" style="display:flex; justify-content:flex-end; margin-top:18px;">
+                    <div class="go go-right mt-18">
                         <button class="btn btn-primary" type="submit">Guardar cambios</button>
                     </div>
                 </form>
             </div>
 
-            <div sec:authorize="!hasRole('ADMIN')" style="margin-top: 14px; display:grid; gap:10px;">
-                <div><b>Número de banda:</b> <span th:text="${item.numeroBanda}"></span></div>
-                <div><b>Miembros:</b> <span th:text="${item.numeroMiembros}"></span></div>
-            </div>
-
         </div>
     </div>
+
 </div>
 </body>
 </html>
