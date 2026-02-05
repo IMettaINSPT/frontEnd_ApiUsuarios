@@ -20,8 +20,7 @@
 
                 <a class="btn btn-primary" href="/dashboard">Dashboard</a>
 
-                <a class="btn" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')" href="/users">Usuarios</a>
-                <a class="btn" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')" href="/juicios">Juicios</a>
+
                 <a class="btn" sec:authorize="hasRole('VIGILANTE')" href="/vigilantes/me">Mi perfil</a>
 
                 <form action="/logout" method="post" style="display:inline;">
