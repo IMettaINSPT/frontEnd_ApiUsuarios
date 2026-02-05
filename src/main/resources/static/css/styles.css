@@ -14,9 +14,13 @@ input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; 
 .alert { padding: 10px; border-radius: 8px; margin-bottom: 12px; }
 .alert.error { background: #ffe3e3; color: #8a1f1f; border: 1px solid #ffb5b5; }
 
-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+/*table { width: 100%; border-collapse: collapse; margin-top: 8px; }
 th, td { border-bottom: 1px solid #eee; padding: 10px; text-align: left; }
 th { background: #fafafa; }
+*/
 
 .hint { margin-top: 12px; color: #666; font-size: 0.95rem; }
 code { background: #f1f1f1; padding: 2px 6px; border-radius: 6px; }
+
+
+
