@@ -28,24 +28,20 @@ public class SecurityConfig {
                 // AUTORIZACIÓN
                 // ---------------------------------
                 .authorizeHttpRequests(auth -> auth
-                        // Públicos
                         .requestMatchers(
                                 "/login",
+                                "/auth/login",   // <-- agregar
+                                "/do-login",     // <-- opcional (tu compat)
                                 "/logout-success",
                                 "/error",
                                 "/css/**",
                                 "/js/**",
+                                "/img/**",       // <-- agregar (tu template usa /img/)
                                 "/images/**",
                                 "/favicon.ico"
                         ).permitAll()
-
-                        // Perfil propio
                         .requestMatchers("/users/me").authenticated()
-
-                        // Administración
                         .requestMatchers("/users/**").hasRole("ADMIN")
-
-                        // Todo lo demás requiere login
                         .anyRequest().authenticated()
                 )
 

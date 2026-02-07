@@ -1,68 +1,43 @@
-<!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments/layout :: head('Detalle banco')}"></head>
-<body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Detalle Banco', null, ~{::section})}">
 
-<div class="container">
-    <div class="hero">
-        <h1>Banco</h1>
-        <p>Detalle del banco. Edición solo ADMIN.</p>
+<section class="container">
+    <h1>Detalle Banco</h1>
+
+    <div class="card" style="margin-bottom:16px;">
+        <div class="card-title">Datos actuales</div>
+        <p><b>ID:</b> <span th:text="${item.id}">1</span></p>
+        <p><b>Código:</b> <span th:text="${item.codigo}">COD</span></p>
+        <p><b>Domicilio Central:</b> <span th:text="${item.domicilioCentral}">DOM</span></p>
     </div>
 
-    <div class="grid grid-1">
-        <div class="card">
+    <div class="card">
+        <div class="card-title">Editar</div>
 
-            <div class="row row-between row-top gap-16">
+        <form th:action="@{/bancos/{id}(id=${item.id})}" method="post" th:object="${update}">
+            <div style="display:grid; gap:12px; max-width:520px;">
                 <div>
-                    <h3 th:text="${item.codigo}">BAN-01</h3>
-                    <p class="muted">Domicilio Central <span th:text="${item.domicilioCentral}">1</span></p>
+                    <label>Código</label>
+                    <input type="text" th:field="*{codigo}">
+                    <div th:if="${#fields.hasErrors('codigo')}"
+                         th:text="${#fields.errors('codigo')[0]}" style="color:#ffb4b4;"></div>
                 </div>
 
-                <div class="row gap-10">
+                <div>
+                    <label>Domicilio Central</label>
+                    <input type="text" th:field="*{domicilioCentral}">
+                    <div th:if="${#fields.hasErrors('domicilioCentral')}"
+                         th:text="${#fields.errors('domicilioCentral')[0]}" style="color:#ffb4b4;"></div>
+                </div>
+
+                <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;">
+                    <button class="btn btn-primary" type="submit">Guardar cambios</button>
                     <a class="btn" th:href="@{/bancos}">Volver</a>
-                    <a class="btn btn-danger" sec:authorize="hasRole('ADMIN')"
-                       th:href="@{/bancos/{id}/confirm-delete(id=${item.id})}">Eliminar</a>
+                    <a class="btn btn-danger" th:href="@{/bancos/{id}/confirm-delete(id=${item.id})}">Borrar</a>
                 </div>
             </div>
-
-            <!-- Errores globales (ApiError / transporte) -->
-            <div th:if="${#fields.hasGlobalErrors()}" class="alert err">
-                <ul class="list">
-                    <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
-                </ul>
-            </div>
-
-            <div sec:authorize="!hasRole('ADMIN')" class="stack mt-14 gap-10">
-                <div><b>Código:</b> <span th:text="${item.codigo}"></span></div>
-                <div><b>Domicilio central:</b> <span th:text="${item.domicilioCentral}"></span></div>
-            </div>
-
-            <div sec:authorize="hasRole('ADMIN')" class="mt-14">
-                <form th:action="@{/bancos/{id}(id=${item.id})}" th:object="${update}" method="post">
-                    <div class="stack gap-14">
-                        <div>
-                            <label><b>Código</b></label>
-                            <input class="input" type="text" th:field="*{codigo}"
-                                   th:classappend="${#fields.hasErrors('codigo')} ? ' is-invalid' : ''">
-                            <div class="invalid-feedback" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
-                        </div>
-                        <div>
-                            <label><b>Domicilio central</b></label>
-                            <input class="input" type="text" th:field="*{domicilioCentral}"
-                                   th:classappend="${#fields.hasErrors('domicilioCentral')} ? ' is-invalid' : ''">
-                            <div class="invalid-feedback" th:if="${#fields.hasErrors('domicilioCentral')}" th:errors="*{domicilioCentral}"></div>
-                        </div>
-                    </div>
-
-                    <div class="go go-right mt-18">
-                        <button class="btn btn-primary" type="submit">Guardar cambios</button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
+        </form>
     </div>
-</div>
-</body>
+</section>
 </html>

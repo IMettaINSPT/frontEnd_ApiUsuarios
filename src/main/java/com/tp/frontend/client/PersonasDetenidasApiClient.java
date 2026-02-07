@@ -22,7 +22,7 @@ public class PersonasDetenidasApiClient extends BaseApiClient {
         delete("/personasDetenidas/" +id, jwt);
     }
     public PersonaDetenidaResponse update(String jwt, Long id, PersonaDetenidaUpdate req) {
-        return put("/personasDetenidas" + id, jwt, req, PersonaDetenidaResponse.class);
+        return put("/personasDetenidas/" + id, jwt, req, PersonaDetenidaResponse.class);
     }
 
     public PersonaDetenidaResponse getById(String jwt, Long id) {

@@ -1,38 +1,31 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Eliminar Vigilante')}"></head>
+<head th:replace="~{fragments/layout :: head('Borrar Vigilante')}"></head>
 
 <body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<div class="app-shell">
+    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
 
-<div class="container">
+    <main class="main">
+        <div th:replace="~{fragments/header :: topbar}"></div>
 
-    <div class="hero">
-        <h1>Eliminar vigilante</h1>
-        <p>Esta acción no se puede deshacer.</p>
-    </div>
+        <section class="container">
+            <h1>Confirmar borrado</h1>
+            <p>Esta acción no se puede deshacer.</p>
 
-    <div class="grid grid-1">
-        <div class="card">
+            <div class="card">
+                <p>¿Seguro querés borrar el vigilante <b th:text="${item.id}">ID</b>?</p>
 
-            <div class="alert warn">
-                ¿Seguro que querés eliminar el vigilante
-                <b th:text="${item.codigo}">VIG-001</b>
-                ?
-            </div>
+                <p th:if="${deleteError != null}" style="color:#ffb4b4;" th:text="${deleteError}"></p>
 
-            <div th:if="${deleteError != null}" class="alert err mt-14" th:text="${deleteError}"></div>
-
-            <form th:action="@{/vigilantes/{id}/delete(id=${item.id})}" method="post" class="mt-16">
-                <div class="go go-right gap-10">
+                <form th:action="@{/vigilantes/{id}/delete(id=${item.id})}" method="post"
+                      style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
+                    <button class="btn btn-danger" type="submit">Sí, borrar</button>
                     <a class="btn" th:href="@{/vigilantes/{id}(id=${item.id})}">Cancelar</a>
-                    <button class="btn btn-danger" type="submit">Sí, eliminar</button>
-                </div>
-            </form>
-
-        </div>
-    </div>
-
+                </form>
+            </div>
+        </section>
+    </main>
 </div>
 </body>
 </html>

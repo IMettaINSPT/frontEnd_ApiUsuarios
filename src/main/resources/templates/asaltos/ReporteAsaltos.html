@@ -1,99 +1,80 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Reporte de asaltos')}"></head>
+<head th:replace="~{fragments/layout :: head('Reporte Asaltos')}"></head>
+
 <body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<div class="app-shell">
+    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
 
-<div class="container">
-    <div class="hero">
-        <h1>Reporte de asaltos</h1>
-        <p>Buscá por sucursal y/o rango de fechas.</p>
-    </div>
+    <main class="main">
+        <div th:replace="~{fragments/header :: topbar}"></div>
 
-    <div class="grid grid-1">
-        <div class="card">
+        <section class="container">
+            <h1>Reporte de Asaltos</h1>
+            <p>Filtrá por sucursal y fechas</p>
 
-            <div class="row row-between row-top gap-16">
-                <div>
-                    <h3>Filtros</h3>
-                    <p class="muted">Podés usar fecha exacta o rango (desde/hasta).</p>
-                </div>
-                <div class="row gap-10">
-                    <a class="btn" th:href="@{/asaltos}">Volver a listado</a>
-                </div>
+            <div class="card" style="margin-bottom:16px;">
+                <form th:action="@{/asaltos/reporte}" method="get" style="display:grid; gap:12px; grid-template-columns: repeat(4, minmax(0,1fr));">
+                    <div>
+                        <label>Sucursal ID</label>
+                        <select name="sucursalId">
+                            <option value="">-- Todas --</option>
+                            <option th:each="s : ${sucursales}"
+                                    th:value="${s.id}"
+                                    th:text="${s.id}"
+                                    th:selected="${filterSucursalId != null && filterSucursalId == s.id}">
+                            </option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Fecha exacta</label>
+                        <input type="date" name="fecha" th:value="${filterFecha}">
+                    </div>
+
+                    <div>
+                        <label>Desde</label>
+                        <input type="date" name="desde" th:value="${filterDesde}">
+                    </div>
+
+                    <div>
+                        <label>Hasta</label>
+                        <input type="date" name="hasta" th:value="${filterHasta}">
+                    </div>
+
+                    <div style="grid-column: span 4; display:flex; gap:10px; flex-wrap:wrap; margin-top:6px;">
+                        <button class="btn btn-primary" type="submit">Aplicar filtros</button>
+                        <a class="btn" th:href="@{/asaltos/reporte}">Limpiar</a>
+                        <a class="btn" th:href="@{/asaltos}">Volver</a>
+                    </div>
+                </form>
             </div>
 
-            <form method="get" th:action="@{/asaltos/reporte}" class="mt-14 stack gap-14">
-
-                <div>
-                    <label><b>Sucursal</b></label>
-                    <select class="input" name="sucursalId">
-                        <option th:value="" th:selected="${filterSucursalId == null}">Todas</option>
-                        <option th:each="s : ${sucursales}"
-                                th:value="${s.id}"
-                                th:selected="${filterSucursalId != null and filterSucursalId == s.id}"
-                                th:text="${s.codigo + ' - ' + s.domicilio}">
-                        </option>
-                    </select>
-                </div>
-
-                <div class="grid grid-2">
-                    <div>
-                        <label><b>Fecha exacta</b></label>
-                        <input class="input" type="date" name="fecha" th:value="${filterFecha}">
-                    </div>
-                    <div>
-                        <label><b>Desde</b></label>
-                        <input class="input" type="date" name="desde" th:value="${filterDesde}">
-                    </div>
-                    <div>
-                        <label><b>Hasta</b></label>
-                        <input class="input" type="date" name="hasta" th:value="${filterHasta}">
-                    </div>
-                </div>
-
-                <div class="go go-right gap-10">
-                    <a class="btn" th:href="@{/asaltos/reporte}">Limpiar</a>
-                    <button class="btn btn-primary" type="submit">Buscar</button>
-                </div>
-            </form>
-
-            <div class="mt-18">
-                <h3>Resultados</h3>
-
-                <table class="mt-16">
+            <div class="card">
+                <table>
                     <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Fecha</th>
-                        <th>Sucursal</th>
-                        <th>Persona detenida</th>
-                        <th style="width:140px;">Acción</th>
+                        <th>Sucursal ID</th>
+                        <th>Persona Detenida ID</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="a : ${items}"
-                        th:with="s=${sucursalesMap[a.sucursalId]}, p=${personasMap[a.personaDetenidaId]}">
+                    <tr th:each="a : ${items}">
+                        <td th:text="${a.id}">1</td>
                         <td th:text="${a.fechaAsalto}">2026-01-01</td>
-
-                        <td th:text="${s != null ? (s.codigo + ' - ' + s.domicilio) : '(sucursal no disponible)'}"></td>
-
-                        <td>
-                            <span th:text="${p != null ? (p.codigo + ' - ' + p.nombre) : '(persona no disponible)'}"></span>
-                            <span th:if="${p != null}"> • <span th:text="${p.banda != null ? 'Banda #' + p.banda.numeroBanda : 'Sin banda'}"></span></span>
-                        </td>
-
-                        <td><a class="btn" th:href="@{/asaltos/{id}(id=${a.id})}">Ver</a></td>
+                        <td th:text="${a.sucursalId}">1</td>
+                        <td th:text="${a.personaDetenidaId}">1</td>
                     </tr>
-
-                    <tr th:if="${items == null or #lists.isEmpty(items)}">
-                        <td colspan="4" class="muted">No hay resultados para esos filtros.</td>
+                    <tr th:if="${items == null || #lists.isEmpty(items)}">
+                        <td colspan="4" style="color: var(--muted);">No hay resultados para los filtros actuales.</td>
                     </tr>
                     </tbody>
                 </table>
             </div>
-
-        </div>
-    </div>
+        </section>
+    </main>
 </div>
 </body>
 </html>

@@ -19,7 +19,7 @@ public class BandasApiClient extends BaseApiClient {
     }
 
     public void delete(String jwt, Long id) {
-        delete("/bandas" + id, jwt);
+        delete("/bandas/" + id, jwt);
     }
     public BandaResponse update(String jwt, Long id, BandaUpdate req) {
         return put("/bandas/" +id, jwt, req, BandaResponse.class);

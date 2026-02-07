@@ -19,7 +19,7 @@ public class BancosApiClient extends BaseApiClient {
     }
 
     public void delete(String jwt, Long id) {
-        delete("/bancos" + id, jwt);
+        delete("/bancos/" + id, jwt);
     }
     public BancoResponse update(String jwt, Long id, BancoUpdate req) {
         return put("/bancos/"+ id, jwt, req, BancoResponse.class);

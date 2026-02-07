@@ -1,38 +1,29 @@
 <!DOCTYPE html>
-<html lang="es"
-      xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Mi perfil')}"></head>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Mi Perfil')}"></head>
 
 <body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<div class="app-shell">
+    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
 
-<div class="container">
+    <main class="main">
+        <div th:replace="~{fragments/header :: topbar}"></div>
 
-    <div class="hero">
-        <h1>Mi perfil</h1>
-        <p>Información del vigilante logueado.</p>
-    </div>
+        <section class="container">
+            <h1>Mi perfil</h1>
+            <p>Información del vigilante autenticado</p>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
-        <div class="card">
-
-            <div>
-                <h3 th:text="${item.codigo}">VIG-001</h3>
-                <p class="muted">Datos personales</p>
-
-                <div style="margin-top: 14px; display:grid; gap:10px;">
-                    <div><b>Código:</b> <span th:text="${item.codigo}">VIG-001</span></div>
-                    <div><b>Edad:</b> <span th:text="${item.edad}">30</span></div>
-                </div>
+            <div class="card">
+                <p><b>ID:</b> <span th:text="${item.id}">-</span></p>
+                <p><b>Código:</b> <span th:text="${item.codigo}">-</span></p>
+                <p><b>Edad:</b> <span th:text="${item.edad}">-</span></p>
             </div>
 
-            <div class="go" style="display:flex; justify-content:flex-end; gap:10px; margin-top: 16px;">
-                <a class="btn" th:href="@{/}">Volver al menú</a>
+            <div class="card" style="margin-top:16px;">
+                <a class="btn" th:href="@{/vigilantes}">Volver</a>
             </div>
-
-        </div>
-    </div>
-
+        </section>
+    </main>
 </div>
 </body>
 </html>

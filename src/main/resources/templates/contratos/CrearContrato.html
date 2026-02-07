@@ -1,84 +1,82 @@
-<!doctype html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Crear Contrato</title>
-    <link rel="stylesheet" th:href="@{/css/app.css}"/>
-</head>
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="~{fragments/layout :: head('Crear Contrato')}"></head>
+
 <body>
-<main class="container" style="max-width:720px;margin-top:32px;">
-    <h1>Crear Contrato</h1>
+<div class="app-shell">
+    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
 
-    <form th:action="@{/contratos}" th:object="${form}" method="post" data-validate novalidate>
+    <main class="main">
+        <div th:replace="~{fragments/header :: topbar}"></div>
 
-        <div th:if="${#fields.hasGlobalErrors()}" class="alert alert-danger">
-            <ul style="margin:0;">
-                <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
-            </ul>
-        </div>
+        <section class="container">
+            <h1>Crear Contrato</h1>
+            <p>Asignación de vigilante a sucursal</p>
 
-        <div class="mb-3">
-            <label for="fechaContrato" class="form-label">Fecha</label>
-            <input id="fechaContrato" type="date" th:field="*{fechaContrato}" required
-                   class="form-control"
-                   th:classappend="${#fields.hasErrors('fechaContrato')} ? 'is-invalid' : ''"/>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('fechaContrato')}" th:errors="*{fechaContrato}"></div>
-            <div class="invalid-feedback" th:if="${!#fields.hasErrors('fechaContrato')}">La fecha es obligatoria.</div>
-        </div>
+            <div class="card">
+                <form th:action="@{/contratos}" method="post" th:object="${form}">
+                    <div style="display:grid; gap:12px; max-width:560px;">
 
-        <div class="mb-3">
-            <label class="form-label">¿Con arma?</label>
-            <div class="form-check">
-                <input class="form-check-input"
-                       type="radio"
-                       th:field="*{conArma}"
-                       id="conArmaSi"
-                       value="true" required>
-                <label class="form-check-label" for="conArmaSi">Sí</label>
+                        <div>
+                            <label>Fecha contrato</label>
+                            <input type="date" th:field="*{fechaContrato}">
+                            <div th:if="${#fields.hasErrors('fechaContrato')}"
+                                 th:text="${#fields.errors('fechaContrato')[0]}" style="color:#ffb4b4;"></div>
+                        </div>
+
+                        <div>
+                            <label>Con arma</label>
+                            <select th:field="*{conArma}">
+                                <option th:value="true">Sí</option>
+                                <option th:value="false">No</option>
+                            </select>
+                            <div th:if="${#fields.hasErrors('conArma')}"
+                                 th:text="${#fields.errors('conArma')[0]}" style="color:#ffb4b4;"></div>
+                        </div>
+
+                        <div>
+                            <label>Sucursal</label>
+                            <select th:field="*{sucursalId}">
+                                <option value="">-- Seleccionar --</option>
+                                <option th:each="s : ${sucursales}"
+                                        th:value="${s.id}"
+                                        th:text="${sucursalLabelMap != null ? sucursalLabelMap[s.id] : ('Sucursal ' + s.id)}">
+                                </option>
+                            </select>
+                            <div th:if="${#fields.hasErrors('sucursalId')}"
+                                 th:text="${#fields.errors('sucursalId')[0]}" style="color:#ffb4b4;"></div>
+                        </div>
+
+                        <div>
+                            <label>Vigilante</label>
+                            <select th:field="*{vigilanteId}">
+                                <option value="">-- Seleccionar --</option>
+                                <option th:each="v : ${vigilantes}"
+                                        th:value="${v.id}"
+                                        th:text="${vigilanteLabelMap != null ? vigilanteLabelMap[v.id] : ('Vigilante ' + v.id)}">
+                                </option>
+                            </select>
+                            <div th:if="${#fields.hasErrors('vigilanteId')}"
+                                 th:text="${#fields.errors('vigilanteId')[0]}" style="color:#ffb4b4;"></div>
+                        </div>
+
+                        <div th:if="${!(haySucursales && hayVigilantes)}" style="color:#ffb4b4; font-weight:800;">
+                            No hay sucursales o vigilantes disponibles para crear un contrato.
+                        </div>
+
+                        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;">
+                            <button class="btn btn-primary" type="submit" th:disabled="${!(haySucursales && hayVigilantes)}">Guardar</button>
+                            <a class="btn" th:href="@{/contratos}">Cancelar</a>
+                        </div>
+
+                    </div>
+                </form>
             </div>
-            <div class="form-check">
-                <input class="form-check-input"
-                       type="radio"
-                       th:field="*{conArma}"
-                       id="conArmaNo"
-                       value="false" required>
-                <label class="form-check-label" for="conArmaNo">No</label>
-            </div>
-
-            <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('conArma')}" th:errors="*{conArma}"></div>
-            <div class="invalid-feedback d-none"></div>
-        </div>
-
-        <div class="mb-3">
-            <label for="sucursalId" class="form-label">Sucursal</label>
-            <select id="sucursalId" th:field="*{sucursalId}" required
-                    class="form-select"
-                    th:classappend="${#fields.hasErrors('sucursalId')} ? 'is-invalid' : ''">
-                <option value="" selected>-- Seleccionar --</option>
-                <option th:each="s : ${sucursales}" th:value="${s.id}" th:text="${s.codigo}"></option>
-            </select>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('sucursalId')}" th:errors="*{sucursalId}"></div>
-            <div class="invalid-feedback" th:if="${!#fields.hasErrors('sucursalId')}">Seleccioná una sucursal.</div>
-        </div>
-
-        <div class="mb-3">
-            <label for="vigilanteId" class="form-label">Vigilante</label>
-            <select id="vigilanteId" th:field="*{vigilanteId}" required
-                    class="form-select"
-                    th:classappend="${#fields.hasErrors('vigilanteId')} ? 'is-invalid' : ''">
-                <option value="" selected>-- Seleccionar --</option>
-                <option th:each="v : ${vigilantes}" th:value="${v.id}" th:text="${v.codigo}"></option>
-            </select>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('vigilanteId')}" th:errors="*{vigilanteId}"></div>
-            <div class="invalid-feedback" th:if="${!#fields.hasErrors('vigilanteId')}">Seleccioná un vigilante.</div>
-        </div>
-
-        <button type="submit" class="btn btn-primary" data-submit>Guardar</button>
-        <a class="btn btn-secondary" th:href="@{/contratos}">Cancelar</a>
-    </form>
-</main>
-
-<script th:src="@{/js/form-validation.js}"></script>
+        </section>
+    </main>
+</div>
 </body>
 </html>

@@ -1,46 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Alta Vigilante</title>
-    <link rel="stylesheet" th:href="@{/css/app.css}"/>
-</head>
+<head th:replace="~{fragments/layout :: head('Crear Vigilante')}"></head>
+
 <body>
-<main class="container" style="max-width:720px;margin-top:32px;">
-    <h1>Alta Vigilante</h1>
+<div class="app-shell">
+    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
 
-    <form th:action="@{/vigilantes}" th:object="${form}" method="post" data-validate novalidate>
+    <main class="main">
+        <div th:replace="~{fragments/header :: topbar}"></div>
 
-        <div th:if="${#fields.hasGlobalErrors()}" class="alert alert-danger">
-            <ul style="margin:0;">
-                <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
-            </ul>
-        </div>
+        <section class="container">
+            <h1>Crear Vigilante</h1>
+            <p>Completá los datos del nuevo vigilante</p>
 
-        <div class="mb-3">
-            <label for="codigo" class="form-label">Código</label>
-            <input id="codigo" type="text" th:field="*{codigo}" required maxlength="20"
-                   class="form-control"
-                   th:classappend="${#fields.hasErrors('codigo')} ? 'is-invalid' : ''"/>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
-            <div class="invalid-feedback" th:if="${!#fields.hasErrors('codigo')}">El código es obligatorio.</div>
-        </div>
+            <div class="card">
+                <form th:action="@{/vigilantes}" method="post" th:object="${form}">
+                    <div style="display:grid; gap:12px; max-width:560px;">
 
-        <div class="mb-3">
-            <label for="edad" class="form-label">Edad</label>
-            <input id="edad" type="number" th:field="*{edad}" required min="18" step="1"
-                   class="form-control"
-                   th:classappend="${#fields.hasErrors('edad')} ? 'is-invalid' : ''"/>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></div>
-            <div class="invalid-feedback" th:if="${!#fields.hasErrors('edad')}">La edad mínima es 18.</div>
-        </div>
+                        <div th:if="${#fields.hasGlobalErrors()}" style="color:#ffb4b4; font-weight:800;"
+                             th:text="${#fields.globalErrors()[0].defaultMessage}">
+                        </div>
 
-        <button type="submit" class="btn btn-primary" data-submit>Guardar</button>
-        <a class="btn btn-secondary" th:href="@{/vigilantes}">Cancelar</a>
-    </form>
-</main>
+                        <div>
+                            <label>Código</label>
+                            <input type="text" th:field="*{codigo}" placeholder="Ej: VIG-01">
+                            <div th:if="${#fields.hasErrors('codigo')}"
+                                 th:text="${#fields.errors('codigo')[0]}" style="color:#ffb4b4;"></div>
+                        </div>
 
-<script th:src="@{/js/form-validation.js}"></script>
+                        <div>
+                            <label>Edad</label>
+                            <input type="number" min="18" th:field="*{edad}" placeholder="18">
+                            <div th:if="${#fields.hasErrors('edad')}"
+                                 th:text="${#fields.errors('edad')[0]}" style="color:#ffb4b4;"></div>
+                        </div>
+
+                        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;">
+                            <button class="btn btn-primary" type="submit">Guardar</button>
+                            <a class="btn" th:href="@{/vigilantes}">Cancelar</a>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+</div>
 </body>
 </html>

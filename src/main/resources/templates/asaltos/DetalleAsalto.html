@@ -1,116 +1,73 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments/layout :: head('Detalle asalto')}"></head>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Detalle Asalto')}"></head>
+
 <body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<div class="app-shell">
+  <div th:replace="~{fragments/sidebar :: sidebar}"></div>
 
-<div class="container">
-  <div class="hero">
-    <h1>Asalto</h1>
-    <p>Detalle del asalto. Edición solo ADMIN.</p>
-  </div>
+  <main class="main">
+    <div th:replace="~{fragments/header :: topbar}"></div>
 
-  <div class="grid grid-1">
-    <div class="card"
-         th:with="s=${sucursalesMap[item.sucursalId]},
-                      p=${personasMap[item.personaDetenidaId]}">
+    <section class="container">
+      <h1>Detalle Asalto</h1>
 
-      <div class="row row-between row-top gap-16">
-        <div>
-          <h3>Asalto</h3>
-
-          <p class="muted">
-            Fecha:
-            <span th:text="${item.fechaAsalto}">2026-01-01</span>
-          </p>
-
-          <p class="muted">
-            Sucursal:
-            <span th:text="${s != null ? (s.codigo + ' - ' + s.domicilio) : '(sucursal no disponible)'}"></span>
-          </p>
-
-          <p class="muted">
-            Persona detenida:
-            <span th:text="${p != null ? (p.codigo + ' - ' + p.nombre) : '(persona no disponible)'}"></span>
-            <span th:if="${p != null}">
-                            • <span th:text="${p.banda != null ? 'Banda #' + p.banda.numeroBanda : 'Sin banda'}"></span>
-                        </span>
-          </p>
-        </div>
-
-        <div class="row gap-10">
-          <a class="btn" th:href="@{/asaltos}">Volver</a>
-          <a class="btn btn-danger" sec:authorize="hasRole('ADMIN')"
-             th:href="@{/asaltos/{id}/confirm-delete(id=${item.id})}">
-            Eliminar
-          </a>
-        </div>
+      <div class="card" style="margin-bottom:16px;">
+        <div class="card-title">Datos actuales</div>
+        <p><b>ID:</b> <span th:text="${item.id}">1</span></p>
+        <p><b>Fecha:</b> <span th:text="${item.fechaAsalto}">2026-01-01</span></p>
+        <p><b>Sucursal ID:</b> <span th:text="${item.sucursalId}">1</span></p>
+        <p><b>Persona Detenida ID:</b> <span th:text="${item.personaDetenidaId}">1</span></p>
       </div>
 
-      <!-- Global errors -->
-      <div th:if="${#fields.hasGlobalErrors()}" class="alert err mt-14">
-        <ul class="list">
-          <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
-        </ul>
-      </div>
+      <div class="card">
+        <div class="card-title">Editar</div>
 
-      <!-- SOLO LECTURA -->
-      <div sec:authorize="!hasRole('ADMIN')" class="stack mt-14 gap-10">
-        <div><b>Fecha:</b> <span th:text="${item.fechaAsalto}"></span></div>
-        <div><b>Sucursal:</b> <span th:text="${s != null ? (s.codigo + ' - ' + s.domicilio) : '(sucursal no disponible)'}"></span></div>
-        <div>
-          <b>Persona:</b>
-          <span th:text="${p != null ? (p.codigo + ' - ' + p.nombre) : '(persona no disponible)'}"></span>
-          <span th:if="${p != null}"> • <span th:text="${p.banda != null ? 'Banda #' + p.banda.numeroBanda : 'Sin banda'}"></span></span>
-        </div>
-      </div>
+        <form th:action="@{/asaltos/{id}(id=${item.id})}" method="post" th:object="${update}">
+          <div style="display:grid; gap:12px; max-width:560px;">
 
-      <!-- EDICIÓN -->
-      <div sec:authorize="hasRole('ADMIN')" class="mt-14">
-        <form th:action="@{/asaltos/{id}(id=${item.id})}" th:object="${update}" method="post">
-          <div class="stack gap-14">
-
-            <div>
-              <label><b>Fecha del asalto</b></label>
-              <input class="input" type="date" th:field="*{fechaAsalto}"
-                     th:classappend="${#fields.hasErrors('fechaAsalto')} ? ' is-invalid' : ''">
-              <div class="invalid-feedback" th:if="${#fields.hasErrors('fechaAsalto')}" th:errors="*{fechaAsalto}"></div>
+            <div th:if="${#fields.hasGlobalErrors()}" style="color:#ffb4b4; font-weight:800;"
+                 th:text="${#fields.globalErrors()[0].defaultMessage}">
             </div>
 
             <div>
-              <label><b>Sucursal</b></label>
-              <select class="input" th:field="*{sucursalId}"
-                      th:classappend="${#fields.hasErrors('sucursalId')} ? ' is-invalid' : ''">
-                <option th:each="su : ${sucursales}"
-                        th:value="${su.id}"
-                        th:text="${su.codigo + ' - ' + su.domicilio}">
-                </option>
+              <label>Fecha</label>
+              <input type="date" th:field="*{fechaAsalto}">
+              <div th:if="${#fields.hasErrors('fechaAsalto')}"
+                   th:text="${#fields.errors('fechaAsalto')[0]}" style="color:#ffb4b4;"></div>
+            </div>
+
+            <div>
+              <label>Sucursal ID</label>
+              <select th:field="*{sucursalId}">
+                <option value="">-- Seleccionar --</option>
+                <option th:each="s : ${sucursales}" th:value="${s.id}" th:text="${s.id}">1</option>
               </select>
-              <div class="invalid-feedback" th:if="${#fields.hasErrors('sucursalId')}" th:errors="*{sucursalId}"></div>
+              <div th:if="${#fields.hasErrors('sucursalId')}"
+                   th:text="${#fields.errors('sucursalId')[0]}" style="color:#ffb4b4;"></div>
             </div>
 
             <div>
-              <label><b>Persona detenida</b></label>
-              <select class="input" th:field="*{personaDetenidaId}"
-                      th:classappend="${#fields.hasErrors('personaDetenidaId')} ? ' is-invalid' : ''">
-                <option th:each="pe : ${personas}"
-                        th:value="${pe.id}"
-                        th:text="${pe.codigo + ' - ' + pe.nombre + (pe.banda != null ? ' • Banda #' + pe.banda.numeroBanda : ' • Sin banda')}">
-                </option>
+              <label>Persona Detenida ID</label>
+              <select th:field="*{personaDetenidaId}">
+                <option value="">-- Seleccionar --</option>
+                <option th:each="p : ${personas}" th:value="${p.id}" th:text="${p.id}">1</option>
               </select>
-              <div class="invalid-feedback" th:if="${#fields.hasErrors('personaDetenidaId')}" th:errors="*{personaDetenidaId}"></div>
+              <div th:if="${#fields.hasErrors('personaDetenidaId')}"
+                   th:text="${#fields.errors('personaDetenidaId')[0]}" style="color:#ffb4b4;"></div>
             </div>
 
-          </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;">
+              <button class="btn btn-primary" type="submit">Guardar cambios</button>
+              <a class="btn" th:href="@{/asaltos}">Volver</a>
+              <a class="btn btn-danger" th:href="@{/asaltos/{id}/confirm-delete(id=${item.id})}">Borrar</a>
+            </div>
 
-          <div class="go go-right mt-18">
-            <button class="btn btn-primary" type="submit">Guardar cambios</button>
           </div>
         </form>
       </div>
-
-    </div>
-  </div>
+    </section>
+  </main>
 </div>
 </body>
 </html>

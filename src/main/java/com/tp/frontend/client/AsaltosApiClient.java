@@ -23,7 +23,7 @@ public class AsaltosApiClient extends BaseApiClient {
     }
 
     public void delete(String jwt, Long id) {
-        delete("/asaltos" + id, jwt);
+        delete("/asaltos/" + id, jwt);
     }
     public AsaltoResponse update(String jwt, Long id, AsaltoUpdate req) {
         return put("/asaltos/" + id, jwt, req, AsaltoResponse.class);

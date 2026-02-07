@@ -9,7 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 @Controller
 public class DashboardController {
 
@@ -27,10 +27,12 @@ public class DashboardController {
 
     @PreAuthorize("hasAnyRole('ADMIN','INVESTIGADOR')")
     @GetMapping("/dashboard")
-    public String dashboard(HttpSession session, Model model) {
-        log.info("GET /dashboard");
+    public String dashboard(HttpSession session, Model model) throws Exception {
         var summary = service.summary(jwt(session));
+
         model.addAttribute("summary", summary);
-        return "dashboard/Dashboard";
+        model.addAttribute("summaryJson", new ObjectMapper().writeValueAsString(summary));
+
+        return "dashboard/dashboard";
     }
 }

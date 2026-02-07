@@ -19,10 +19,10 @@ public class VigilantesApiClient extends BaseApiClient {
     }
 
     public void delete(String jwt, Long id) {
-        delete("/vigilantes" + id, jwt);
+        delete("/vigilantes/" + id, jwt);
     }
     public VigilanteResponse update(String jwt, Long id, VigilanteUpdate req) {
-        return put("/vigilantes"+ id, jwt, req, VigilanteResponse.class);
+        return put("/vigilantes/"+ id, jwt, req, VigilanteResponse.class);
     }
 
     public VigilanteResponse getById(String jwt, Long id) {

@@ -1,67 +1,52 @@
 <!DOCTYPE html>
-<html lang="es"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/layout :: head('Vigilantes')}"></head>
 
 <body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<div class="app-shell">
+    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
 
-<div class="container">
+    <main class="main">
+        <div th:replace="~{fragments/header :: topbar}"></div>
 
-    <div class="hero">
-        <h1>Vigilantes</h1>
-        <p>Listado de vigilantes. Alta/edición solo ADMIN.</p>
-    </div>
+        <section class="container">
+            <h1>Vigilantes</h1>
+            <p>Gestión de vigilantes</p>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
-        <div class="card">
-
-            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-                <div>
-                    <h3>Listado</h3>
-                    <p class="muted">Abrí el detalle para ver y (si sos ADMIN) editar.</p>
-                </div>
-
-                <div sec:authorize="hasRole('ADMIN')">
-                    <a class="btn btn-primary" th:href="@{/vigilantes/new}">+ Nuevo vigilante</a>
-                </div>
+            <div class="card" style="margin-bottom:16px; display:flex; gap:10px; flex-wrap:wrap;">
+                <a class="btn btn-primary" th:href="@{/vigilantes/new}">+ Crear Vigilante</a>
+                <a class="btn" th:href="@{/vigilantes/me}">👤 Mi perfil</a>
             </div>
 
-            <div style="margin-top: 14px;">
-                <table class="table">
+            <div class="card">
+                <table>
                     <thead>
                     <tr>
-
+                        <th>ID</th>
                         <th>Código</th>
-                        <th style="width:110px;">Edad</th>
-                        <th style="width:140px;">Acción</th>
+                        <th>Edad</th>
+                        <th>Acciones</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="v : ${items}">
                         <td th:text="${v.id}">1</td>
-                        <td th:text="${v.codigo}">VIG-001</td>
+                        <td th:text="${v.codigo}">VIG-01</td>
                         <td th:text="${v.edad}">30</td>
-                        <td>
-                            <a class="btn" th:href="@{/vigilantes/{id}(id=${v.id})}">Ver</a>
+                        <td style="display:flex; gap:8px; flex-wrap:wrap;">
+                            <a class="btn" th:href="@{/vigilantes/{id}(id=${v.id})}">Ver / Editar</a>
+                            <a class="btn btn-danger" th:href="@{/vigilantes/{id}/confirm-delete(id=${v.id})}">Borrar</a>
                         </td>
                     </tr>
 
-                    <tr th:if="${items == null or #lists.isEmpty(items)}">
-                        <td colspan="4" class="muted">No hay vigilantes cargados.</td>
+                    <tr th:if="${items == null || #lists.isEmpty(items)}">
+                        <td colspan="4" style="color: var(--muted);">No hay vigilantes cargados.</td>
                     </tr>
                     </tbody>
                 </table>
             </div>
-
-            <div class="go" style="display:flex; justify-content:flex-end; margin-top: 10px;">
-                <a class="btn" th:href="@{/}">Volver al menú</a>
-            </div>
-
-        </div>
-    </div>
-
+        </section>
+    </main>
 </div>
 </body>
 </html>

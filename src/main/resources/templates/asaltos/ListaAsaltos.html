@@ -1,71 +1,54 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/layout :: head('Asaltos')}"></head>
+
 <body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<div class="app-shell">
+    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
 
-<div class="container">
-    <div class="hero">
-        <h1>Asaltos</h1>
-        <p>Listado general de asaltos.</p>
-    </div>
+    <main class="main">
+        <div th:replace="~{fragments/header :: topbar}"></div>
 
-    <div class="grid grid-1">
-        <div class="card">
+        <section class="container">
+            <h1>Asaltos</h1>
+            <p>Gestión de asaltos</p>
 
-            <div class="row row-between row-top gap-16">
-                <div>
-                    <h3>Listado</h3>
-                    <p class="muted">Ver detalle para editar (ADMIN) o consultar.</p>
-                </div>
-                <div class="row gap-10">
-                    <a class="btn" th:href="@{/asaltos/reporte}">Reporte / Búsqueda</a>
-                    <a class="btn btn-primary" sec:authorize="hasRole('ADMIN')" th:href="@{/asaltos/new}">+ Nuevo asalto</a>
-                </div>
+            <div class="card" style="margin-bottom:16px; display:flex; gap:10px; flex-wrap:wrap;">
+                <a class="btn btn-primary" th:href="@{/asaltos/new}">+ Crear Asalto</a>
+                <a class="btn" th:href="@{/asaltos/reporte}">📄 Reporte</a>
             </div>
 
-            <div class="mt-14">
+            <div class="card">
                 <table>
                     <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Fecha</th>
-                        <th>Sucursal</th>
-                        <th>Persona detenida</th>
-                        <th style="width:140px;">Acción</th>
+                        <th>Sucursal ID</th>
+                        <th>Persona Detenida ID</th>
+                        <th>Acciones</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="a : ${items}"
-                        th:with="s=${sucursalesMap[a.sucursalId]}, p=${personasMap[a.personaDetenidaId]}">
+                    <tr th:each="a : ${items}">
+                        <td th:text="${a.id}">1</td>
                         <td th:text="${a.fechaAsalto}">2026-01-01</td>
-
-                        <td th:text="${s != null ? (s.codigo + ' - ' + s.domicilio) : '(sucursal no disponible)'}">
-                            SUC-01
-                        </td>
-
-                        <td>
-                            <span th:text="${p != null ? (p.codigo + ' - ' + p.nombre) : '(persona no disponible)'}"></span>
-                            <span th:if="${p != null}"> • <span th:text="${p.banda != null ? 'Banda #' + p.banda.numeroBanda : 'Sin banda'}"></span></span>
-                        </td>
-
-                        <td>
-                            <a class="btn" th:href="@{/asaltos/{id}(id=${a.id})}">Ver</a>
+                        <td th:text="${a.sucursalId}">1</td>
+                        <td th:text="${a.personaDetenidaId}">1</td>
+                        <td style="display:flex; gap:8px; flex-wrap:wrap;">
+                            <a class="btn" th:href="@{/asaltos/{id}(id=${a.id})}">Ver / Editar</a>
+                            <a class="btn btn-danger" th:href="@{/asaltos/{id}/confirm-delete(id=${a.id})}">Borrar</a>
                         </td>
                     </tr>
 
-                    <tr th:if="${items == null or #lists.isEmpty(items)}">
-                        <td colspan="4" class="muted">No hay asaltos cargados.</td>
+                    <tr th:if="${items == null || #lists.isEmpty(items)}">
+                        <td colspan="5" style="color: var(--muted);">No hay asaltos cargados.</td>
                     </tr>
                     </tbody>
                 </table>
             </div>
-
-            <div class="go go-right mt-16">
-                <a class="btn" th:href="@{/}">Volver al menú</a>
-            </div>
-
-        </div>
-    </div>
+        </section>
+    </main>
 </div>
 </body>
 </html>

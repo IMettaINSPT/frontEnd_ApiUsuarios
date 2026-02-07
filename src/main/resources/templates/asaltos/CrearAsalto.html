@@ -1,82 +1,69 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments/layout :: head('Nuevo asalto')}"></head>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Crear Asalto')}"></head>
+
 <body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<div class="app-shell">
+    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
 
-<div class="container">
-    <div class="hero">
-        <h1>Nuevo asalto</h1>
-        <p>Alta de asalto. Solo ADMIN.</p>
-    </div>
+    <main class="main">
+        <div th:replace="~{fragments/header :: topbar}"></div>
 
-    <div class="grid grid-1">
-        <div class="card">
+        <section class="container">
+            <h1>Crear Asalto</h1>
+            <p>Completá los datos del nuevo asalto</p>
 
-            <!-- Global errors -->
-            <div th:if="${#fields.hasGlobalErrors()}" class="alert err">
-                <ul class="list">
-                    <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
-                </ul>
+            <div class="card">
+                <form th:action="@{/asaltos}" method="post" th:object="${form}">
+                    <div style="display:grid; gap:12px; max-width:560px;">
+
+                        <div th:if="${#fields.hasGlobalErrors()}" style="color:#ffb4b4; font-weight:800;"
+                             th:text="${#fields.globalErrors()[0].defaultMessage}">
+                        </div>
+
+                        <div>
+                            <label>Fecha</label>
+                            <input type="date" th:field="*{fechaAsalto}">
+                            <div th:if="${#fields.hasErrors('fechaAsalto')}"
+                                 th:text="${#fields.errors('fechaAsalto')[0]}" style="color:#ffb4b4;"></div>
+                        </div>
+
+                        <div>
+                            <label>Sucursal ID</label>
+                            <select th:field="*{sucursalId}">
+                                <option value="">-- Seleccionar --</option>
+                                <option th:each="s : ${sucursales}" th:value="${s.id}" th:text="${s.id}">1</option>
+                            </select>
+                            <div th:if="${#fields.hasErrors('sucursalId')}"
+                                 th:text="${#fields.errors('sucursalId')[0]}" style="color:#ffb4b4;"></div>
+                        </div>
+
+                        <div>
+                            <label>Persona Detenida ID</label>
+                            <select th:field="*{personaDetenidaId}">
+                                <option value="">-- Seleccionar --</option>
+                                <option th:each="p : ${personas}" th:value="${p.id}" th:text="${p.id}">1</option>
+                            </select>
+                            <div th:if="${#fields.hasErrors('personaDetenidaId')}"
+                                 th:text="${#fields.errors('personaDetenidaId')[0]}" style="color:#ffb4b4;"></div>
+                        </div>
+
+                        <div th:if="${!(haySucursales && hayPersonas)}" style="color:#ffb4b4; font-weight:800;">
+                            No hay sucursales o personas disponibles para crear un asalto.
+                        </div>
+
+                        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;">
+                            <button class="btn btn-primary" type="submit" th:disabled="${!(haySucursales && hayPersonas)}">
+                                Guardar
+                            </button>
+                            <a class="btn" th:href="@{/asaltos}">Cancelar</a>
+                        </div>
+
+                    </div>
+                </form>
             </div>
-
-            <form th:action="@{/asaltos}" th:object="${form}" method="post">
-
-                <div class="stack gap-14">
-
-                    <div>
-                        <label><b>Fecha del asalto</b></label>
-                        <input class="input" type="date" th:field="*{fechaAsalto}"
-                               th:classappend="${#fields.hasErrors('fechaAsalto')} ? ' is-invalid' : ''">
-                        <div class="invalid-feedback"
-                             th:if="${#fields.hasErrors('fechaAsalto')}"
-                             th:errors="*{fechaAsalto}">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label><b>Sucursal</b></label>
-                        <select class="input" th:field="*{sucursalId}"
-                                th:classappend="${#fields.hasErrors('sucursalId')} ? ' is-invalid' : ''">
-                            <option value="" selected>-- Seleccionar --</option>
-                            <option th:each="s : ${sucursales}"
-                                    th:value="${s.id}"
-                                    th:text="${s.codigo + ' - ' + s.domicilio}">
-                            </option>
-                        </select>
-                        <div class="invalid-feedback"
-                             th:if="${#fields.hasErrors('sucursalId')}"
-                             th:errors="*{sucursalId}">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label><b>Persona detenida</b></label>
-                        <select class="input" th:field="*{personaDetenidaId}"
-                                th:classappend="${#fields.hasErrors('personaDetenidaId')} ? ' is-invalid' : ''">
-                            <option value="" selected>-- Seleccionar --</option>
-                            <option th:each="p : ${personas}"
-                                    th:value="${p.id}"
-                                    th:text="${p.codigo + ' - ' + p.nombre + (p.banda != null ? ' • Banda #' + p.banda.numeroBanda : ' • Sin banda')}">
-                            </option>
-                        </select>
-                        <div class="invalid-feedback"
-                             th:if="${#fields.hasErrors('personaDetenidaId')}"
-                             th:errors="*{personaDetenidaId}">
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="go go-right gap-10 mt-18">
-                    <a class="btn" th:href="@{/asaltos}">Cancelar</a>
-                    <button class="btn btn-primary" type="submit">Guardar</button>
-                </div>
-
-            </form>
-
-        </div>
-    </div>
+        </section>
+    </main>
 </div>
 </body>
 </html>

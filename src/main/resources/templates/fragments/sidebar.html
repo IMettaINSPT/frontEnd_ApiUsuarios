@@ -1,47 +1,24 @@
-<!DOCTYPE html>
-<html lang="es"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-
-<div th:fragment="sidebar" class="sidebar">
-
+<aside class="sidebar" th:fragment="sidebar">
     <div class="sb-brand">
-        <div class="sb-title">TP Seguridad Bancaria</div>
-        <div class="sb-sub">Panel de control</div>
+        <img class="sb-logo" th:src="@{/img/logoPolicia.jpg}" alt="Logo PFA">        <div>
+            <div class="sb-title">TP Seguridad Bancaria</div>
+            <div class="sb-sub" th:text="${username != null ? username : 'Usuario'}">admin</div>
+        </div>
     </div>
 
-    <nav class="sb-nav">
-
-        <!-- ✅ SOLO ADMIN / INVESTIGADOR -->
-        <div class="sb-section" sec:authorize="hasAnyRole('ADMIN','INVESTIGADOR')">
-            <div class="sb-section-title">Gestión</div>
-
-            <a class="sb-link" th:href="@{/bancos}">🏦 Bancos</a>
-            <a class="sb-link" th:href="@{/sucursales}">🏢 Sucursales</a>
-            <a class="sb-link" th:href="@{/contratos}">📄 Contratos</a>
-            <a class="sb-link" th:href="@{/asaltos}">🚨 Asaltos</a>
-            <a class="sb-link" th:href="@{/bandas}">👥 Bandas</a>
-            <a class="sb-link" th:href="@{/personas-detenidas}">📋 Personas detenidas</a>
-            <a class="sb-link" th:href="@{/vigilantes}">🛡️ Vigilantes</a>
-            <a class="sb-link" th:href="@{/juicios}">⚖️ Juicios</a>
-            <a class="sb-link" th:href="@{/jueces}">👨‍⚖️ jueces</a>
-            <a class="sb-link" th:href="@{/usuarios}">👤 Usuarios</a>
-        </div>
-
-        <!-- ✅ SOLO VIGILANTE (menú vacío por ahora) -->
-        <div class="sb-section" sec:authorize="hasRole('VIGILANTE')">
-            <div class="sb-section-title">Información</div>
-
-            <div style="padding: 10px; border-radius: 12px;
-                        border: 1px solid rgba(255,255,255,.08);
-                        background: rgba(255,255,255,.03);
-                        color: var(--muted); font-size: 13px; line-height: 1.35;">
-                No hay opciones disponibles por el momento.<br>
-                Próximamente se habilitarán reportes.
-            </div>
-        </div>
-
+    <nav class="sb-section">
+        <div class="sb-section-title">Panel</div>
+        <a class="sb-link" th:href="@{/dashboard}">📊 Dashboard</a>
     </nav>
-</div>
 
-</html>
+    <nav class="sb-section">
+        <div class="sb-section-title">Gestión</div>
+        <a class="sb-link" th:href="@{/bancos}">🏦 Bancos</a>
+        <a class="sb-link" th:href="@{/sucursales}">🏢 Sucursales</a>
+        <a class="sb-link" th:href="@{/contratos}">📄 Contratos</a>
+        <a class="sb-link" th:href="@{/asaltos}">🚨 Asaltos</a>
+        <a class="sb-link" th:href="@{/bandas}">👥 Bandas</a>
+        <a class="sb-link" th:href="@{/jueces}">👨‍⚖️ Jueces</a>
+        <a class="sb-link" th:href="@{/usuarios}">👤 Usuarios</a>
+    </nav>
+</aside>
