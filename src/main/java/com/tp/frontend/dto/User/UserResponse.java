@@ -5,7 +5,7 @@ public class UserResponse {
     private String username;
     private String rol;      // ✅ igual que el backend
     private boolean enabled; // si lo usás
-
+    private Long vigilanteId;
     public UserResponse() {}
 
     public Long getId() { return id; }
@@ -17,4 +17,12 @@ public class UserResponse {
     public void setUsername(String username) { this.username = username; }
     public void setRol(String rol) { this.rol = rol; }
     public void setEnabled(boolean enabled) { this.enabled = enabled; }
+
+    public Long getVigilanteId() {
+        return vigilanteId;
+    }
+
+    public void setVigilanteId(Long vigilanteId) {
+        this.vigilanteId = vigilanteId;
+    }
 }

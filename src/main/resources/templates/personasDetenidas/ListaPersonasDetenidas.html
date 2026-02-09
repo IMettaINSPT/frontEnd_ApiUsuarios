@@ -1,59 +1,46 @@
-<!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments/layout :: head('Personas detenidas')}"><title>""</title></head>
-<body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Personas detenidas', ~{::section})}">
 
-<div class="container">
-    <div class="hero">
-        <h1>Personas detenidas</h1>
-        <p>Listado de detenidos (y su banda si corresponde).</p>
+<section class="container">
+    <h1>Personas detenidas</h1>
+
+    <div class="card actions">
+        <a class="btn btn-primary" th:href="@{/personas-detenidas/new}">+ Crear</a>
     </div>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
-        <div class="card">
-            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-                <div>
-                    <h3>Listado</h3>
-                    <p class="muted">Alta/edición solo ADMIN.</p>
-                </div>
-                <div sec:authorize="hasRole('ADMIN')">
-                    <a class="btn btn-primary" th:href="@{/personasDetenidas/new}">+ Nueva persona</a>
-                </div>
-            </div>
+    <div class="card">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Código</th>
+                <th>Banda</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
 
-            <div style="margin-top: 14px;">
-                <table class="table">
-                    <thead>
-                    <tr>
+            <tbody>
+            <tr th:each="p : ${items}">
+                <td th:text="${p.id}">1</td>
+                <td th:text="${p.nombre}">Nombre</td>
+                <td th:text="${p.codigo}">ABC123</td>
 
-                        <th>Código</th>
-                        <th>Nombre</th>
-                        <th>Banda</th>
-                        <th style="width:140px;">Acción</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="p : ${items}">
-                        <td th:text="${p.id}">1</td>
-                        <td th:text="${p.codigo}">PD-01</td>
-                        <td th:text="${p.nombre}">Juan Pérez</td>
-                        <td th:text="${p.banda != null ? 'Banda #' + p.banda.numeroBanda : 'Sin banda'}">Sin banda</td>
-                        <td><a class="btn" th:href="@{/personasDetenidas/{id}(id=${p.id})}">Ver</a></td>
-                    </tr>
+                <td th:text="${p.banda != null ? p.banda.numeroBanda : '-'}">-</td>
 
-                    <tr th:if="${items == null or #lists.isEmpty(items)}">
-                        <td colspan="5" class="muted">No hay personas detenidas cargadas.</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+                <td class="td-actions">
+                    <a class="btn" th:href="@{/personas-detenidas/{id}(id=${p.id})}">Ver/Editar</a>
+                    <a class="btn btn-danger" th:href="@{/personas-detenidas/{id}/confirm-delete(id=${p.id})}">Borrar</a>
+                </td>
+            </tr>
 
-            <div class="go" style="display:flex; justify-content:flex-end; margin-top: 10px;">
-                <a class="btn" th:href="@{/}">Volver al menú</a>
-            </div>
-        </div>
+            <tr th:if="${items == null || #lists.isEmpty(items)}">
+                <td colspan="6" class="muted">No hay personas detenidas.</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-</div>
-</body>
+</section>
 </html>

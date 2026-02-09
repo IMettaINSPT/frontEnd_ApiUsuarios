@@ -1,13 +1,13 @@
 package com.tp.frontend.controller;
 
-import com.tp.frontend.dto.contrato.ContratoResponse;
+import com.tp.frontend.dto.PersonaDetenida.PersonaDetenidaResponse;
 import com.tp.frontend.dto.Juez.JuezResponse;
 import com.tp.frontend.dto.Juicio.JuicioRequest;
 import com.tp.frontend.dto.Juicio.JuicioUpdate;
 import com.tp.frontend.exception.ApiErrorException;
-import com.tp.frontend.service.ContratoService;
 import com.tp.frontend.service.JuezService;
 import com.tp.frontend.service.JuicioService;
+import com.tp.frontend.service.PersonaDetenidaService;
 import com.tp.frontend.support.ErrorBinder;
 import com.tp.frontend.web.SessionKeys;
 import jakarta.servlet.http.HttpSession;
@@ -23,7 +23,6 @@ import org.springframework.web.reactive.function.client.WebClientRequestExceptio
 
 import java.lang.reflect.Method;
 import java.util.List;
-import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -35,16 +34,16 @@ public class JuicioController {
 
     private final JuicioService juicioService;
     private final JuezService juezService;
-    private final ContratoService contratoService;
+    private final PersonaDetenidaService personaDetenidaService;
     private final ErrorBinder errorBinder;
 
     public JuicioController(JuicioService juicioService,
                             JuezService juezService,
-                            ContratoService contratoService,
+                             PersonaDetenidaService personaDetenidaService,
                             ErrorBinder errorBinder) {
         this.juicioService = juicioService;
         this.juezService = juezService;
-        this.contratoService = contratoService;
+        this.personaDetenidaService = personaDetenidaService;
         this.errorBinder = errorBinder;
     }
 
@@ -56,66 +55,47 @@ public class JuicioController {
         br.reject("global", msg);
     }
 
-    /**
-     * Carga combos + maps para mostrar "labels" humanos (sin IDs en pantalla).
-     * - jueces: lista para el <select>
-     * - contratos: lista para el <select>
-     * - juecesMap: id -> JuezResponse (para mostrar nombre en detalle)
-     * - contratoLabelMap: id -> String (para mostrar label de contrato en detalle)
-     */
     private void cargarCombos(Model model, String token) {
         List<JuezResponse> jueces = juezService.list(token);
-        List<ContratoResponse> contratos = contratoService.list(token);
+        List<PersonaDetenidaResponse> delincuentes = personaDetenidaService.list(token);
 
         model.addAttribute("jueces", jueces);
-        model.addAttribute("contratos", contratos);
+        model.addAttribute("delincuentes", delincuentes);
 
         model.addAttribute("hayJueces", !jueces.isEmpty());
-        model.addAttribute("hayContratos", !contratos.isEmpty());
+        model.addAttribute("hayDetenidos", !delincuentes.isEmpty());
 
         model.addAttribute("juecesMap",
                 jueces.stream().collect(Collectors.toMap(JuezResponse::getId, Function.identity())));
 
-        model.addAttribute("contratoLabelMap",
-                contratos.stream().collect(Collectors.toMap(ContratoResponse::getId, this::contratoLabel)));
+        model.addAttribute("DelincuentesLabelMap",
+                delincuentes.stream().collect(Collectors.toMap(PersonaDetenidaResponse::id, this::delincuenteLabel)));
     }
 
     /**
-     * Genera un label "humano" para contrato sin mostrar id.
+     * Genera un label "humano" sin mostrar id.
      * Usa reflexión para no romper compilación si el DTO cambia nombres de getters.
      * Si querés algo perfecto, reemplazá esto por campos concretos (ej: codigo/fecha/estado/etc.).
      */
-    private String contratoLabel(ContratoResponse c) {
-        if (c == null) return "(contrato no disponible)";
+    private String delincuenteLabel(PersonaDetenidaResponse c) {
+        if (c == null) return "(Delincuente no disponible)";
 
         // Intentos comunes (ajustá si querés)
         String codigo = firstNonBlank(
-                invokeString(c, "getCodigo"),
-                invokeString(c, "getNumero"),
-                invokeString(c, "getNumeroContrato"),
-                invokeString(c, "getReferencia"),
-                invokeString(c, "getDescripcion"),
-                invokeString(c, "getTipo")
+                invokeString(c, "Codigo")
         );
 
-        String estado = firstNonBlank(
-                invokeString(c, "getEstado"),
-                invokeString(c, "getStatus")
-        );
+        String nombre = invokeString(c, "nombre");
 
-        String fecha = firstNonBlank(
-                invokeString(c, "getFecha"),
-                invokeString(c, "getFechaInicio"),
-                invokeString(c, "getFechaContrato")
-        );
+        String banda  =  invokeString(c.banda(), "numeroBanda");
 
         // Armamos un label compacto sin IDs
-        String base = (codigo != null) ? codigo : "Contrato";
-        if (fecha != null && !fecha.isBlank()) base = base + " • " + fecha;
-        if (estado != null && !estado.isBlank()) base = base + " • " + estado;
+        String base = (codigo != null) ? codigo : "Delincuente";
+        if (nombre != null && !nombre.isBlank()) base = base + " • " + nombre;
+        if (banda != null && !banda.isBlank()) base = base + " • " + banda;
 
         // Último recurso: toString (ojo: si tu toString incluye id, cambiá esto)
-        if ("Contrato".equals(base)) {
+        if ("Delincuente".equals(base)) {
             String ts = String.valueOf(c);
             if (ts != null && !ts.isBlank() && !ts.matches(".*\\b\\d+\\b.*")) { // evita strings que parezcan puro id
                 return ts;
@@ -270,7 +250,7 @@ public class JuicioController {
         log.info("GET /juicios/{}/confirm-delete", id);
 
         model.addAttribute("item", juicioService.get(token, id));
-        cargarCombos(model, token); // para mostrar labels de juez/contrato en la confirm
+        cargarCombos(model, token);
 
         return "juicios/ConfirmarBorrado";
     }

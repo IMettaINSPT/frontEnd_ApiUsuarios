@@ -267,3 +267,21 @@ label{
 button, .btn{
   cursor: pointer;
 }
+
+.muted{ color: var(--muted); }
+.error{ color:#ffb4b4; font-weight:800; }
+
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin-bottom:16px;
+}
+
+table{ width:100%; border-collapse: collapse; }
+th, td{ padding:10px 10px; border-bottom:1px solid var(--border); }
+th{ text-align:left; color: var(--muted); font-weight:900; font-size:12px; text-transform:uppercase; letter-spacing:.6px; }
+.td-actions{ display:flex; gap:8px; flex-wrap:wrap; }
+
+.form{ display:grid; gap:12px; max-width:560px; }

@@ -1,69 +1,40 @@
-<!DOCTYPE html>
-<html lang="es"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Crear Sucursal', ~{::section})}">
 
-<head th:replace="~{fragments/layout :: head('Crear Sucursal')}"></head>
+<section class="container">
+  <h1>Crear Sucursal</h1>
 
-<body>
-<div class="app-shell">
-  <div th:replace="~{fragments/sidebar :: sidebar}"></div>
-
-  <main class="main">
-    <div th:replace="~{fragments/header :: topbar}"></div>
-
-    <section class="container">
-      <h1>Crear Sucursal</h1>
-      <p>Completá los datos de la nueva sucursal</p>
-
-      <div class="card">
-        <form th:action="@{/sucursales}" method="post" th:object="${form}">
-          <div style="display:grid; gap:12px; max-width:560px;">
-
-            <div>
-              <label>Código</label>
-              <input type="text" th:field="*{codigo}" placeholder="Ej: SUC-01">
-              <div th:if="${#fields.hasErrors('codigo')}"
-                   th:text="${#fields.errors('codigo')[0]}" style="color:#ffb4b4;"></div>
-            </div>
-
-            <div>
-              <label>Domicilio</label>
-              <input type="text" th:field="*{domicilio}" placeholder="Dirección">
-              <div th:if="${#fields.hasErrors('domicilio')}"
-                   th:text="${#fields.errors('domicilio')[0]}" style="color:#ffb4b4;"></div>
-            </div>
-
-            <div>
-              <label>Nro. empleados</label>
-              <input type="number" min="0" th:field="*{nroEmpleados}" placeholder="0">
-              <div th:if="${#fields.hasErrors('nroEmpleados')}"
-                   th:text="${#fields.errors('nroEmpleados')[0]}" style="color:#ffb4b4;"></div>
-            </div>
-
-            <div>
-              <label>Banco</label>
-              <select th:field="*{bancoId}">
-                <option value="">-- Seleccionar --</option>
-                <option th:each="b : ${bancos}"
-                        th:value="${b.id}"
-                        th:text="${b.codigo + ' • ' + b.domicilioCentral}">
-                </option>
-              </select>
-              <div th:if="${#fields.hasErrors('bancoId')}"
-                   th:text="${#fields.errors('bancoId')[0]}" style="color:#ffb4b4;"></div>
-            </div>
-
-            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;">
-              <button class="btn btn-primary" type="submit">Guardar</button>
-              <a class="btn" th:href="@{/sucursales}">Cancelar</a>
-            </div>
-
-          </div>
-        </form>
+  <div class="card">
+    <form th:action="@{/sucursales}" method="post" th:object="${form}" class="form">
+      <div>
+        <label>Código
+        <input type="text" th:field="*{codigo}"></label>
       </div>
-    </section>
-  </main>
-</div>
-</body>
+
+      <div>
+        <label>Domicilio</label>
+        <input type="text" th:field="*{domicilio}">
+      </div>
+
+      <div>
+        <label>Nro. empleados
+        <input type="number" min="0" th:field="*{nroEmpleados}"></label>
+      </div>
+
+      <div>
+        <label>BancoId
+        <select th:field="*{bancoId}">
+          <option value="">-- Seleccionar --</option>
+          <option th:each="b : ${bancos}" th:value="${b.id}" th:text="${b.id}">1</option>
+        </select></label>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-primary" type="submit">Guardar</button>
+        <a class="btn" th:href="@{/sucursales}">Cancelar</a>
+      </div>
+    </form>
+  </div>
+</section>
 </html>

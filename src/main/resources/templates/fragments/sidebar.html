@@ -1,6 +1,7 @@
 <aside class="sidebar" th:fragment="sidebar">
     <div class="sb-brand">
-        <img class="sb-logo" th:src="@{/img/logoPolicia.jpg}" alt="Logo PFA">        <div>
+        <img class="sb-logo" th:src="@{/img/logoPolicia.jpg}" alt="Logo PFA">
+        <div>
             <div class="sb-title">TP Seguridad Bancaria</div>
             <div class="sb-sub" th:text="${username != null ? username : 'Usuario'}">admin</div>
         </div>
@@ -17,8 +18,10 @@
         <a class="sb-link" th:href="@{/sucursales}">🏢 Sucursales</a>
         <a class="sb-link" th:href="@{/contratos}">📄 Contratos</a>
         <a class="sb-link" th:href="@{/asaltos}">🚨 Asaltos</a>
+        <a class="sb-link" th:href="@{/vigilantes}">🛡️ Vigilantes</a>
         <a class="sb-link" th:href="@{/bandas}">👥 Bandas</a>
         <a class="sb-link" th:href="@{/jueces}">👨‍⚖️ Jueces</a>
-        <a class="sb-link" th:href="@{/usuarios}">👤 Usuarios</a>
+        <a class="sb-link" th:href="@{/juicios}">⚖️ Juicios</a>
+        <a class="sb-link" th:href="@{/users}">👤 Usuarios</a>
     </nav>
 </aside>

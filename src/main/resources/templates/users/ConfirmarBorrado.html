@@ -1,91 +1,59 @@
-<!DOCTYPE html>
-<html lang="es"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments/layout :: head('Detalle de usuario')}"></head>
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Detalle Usuario', ~{::section})}">
 
-<body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<section class="container">
+    <h1>Detalle Usuario</h1>
 
-<div class="container" style="max-width: 900px;">
-
-    <!-- Mensajes -->
-    <div th:if="${msg}" class="alert ok mt-14" th:text="${msg}"></div>
-    <div th:if="${error}" class="alert err mt-14" th:text="${error}"></div>
-
-    <div class="hero">
-        <div class="row row-between row-top gap-16">
-            <div>
-                <h1>Detalle de usuario</h1>
-                <p>Información y edición básica.</p>
-            </div>
-            <a class="btn" th:href="@{/users}">Volver</a>
-        </div>
+    <div class="card">
+        <p><b>ID:</b> <span th:text="${user.id}">1</span></p>
     </div>
 
-    <!-- Datos del usuario -->
-    <div class="card mt-14">
-        <h2 class="h2">Datos</h2>
+    <div class="card" style="margin-top:16px;">
+        <div class="card-title">Editar</div>
 
-        <div class="grid grid-2 gap-14 mt-14">
+        <form th:action="@{/users/{id}(id=${user.id})}" method="post" th:object="${update}" class="form">
+
+            <div th:if="${#fields.hasGlobalErrors()}" class="error"
+                 th:text="${#fields.globalErrors()[0].defaultMessage}"></div>
+
             <div>
-                <div class="label">Username</div>
-                <div th:text="${user != null ? user.username : '-'}">-</div>
+                <label>Username</label>
+                <input type="text" th:field="*{username}">
+                <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
             </div>
+
             <div>
-                <div class="label">Rol</div>
-                <div th:text="${user != null ? user.rol : '-'}">-</div>
+                <label>Password (solo si querés resetear)</label>
+                <input type="password" th:field="*{password}" placeholder="(dejar vacío para no cambiar)">
+                <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
             </div>
+
             <div>
-                <div class="label">Habilitado</div>
-                <div th:text="${user != null && user.enabled} ? 'Sí' : 'No'">No</div>
+                <label>rol</label>
+                <select th:field="*{rol}">
+                    <option value="ADMIN">ADMIN</option>
+                    <option value="INVESTIGADOR">INVESTIGADOR</option>
+                    <option value="USER">USER</option>
+                </select>
+                <div class="error" th:if="${#fields.hasErrors('rol')}" th:errors="*{rol}"></div>
             </div>
-        </div>
 
-        <div th:if="${user != null and user.rol != null and user.rol.equalsIgnoreCase('VIGILANTE')}"
-             class="alert soft mt-14">
-            <b>Nota:</b> Este usuario tiene rol <b>VIGILANTE</b>.
-            El perfil de vigilante asociado <b>no se puede modificar</b> desde esta pantalla.
-        </div>
-    </div>
+            <div>
+                <label>VigilanteId</label>
+                <select th:field="*{vigilanteId}">
+                    <option value="">-- Ninguno --</option>
+                    <option th:each="v : ${vigilantes}" th:value="${v.id}" th:text="${v.id}">1</option>
+                </select>
+                <div class="error" th:if="${#fields.hasErrors('vigilanteId')}" th:errors="*{vigilanteId}"></div>
+            </div>
 
-    <!-- Editar usuario (ADMIN) -->
-    <div class="card mt-14" sec:authorize="hasRole('ADMIN')">
-        <h2 class="h2">Editar (ADMIN)</h2>
-        <p class="muted">
-            El backend permite actualizar <b>enabled</b> y <b>password</b>.
-            Si dejás la contraseña vacía, no se cambia.
-        </p>
-
-        <form th:action="@{/users/{id}(id=${user.id})}" method="post" th:object="${update}" class="mt-14">
-            <div class="stack gap-14" style="max-width: 560px;">
-
-                <div>
-                    <label class="label">Nueva contraseña (opcional)</label>
-                    <input class="input" type="password" th:field="*{password}" placeholder="(vacío = no cambia)">
-                    <!-- Si querés mostrar validación SSR de @Size -->
-                    <div class="invalid-feedback" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
-                </div>
-
-                <div class="row gap-10">
-                    <input type="checkbox" id="enabledCheck" th:field="*{enabled}">
-                    <label for="enabledCheck" class="label">Usuario habilitado</label>
-                </div>
-
-                <div class="go go-right">
-                    <button class="btn btn-primary" type="submit">Guardar cambios</button>
-                </div>
-
+            <div class="actions">
+                <button class="btn btn-primary" type="submit">Guardar cambios</button>
+                <a class="btn" th:href="@{/users}">Volver</a>
+                <a class="btn btn-danger" th:href="@{/users/{id}/confirm-delete(id=${user.id})}">Borrar</a>
             </div>
         </form>
-
-        <div class="mt-14">
-            <a class="btn btn-danger" th:href="@{/users/{id}/confirm-delete(id=${user.id})}">
-                Eliminar
-            </a>
-        </div>
     </div>
-
-</div>
-</body>
+</section>
 </html>

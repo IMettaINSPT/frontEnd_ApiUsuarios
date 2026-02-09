@@ -1,55 +1,18 @@
-<!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Eliminar Juicio')}"></head>
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Borrar Juicio', ~{::section})}">
 
-<body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<section class="container">
+    <h1>Confirmar borrado</h1>
 
-<div class="container">
+    <div class="card">
+        <p>¿Borrar juicio <b th:text="${item.id}">ID</b>?</p>
+        <p th:if="${deleteError != null}" class="error" th:text="${deleteError}"></p>
 
-    <div class="hero">
-        <h1>Eliminar juicio</h1>
-        <p>Esta acción no se puede deshacer.</p>
+        <form th:action="@{/juicios/{id}/delete(id=${item.id})}" method="post" class="actions">
+            <button class="btn btn-danger" type="submit">Sí, borrar</button>
+            <a class="btn" th:href="@{/juicios/{id}(id=${item.id})}">Cancelar</a>
+        </form>
     </div>
-
-    <div class="grid grid-1">
-        <div class="card"
-             th:with="j=${juecesMap[item.juezId]},
-                      contratoLabel=${contratoLabelMap[item.contratoId]}">
-
-            <div class="alert warn">
-                ¿Seguro que querés eliminar el juicio del juez
-                <b th:text="${j != null ? j.nombre : '(juez no disponible)'}"></b>
-                con contrato
-                <b th:text="${contratoLabel != null ? contratoLabel : '(contrato no disponible)'}"></b>?
-            </div>
-
-            <!-- Error de borrado -->
-            <div th:if="${deleteError != null}"
-                 class="alert err mt-14"
-                 th:text="${deleteError}">
-            </div>
-
-            <form th:action="@{/juicios/{id}/delete(id=${item.id})}"
-                  method="post"
-                  class="mt-16">
-
-                <div class="go go-right gap-10">
-                    <a class="btn"
-                       th:href="@{/juicios/{id}(id=${item.id})}">
-                        Cancelar
-                    </a>
-
-                    <button class="btn btn-danger" type="submit">
-                        Sí, eliminar
-                    </button>
-                </div>
-
-            </form>
-
-        </div>
-    </div>
-
-</div>
-</body>
+</section>
 </html>

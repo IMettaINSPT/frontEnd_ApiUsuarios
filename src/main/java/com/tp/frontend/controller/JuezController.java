@@ -43,15 +43,15 @@ public class JuezController {
     public String list(HttpSession session, Model model) {
         log.info("GET /jueces");
         model.addAttribute("items", service.list(jwt(session)));
-        return "jueces/ListaJueces";
+        return "juez/ListaJueces";
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/new")
     public String newForm(Model model) {
-        log.info("GET /jueces/new");
+        log.info("GET /juez/new");
         model.addAttribute("form", new JuezRequest());
-        return "jueces/CrearJuez";
+        return "juez/CrearJuez";
     }
 
     @PreAuthorize("hasRole('ADMIN')")
@@ -65,7 +65,7 @@ public class JuezController {
 
         if (br.hasErrors()) {
             log.warn("POST /jueces create SSR validation errors={}", br.getErrorCount());
-            return "jueces/CrearJuez";
+            return "juez/CrearJuez";
         }
 
         try {
@@ -80,19 +80,19 @@ public class JuezController {
                     ex.getApiError() != null ? ex.getApiError().getMessage() : ex.getMessage());
 
             errorBinder.bind(ex, br);
-            return "jueces/CrearJuez";
+            return "juez/CrearJuez";
 
         } catch (WebClientRequestException ex) {
             log.warn("POST /jueces create transport error: {}", ex.getMessage());
             addGlobalError(br, "No pudimos conectarnos al servidor. Intentá nuevamente.");
-            return "jueces/CrearJuez";
+            return "juez/CrearJuez";
         }
     }
 
     @GetMapping("/{id}")
     public String detail(@PathVariable Long id, HttpSession session, Model model) {
         String token = jwt(session);
-        log.info("GET /jueces/{}", id);
+        log.info("GET /juez/{}", id);
 
         var item = service.get(token, id);
 
@@ -101,7 +101,7 @@ public class JuezController {
         model.addAttribute("item", item);
         model.addAttribute("update", update);
 
-        return "jueces/DetalleJuez";
+        return "juez/DetalleJuez";
     }
 
     @PreAuthorize("hasRole('ADMIN')")
@@ -113,57 +113,57 @@ public class JuezController {
                          Model model) {
 
         String token = jwt(session);
-        log.info("POST /jueces/{} update={}", id, update);
+        log.info("POST /juez/{} update={}", id, update);
 
         if (br.hasErrors()) {
             model.addAttribute("item", service.get(token, id));
-            return "jueces/DetalleJuez";
+            return "juez/DetalleJuez";
         }
 
         try {
             service.update(token, id, update);
-            log.info("POST /jueces/{} update OK", id);
-            return "redirect:/jueces/" + id;
+            log.info("POST /juez/{} update OK", id);
+            return "redirect:/jueces";
 
         } catch (ApiErrorException ex) {
-            log.warn("POST /jueces/{} update ApiError status={} code={} msg={}",
+            log.warn("POST /juez/{} update ApiError status={} code={} msg={}",
                     id, ex.getHttpStatus(),
                     ex.getApiError() != null ? ex.getApiError().getCode() : null,
                     ex.getApiError() != null ? ex.getApiError().getMessage() : ex.getMessage());
 
             errorBinder.bind(ex, br);
             model.addAttribute("item", service.get(token, id));
-            return "jueces/DetalleJuez";
+            return "juez/DetalleJuez";
 
         } catch (WebClientRequestException ex) {
-            log.warn("POST /jueces/{} update transport error: {}", id, ex.getMessage());
+            log.warn("POST /juez/{} update transport error: {}", id, ex.getMessage());
             addGlobalError(br, "No pudimos conectarnos al servidor. Intentá nuevamente.");
             model.addAttribute("item", service.get(token, id));
-            return "jueces/DetalleJuez";
+            return "juez/DetalleJuez";
         }
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/{id}/confirm-delete")
     public String confirmDelete(@PathVariable Long id, HttpSession session, Model model) {
-        log.info("GET /jueces/{}/confirm-delete", id);
+        log.info("GET /juez/{}/confirm-delete", id);
         model.addAttribute("item", service.get(jwt(session), id));
-        return "jueces/ConfirmarBorrado";
+        return "juez/ConfirmarBorrado";
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/{id}/delete")
     public String delete(@PathVariable Long id, HttpSession session, Model model) {
         String token = jwt(session);
-        log.info("POST /jueces/{}/delete", id);
+        log.info("POST /juez/{}/delete", id);
 
         try {
             service.delete(token, id);
-            log.info("POST /jueces/{}/delete OK", id);
+            log.info("POST /juez/{}/delete OK", id);
             return "redirect:/jueces";
 
         } catch (ApiErrorException ex) {
-            log.warn("POST /jueces/{}/delete ApiError status={} code={} msg={}",
+            log.warn("POST /juez/{}/delete ApiError status={} code={} msg={}",
                     id, ex.getHttpStatus(),
                     ex.getApiError() != null ? ex.getApiError().getCode() : null,
                     ex.getApiError() != null ? ex.getApiError().getMessage() : ex.getMessage());
@@ -174,13 +174,13 @@ public class JuezController {
                             ? ex.getApiError().getMessage()
                             : "No se pudo eliminar el juez. Intentá nuevamente.");
 
-            return "jueces/ConfirmarBorrado";
+            return "juez/ConfirmarBorrado";
 
         } catch (WebClientRequestException ex) {
-            log.warn("POST /jueces/{}/delete transport error: {}", id, ex.getMessage());
+            log.warn("POST /juez/{}/delete transport error: {}", id, ex.getMessage());
             model.addAttribute("item", service.get(token, id));
             model.addAttribute("deleteError", "No pudimos conectarnos al servidor. Intentá nuevamente.");
-            return "jueces/ConfirmarBorrado";
+            return "juez/ConfirmarBorrado";
         }
     }
 }

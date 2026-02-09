@@ -1,21 +1,16 @@
 <!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{fragments/layout :: layout('Borrar Banco', null, ~{::section})}">
+      th:replace="~{fragments/layout :: layout('Borrar Banco', ~{::section})}">
 
 <section class="container">
     <h1>Confirmar borrado</h1>
-    <p>Esta acción no se puede deshacer.</p>
 
     <div class="card">
-        <p>
-            ¿Seguro querés borrar el banco
-            <b th:text="${item.codigo}">COD</b>?
-        </p>
+        <p>¿Seguro querés borrar el banco <b th:text="${item.id}">ID</b>?</p>
 
-        <p th:if="${deleteError != null}" style="color:#ffb4b4;" th:text="${deleteError}"></p>
+        <p th:if="${deleteError != null}" class="error" th:text="${deleteError}"></p>
 
-        <form th:action="@{/bancos/{id}/delete(id=${item.id})}" method="post"
-              style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
+        <form th:action="@{/bancos/{id}/delete(id=${item.id})}" method="post" class="actions">
             <button class="btn btn-danger" type="submit">Sí, borrar</button>
             <a class="btn" th:href="@{/bancos/{id}(id=${item.id})}">Cancelar</a>
         </form>

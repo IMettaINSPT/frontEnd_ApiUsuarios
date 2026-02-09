@@ -1,93 +1,40 @@
-<!DOCTYPE html>
-<html lang="es"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments/layout :: head('Detalle Persona Detenida')}"></head>
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Detalle Persona detenida', ~{::section})}">
 
-<body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<section class="container">
+    <h1>Detalle Persona detenida</h1>
 
-<div class="container">
-
-    <div class="hero">
-        <h1>Persona detenida</h1>
-        <p>Detalle y edición (solo ADMIN).</p>
+    <div class="card">
+        <p><b>ID:</b> <span th:text="${item.id}">1</span></p>
     </div>
 
-    <div class="grid grid-1">
-        <div class="card">
+    <div class="card" style="margin-top:16px;">
+        <div class="card-title">Editar</div>
 
-            <div class="row row-between row-top gap-16">
-                <div>
-                    <h3 th:text="${item.codigo}">Codigo</h3>
-                    <p class="muted">Nombre <span th:text="${item.nombre}">1</span></p>
-                    <p class="muted" th:if="${item.banda != null}">
-                        Banda: <span th:text="${'Banda #' + item.banda.numeroBanda}"></span>
-                    </p>
-                    <p class="muted" th:if="${item.banda == null}">
-                        Banda: (sin banda)
-                    </p>
-                </div>
+        <form th:action="@{/personas-detenidas/{id}(id=${item.id})}" method="post" th:object="${update}" class="form">
 
-                <div class="row gap-10">
-                    <a class="btn" th:href="@{/personas-detenidas}">Volver</a>
-                    <a class="btn btn-danger" sec:authorize="hasRole('ADMIN')"
-                       th:href="@{/personas-detenidas/{id}/confirm-delete(id=${item.id})}">
-                        Eliminar
-                    </a>
-                </div>
+            <div th:if="${#fields.hasGlobalErrors()}" class="error"
+                 th:text="${#fields.globalErrors()[0].defaultMessage}"></div>
+
+            <div><label>Nombre</label><input type="text" th:field="*{nombre}"></div>
+            <div><label>Codigo</label><input type="text" th:field="*{codigo}"></div>
+
+            <div>
+                <label>Banda</label>
+                <select th:field="*{bandaId}">
+                    <option value="">-- Seleccionar --</option>
+                    <option th:each="b : ${bandas}" th:value="${b.id}" th:text="${b.numeroBanda}">1</option>
+                </select>
+                <div class="error" th:if="${#fields.hasErrors('bandaId')}" th:errors="*{bandaId}"></div>
             </div>
 
-            <!-- Errores globales -->
-            <div th:if="${#fields.hasGlobalErrors()}" class="alert err mt-14">
-                <ul class="list">
-                    <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
-                </ul>
+            <div class="actions">
+                <button class="btn btn-primary" type="submit">Guardar cambios</button>
+                <a class="btn" th:href="@{/personas-detenidas}">Volver</a>
+                <a class="btn btn-danger" th:href="@{/personas-detenidas/{id}/confirm-delete(id=${item.id})}">Borrar</a>
             </div>
-
-            <!-- Solo lectura -->
-            <div sec:authorize="!hasRole('ADMIN')" class="stack mt-14 gap-10">
-                <div><b>Nombre:</b> <span th:text="${item.nombre}"></span></div>
-            </div>
-
-            <!-- Edición -->
-            <div sec:authorize="hasRole('ADMIN')" class="mt-14">
-                <form th:action="@{/personas-detenidas/{id}(id=${item.id})}"
-                      th:object="${update}"
-                      method="post">
-
-                    <div class="stack gap-14">
-                        <div>
-                            <label><b>Nombre</b></label>
-                            <input class="input" type="text" th:field="*{nombre}"
-                                   th:classappend="${#fields.hasErrors('nombre')} ? ' is-invalid' : ''">
-                            <div class="invalid-feedback" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
-                        </div>
-
-                        <!-- Si tu update tiene bandaId -->
-                        <div>
-                            <label><b>Banda</b></label>
-                            <select class="input" th:field="*{bandaId}"
-                                    th:classappend="${#fields.hasErrors('bandaId')} ? ' is-invalid' : ''">
-                                <option th:value="${null}">Sin banda</option>
-                                <option th:each="b : ${bandas}"
-                                        th:value="${b.id}"
-                                        th:text="${'Banda #' + b.numeroBanda}">
-                                </option>
-                            </select>
-                            <div class="invalid-feedback" th:if="${#fields.hasErrors('bandaId')}" th:errors="*{bandaId}"></div>
-                        </div>
-                    </div>
-
-                    <div class="go go-right mt-18">
-                        <button class="btn btn-primary" type="submit">Guardar cambios</button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
+        </form>
     </div>
-
-</div>
-</body>
+</section>
 </html>

@@ -1,88 +1,121 @@
-<!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Dashboard')}"><title>Dashboard</title></head>
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layoutAssets(
+        'Dashboard',
+        '/css/dashboard.css',
+        '/js/dashboard.js',
+        ~{::section}
+      )}">
 
-<body>
-<!-- CSS extra SOLO para dashboard (sí, va en body porque tu head es fragment fijo) -->
-<link rel="stylesheet" th:href="@{/css/dashboard.css}"/>
+<section class="container dashboard-page"
+         th:attr="data-summary-url=@{/dashboard/summary}">
 
-<div class="app-shell">
-    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
-
-    <main class="main">
-        <div th:replace="~{fragments/header :: topbar}"></div>
-
-        <div class="container">
-            <div class="hero">
-                <h1>Dashboard</h1>
-                <p>Resumen de métricas principales del sistema</p>
+    <header class="dash-hero">
+        <div class="dash-hero__text">
+            <h1>Dashboard</h1>
+            <p>Resumen general del sistema</p>
+            <div class="dash-hero__meta muted">
+                <span>Fecha</span>
+                <span class="dot">•</span>
+                <span th:text="${#temporals.format(#temporals.createNow(), 'dd/MM/yyyy HH:mm')}">--</span>
             </div>
-
-            <!-- KPIs -->
-            <div class="dashboard-grid dashboard-kpis">
-                <div class="card kpi">
-                    <div class="card-title">Bancos</div>
-                    <div class="card-value" th:text="${summary.bancos}">0</div>
-                </div>
-
-                <div class="card kpi">
-                    <div class="card-title">Sucursales</div>
-                    <div class="card-value" th:text="${summary.sucursales}">0</div>
-                </div>
-
-                <div class="card kpi">
-                    <div class="card-title">Contratos</div>
-                    <div class="card-value" th:text="${summary.contratos}">0</div>
-                </div>
-
-                <div class="card kpi">
-                    <div class="card-title">Vigilantes</div>
-                    <div class="card-value" th:text="${summary.vigilantes}">0</div>
-                </div>
-
-                <div class="card kpi">
-                    <div class="card-title">Usuarios</div>
-                    <div class="card-value" th:text="${summary.usuarios}">0</div>
-                </div>
-            </div>
-
-            <!-- Charts -->
-            <div class="dashboard-grid dashboard-charts">
-                <div class="card chart span-2">
-                    <div class="card-title">Asaltos (últimos 6 meses)</div>
-                    <div class="card-sub">Cantidad por mes</div>
-                    <div class="chart-wrap">
-                        <canvas id="chartAsaltos"></canvas>
-                    </div>
-                </div>
-
-                <div class="card chart">
-                    <div class="card-title">Usuarios por rol</div>
-                    <div class="card-sub">Distribución</div>
-                    <div class="chart-wrap">
-                        <canvas id="chartRoles"></canvas>
-                    </div>
-                </div>
-
-                <div class="card chart">
-                    <div class="card-title">Contratos</div>
-                    <div class="card-sub">Con arma vs sin arma</div>
-                    <div class="chart-wrap">
-                        <canvas id="chartArma"></canvas>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Data para JS externo -->
-            <input type="hidden" id="dashboardSummaryJson" th:value="${summaryJson}" />
         </div>
-    </main>
-</div>
 
-<!-- Chart.js (CDN ok) -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+        <div class="dash-hero__badge">
+            <div class="badge-title">Estado</div>
+            <div class="badge-value" id="dashStatus">Cargando…</div>
+            <div class="badge-sub muted" id="dashStatusSub">Conectando al servidor</div>
 
-<!-- JS externo -->
-<script th:src="@{/js/dashboard.js}"></script>
-</body>
+            <div class="card-title">Salud del sistema</div>
+            <div class="health" id="healthBox">
+                <div class="health-dot" id="healthDot"></div>
+                <div>
+                    <div class="health-title" id="healthTitle">Verificando…</div>
+                    <div class="muted" id="healthSub">Esperando respuesta</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- KPIs -->
+    <section class="dash-grid">
+        <article class="kpi card">
+            <div class="kpi-top">
+                <span class="kpi-label">Bancos</span>
+                <span class="kpi-chip">Total</span>
+            </div>
+            <div class="kpi-value" id="kpiBancos">—</div>
+            <div class="kpi-sub muted">Registros en el sistema</div>
+        </article>
+
+        <article class="kpi card">
+            <div class="kpi-top">
+                <span class="kpi-label">Sucursales</span>
+                <span class="kpi-chip">Total</span>
+            </div>
+            <div class="kpi-value" id="kpiSucursales">—</div>
+            <div class="kpi-sub muted">Sedes operativas</div>
+        </article>
+
+        <article class="kpi card">
+            <div class="kpi-top">
+                <span class="kpi-label">Contratos</span>
+                <span class="kpi-chip">Activos</span>
+            </div>
+            <div class="kpi-value" id="kpiContratos">—</div>
+            <div class="kpi-sub muted">Asignaciones vigentes</div>
+        </article>
+
+        <article class="kpi card">
+            <div class="kpi-top">
+                <span class="kpi-label">Vigilantes</span>
+                <span class="kpi-chip">Total</span>
+            </div>
+            <div class="kpi-value" id="kpiVigilantes">—</div>
+            <div class="kpi-sub muted">Personal disponible</div>
+        </article>
+
+        <article class="kpi card">
+            <div class="kpi-top">
+                <span class="kpi-label">Usuarios</span>
+                <span class="kpi-chip">Total</span>
+            </div>
+            <div class="kpi-value" id="kpiUsuarios">—</div>
+            <div class="kpi-sub muted">Cuentas registradas</div>
+        </article>
+    </section>
+
+    <!-- Accesos rápidos -->
+    <section class="card dash-actions">
+        <div class="card-title">Accesos rápidos</div>
+        <div class="dash-actions__grid">
+            <a class="dash-link" th:href="@{/bancos}">
+                <div class="dash-link__title">Bancos</div>
+                <div class="dash-link__sub muted">Alta / baja / modificación</div>
+            </a>
+            <a class="dash-link" th:href="@{/sucursales}">
+                <div class="dash-link__title">Sucursales</div>
+                <div class="dash-link__sub muted">Gestión de sucursales</div>
+            </a>
+            <a class="dash-link" th:href="@{/contratos}">
+                <div class="dash-link__title">Contratos</div>
+                <div class="dash-link__sub muted">Asignaciones</div>
+            </a>
+            <a class="dash-link" th:href="@{/asaltos}">
+                <div class="dash-link__title">Asaltos</div>
+                <div class="dash-link__sub muted">Registro y reporte</div>
+            </a>
+            <a class="dash-link" th:href="@{/vigilantes}">
+                <div class="dash-link__title">Vigilantes</div>
+                <div class="dash-link__sub muted">Personal</div>
+            </a>
+            <a class="dash-link" th:href="@{/users}">
+                <div class="dash-link__title">Usuarios</div>
+                <div class="dash-link__sub muted">Administración</div>
+            </a>
+        </div>
+    </section>
+
+    <section class="dash-bottom"></section>
+</section>
 </html>

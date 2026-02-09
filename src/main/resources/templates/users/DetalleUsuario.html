@@ -1,91 +1,111 @@
-<!DOCTYPE html>
-<html lang="es"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments/layout :: head('Detalle de usuario')}"></head>
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Usuarios', ~{::section})}">
 
-<body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<section>
+  <h2>Detalle / Editar usuario</h2>
 
-<div class="container" style="max-width: 900px;">
+  <div th:if="${msg}" class="ok" th:text="${msg}"></div>
+  <div th:if="${error}" class="error" th:text="${error}"></div>
 
-  <!-- Mensajes -->
-  <div th:if="${msg}" class="alert ok mt-14" th:text="${msg}"></div>
-  <div th:if="${error}" class="alert err mt-14" th:text="${error}"></div>
+  <!-- info solo lectura -->
+  <div class="mb-3">
+    <div><b>ID:</b> <span th:text="${user.id}"></span></div>
+    <div><b>Username:</b> <span th:text="${user.username}"></span></div>
+  </div>
 
-  <div class="hero">
-    <div class="row row-between row-top gap-16">
-      <div>
-        <h1>Detalle de usuario</h1>
-        <p>Información y edición básica.</p>
+  <form th:action="@{/users/{id}(id=${user.id})}"
+        method="post"
+        th:object="${update}"
+        class="form">
+
+    <div th:if="${#fields.hasGlobalErrors()}" class="error"
+         th:text="${#fields.globalErrors()[0].defaultMessage}"></div>
+
+    <!-- Password opcional -->
+    <div>
+      <label>Password (dejar vacío para no cambiar)</label>
+      <input type="password" th:field="*{password}">
+      <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+    </div>
+
+    <!-- Enabled -->
+    <div class="mb-3">
+      <label>
+        <input type="checkbox" th:field="*{enabled}">
+        Enabled
+      </label>
+      <div class="error" th:if="${#fields.hasErrors('enabled')}" th:errors="*{enabled}"></div>
+    </div>
+
+    <!-- Rol (hardcodeado) -->
+    <div class="mb-3">
+      <label for="rol" class="form-label">Rol</label>
+      <select id="rol" class="form-select" th:field="*{rol}" data-required>
+        <option value="">-- Seleccionar --</option>
+        <option value="ADMIN">ADMIN</option>
+        <option value="INVESTIGADOR">INVESTIGADOR</option>
+        <option value="VIGILANTE">VIGILANTE</option>
+        <option value="USER">USER</option>
+      </select>
+      <div class="error" th:if="${#fields.hasErrors('rol')}" th:errors="*{rol}"></div>
+    </div>
+
+    <!-- Vigilante -->
+    <div id="vigilanteGroup" class="mb-3" style="display:none;">
+      <label for="vigilanteId" class="form-label">Vigilante</label>
+      <select id="vigilanteId" class="form-select" th:field="*{vigilanteId}">
+        <option value="">-- Seleccionar vigilante --</option>
+        <option th:each="v : ${vigilantes}"
+                th:value="${v.id}"
+                th:text="${v.id + ' - ' + v.codigo}">
+        </option>
+      </select>
+
+      <div class="error" th:if="${#fields.hasErrors('vigilanteId')}" th:errors="*{vigilanteId}"></div>
+
+      <div class="form-text">Obligatorio si el rol es VIGILANTE.</div>
+
+      <div th:if="${!hayVigilantes}" class="muted">
+        (No hay vigilantes disponibles para asociar. Podés guardar igual sin asignar.)
       </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" type="submit">Guardar cambios</button>
       <a class="btn" th:href="@{/users}">Volver</a>
     </div>
-  </div>
+  </form>
 
-  <!-- Datos del usuario -->
-  <div class="card mt-14">
-    <h2 class="h2">Datos</h2>
+  <!-- ✅ script dentro del section -->
+  <script th:inline="javascript">
+    (function () {
+      const rol = document.getElementById('rol');
+      const vigilanteGroup = document.getElementById('vigilanteGroup');
+      const vigilanteId = document.getElementById('vigilanteId');
 
-    <div class="grid grid-2 gap-14 mt-14">
-      <div>
-        <div class="label">Username</div>
-        <div th:text="${user != null ? user.username : '-'}">-</div>
-      </div>
-      <div>
-        <div class="label">Rol</div>
-        <div th:text="${user != null ? user.rol : '-'}">-</div>
-      </div>
-      <div>
-        <div class="label">Habilitado</div>
-        <div th:text="${user != null && user.enabled} ? 'Sí' : 'No'">No</div>
-      </div>
-    </div>
+      const hayVigilantes = /*[[${hayVigilantes}]]*/ false;
 
-    <div th:if="${user != null and user.rol != null and user.rol.equalsIgnoreCase('VIGILANTE')}"
-         class="alert soft mt-14">
-      <b>Nota:</b> Este usuario tiene rol <b>VIGILANTE</b>.
-      El perfil de vigilante asociado <b>no se puede modificar</b> desde esta pantalla.
-    </div>
-  </div>
+      if (!rol || !vigilanteGroup || !vigilanteId) return;
 
-  <!-- Editar usuario (ADMIN) -->
-  <div class="card mt-14" sec:authorize="hasRole('ADMIN')">
-    <h2 class="h2">Editar (ADMIN)</h2>
-    <p class="muted">
-      El backend permite actualizar <b>enabled</b> y <b>password</b>.
-      Si dejás la contraseña vacía, no se cambia.
-    </p>
+      function sync() {
+        const isVigilante = (rol.value === 'VIGILANTE');
+        vigilanteGroup.style.display = isVigilante ? '' : 'none';
 
-    <form th:action="@{/users/{id}(id=${user.id})}" method="post" th:object="${update}" class="mt-14">
-      <div class="stack gap-14" style="max-width: 560px;">
+        if (isVigilante && hayVigilantes) {
+          vigilanteId.setAttribute('data-required', 'true');
+          vigilanteId.setAttribute('required', 'required');
+        } else {
+          vigilanteId.removeAttribute('data-required');
+          vigilanteId.removeAttribute('required');
+          if (!isVigilante) vigilanteId.value = '';
+        }
+      }
 
-        <div>
-          <label class="label">Nueva contraseña (opcional)</label>
-          <input class="input" type="password" th:field="*{password}" placeholder="(vacío = no cambia)">
-          <!-- Si querés mostrar validación SSR de @Size -->
-          <div class="invalid-feedback" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
-        </div>
+      sync();
+      rol.addEventListener('change', sync);
+    })();
+  </script>
 
-        <div class="row gap-10">
-          <input type="checkbox" id="enabledCheck" th:field="*{enabled}">
-          <label for="enabledCheck" class="label">Usuario habilitado</label>
-        </div>
-
-        <div class="go go-right">
-          <button class="btn btn-primary" type="submit">Guardar cambios</button>
-        </div>
-
-      </div>
-    </form>
-
-    <div class="mt-14">
-      <a class="btn btn-danger" th:href="@{/users/{id}/confirm-delete(id=${user.id})}">
-        Eliminar
-      </a>
-    </div>
-  </div>
-
-</div>
-</body>
+</section>
 </html>

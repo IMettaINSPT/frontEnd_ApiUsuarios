@@ -124,8 +124,11 @@ public class PersonasDetenidasController {
 
         var item = service.get(token, id);
 
-        var update = new PersonaDetenidaUpdate(item.codigo(),item.nombre(), item.banda().id());
-
+        var update = new PersonaDetenidaUpdate(
+                item.nombre(),
+                item.codigo(),
+                item.banda() != null ? item.banda().id() : null
+        );
         model.addAttribute("item", item);
         model.addAttribute("update", update);
 

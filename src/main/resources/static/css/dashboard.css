@@ -1,73 +1,183 @@
-/* =========================
-   DASHBOARD ONLY
-   (no pisa el resto)
-========================= */
+/* Dashboard ONLY — no toca otros módulos */
+.dashboard-page { padding-bottom: 28px; }
 
-.container{
-  max-width: 1100px;
-}
-
-/* Hero */
-.hero{
+.dash-hero{
+  display:flex;
+  gap:16px;
+  justify-content: space-between;
+  align-items: stretch;
   margin-bottom: 16px;
 }
 
-/* Grids */
-.dashboard-grid{
-  display: grid;
-  gap: 16px;
+.dash-hero__text{
+  flex: 1;
+  min-width: 260px;
 }
 
-.dashboard-kpis{
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+.dash-hero__text h1{
+  font-size: 34px;
+  margin: 0;
+  letter-spacing: .2px;
 }
 
-.dashboard-charts{
-  margin-top: 14px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+.dash-hero__text p{
+  margin: 8px 0 10px;
+  color: var(--muted);
 }
 
-@media (max-width: 900px){
-  .dashboard-charts{
-    grid-template-columns: 1fr;
-  }
+.dash-hero__meta{
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
-/* KPI compactos */
+.dash-hero__meta .dot{ opacity: .5; }
+
+.dash-hero__badge{
+  width: 320px;
+  max-width: 100%;
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 14px;
+  box-shadow: var(--shadow);
+}
+
+.badge-title{
+  color: var(--muted);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  font-size: 12px;
+}
+
+.badge-value{
+  font-size: 18px;
+  font-weight: 900;
+  margin-top: 8px;
+}
+
+.badge-sub{ margin-top: 6px; font-size: 13px; }
+
+/* KPIs */
+.dash-grid{
+  display:grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
 .kpi{
-  min-height: 110px;
+  padding: 14px;
+  min-height: 120px;
 }
 
-.kpi .card-value{
+.kpi-top{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap:10px;
+}
+
+.kpi-label{
+  color: var(--muted);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  font-size: 12px;
+}
+
+.kpi-chip{
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,.10);
+  font-weight: 800;
+  font-size: 12px;
+  color: var(--text);
+}
+
+.kpi-value{
   font-size: 34px;
   font-weight: 950;
+  margin-top: 12px;
+  line-height: 1.05;
 }
 
-/* Charts */
-.chart{
-  min-height: 240px;
+.kpi-sub{ margin-top: 8px; font-size: 13px; }
+
+/* Accesos */
+.dash-actions{ padding: 16px; }
+.dash-actions__grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
 }
 
-.span-2{
-  grid-column: span 2;
+.dash-link{
+  display:block;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.05);
+  text-decoration: none;
+  color: var(--text);
+  transition: transform .08s ease, background .08s ease;
+}
+
+.dash-link:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.07);
+}
+
+.dash-link__title{
+  font-weight: 950;
+  margin-bottom: 6px;
+}
+
+.dash-link__sub{ font-size: 13px; }
+
+/* Bottom */
+.dash-bottom{
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.dash-list{ margin: 0; padding-left: 18px; }
+
+.health{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.health-dot{
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.25);
+  box-shadow: 0 0 0 3px rgba(255,255,255,.06);
+}
+
+.health-title{ font-weight: 950; }
+
+/* Responsive */
+@media (max-width: 1200px){
+  .dash-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); }
 }
 
 @media (max-width: 900px){
-  .span-2{
-    grid-column: span 1;
-  }
+  .dash-hero{ flex-direction: column; }
+  .dash-hero__badge{ width: 100%; }
+  .dash-actions__grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .dash-bottom{ grid-template-columns: 1fr; }
 }
 
-.chart-wrap{
-  margin-top: 10px;
-  height: 180px;
-}
-
-.span-2 .chart-wrap{
-  height: 220px;
-}
-
-.chart-wrap canvas{
-  width: 100% !important;
-  height: 100% !important;
+@media (max-width: 560px){
+  .dash-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .dash-actions__grid{ grid-template-columns: 1fr; }
 }

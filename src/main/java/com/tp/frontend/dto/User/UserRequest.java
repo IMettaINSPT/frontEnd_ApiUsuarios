@@ -8,6 +8,7 @@ public class UserRequest {
     private String username;
     @NotBlank(message="La contraseña es obligatoria")
     private String password;
+
     /**
      * Backend espera: tipo = ADMIN | INVESTIGADOR | VIGILANTE
      */

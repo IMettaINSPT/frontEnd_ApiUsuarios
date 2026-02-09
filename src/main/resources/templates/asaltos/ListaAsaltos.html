@@ -1,54 +1,37 @@
-<!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Asaltos')}"></head>
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Asaltos', ~{::section})}">
 
-<body>
-<div class="app-shell">
-    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+<section class="container">
+    <h1>Asaltos</h1>
 
-    <main class="main">
-        <div th:replace="~{fragments/header :: topbar}"></div>
+    <div class="card actions">
+        <a class="btn btn-primary" th:href="@{/asaltos/new}">+ Crear Asalto</a>
+        <a class="btn" th:href="@{/asaltos/reporte}">Reporte</a>
+    </div>
 
-        <section class="container">
-            <h1>Asaltos</h1>
-            <p>Gestión de asaltos</p>
-
-            <div class="card" style="margin-bottom:16px; display:flex; gap:10px; flex-wrap:wrap;">
-                <a class="btn btn-primary" th:href="@{/asaltos/new}">+ Crear Asalto</a>
-                <a class="btn" th:href="@{/asaltos/reporte}">📄 Reporte</a>
-            </div>
-
-            <div class="card">
-                <table>
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Fecha</th>
-                        <th>Sucursal ID</th>
-                        <th>Persona Detenida ID</th>
-                        <th>Acciones</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="a : ${items}">
-                        <td th:text="${a.id}">1</td>
-                        <td th:text="${a.fechaAsalto}">2026-01-01</td>
-                        <td th:text="${a.sucursalId}">1</td>
-                        <td th:text="${a.personaDetenidaId}">1</td>
-                        <td style="display:flex; gap:8px; flex-wrap:wrap;">
-                            <a class="btn" th:href="@{/asaltos/{id}(id=${a.id})}">Ver / Editar</a>
-                            <a class="btn btn-danger" th:href="@{/asaltos/{id}/confirm-delete(id=${a.id})}">Borrar</a>
-                        </td>
-                    </tr>
-
-                    <tr th:if="${items == null || #lists.isEmpty(items)}">
-                        <td colspan="5" style="color: var(--muted);">No hay asaltos cargados.</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </main>
-</div>
-</body>
+    <div class="card">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th><th>Fecha</th><th>SucursalId</th><th>PersonaDetenidaId</th><th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="a : ${items}">
+                <td th:text="${a.fechaAsalto}">2026-01-01</td>
+                <td th:text="${a.sucursalId}">1</td>
+                <td th:text="${a.personaDetenidaId}">1</td>
+                <td class="td-actions">
+                    <a class="btn" th:href="@{/asaltos/{id}(id=${a.id})}">Ver/Editar</a>
+                    <a class="btn btn-danger" th:href="@{/asaltos/{id}/confirm-delete(id=${a.id})}">Borrar</a>
+                </td>
+            </tr>
+            <tr th:if="${items == null || #lists.isEmpty(items)}">
+                <td colspan="5" class="muted">No hay asaltos.</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
 </html>

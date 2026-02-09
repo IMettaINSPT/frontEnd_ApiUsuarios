@@ -1,58 +1,38 @@
-<!DOCTYPE html>
-<html lang="es"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Contratos', ~{::section})}">
 
-<head th:replace="~{fragments/layout :: head('Contratos')}"></head>
+<section class="container">
+    <h1>Contratos</h1>
 
-<body>
-<div class="app-shell">
-    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+    <div class="card actions">
+        <a class="btn btn-primary" th:href="@{/contratos/new}">+ Crear Contrato</a>
+    </div>
 
-    <main class="main">
-        <div th:replace="~{fragments/header :: topbar}"></div>
-
-        <section class="container">
-            <h1>Contratos</h1>
-            <p>Gestión de contratos</p>
-
-            <div class="card" style="margin-bottom:16px;">
-                <a class="btn btn-primary" th:href="@{/contratos/new}">+ Crear Contrato</a>
-            </div>
-
-            <div class="card">
-                <table>
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Fecha</th>
-                        <th>Con arma</th>
-                        <th>Sucursal</th>
-                        <th>Vigilante</th>
-                        <th>Acciones</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="c : ${items}">
-                        <td th:text="${c.id}">1</td>
-                        <td th:text="${c.fechaContrato}">2026-01-01</td>
-                        <td th:text="${c.conArma ? 'Sí' : 'No'}">No</td>
-                        <td th:text="${sucursalLabelMap != null ? sucursalLabelMap[c.sucursalId] : c.sucursalId}">Sucursal</td>
-                        <td th:text="${vigilanteLabelMap != null ? vigilanteLabelMap[c.vigilanteId] : c.vigilanteId}">Vigilante</td>
-                        <td style="display:flex; gap:8px; flex-wrap:wrap;">
-                            <a class="btn" th:href="@{/contratos/{id}(id=${c.id})}">Ver / Editar</a>
-                            <a class="btn btn-danger" th:href="@{/contratos/{id}/confirm-delete(id=${c.id})}">Borrar</a>
-                        </td>
-                    </tr>
-
-                    <tr th:if="${items == null || #lists.isEmpty(items)}">
-                        <td colspan="6" style="color: var(--muted);">No hay contratos cargados.</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </main>
-</div>
-</body>
+    <div class="card">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th><th>Fecha</th><th>ConArma</th><th>SucursalId</th><th>VigilanteId</th><th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="c : ${items}">
+                <td th:text="${c.id}">1</td>
+                <td th:text="${c.fechaContrato}">2026-01-01</td>
+                <td th:text="${c.conArma}">false</td>
+                <td th:text="${c.sucursalId}">1</td>
+                <td th:text="${c.vigilanteId}">1</td>
+                <td class="td-actions">
+                    <a class="btn" th:href="@{/contratos/{id}(id=${c.id})}">Ver/Editar</a>
+                    <a class="btn btn-danger" th:href="@{/contratos/{id}/confirm-delete(id=${c.id})}">Borrar</a>
+                </td>
+            </tr>
+            <tr th:if="${items == null || #lists.isEmpty(items)}">
+                <td colspan="6" class="muted">No hay contratos.</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
 </html>

@@ -1,37 +1,18 @@
-<!DOCTYPE html>
-<html lang="es"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Borrar Sucursal', ~{::section})}">
 
-<head th:replace="~{fragments/layout :: head('Borrar Sucursal')}"></head>
+<section class="container">
+    <h1>Confirmar borrado</h1>
 
-<body>
-<div class="app-shell">
-    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+    <div class="card">
+        <p>¿Borrar sucursal <b th:text="${item.id}">ID</b>?</p>
+        <p th:if="${deleteError != null}" class="error" th:text="${deleteError}"></p>
 
-    <main class="main">
-        <div th:replace="~{fragments/header :: topbar}"></div>
-
-        <section class="container">
-            <h1>Confirmar borrado</h1>
-            <p>Esta acción no se puede deshacer.</p>
-
-            <div class="card">
-                <p>
-                    ¿Seguro querés borrar la sucursal
-                    <b th:text="${item.codigo}">SUC</b>?
-                </p>
-
-                <p th:if="${deleteError != null}" style="color:#ffb4b4;" th:text="${deleteError}"></p>
-
-                <form th:action="@{/sucursales/{id}/delete(id=${item.id})}" method="post"
-                      style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
-                    <button class="btn btn-danger" type="submit">Sí, borrar</button>
-                    <a class="btn" th:href="@{/sucursales/{id}(id=${item.id})}">Cancelar</a>
-                </form>
-            </div>
-        </section>
-    </main>
-</div>
-</body>
+        <form th:action="@{/sucursales/{id}/delete(id=${item.id})}" method="post" class="actions">
+            <button class="btn btn-danger" type="submit">Sí, borrar</button>
+            <a class="btn" th:href="@{/sucursales/{id}(id=${item.id})}">Cancelar</a>
+        </form>
+    </div>
+</section>
 </html>

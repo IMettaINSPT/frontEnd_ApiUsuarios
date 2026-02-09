@@ -1,82 +1,59 @@
-<!DOCTYPE html>
-<html lang="es"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Crear Contrato', ~{::section})}">
 
-<head th:replace="~{fragments/layout :: head('Crear Contrato')}"></head>
+<section class="container">
+    <h1>Crear Contrato</h1>
 
-<body>
-<div class="app-shell">
-    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+    <div class="card">
+        <form th:action="@{/contratos}" method="post" th:object="${form}" class="form">
 
-    <main class="main">
-        <div th:replace="~{fragments/header :: topbar}"></div>
-
-        <section class="container">
-            <h1>Crear Contrato</h1>
-            <p>Asignación de vigilante a sucursal</p>
-
-            <div class="card">
-                <form th:action="@{/contratos}" method="post" th:object="${form}">
-                    <div style="display:grid; gap:12px; max-width:560px;">
-
-                        <div>
-                            <label>Fecha contrato</label>
-                            <input type="date" th:field="*{fechaContrato}">
-                            <div th:if="${#fields.hasErrors('fechaContrato')}"
-                                 th:text="${#fields.errors('fechaContrato')[0]}" style="color:#ffb4b4;"></div>
-                        </div>
-
-                        <div>
-                            <label>Con arma</label>
-                            <select th:field="*{conArma}">
-                                <option th:value="true">Sí</option>
-                                <option th:value="false">No</option>
-                            </select>
-                            <div th:if="${#fields.hasErrors('conArma')}"
-                                 th:text="${#fields.errors('conArma')[0]}" style="color:#ffb4b4;"></div>
-                        </div>
-
-                        <div>
-                            <label>Sucursal</label>
-                            <select th:field="*{sucursalId}">
-                                <option value="">-- Seleccionar --</option>
-                                <option th:each="s : ${sucursales}"
-                                        th:value="${s.id}"
-                                        th:text="${sucursalLabelMap != null ? sucursalLabelMap[s.id] : ('Sucursal ' + s.id)}">
-                                </option>
-                            </select>
-                            <div th:if="${#fields.hasErrors('sucursalId')}"
-                                 th:text="${#fields.errors('sucursalId')[0]}" style="color:#ffb4b4;"></div>
-                        </div>
-
-                        <div>
-                            <label>Vigilante</label>
-                            <select th:field="*{vigilanteId}">
-                                <option value="">-- Seleccionar --</option>
-                                <option th:each="v : ${vigilantes}"
-                                        th:value="${v.id}"
-                                        th:text="${vigilanteLabelMap != null ? vigilanteLabelMap[v.id] : ('Vigilante ' + v.id)}">
-                                </option>
-                            </select>
-                            <div th:if="${#fields.hasErrors('vigilanteId')}"
-                                 th:text="${#fields.errors('vigilanteId')[0]}" style="color:#ffb4b4;"></div>
-                        </div>
-
-                        <div th:if="${!(haySucursales && hayVigilantes)}" style="color:#ffb4b4; font-weight:800;">
-                            No hay sucursales o vigilantes disponibles para crear un contrato.
-                        </div>
-
-                        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;">
-                            <button class="btn btn-primary" type="submit" th:disabled="${!(haySucursales && hayVigilantes)}">Guardar</button>
-                            <a class="btn" th:href="@{/contratos}">Cancelar</a>
-                        </div>
-
-                    </div>
-                </form>
+            <div th:if="${#fields.hasGlobalErrors()}" class="error"
+                 th:text="${#fields.globalErrors()[0].defaultMessage}">
             </div>
-        </section>
-    </main>
-</div>
-</body>
+
+            <div>
+                <label>Fecha contrato</label>
+                <input type="date" th:field="*{fechaContrato}">
+                <div class="error" th:if="${#fields.hasErrors('fechaContrato')}" th:errors="*{fechaContrato}"></div>
+            </div>
+
+            <div>
+                <label>Con arma</label>
+                <select th:field="*{conArma}">
+                    <option th:value="true">true</option>
+                    <option th:value="false">false</option>
+                </select>
+                <div class="error" th:if="${#fields.hasErrors('conArma')}" th:errors="*{conArma}"></div>
+            </div>
+
+            <div>
+                <label>SucursalId</label>
+                <select th:field="*{sucursalId}">
+                    <option value="">-- Seleccionar --</option>
+                    <option th:each="s : ${sucursales}" th:value="${s.id}" th:text="${s.id}">1</option>
+                </select>
+                <div class="error" th:if="${#fields.hasErrors('sucursalId')}" th:errors="*{sucursalId}"></div>
+            </div>
+
+            <div>
+                <label>VigilanteId</label>
+                <select th:field="*{vigilanteId}">
+                    <option value="">-- Seleccionar --</option>
+                    <option th:each="v : ${vigilantes}" th:value="${v.id}" th:text="${v.id}">1</option>
+                </select>
+                <div class="error" th:if="${#fields.hasErrors('vigilanteId')}" th:errors="*{vigilanteId}"></div>
+            </div>
+
+            <div th:if="${!(haySucursales && hayVigilantes)}" class="error">
+                No hay sucursales o vigilantes disponibles.
+            </div>
+
+            <div class="actions">
+                <button class="btn btn-primary" type="submit" th:disabled="${!(haySucursales && hayVigilantes)}">Guardar</button>
+                <a class="btn" th:href="@{/contratos}">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</section>
 </html>

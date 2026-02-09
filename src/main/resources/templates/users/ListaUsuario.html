@@ -1,80 +1,41 @@
-<!DOCTYPE html>
-<html lang="es"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments/layout :: head('Usuarios')}"></head>
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Usuarios', ~{::section})}">
 
-<body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<section class="container">
+    <h1>Usuarios</h1>
 
-<div class="container">
+    <p th:if="${msg != null}" class="muted" th:text="${msg}"></p>
+    <p th:if="${error != null}" class="error" th:text="${error}"></p>
 
-    <div class="hero">
-        <h1>Usuarios</h1>
-        <p>Listado general. Solo <b>ADMIN</b> puede crear/editar/eliminar.</p>
-
-        <div class="alert ok" th:if="${msg}" th:text="${msg}"></div>
-        <div class="alert err" th:if="${error}" th:text="${error}"></div>
+    <div class="card actions">
+        <a class="btn btn-primary" th:href="@{/users/new}">+ Crear Usuario</a>
     </div>
 
-    <div class="row row-between row-top gap-16 mt-14">
-        <div class="muted" style="font-size:13px;">
-            Doble click en una fila para ver detalle.
-        </div>
-
-        <div sec:authorize="hasRole('ADMIN')">
-            <a class="btn btn-primary" th:href="@{/users/new}">+ Nuevo usuario</a>
-        </div>
-    </div>
-
-    <div class="card mt-12 p-0">
-        <table class="tbl">
+    <div class="card">
+        <table>
             <thead>
             <tr>
-                <th>Usuario</th>
-                <th style="width: 180px;">Rol</th>
-                <th style="width: 120px;">Estado</th>
-                <th sec:authorize="hasRole('ADMIN')" style="width: 160px;">Acciones</th>
+                <th>ID</th><th>Username</th><th>rol</th><th>VigilanteId</th><th>Acciones</th>
             </tr>
             </thead>
-
             <tbody>
-            <tr th:each="u : ${users}"
-                th:attr="data-id=${u.id}"
-                ondblclick="goDetail(this)">
-
-                <td><b th:text="${u.username}"></b></td>
-
-                <td><span class="chip" th:text="${u.rol}"></span></td>
-
-                <td>
-                    <span class="chip"
-                          th:text="${u.enabled} ? 'Activo' : 'Inactivo'"></span>
-                </td>
-
-                <td sec:authorize="hasRole('ADMIN')">
-                    <div class="actions">
-                        <a class="iconbtn" th:href="@{/users/{id}(id=${u.id})}" title="Editar">✏</a>
-                        <a class="iconbtn danger" th:href="@{/users/{id}/confirm-delete(id=${u.id})}" title="Eliminar">✖</a>
-                    </div>
+            <tr th:each="u : ${users}">
+                <td th:text="${u.id}">1</td>
+                <td th:text="${u.username}">admin</td>
+                <td th:text="${u.rol}">ADMIN</td>
+                <td th:text="${u.vigilanteId != null ? u.vigilanteId : '-'}">-</td>
+                <td class="td-actions">
+                    <a class="btn" th:href="@{/users/{id}(id=${u.id})}">Ver/Editar</a>
+                    <a class="btn btn-danger" th:href="@{/users/{id}/confirm-delete(id=${u.id})}">Borrar</a>
                 </td>
             </tr>
 
-            <tr th:if="${users == null or #lists.isEmpty(users)}">
-                <td colspan="4" class="muted">No hay usuarios cargados.</td>
+            <tr th:if="${users == null || #lists.isEmpty(users)}">
+                <td colspan="5" class="muted">No hay usuarios.</td>
             </tr>
             </tbody>
         </table>
     </div>
-
-</div>
-
-<script>
-    function goDetail(row) {
-        const id = row.getAttribute("data-id");
-        window.location.href = "/users/" + id;
-    }
-</script>
-
-</body>
+</section>
 </html>

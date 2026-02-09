@@ -35,7 +35,7 @@ public class VigilantesApiClient extends BaseApiClient {
 
     public List<VigilanteResponse> list(String jwt) {
         return getList(
-                "/vigilantes/listar",
+                "/vigilantes",
                 jwt,
                 new ParameterizedTypeReference<List<VigilanteResponse>>() {}
         );

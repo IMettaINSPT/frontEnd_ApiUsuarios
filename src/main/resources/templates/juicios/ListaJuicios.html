@@ -1,61 +1,38 @@
-<!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments/layout :: head('Juicios')}"></head>
-<body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Juicios', ~{::section})}">
 
-<div class="container">
-    <div class="hero">
-        <h1>Juicios</h1>
-        <p>Listado de juicios. CRUD solo ADMIN.</p>
+<section class="container">
+    <h1>Juicios</h1>
+
+    <div class="card actions">
+        <a class="btn btn-primary" th:href="@{/juicios/new}">+ Crear Juicio</a>
     </div>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
-        <div class="card">
-            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-                <div>
-                    <h3>Listado</h3>
-                    <p class="muted">Entrá al detalle para ver/editar.</p>
-                </div>
-                <div sec:authorize="hasRole('ADMIN')">
-                    <a class="btn btn-primary" th:href="@{/juicios/new}">+ Nuevo juicio</a>
-                </div>
-            </div>
+    <div class="card">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th><th>Fecha</th><th>Juez</th><th>Persona detenida</th><th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="j : ${items}">
+                <td th:text="${j.id}">1</td>
+                <td th:text="${j.fecha}">2026-01-01</td>
+                <td th:text="${j.juezId}">1</td>
+                <td th:text="${j.personaDetenidaId}">1</td>
+                <td class="td-actions">
+                    <a class="btn" th:href="@{/juicios/{id}(id=${j.id})}">Ver/Editar</a>
+                    <a class="btn btn-danger" th:href="@{/juicios/{id}/confirm-delete(id=${j.id})}">Borrar</a>
+                </td>
+            </tr>
 
-            <div style="margin-top: 14px;">
-                <table class="table">
-                    <thead>
-                    <tr>
-
-                        <th>Fecha</th>
-                        <th>Resultado</th>
-                        <th>JuezId</th>
-                        <th>PersonaId</th>
-                        <th style="width:140px;">Acción</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="j : ${items}">
-                        <td th:text="${j.id}">1</td>
-                        <td th:text="${j.fecha}">2026-01-01</td>
-                        <td th:text="${j.resultado}">EN_PROCESO</td>
-                        <td th:text="${j.juezId}">10</td>
-                        <td th:text="${j.personaDetenidaId}">20</td>
-                        <td><a class="btn" th:href="@{/juicios/{id}(id=${j.id})}">Ver</a></td>
-                    </tr>
-
-                    <tr th:if="${items == null or #lists.isEmpty(items)}">
-                        <td colspan="6" class="muted">No hay juicios cargados.</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="go" style="display:flex; justify-content:flex-end; margin-top: 10px;">
-                <a class="btn" th:href="@{/}">Volver al menú</a>
-            </div>
-        </div>
+            <tr th:if="${items == null || #lists.isEmpty(items)}">
+                <td colspan="5" class="muted">No hay juicios.</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-</div>
-</body>
+</section>
 </html>

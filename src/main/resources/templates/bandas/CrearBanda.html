@@ -1,46 +1,27 @@
 <!doctype html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Alta Banda</title>
-    <link rel="stylesheet" th:href="@{/css/app.css}"/>
-</head>
-<body>
-<main class="container" style="max-width:720px;margin-top:32px;">
-    <h1>Alta Banda</h1>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Crear Banda', ~{::section})}">
 
-    <form th:action="@{/bandas}" th:object="${form}" method="post" data-validate novalidate>
+<section class="container">
+    <h1>Crear Banda</h1>
 
-        <div th:if="${#fields.hasGlobalErrors()}" class="alert alert-danger">
-            <ul style="margin:0;">
-                <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
-            </ul>
-        </div>
+    <div class="card">
+        <form th:action="@{/bandas}" method="post" th:object="${form}" class="form">
+            <div th:if="${#fields.hasGlobalErrors()}" class="error"
+                 th:text="${#fields.globalErrors()[0].defaultMessage}">
+            </div>
 
-        <div class="mb-3">
-            <label for="numeroBanda" class="form-label">Número de banda</label>
-            <input id="numeroBanda" type="number" th:field="*{numeroBanda}" required min="1" step="1"
-                   class="form-control"
-                   th:classappend="${#fields.hasErrors('numeroBanda')} ? 'is-invalid' : ''"/>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('numeroBanda')}" th:errors="*{numeroBanda}"></div>
-            <div class="invalid-feedback" th:if="${!#fields.hasErrors('numeroBanda')}">El número de banda es obligatorio.</div>
-        </div>
+            <!--div>
+                <label>Nombre</label>
+                <input type="text" th:field="*{nombre}">
+                <div class="error" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+            </div-->
 
-        <div class="mb-3">
-            <label for="numeroMiembros" class="form-label">Número de miembros</label>
-            <input id="numeroMiembros" type="number" th:field="*{numeroMiembros}" required min="1" step="1"
-                   class="form-control"
-                   th:classappend="${#fields.hasErrors('numeroMiembros')} ? 'is-invalid' : ''"/>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('numeroMiembros')}" th:errors="*{numeroMiembros}"></div>
-            <div class="invalid-feedback" th:if="${!#fields.hasErrors('numeroMiembros')}">El número de miembros es obligatorio.</div>
-        </div>
-
-        <button type="submit" class="btn btn-primary" data-submit>Guardar</button>
-        <a class="btn btn-secondary" th:href="@{/bandas}">Cancelar</a>
-    </form>
-</main>
-
-<script th:src="@{/js/form-validation.js}"></script>
-</body>
+            <div class="actions">
+                <button class="btn btn-primary" type="submit">Guardar</button>
+                <a class="btn" th:href="@{/bandas}">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</section>
 </html>

@@ -1,58 +1,37 @@
 <!doctype html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Crear Persona Detenida</title>
-    <link rel="stylesheet" th:href="@{/css/app.css}"/>
-</head>
-<body>
-<main class="container" style="max-width:720px;margin-top:32px;">
-    <h1>Crear Persona Detenida</h1>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Crear Persona detenida', ~{::section})}">
 
-    <form th:action="@{/personas-detenidas}" th:object="${form}" method="post" data-validate novalidate>
+<section class="container">
+    <h1>Crear Persona detenida</h1>
 
-        <div th:if="${#fields.hasGlobalErrors()}" class="alert alert-danger">
-            <ul style="margin:0;">
-                <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
-            </ul>
-        </div>
+    <div class="card">
+        <form th:action="@{/personas-detenidas}" method="post" th:object="${form}" class="form">
 
-        <div class="mb-3">
-            <label for="codigo" class="form-label">Código</label>
-            <input id="codigo" type="text" th:field="*{codigo}" required maxlength="20"
-                   class="form-control"
-                   th:classappend="${#fields.hasErrors('codigo')} ? 'is-invalid' : ''"/>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
-            <div class="invalid-feedback" th:if="${!#fields.hasErrors('codigo')}">El código es obligatorio.</div>
-        </div>
+            <div th:if="${#fields.hasGlobalErrors()}" class="error"
+                 th:text="${#fields.globalErrors()[0].defaultMessage}"></div>
 
-        <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre</label>
-            <input id="nombre" type="text" th:field="*{nombre}" required maxlength="80"
-                   class="form-control"
-                   th:classappend="${#fields.hasErrors('nombre')} ? 'is-invalid' : ''"/>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
-            <div class="invalid-feedback" th:if="${!#fields.hasErrors('nombre')}">El nombre es obligatorio.</div>
-        </div>
+            <div><label>Nombre</label><input type="text" th:field="*{nombre}"></div>
+            <div><label>Codigo</label><input type="text" th:field="*{codigo}"></div>
 
-        <div class="mb-3">
-            <label for="bandaId" class="form-label">Banda</label>
-            <select id="bandaId" th:field="*{bandaId}" required
-                    class="form-select"
-                    th:classappend="${#fields.hasErrors('bandaId')} ? 'is-invalid' : ''">
-                <option value="" selected>-- Seleccionar --</option>
-                <option th:each="b : ${bandas}" th:value="${b.id}" th:text="${b.numeroBanda}"></option>
-            </select>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('bandaId')}" th:errors="*{bandaId}"></div>
-            <div class="invalid-feedback" th:if="${!#fields.hasErrors('bandaId')}">Seleccioná una banda.</div>
-        </div>
+            <div>
+                <label>Banda</label>
+                <select th:field="*{bandaId}">
+                    <option value="">-- Seleccionar --</option>
+                    <option th:each="b : ${bandas}" th:value="${b.id}" th:text="${b.numeroBanda}">1</option>
+                </select>
+                <div class="error" th:if="${#fields.hasErrors('bandaId')}" th:errors="*{bandaId}"></div>
+            </div>
 
-        <button type="submit" class="btn btn-primary" data-submit>Guardar</button>
-        <a class="btn btn-secondary" th:href="@{/personas-detenidas}">Cancelar</a>
-    </form>
-</main>
+            <div th:if="${!hayBandas}" class="error">
+                No hay bandas disponibles.
+            </div>
 
-<script th:src="@{/js/form-validation.js}"></script>
-</body>
+            <div class="actions">
+                <button class="btn btn-primary" type="submit" th:disabled="${!hayBandas}">Guardar</button>
+                <a class="btn" th:href="@{/personas-detenidas}">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</section>
 </html>

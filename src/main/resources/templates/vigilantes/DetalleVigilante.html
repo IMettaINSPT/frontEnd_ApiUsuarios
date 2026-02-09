@@ -1,60 +1,34 @@
-<!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Detalle Vigilante')}"></head>
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Detalle Vigilante', ~{::section})}">
 
-<body>
-<div class="app-shell">
-    <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+<section class="container">
+    <h1>Detalle Vigilante</h1>
 
-    <main class="main">
-        <div th:replace="~{fragments/header :: topbar}"></div>
-
-        <section class="container">
-            <h1>Detalle Vigilante</h1>
-
-            <div class="card" style="margin-bottom:16px;">
-                <div class="card-title">Datos actuales</div>
-                <p><b>ID:</b> <span th:text="${item.id}">1</span></p>
-                <p><b>Código:</b> <span th:text="${item.codigo}">VIG-01</span></p>
-                <p><b>Edad:</b> <span th:text="${item.edad}">30</span></p>
+    <div class="card">
+        <form th:action="@{/vigilantes/{id}(id=${item.id})}" method="post" th:object="${update}" class="form">
+            <div th:if="${#fields.hasGlobalErrors()}" class="error"
+                 th:text="${#fields.globalErrors()[0].defaultMessage}">
             </div>
 
-            <div class="card">
-                <div class="card-title">Editar</div>
-
-                <form th:action="@{/vigilantes/{id}(id=${item.id})}" method="post" th:object="${update}">
-                    <div style="display:grid; gap:12px; max-width:560px;">
-
-                        <div th:if="${#fields.hasGlobalErrors()}" style="color:#ffb4b4; font-weight:800;"
-                             th:text="${#fields.globalErrors()[0].defaultMessage}">
-                        </div>
-
-                        <div>
-                            <label>Código</label>
-                            <input type="text" th:field="*{codigo}">
-                            <div th:if="${#fields.hasErrors('codigo')}"
-                                 th:text="${#fields.errors('codigo')[0]}" style="color:#ffb4b4;"></div>
-                        </div>
-
-                        <div>
-                            <label>Edad</label>
-                            <input type="number" min="18" th:field="*{edad}">
-                            <div th:if="${#fields.hasErrors('edad')}"
-                                 th:text="${#fields.errors('edad')[0]}" style="color:#ffb4b4;"></div>
-                        </div>
-
-                        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;">
-                            <button class="btn btn-primary" type="submit">Guardar cambios</button>
-                            <a class="btn" th:href="@{/vigilantes}">Volver</a>
-                            <a class="btn btn-danger" th:href="@{/vigilantes/{id}/confirm-delete(id=${item.id})}">Borrar</a>
-                        </div>
-
-                    </div>
-                </form>
+            <div>
+                <label>Código</label>
+                <input type="text" th:field="*{codigo}">
+                <div class="error" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
             </div>
-        </section>
-    </main>
-</div>
-</body>
-</html>
+
+            <div>
+                <label>Edad</label>
+                <input type="number" min="18" th:field="*{edad}">
+                <div class="error" th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></div>
+            </div>
+
+            <div class="actions">
+                <button class="btn btn-primary" type="submit">Guardar cambios</button>
+                <a class="btn" th:href="@{/vigilantes}">Volver</a>
+                <a class="btn btn-danger" th:href="@{/vigilantes/{id}/confirm-delete(id=${item.id})}">Borrar</a>
+            </div>
+        </form>
+    </div>
+</section>
 </html>

@@ -1,97 +1,103 @@
 <!doctype html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Alta Usuario')}"></head>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Usuarios', ~{::section})}">
 
-<body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<section>
+    <h2>Crear usuario</h2>
 
-<main class="container" style="max-width:720px;margin-top:32px;">
-    <div class="hero">
-        <h1>Alta Usuario</h1>
-        <p>Crear usuario (ADMIN).</p>
-    </div>
+    <form th:action="@{/users}" method="post" th:object="${form}" class="form">
 
-    <div class="card mt-14">
+        <div th:if="${#fields.hasGlobalErrors()}" class="error"
+             th:text="${#fields.globalErrors()[0].defaultMessage}"></div>
 
-        <form th:action="@{/users}" th:object="${form}" method="post" data-validate novalidate>
+        <div>
+            <label>Username</label>
+            <input type="text" th:field="*{username}" data-required data-minlen="3">
+            <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+        </div>
 
-            <div th:if="${#fields.hasGlobalErrors()}" class="alert err">
-                <ul class="list">
-                    <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
-                </ul>
+        <div>
+            <label>Password</label>
+            <input type="password" th:field="*{password}" data-required data-minlen="4">
+            <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+        </div>
+
+        <!-- Rol (hardcodeado) -->
+        <div class="mb-3">
+            <label for="rol" class="form-label">Rol</label>
+
+            <select id="rol" class="form-select" th:field="*{rol}" data-required>
+                <option value="">-- Seleccionar --</option>
+                <option value="ADMIN">ADMIN</option>
+                <option value="INVESTIGADOR">INVESTIGADOR</option>
+                <option value="VIGILANTE">VIGILANTE</option>
+                <option value="USER">USER</option>
+            </select>
+
+            <div class="error" th:if="${#fields.hasErrors('rol')}" th:errors="*{rol}"></div>
+        </div>
+
+        <!-- Vigilante -->
+        <div id="vigilanteGroup" class="mb-3" style="display:none;">
+            <label for="vigilanteId" class="form-label">Vigilante</label>
+
+            <select id="vigilanteId" class="form-select" th:field="*{vigilanteId}">
+                <option value="">-- Seleccionar vigilante --</option>
+                <option th:each="v : ${vigilantes}"
+                        th:value="${v.id}"
+                        th:text="${v.id + ' - ' + v.codigo}">
+                </option>
+            </select>
+
+            <div class="error" th:if="${#fields.hasErrors('vigilanteId')}" th:errors="*{vigilanteId}"></div>
+
+            <div class="form-text">Obligatorio si el rol es VIGILANTE.</div>
+
+            <div th:if="${!hayVigilantes}" class="muted">
+                (No hay vigilantes disponibles para asociar. Podés crear igual sin asignar.)
             </div>
+        </div>
 
-            <div class="stack gap-14">
+        <div class="actions">
+            <button class="btn btn-primary" type="submit">Guardar</button>
+            <a class="btn" th:href="@{/users}">Cancelar</a>
+        </div>
 
-                <div>
-                    <label class="label" for="username">Usuario</label>
-                    <input id="username" class="input" type="text" th:field="*{username}" required minlength="3" maxlength="50"
-                           th:classappend="${#fields.hasErrors('username')} ? ' is-invalid' : ''"/>
-                    <div class="invalid-feedback" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
-                    <div class="invalid-feedback" th:if="${!#fields.hasErrors('username')}">El usuario es obligatorio.</div>
-                </div>
+    </form>
 
-                <div>
-                    <label class="label" for="password">Contraseña</label>
-                    <input id="password" class="input" type="password" th:field="*{password}" required minlength="4" maxlength="80"
-                           th:classappend="${#fields.hasErrors('password')} ? ' is-invalid' : ''"/>
-                    <div class="invalid-feedback" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
-                    <div class="invalid-feedback" th:if="${!#fields.hasErrors('password')}">La contraseña es obligatoria.</div>
-                </div>
+    <!-- ✅ IMPORTANTE: el script DEBE estar dentro del section -->
+    <script th:inline="javascript">
+        (function () {
+          const rol = document.getElementById('rol');
+          const vigilanteGroup = document.getElementById('vigilanteGroup');
+          const vigilanteId = document.getElementById('vigilanteId');
 
-                <div>
-                    <label class="label" for="tipo">Tipo</label>
-                    <select id="tipo" class="input" th:field="*{tipo}" required
-                            th:classappend="${#fields.hasErrors('tipo')} ? ' is-invalid' : ''">
-                        <option value="" selected>-- Seleccionar --</option>
-                        <option value="ADMIN">ADMIN</option>
-                        <option value="INVESTIGADOR">INVESTIGADOR</option>
-                        <option value="VIGILANTE">VIGILANTE</option>
-                    </select>
-                    <div class="invalid-feedback" th:if="${#fields.hasErrors('tipo')}" th:errors="*{tipo}"></div>
-                    <div class="invalid-feedback" th:if="${!#fields.hasErrors('tipo')}">Seleccioná un tipo.</div>
-                </div>
+          const hayVigilantes = /*[[${hayVigilantes}]]*/ false;
 
-                <div>
-                    <label class="label" for="vigilanteId">Vigilante asociado</label>
-                    <select id="vigilanteId" class="input" th:field="*{vigilanteId}"
-                            th:classappend="${#fields.hasErrors('vigilanteId')} ? ' is-invalid' : ''">
-                        <option value="" selected>-- Seleccionar --</option>
-                        <option th:each="v : ${vigilantes}" th:value="${v.id}" th:text="${v.codigo}"></option>
-                    </select>
-                    <div class="invalid-feedback" th:if="${#fields.hasErrors('vigilanteId')}" th:errors="*{vigilanteId}"></div>
-                    <div class="invalid-feedback" id="vigilanteHelp">Solo es obligatorio si el tipo es VIGILANTE.</div>
-                </div>
+          if (!rol || !vigilanteGroup || !vigilanteId) return;
 
-            </div>
+          function syncVigilanteRequirement() {
+            const isVigilante = (rol.value === 'VIGILANTE');
 
-            <div class="go go-right gap-10 mt-18">
-                <button type="submit" class="btn btn-primary" data-submit>Guardar</button>
-                <a class="btn" th:href="@{/users}">Cancelar</a>
-            </div>
-        </form>
+            // console.log('ROL:', rol.value, 'isVigilante:', isVigilante); // (opcional)
 
-    </div>
-</main>
+            vigilanteGroup.style.display = isVigilante ? '' : 'none';
 
-<script th:src="@{/js/form-validation.js}"></script>
-<script>
-    (function () {
-        const tipo = document.getElementById('tipo');
-        const vigilante = document.getElementById('vigilanteId');
-        const help = document.getElementById('vigilanteHelp');
+            if (isVigilante && hayVigilantes) {
+              vigilanteId.setAttribute('data-required', 'true');
+              vigilanteId.setAttribute('required', 'required');
+            } else {
+              vigilanteId.removeAttribute('data-required');
+              vigilanteId.removeAttribute('required');
 
-        function sync() {
-            const isVig = (tipo.value || '').toUpperCase() === 'VIGILANTE';
-            vigilante.required = isVig;
-            vigilante.disabled = !isVig;
-            if (!isVig) vigilante.value = '';
-            help.style.display = isVig ? 'none' : 'block';
-        }
+              if (!isVigilante) vigilanteId.value = '';
+            }
+          }
 
-        tipo.addEventListener('change', sync);
-        sync();
-    })();
-</script>
-</body>
+          syncVigilanteRequirement();
+          rol.addEventListener('change', syncVigilanteRequirement);
+        })();
+    </script>
+
+</section>
 </html>

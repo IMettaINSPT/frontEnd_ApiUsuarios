@@ -10,7 +10,6 @@ public class PersonaDetenidaRequest {
     @NotBlank(message="El nombre es obligatoria")
     private String nombre;
 
-    @NotNull(message="La banda es obligatoria")
     private Long bandaId; // opcional
 
     public String getCodigo() { return codigo; }

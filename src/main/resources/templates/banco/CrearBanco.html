@@ -1,32 +1,31 @@
 <!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{fragments/layout :: layout('Crear Banco', null, ~{::section})}">
+      th:replace="~{fragments/layout :: layout('Crear Banco', ~{::section})}">
 
 <section class="container">
     <h1>Crear Banco</h1>
-    <p>Completá los datos del nuevo banco</p>
 
     <div class="card">
-        <form th:action="@{/bancos}" method="post" th:object="${form}">
-            <div style="display:grid; gap:12px; max-width:520px;">
-                <div>
-                    <label>Código</label>
-                    <input type="text" th:field="*{codigo}" placeholder="Ej: BBVA, GAL, etc">
-                    <div th:if="${#fields.hasErrors('codigo')}"
-                         th:text="${#fields.errors('codigo')[0]}" style="color:#ffb4b4;"></div>
-                </div>
+        <form th:action="@{/bancos}" method="post" th:object="${form}" class="form">
+            <div th:if="${#fields.hasGlobalErrors()}" class="error"
+                 th:text="${#fields.globalErrors()[0].defaultMessage}">
+            </div>
 
-                <div>
-                    <label>Domicilio Central</label>
-                    <input type="text" th:field="*{domicilioCentral}" placeholder="Dirección">
-                    <div th:if="${#fields.hasErrors('domicilioCentral')}"
-                         th:text="${#fields.errors('domicilioCentral')[0]}" style="color:#ffb4b4;"></div>
-                </div>
+            <div>
+                <label>Código</label>
+                <input type="text" th:field="*{codigo}">
+                <div class="error" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
+            </div>
 
-                <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;">
-                    <button class="btn btn-primary" type="submit">Guardar</button>
-                    <a class="btn" th:href="@{/bancos}">Cancelar</a>
-                </div>
+            <div>
+                <label>Domicilio central</label>
+                <input type="text" th:field="*{domicilioCentral}">
+                <div class="error" th:if="${#fields.hasErrors('domicilioCentral')}" th:errors="*{domicilioCentral}"></div>
+            </div>
+
+            <div class="actions">
+                <button class="btn btn-primary" type="submit">Guardar</button>
+                <a class="btn" th:href="@{/bancos}">Cancelar</a>
             </div>
         </form>
     </div>

@@ -1,58 +1,39 @@
-<!DOCTYPE html>
-<html lang="es"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Sucursales', ~{::section})}">
 
-<head th:replace="~{fragments/layout :: head('Sucursales')}"></head>
+<section class="container">
+  <h1>Sucursales</h1>
+  <p class="muted">Gestión de sucursales</p>
 
-<body>
-<div class="app-shell">
-  <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+  <div class="card actions">
+    <a class="btn btn-primary" th:href="@{/sucursales/new}">+ Crear Sucursal</a>
+  </div>
 
-  <main class="main">
-    <div th:replace="~{fragments/header :: topbar}"></div>
-
-    <section class="container">
-      <h1>Sucursales</h1>
-      <p>Gestión de sucursales</p>
-
-      <div class="card" style="margin-bottom:16px;">
-        <a class="btn btn-primary" th:href="@{/sucursales/new}">+ Crear Sucursal</a>
-      </div>
-
-      <div class="card">
-        <table>
-          <thead>
-          <tr>
-            <th>ID</th>
-            <th>Código</th>
-            <th>Domicilio</th>
-            <th>Empleados</th>
-            <th>Banco</th>
-            <th>Acciones</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr th:each="s : ${items}">
-            <td th:text="${s.id}">1</td>
-            <td th:text="${s.codigo}">SUC-01</td>
-            <td th:text="${s.domicilio}">Dom</td>
-            <td th:text="${s.nroEmpleados}">10</td>
-            <td th:text="${bancosMap != null && bancosMap[s.bancoId] != null ? bancosMap[s.bancoId].codigo : s.bancoId}">BANCO</td>
-            <td style="display:flex; gap:8px; flex-wrap:wrap;">
-              <a class="btn" th:href="@{/sucursales/{id}(id=${s.id})}">Ver / Editar</a>
-              <a class="btn btn-danger" th:href="@{/sucursales/{id}/confirm-delete(id=${s.id})}">Borrar</a>
-            </td>
-          </tr>
-
-          <tr th:if="${items == null || #lists.isEmpty(items)}">
-            <td colspan="6" style="color: var(--muted);">No hay sucursales cargadas.</td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-  </main>
-</div>
-</body>
+  <div class="card">
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th><th>Código</th><th>Domicilio</th><th>Empleados</th><th>BancoId</th><th>Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="s : ${items}">
+        <td th:text="${s.id}">1</td>
+        <td th:text="${s.codigo}">SUC-01</td>
+        <td th:text="${s.domicilio}">...</td>
+        <td th:text="${s.nroEmpleados}">0</td>
+        <td th:text="${s.bancoId}">1</td>
+        <td class="td-actions">
+          <a class="btn" th:href="@{/sucursales/{id}(id=${s.id})}">Ver/Editar</a>
+          <a class="btn btn-danger" th:href="@{/sucursales/{id}/confirm-delete(id=${s.id})}">Borrar</a>
+        </td>
+      </tr>
+      <tr th:if="${items == null || #lists.isEmpty(items)}">
+        <td colspan="6" class="muted">No hay sucursales.</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 </html>

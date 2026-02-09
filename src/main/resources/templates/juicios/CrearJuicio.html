@@ -1,71 +1,58 @@
 <!doctype html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Alta Juicio</title>
-    <link rel="stylesheet" th:href="@{/css/app.css}"/>
-</head>
-<body>
-<main class="container" style="max-width:720px;margin-top:32px;">
-    <h1>Alta Juicio</h1>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Crear Juicio', ~{::section})}">
 
-    <form th:action="@{/juicios}" th:object="${form}" method="post" data-validate novalidate>
+<section class="container">
+    <h1>Crear Juicio</h1>
 
-        <div th:if="${#fields.hasGlobalErrors()}" class="alert alert-danger">
-            <ul style="margin:0;">
-                <li th:each="e : ${#fields.globalErrors()}" th:text="${e}"></li>
-            </ul>
-        </div>
+    <div class="card">
+        <form th:action="@{/juicios}" method="post" th:object="${form}" class="form">
 
-        <div class="mb-3">
-            <label for="fecha" class="form-label">Fecha</label>
-            <input id="fecha" type="date" th:field="*{fecha}" required
-                   class="form-control"
-                   th:classappend="${#fields.hasErrors('fecha')} ? 'is-invalid' : ''"/>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></div>
-            <div class="invalid-feedback" th:if="${!#fields.hasErrors('fecha')}">La fecha es obligatoria.</div>
-        </div>
+            <div th:if="${#fields.hasGlobalErrors()}" class="error"
+                 th:text="${#fields.globalErrors()[0].defaultMessage}">
+            </div>
+            <div>
+                <label>Fecha juicio</label>
+                <input type="date" th:field="*{fecha}" data-required>
+                <div class="error" th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></div>
+            </div>
 
-        <div class="mb-3">
-            <label for="resultado" class="form-label">Resultado</label>
-            <input id="resultado" type="text" th:field="*{resultado}" required minlength="2" maxlength="50"
-                   class="form-control"
-                   th:classappend="${#fields.hasErrors('resultado')} ? 'is-invalid' : ''"/>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('resultado')}" th:errors="*{resultado}"></div>
-            <div class="invalid-feedback" th:if="${!#fields.hasErrors('resultado')}">El resultado es obligatorio.</div>
-            <!-- Si querés evitar typos, cambiá a un <select> con opciones (CONDENADO/ABSULTO/EN_PROCESO) -->
-        </div>
+            <div>
+                <label>Juez</label>
+                <select th:field="*{juezId}" data-required>
+                    <option value="">-- Seleccionar --</option>
+                    <option th:each="j : ${jueces}"
+                            th:value="${j.id}"
+                            th:text="${juecesMap != null && juecesMap[j.id] != null ? juecesMap[j.id] : j.id}">
+                    </option>
+                </select>
+                <div class="error" th:if="${#fields.hasErrors('juezId')}" th:errors="*{juezId}"></div>
+            </div>
 
-        <div class="mb-3">
-            <label for="juezId" class="form-label">Juez</label>
-            <select id="juezId" th:field="*{juezId}" required
-                    class="form-select"
-                    th:classappend="${#fields.hasErrors('juezId')} ? 'is-invalid' : ''">
-                <option value="" selected>-- Seleccionar --</option>
-                <option th:each="j : ${jueces}" th:value="${j.id}" th:text="${j.nombre + ' ' + j.apellido}"></option>
-            </select>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('juezId')}" th:errors="*{juezId}"></div>
-            <div class="invalid-feedback" th:if="${!#fields.hasErrors('juezId')}">Seleccioná un juez.</div>
-        </div>
+            <div>
+                <label>Persona detenida</label>
+                <select th:field="*{personaDetenidaId}" data-required>
+                    <option value="">-- Seleccionar --</option>
 
-        <div class="mb-3">
-            <label for="personaDetenidaId" class="form-label">Persona detenida</label>
-            <select id="personaDetenidaId" th:field="*{personaDetenidaId}" required
-                    class="form-select"
-                    th:classappend="${#fields.hasErrors('personaDetenidaId')} ? 'is-invalid' : ''">
-                <option value="" selected>-- Seleccionar --</option>
-                <option th:each="p : ${personasDetenidas}" th:value="${p.id}" th:text="${p.nombre}"></option>
-            </select>
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('personaDetenidaId')}" th:errors="*{personaDetenidaId}"></div>
-            <div class="invalid-feedback" th:if="${!#fields.hasErrors('personaDetenidaId')}">Seleccioná una persona detenida.</div>
-        </div>
+                    <!-- ✅ ahora itera delincuentes (no contratos) -->
+                    <option th:each="d : ${delincuentes}"
+                            th:value="${d.id}"
+                            th:text="${DelincuentesLabelMap != null && DelincuentesLabelMap[d.id] != null ? DelincuentesLabelMap[d.id] : d.id}">
+                    </option>
+                </select>
+                <div class="error" th:if="${#fields.hasErrors('personaDetenidaId')}" th:errors="*{personaDetenidaId}"></div>
+            </div>
 
-        <button type="submit" class="btn btn-primary" data-submit>Guardar</button>
-        <a class="btn btn-secondary" th:href="@{/juicios}">Cancelar</a>
-    </form>
-</main>
+            <!-- ✅ disponibilidad correcta -->
+            <div th:if="${!(hayJueces && hayDetenidos)}" class="error">
+                No hay jueces o personas detenidas disponibles.
+            </div>
 
-<script th:src="@{/js/form-validation.js}"></script>
-</body>
+            <div class="actions">
+                <button class="btn btn-primary" type="submit" th:disabled="${!(hayJueces && hayDetenidos)}">Guardar</button>
+                <a class="btn" th:href="@{/juicios}">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</section>
 </html>

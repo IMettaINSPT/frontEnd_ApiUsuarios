@@ -1,38 +1,18 @@
-<!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head('Eliminar Juez')}"></head>
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Borrar Juez', ~{::section})}">
 
-<body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<section class="container">
+    <h1>Confirmar borrado</h1>
 
-<div class="container">
+    <div class="card">
+        <p>¿Borrar juez <b th:text="${item.id}">ID</b>?</p>
+        <p th:if="${deleteError != null}" class="error" th:text="${deleteError}"></p>
 
-    <div class="hero">
-        <h1>Eliminar juez</h1>
-        <p>Esta acción no se puede deshacer.</p>
+        <form th:action="@{/jueces/{id}/delete(id=${item.id})}" method="post" class="actions">
+            <button class="btn btn-danger" type="submit">Sí, borrar</button>
+            <a class="btn" th:href="@{/jueces/{id}(id=${item.id})}">Cancelar</a>
+        </form>
     </div>
-
-    <div class="grid grid-1">
-        <div class="card">
-
-            <div class="alert warn">
-                ¿Seguro que querés eliminar a
-                <b th:text="${item.nombre}">Nombre</b>
-                ?
-            </div>
-
-            <div th:if="${deleteError != null}" class="alert err mt-14" th:text="${deleteError}"></div>
-
-            <form th:action="@{/jueces/{id}/delete(id=${item.id})}" method="post" class="mt-16">
-                <div class="go go-right gap-10">
-                    <a class="btn" th:href="@{/jueces/{id}(id=${item.id})}">Cancelar</a>
-                    <button class="btn btn-danger" type="submit">Sí, eliminar</button>
-                </div>
-            </form>
-
-        </div>
-    </div>
-
-</div>
-</body>
+</section>
 </html>

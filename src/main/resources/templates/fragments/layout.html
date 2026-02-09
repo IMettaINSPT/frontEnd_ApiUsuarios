@@ -1,15 +1,18 @@
 <!doctype html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org"
-      th:fragment="layout(title, pageCss, content)">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
+<!-- =========================
+     LAYOUT BASE (para TODOS los módulos)
+========================= -->
+<html lang="es"  th:fragment="layout(title, content)">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title th:text="${title}">App</title>
 
   <link rel="stylesheet" th:href="@{/css/app.css}"/>
-  <link rel="stylesheet" th:if="${pageCss != null}" th:href="@{${pageCss}}"/>
   <script th:src="@{/js/header.js}"></script>
+  <script th:src="@{/js/form-validation.js}" defer></script>
 </head>
 
 <body>
@@ -17,8 +20,40 @@
   <div th:replace="~{fragments/sidebar :: sidebar}"></div>
 
   <main class="main">
+    <div th:replace="~{fragments/header :: topbar}"></div>
     <div th:insert="${content}"></div>
   </main>
 </div>
 </body>
+</html>
+
+<!-- =========================
+     LAYOUT CON ASSETS (solo DASHBOARD)
+     - NO lo usan otros módulos
+========================= -->
+<html lang="es"  th:fragment="layoutAssets(title, pageCss, pageJs, content)">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title th:text="${title}">App</title>
+
+  <link rel="stylesheet" th:href="@{/css/app.css}"/>
+  <link rel="stylesheet" th:href="@{${pageCss}}"/>
+
+  <script th:src="@{/js/header.js}"></script>
+  <script defer th:src="@{${pageJs}}"></script>
+</head>
+
+<body>
+<div class="app-shell">
+  <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+
+  <main class="main">
+    <div th:replace="~{fragments/header :: topbar}"></div>
+    <div th:insert="${content}"></div>
+  </main>
+</div>
+</body>
+</html>
+
 </html>

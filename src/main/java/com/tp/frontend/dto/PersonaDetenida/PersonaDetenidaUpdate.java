@@ -8,7 +8,6 @@ public record PersonaDetenidaUpdate (
      String codigo,
         @NotBlank(message="El nombre es obligatoria")
      String nombre,
-        @NotNull(message="La banda es obligatoria")
      Long bandaId
 ){
 }

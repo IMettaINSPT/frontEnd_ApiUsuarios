@@ -1,57 +1,34 @@
-<!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments/layout :: head('Bandas')}"></head>
-<body>
-<div th:replace="~{fragments/header :: topbar}"></div>
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Bandas', ~{::section})}">
 
-<div class="container">
-    <div class="hero">
-        <h1>Bandas</h1>
-        <p>Bandas organizadas: número de banda y cantidad de miembros.</p>
+<section class="container">
+    <h1>Bandas</h1>
+
+    <div class="card actions">
+        <a class="btn btn-primary" th:href="@{/bandas/new}">+ Crear Banda</a>
     </div>
 
-    <div class="grid" style="grid-template-columns: 1fr;">
-        <div class="card">
-            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-                <div>
-                    <h3>Listado</h3>
-                    <p class="muted">Alta/edición solo ADMIN.</p>
-                </div>
-                <div sec:authorize="hasRole('ADMIN')">
-                    <a class="btn btn-primary" th:href="@{/bandas/new}">+ Nueva banda</a>
-                </div>
-            </div>
-
-            <div style="margin-top: 14px;">
-                <table class="table">
-                    <thead>
-                    <tr>
-
-                        <th>Número de banda</th>
-                        <th>Miembros</th>
-                        <th style="width:140px;">Acción</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="b : ${items}">
-                        <td th:text="${b.id}">1</td>
-                        <td th:text="${b.numeroBanda}">10</td>
-                        <td th:text="${b.numeroMiembros}">5</td>
-                        <td><a class="btn" th:href="@{/bandas/{id}(id=${b.id})}">Ver</a></td>
-                    </tr>
-
-                    <tr th:if="${items == null or #lists.isEmpty(items)}">
-                        <td colspan="4" class="muted">No hay bandas cargadas.</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="go" style="display:flex; justify-content:flex-end; margin-top: 10px;">
-                <a class="btn" th:href="@{/}">Volver al menú</a>
-            </div>
-        </div>
+    <div class="card">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th><th>Nombre</th><th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="b : ${items}">
+                <td th:text="${b.id}">1</td>
+¿                <td class="td-actions">
+                    <a class="btn" th:href="@{/bandas/{id}(id=${b.id})}">Ver/Editar</a>
+                    <a class="btn btn-danger" th:href="@{/bandas/{id}/confirm-delete(id=${b.id})}">Borrar</a>
+                </td>
+            </tr>
+            <tr th:if="${items == null || #lists.isEmpty(items)}">
+                <td colspan="3" class="muted">No hay bandas.</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-</div>
-</body>
+</section>
 </html>

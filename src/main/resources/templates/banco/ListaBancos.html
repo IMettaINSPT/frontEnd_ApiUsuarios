@@ -1,12 +1,10 @@
-<!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{fragments/layout :: layout('Bancos', null, ~{::section})}">
-
+      th:replace="~{fragments/layout :: layout('Bancos', ~{::section})}">
 <section class="container">
     <h1>Bancos</h1>
-    <p>Gestión de bancos</p>
+    <p class="muted">Entidades bancarias (CRUD ADMIN)</p>
 
-    <div class="card" style="margin-bottom: 16px;">
+    <div class="card actions">
         <a class="btn btn-primary" th:href="@{/bancos/new}">+ Crear Banco</a>
     </div>
 
@@ -23,16 +21,16 @@
             <tbody>
             <tr th:each="b : ${items}">
                 <td th:text="${b.id}">1</td>
-                <td th:text="${b.codigo}">COD</td>
-                <td th:text="${b.domicilioCentral}">DOM</td>
-                <td style="display:flex; gap:8px; flex-wrap:wrap;">
-                    <a class="btn" th:href="@{/bancos/{id}(id=${b.id})}">Ver / Editar</a>
+                <td th:text="${b.codigo}">BAN-01</td>
+                <td th:text="${b.domicilioCentral}">CABA</td>
+                <td class="td-actions">
+                    <a class="btn" th:href="@{/bancos/{id}(id=${b.id})}">Ver/Editar</a>
                     <a class="btn btn-danger" th:href="@{/bancos/{id}/confirm-delete(id=${b.id})}">Borrar</a>
                 </td>
             </tr>
 
             <tr th:if="${items == null || #lists.isEmpty(items)}">
-                <td colspan="4" style="color: var(--muted);">No hay bancos cargados.</td>
+                <td colspan="4" class="muted">No hay bancos.</td>
             </tr>
             </tbody>
         </table>
