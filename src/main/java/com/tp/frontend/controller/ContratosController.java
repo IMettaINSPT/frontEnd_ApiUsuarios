@@ -204,12 +204,12 @@ public class ContratosController {
 
         var item = contratoService.get(token, id);
 
-        // ⚠️ Ajustá campos según tu DTO real:
         var update = new ContratoUpdate(
                 item.getFechaContrato(),
                 item.getConArma(),
                 item.getSucursalId(),
-                item.getVigilanteId()
+                item.getVigilanteId(),
+                item.getFechaFin()
         );
 
         model.addAttribute("item", item);

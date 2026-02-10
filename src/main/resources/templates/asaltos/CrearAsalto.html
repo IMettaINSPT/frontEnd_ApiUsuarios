@@ -10,8 +10,9 @@
                 <form th:action="@{/asaltos}" method="post" th:object="${form}">
                     <div style="display:grid; gap:12px; max-width:560px;">
 
-                        <div th:if="${#fields.hasGlobalErrors()}" style="color:#ffb4b4; font-weight:800;"
-                             th:text="${#fields.globalErrors()[0].defaultMessage}">
+                        <div th:if="${#fields.hasGlobalErrors()}" class="error">
+                            <p th:each="e : ${#fields.globalErrors()}"
+                               th:text="${e.defaultMessage}"></p>
                         </div>
 
                         <div>

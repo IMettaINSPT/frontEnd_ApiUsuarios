@@ -10,6 +10,11 @@ public class ContratoResponse {
 
     private Long sucursalId;
     private Long vigilanteId;
+    private LocalDate fechaFin;
+
+    public boolean isActivo() {
+        return fechaFin == null || fechaFin.isAfter(LocalDate.now());
+    }
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -25,4 +30,12 @@ public class ContratoResponse {
 
     public Long getVigilanteId() { return vigilanteId; }
     public void setVigilanteId(Long vigilanteId) { this.vigilanteId = vigilanteId; }
+
+    public LocalDate getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(LocalDate fechaFin) {
+        this.fechaFin = fechaFin;
+    }
 }
