@@ -18,5 +18,6 @@ public record ContratoUpdate (
      Long sucursalId,
 
     @NotNull(message="El vigilante es obligatoria")
-     Long vigilanteId
+     Long vigilanteId,
+     LocalDate fechaFin
 ){}
