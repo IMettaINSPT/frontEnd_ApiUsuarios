@@ -292,7 +292,7 @@ th{ text-align:left; color: var(--muted); font-weight:900; font-size:12px; text-
    ========================================================== */
 
 /* ==========================================================
-   LOGIN: COLORES ORIGINALES (Fondo Claro y Botón Azul)
+   SOLO PARA EL LOGIN (Corregido para Legibilidad)
    ========================================================== */
 
 .login-page {
@@ -301,25 +301,24 @@ th{ text-align:left; color: var(--muted); font-weight:900; font-size:12px; text-
   justify-content: center;
   min-height: 100vh;
   padding: 20px;
-  /* VOLVEMOS AL COLOR DEL HOME ORIGINAL */
   background-color: radial-gradient(900px 450px at 35% 0%, rgba(255,255,255,.05), transparent 60%),
-                                  linear-gradient(180deg, var(--bg), var(--bg2) 70%);;
+  linear-gradient(180deg, var(--bg), var(--bg2) 70%);
 }
 
 .login-card {
   width: 100%;
   max-width: 450px;
   background: linear-gradient(180deg, var(--panel), var(--panel2));
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 40px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
   text-align: center;
 }
 
 /* LOGO GRANDE */
 .login-logo {
-  width: 160px;
+  width: 200px;
   height: auto;
   margin-bottom: 20px;
   display: block;
@@ -327,17 +326,38 @@ th{ text-align:left; color: var(--muted); font-weight:900; font-size:12px; text-
   margin-right: auto;
 }
 
+/* TEXTOS DEL HEADER (Ahora más legibles) */
 .login-title h1 {
-  color: #333; /* Texto oscuro original */
-  font-size: 24px;
+  color: #ffffff; /* Blanco puro para el título principal */
+  font-size: 26px;
   margin-bottom: 8px;
+  font-weight: 800;
 }
 
-.muted {
-  color: #666;
+.login-title .muted {
+  color: #cbd5e1; /* Gris claro azulado (muy legible en oscuro) */
+  font-size: 15px;
 }
 
-/* BOTÓN CENTRADO Y AZUL ORIGINAL */
+/* ETIQUETAS: Usuario y Contraseña */
+.login-card label {
+  color: #e2e8f0; /* Color claro */
+  font-weight: 600; /* Bajamos de 900 a 600 para que no sea tan "pesado" */
+  font-size: 18px;
+  text-align: left; /* Alineado a la izquierda sobre el input */
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* INPUTS: Para que el texto que escribe el usuario se vea bien */
+.login-card input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: #ffffff;
+  font-weight: 400; /* Texto normal dentro del input */
+}
+
+/* BOTÓN CENTRADO */
 .go-center {
   display: flex;
   justify-content: center;
@@ -345,17 +365,19 @@ th{ text-align:left; color: var(--muted); font-weight:900; font-size:12px; text-
 }
 
 .btn-primary {
-  background-color: #2d6cdf; /* El azul que usabas antes */
+  background-color: #2d6cdf;
   color: #fff;
-  padding: 12px 30px;
+  padding: 12px 40px;
   border-radius: 8px;
   border: none;
   font-weight: 700;
   cursor: pointer;
   font-size: 16px;
-  transition: background 0.2s;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(45, 108, 223, 0.3);
 }
 
 .btn-primary:hover {
   background-color: #1e52b3;
+  transform: translateY(-1px);
 }
