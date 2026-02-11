@@ -1,157 +1,43 @@
-:root{
+/* ==========================================================
+   1. VARIABLES GLOBALES (Colores y medidas base)
+   ========================================================== */
+:root {
   --bg: #0b1224;
-  --bg2:#070b17;
-  --panel: rgba(255,255,255,.06);
-  --panel2: rgba(255,255,255,.03);
-  --border: rgba(255,255,255,.12);
+  --bg2: #070b17;
+  --panel: rgba(255, 255, 255, .06);
+  --panel2: rgba(255, 255, 255, .03);
+  --border: rgba(255, 255, 255, .12);
 
-  --text:#eaf0ff;
-  --muted: rgba(234,240,255,.70);
+  --text: #eaf0ff;
+  --muted: rgba(234, 240, 255, .70);
 
-  --primary:#1f7a3a;
-  --primarySoft: rgba(31,122,58,.22);
+  --primary: #1f7a3a;
+  --primarySoft: rgba(31, 122, 58, .22);
 
   --radius: 14px;
-  --shadow: 0 12px 30px rgba(0,0,0,.30);
+  --shadow: 0 12px 30px rgba(0, 0, 0, .30);
 
   --sidebarW: 260px;
-  --container: 1100px; /* más chico para que cards no queden “gigantes” */
+  --container: 1100px;
 }
 
-*{ box-sizing:border-box; }
+/* RESET BASE */
+* { box-sizing: border-box; }
 
-body{
-  margin:0;
+body {
+  margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  background: radial-gradient(900px 450px at 35% 0%, rgba(255,255,255,.05), transparent 60%),
+  background: radial-gradient(900px 450px at 35% 0%, rgba(255, 255, 255, .05), transparent 60%),
               linear-gradient(180deg, var(--bg), var(--bg2) 70%);
   color: var(--text);
 }
 
-a{ color:inherit; }
+a { color: inherit; text-decoration: none; }
 
-/* Layout */
-.app-shell{
-  display:flex;
-  min-height:100vh;
-}
-
-.sidebar{
-  width: var(--sidebarW);
-  flex: 0 0 var(--sidebarW);
-  background: linear-gradient(180deg, #101a35, #0a1023);
-  border-right: 1px solid var(--border);
-  padding: 16px 14px;
-}
-
-.main{
-  flex:1;
-  min-width:0;
-}
-
-/* Sidebar content */
-.sb-brand{
-  display:flex;
-  align-items:center;
-  gap: 12px;
-  padding: 10px 10px 14px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 12px;
-}
-
-.sb-logo{
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  background: rgba(255,255,255,.06);
-  padding: 6px;
-  object-fit: contain;
-}
-
-.sb-title{
-  font-weight: 900;
-  font-size: 14px;
-  letter-spacing: .2px;
-}
-
-.sb-sub{
-  margin-top: 2px;
-  font-size: 12px;
-  color: var(--muted);
-}
-
-.sb-section{ margin-top: 14px; }
-
-.sb-section-title{
-  margin: 10px 10px 8px;
-  font-size: 12px;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  color: var(--muted);
-}
-
-.sb-link{
-  display:block;
-  padding: 10px 12px;
-  border-radius: 12px;
-  text-decoration:none;
-  font-weight: 800;
-  font-size: 14px;
-  border: 1px solid transparent;
-}
-
-.sb-link:hover{
-  background: rgba(255,255,255,.06);
-  border-color: rgba(255,255,255,.08);
-}
-
-/* Container */
-.container{
-  max-width: var(--container);
-  margin: 0 auto;
-  padding: 22px 18px;
-}
-
-/* Cards */
-.card{
-  background: linear-gradient(180deg, var(--panel), var(--panel2));
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 14px;
-  box-shadow: var(--shadow);
-}
-
-.card-title{
-  font-size: 12px;
-  font-weight: 900;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: .10em;
-}
-
-.card-value{
-  margin-top: 8px;
-  font-size: 30px;
-  font-weight: 950;
-  line-height: 1;
-}
-
-/* Typography */
-h1{ margin:0 0 10px; font-weight: 950; letter-spacing: .2px; }
-p{ margin:0; color: var(--muted); }
-
-/* Responsive */
-@media (max-width: 900px){
-  .app-shell{ flex-direction: column; }
-  .sidebar{ width: 100%; flex: none; }
-  :root{ --container: 100%; }
-}
-/* =========================
-   TOPBAR / HEADER
-========================= */
-
-.topbar{
+/* ==========================================================
+   2. TOPBAR / HEADER (Barra superior)
+   ========================================================== */
+.topbar {
   position: sticky;
   top: 0;
   z-index: 20;
@@ -159,7 +45,7 @@ p{ margin:0; color: var(--muted); }
   border-bottom: 1px solid var(--border);
 }
 
-.topbar-inner{
+.topbar-inner {
   max-width: 1100px;
   margin: 0 auto;
   padding: 10px 18px;
@@ -169,18 +55,62 @@ p{ margin:0; color: var(--muted); }
   gap: 12px;
 }
 
-.topbar-left{
+.topbar-left {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.topbar-title{
+.topbar-title {
   font-weight: 900;
   letter-spacing: .3px;
 }
 
-.role-badge{
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* BOTONES DEL TOPBAR (Dashboard y Logout) */
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 800;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-dashboard {
+  background: #2d6cdf;
+  color: white !important;
+  box-shadow: 0 4px 10px rgba(45, 108, 223, 0.2);
+}
+
+.btn-logout {
+  background: rgba(255, 255, 255, 0.1);
+  color: #eaf0ff !important;
+  border: 1px solid var(--border);
+}
+
+.btn-sm:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.2);
+}
+
+.btn-logout:hover {
+  background: #bb2d3b;
+  border-color: transparent;
+  color: white !important;
+}
+
+/* Otros elementos del header */
+.role-badge {
   font-size: 11px;
   font-weight: 900;
   padding: 4px 10px;
@@ -190,204 +120,133 @@ p{ margin:0; color: var(--muted); }
   border: 1px solid rgba(31,122,58,.45);
 }
 
-.topbar-right{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.topbar-user{
-  font-size: 13px;
-  color: var(--muted);
-}
-
-/* Botones chicos para header */
-.btn-sm{
-  padding: 6px 12px;
-  font-size: 13px;
-  font-weight: 800;
-}
-
-.inline-form{
-  display: inline;
-}
-select, input[type="date"], input[type="number"], input[type="text"]{
-  width: 100%;
-  padding: 8px 10px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.06);
-  color: var(--text);
-}
-option{ color:#111; }
-label{ display:block; font-weight:800; margin-bottom:6px; color: var(--muted); }
-
-/* =========================
-   FORM CONTROLS (fix login)
-========================= */
-input[type="text"],
-input[type="password"],
-input[type="number"],
-input[type="date"],
-select,
-textarea{
-  width: 100%;
-  box-sizing: border-box;
-  padding: 10px 12px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.07);
-  color: var(--text);
-  outline: none;
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="number"]:focus,
-input[type="date"]:focus,
-select:focus,
-textarea:focus{
-  border-color: rgba(31,122,58,.65);
-  box-shadow: 0 0 0 3px rgba(31,122,58,.18);
-}
-
-label{
-  display: block;
-  font-weight: 900;
-  margin-bottom: 6px;
-  color: var(--muted);
-}
-
-.help, .hint{
-  color: var(--muted);
-  font-size: 13px;
-}
-
-/* Botón del login más prolijo */
-button, .btn{
-  cursor: pointer;
-}
-
-.muted{ color: var(--muted); }
-.error{ color:#ffb4b4; font-weight:800; }
-
-.actions{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  align-items:center;
-  margin-bottom:16px;
-}
-
-table{ width:100%; border-collapse: collapse; }
-th, td{ padding:10px 10px; border-bottom:1px solid var(--border); }
-th{ text-align:left; color: var(--muted); font-weight:900; font-size:12px; text-transform:uppercase; letter-spacing:.6px; }
-.td-actions{ display:flex; gap:8px; flex-wrap:wrap; }
-
-.form{ display:grid; gap:12px; max-width:560px; }
-
+.topbar-user { font-size: 13px; color: var(--muted); }
 
 /* ==========================================================
-   SOLO PARA EL LOGIN (No afecta al resto de la web)
+   3. LAYOUT Y SIDEBAR (Panel lateral)
    ========================================================== */
+.app-shell { display: flex; min-height: 100vh; }
+
+.sidebar {
+  width: var(--sidebarW);
+  flex: 0 0 var(--sidebarW);
+  background: linear-gradient(180deg, #101a35, #0a1023);
+  border-right: 1px solid var(--border);
+  padding: 16px 14px;
+}
+
+.main { flex: 1; min-width: 0; }
+
+.sb-brand {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 10px 14px; border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+}
+
+.sb-logo {
+  width: 46px; height: 46px; border-radius: 14px;
+  background: rgba(255,255,255,.06); padding: 6px; object-fit: contain;
+}
+
+.sb-title { font-weight: 900; font-size: 14px; letter-spacing: .2px; }
+.sb-sub { margin-top: 2px; font-size: 12px; color: var(--muted); }
+
+.sb-section-title {
+  margin: 10px 10px 8px; font-size: 12px; font-weight: 900;
+  text-transform: uppercase; color: var(--muted);
+}
+
+.sb-link {
+  display: block; padding: 10px 12px; border-radius: 12px;
+  font-weight: 800; font-size: 14px; border: 1px solid transparent;
+}
+
+.sb-link:hover { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.08); }
 
 /* ==========================================================
-   SOLO PARA EL LOGIN (Corregido para Legibilidad)
+   4. COMPONENTES GENERALES (Cards, Tablas, Forms)
    ========================================================== */
+.container { max-width: var(--container); margin: 0 auto; padding: 22px 18px; }
 
+.card {
+  background: linear-gradient(180deg, var(--panel), var(--panel2));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: var(--shadow);
+}
+
+.card-title { font-size: 12px; font-weight: 900; color: var(--muted); text-transform: uppercase; }
+.card-value { margin-top: 8px; font-size: 30px; font-weight: 950; line-height: 1; }
+
+h1 { margin: 0 0 10px; font-weight: 950; letter-spacing: .2px; }
+p { margin: 0; color: var(--muted); }
+
+/* TABLAS */
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 10px; border-bottom: 1px solid var(--border); }
+th { text-align: left; color: var(--muted); font-weight: 900; font-size: 12px; text-transform: uppercase; }
+
+/* INPUTS GENERALES (Home) */
+select, input[type="date"], input[type="number"], input[type="text"], input[type="password"] {
+  width: 100%; padding: 10px 12px; border-radius: 12px;
+  border: 1px solid var(--border); background: rgba(255,255,255,.07);
+  color: var(--text); outline: none;
+}
+
+label { display: block; font-weight: 900; margin-bottom: 6px; color: var(--muted); }
+
+/* ==========================================================
+   5. SECCIÓN LOGIN (Corregido y Centrado)
+   ========================================================== */
 .login-page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 20px;
-  background-color: radial-gradient(900px 450px at 35% 0%, rgba(255,255,255,.05), transparent 60%),
-  linear-gradient(180deg, var(--bg), var(--bg2) 70%);
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh; padding: 20px;
 }
 
 .login-card {
-  width: 100%;
-  max-width: 450px;
+  width: 100%; max-width: 450px;
   background: linear-gradient(180deg, var(--panel), var(--panel2));
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 40px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);
   text-align: center;
 }
 
-/* LOGO GRANDE */
 .login-logo {
-  width: 200px;
-  height: auto;
-  margin-bottom: 20px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  width: 200px; height: auto; margin-bottom: 20px;
+  display: block; margin-left: auto; margin-right: auto;
 }
 
-/* TEXTOS DEL HEADER (Ahora más legibles) */
-.login-title h1 {
-  color: #ffffff; /* Blanco puro para el título principal */
-  font-size: 26px;
-  margin-bottom: 8px;
-  font-weight: 800;
-}
+.login-title h1 { color: #ffffff; font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+.login-title .muted { color: #cbd5e1; font-size: 15px; }
 
-.login-title .muted {
-  color: #cbd5e1; /* Gris claro azulado (muy legible en oscuro) */
-  font-size: 15px;
-}
-
-/* ETIQUETAS: Usuario y Contraseña */
+/* Usuario y Contraseña en el Login */
 .login-card label {
-  color: #e2e8f0;
-  font-weight: 600;
-  font-size: 18px;
-  text-align: left;
-  margin-bottom: 8px;
-  display: block;
+  color: #e2e8f0; font-weight: 600; font-size: 18px;
+  text-align: left; margin-bottom: 8px; display: block;
 }
 
-/* --- CAMBIO AQUÍ: Espacio entre campos --- */
-.login-card .stack > div {
-  margin-bottom: 24px; /* Esto separa el bloque Usuario del bloque Contraseña */
-}
+/* Espacio entre campos del Login */
+.login-card .stack > div { margin-bottom: 24px; }
+.login-card .stack > div:last-child { margin-bottom: 0; }
 
-.login-card .stack > div:last-child {
-  margin-bottom: 0; /* Evita espacio extra después del último campo */
-}
-/* ----------------------------------------- */
+.login-card input { background: rgba(255, 255, 255, 0.05); color: #ffffff; }
 
-/* INPUTS: Para que el texto que escribe el usuario se vea bien */
-.login-card input {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border);
-  color: #ffffff;
-  font-weight: 400;
-}
-
-/* BOTÓN CENTRADO */
-.go-center {
-  display: flex;
-  justify-content: center;
-  margin-top: 24px;
-}
+/* Botón Entrar Centrado */
+.go-center { display: flex; justify-content: center; margin-top: 24px; }
 
 .btn-primary {
-  background-color: #2d6cdf;
-  color: #fff;
-  padding: 12px 40px;
-  border-radius: 8px;
-  border: none;
-  font-weight: 700;
-  cursor: pointer;
-  font-size: 16px;
-  transition: all 0.2s;
-  box-shadow: 0 4px 12px rgba(45, 108, 223, 0.3);
+  background-color: #2d6cdf; color: #fff;
+  padding: 12px 40px; border-radius: 8px; border: none;
+  font-weight: 700; cursor: pointer; font-size: 16px;
+  transition: all 0.2s; box-shadow: 0 4px 12px rgba(45, 108, 223, 0.3);
 }
 
-.btn-primary:hover {
-  background-color: #1e52b3;
-  transform: translateY(-1px);
+.btn-primary:hover { background-color: #1e52b3; transform: translateY(-1px); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .app-shell { flex-direction: column; }
+  .sidebar { width: 100%; flex: none; }
+  :root { --container: 100%; }
 }
