@@ -1456,3 +1456,100 @@ This generated password is for development use only. Your security configuration
                 sid=- rid=5f12a308 ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
                 user=anon role=-
                 c.t.f.controller.AuthController - GET /login logout= err=null
+2026-02-11 02:28:20.171 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-11 02:28:20.248 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 12304 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
+2026-02-11 02:28:20.248 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-11 02:28:22.878 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-02-11 02:28:22.900 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-11 02:28:22.903 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-11 02:28:22.904 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-02-11 02:28:22.999 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-11 02:28:22.999 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2664 ms
+2026-02-11 02:28:23.754 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 4d3ec23f-e662-4c89-b305-b280904ea3f0
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-11 02:28:24.288 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6f91fbda, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@723e3c17, org.springframework.security.web.context.SecurityContextHolderFilter@71936a92, org.springframework.security.web.header.HeaderWriterFilter@16cb9989, org.springframework.web.filter.CorsFilter@4ffced4e, org.springframework.security.web.authentication.logout.LogoutFilter@42c12b3e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@37c7766e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2dc39b53, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@45037e16, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6094de13, org.springframework.security.web.session.SessionManagementFilter@3815146b, org.springframework.security.web.access.ExceptionTranslationFilter@578a5ce8, org.springframework.security.web.access.intercept.AuthorizationFilter@8641b7d]
+2026-02-11 02:28:24.749 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-02-11 02:28:24.781 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-02-11 02:28:24.796 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 5.576 seconds (process running for 6.437)
+2026-02-11 02:28:24.890 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-11 02:28:24.890 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-11 02:28:24.890 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-02-11 02:28:24.957 INFO 
+                sid=- rid=aa1e29ad ip=127.0.0.1 method=GET path=/login status=
+                user=anon role=-
+                c.t.f.controller.AuthController - GET /login logout= err=null
+2026-02-11 02:28:35.739 INFO 
+                sid=- rid=cfc7f5d5 ip=127.0.0.1 method=POST path=/auth/login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-11 02:28:36.631 INFO 
+                sid=- rid=cfc7f5d5 ip=127.0.0.1 method=POST path=/auth/login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
+2026-02-11 02:28:36.800 INFO 
+                sid=DC628FF600BDCD3A6E739C3E16D55433 rid=b56687ea ip=127.0.0.1 method=POST path=/auth/login status=
+                user=admin role=ADMIN
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-11 02:28:36.975 INFO 
+                sid=DC628FF600BDCD3A6E739C3E16D55433 rid=b56687ea ip=127.0.0.1 method=POST path=/auth/login status=
+                user=admin role=ADMIN
+                c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
+2026-02-11 02:28:42.081 INFO 
+                sid=- rid=aea968ad ip=127.0.0.1 method=GET path=/login status=
+                user=anon role=-
+                c.t.f.controller.AuthController - GET /login logout= err=null

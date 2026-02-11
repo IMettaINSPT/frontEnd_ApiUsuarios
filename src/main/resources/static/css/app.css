@@ -341,20 +341,30 @@ th{ text-align:left; color: var(--muted); font-weight:900; font-size:12px; text-
 
 /* ETIQUETAS: Usuario y Contraseña */
 .login-card label {
-  color: #e2e8f0; /* Color claro */
-  font-weight: 600; /* Bajamos de 900 a 600 para que no sea tan "pesado" */
+  color: #e2e8f0;
+  font-weight: 600;
   font-size: 18px;
-  text-align: left; /* Alineado a la izquierda sobre el input */
+  text-align: left;
   margin-bottom: 8px;
   display: block;
 }
+
+/* --- CAMBIO AQUÍ: Espacio entre campos --- */
+.login-card .stack > div {
+  margin-bottom: 24px; /* Esto separa el bloque Usuario del bloque Contraseña */
+}
+
+.login-card .stack > div:last-child {
+  margin-bottom: 0; /* Evita espacio extra después del último campo */
+}
+/* ----------------------------------------- */
 
 /* INPUTS: Para que el texto que escribe el usuario se vea bien */
 .login-card input {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border);
   color: #ffffff;
-  font-weight: 400; /* Texto normal dentro del input */
+  font-weight: 400;
 }
 
 /* BOTÓN CENTRADO */
