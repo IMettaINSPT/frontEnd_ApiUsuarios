@@ -6,7 +6,7 @@
     <h1>Confirmar borrado</h1>
 
     <div class="card">
-        <p>¿Seguro querés borrar el banco <b th:text="${item.id}">ID</b>?</p>
+        <p>¿Seguro querés borrar el banco <b th:text="${item.codigo}">CODIGO</b>?</p>
 
         <p th:if="${deleteError != null}" class="error" th:text="${deleteError}"></p>
 
