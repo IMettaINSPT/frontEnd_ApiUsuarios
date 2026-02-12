@@ -2,17 +2,17 @@
       th:replace="~{fragments/layout :: layout('Bancos', ~{::section})}">
 <section class="container">
     <h1>Bancos</h1>
-    <p class="muted">Entidades bancarias (CRUD ADMIN)</p>
+
 
     <div class="card actions">
-        <a class="btn btn-primary" th:href="@{/bancos/new}">+ Crear Banco</a>
+        <a class="btn btn-primary" th:href="@{/bancos/new}"> Crear Banco</a>
     </div>
 
     <div class="card">
         <table>
             <thead>
             <tr>
-                <th>ID</th>
+
                 <th>Código</th>
                 <th>Domicilio Central</th>
                 <th>Acciones</th>
@@ -20,7 +20,7 @@
             </thead>
             <tbody>
             <tr th:each="b : ${items}">
-                <td th:text="${b.id}">1</td>
+
                 <td th:text="${b.codigo}">BAN-01</td>
                 <td th:text="${b.domicilioCentral}">CABA</td>
                 <td class="td-actions">

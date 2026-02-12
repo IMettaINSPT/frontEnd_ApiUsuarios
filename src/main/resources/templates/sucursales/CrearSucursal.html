@@ -23,10 +23,10 @@
       </div>
 
       <div>
-        <label>BancoId
+        <label>Banco
         <select th:field="*{bancoId}">
           <option value="">-- Seleccionar --</option>
-          <option th:each="b : ${bancos}" th:value="${b.id}" th:text="${b.id}">1</option>
+          <option th:each="b : ${bancos}" th:value="${b.id}" th:text="${b.codigo}">1</option>
         </select></label>
       </div>
 

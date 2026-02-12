@@ -26,26 +26,26 @@
             <div>
                 <label>Con arma</label>
                 <select th:field="*{conArma}">
-                    <option th:value="true">true</option>
-                    <option th:value="false">false</option>
+                    <option th:value="true">SI</option>
+                    <option th:value="false">NO</option>
                 </select>
                 <div class="error" th:if="${#fields.hasErrors('conArma')}" th:errors="*{conArma}"></div>
             </div>
 
             <div>
-                <label>SucursalId</label>
+                <label>Sucursal</label>
                 <select th:field="*{sucursalId}">
                     <option value="">-- Seleccionar --</option>
-                    <option th:each="s : ${sucursales}" th:value="${s.id}" th:text="${s.id}">1</option>
+                    <option th:each="s : ${sucursales}" th:value="${s.id}" th:text="${s.codigo}">1</option>
                 </select>
                 <div class="error" th:if="${#fields.hasErrors('sucursalId')}" th:errors="*{sucursalId}"></div>
             </div>
 
             <div>
-                <label>VigilanteId</label>
+                <label>Vigilante</label>
                 <select th:field="*{vigilanteId}">
                     <option value="">-- Seleccionar --</option>
-                    <option th:each="v : ${vigilantes}" th:value="${v.id}" th:text="${v.id}">1</option>
+                    <option th:each="v : ${vigilantes}" th:value="${v.id}" th:text="${v.codigo}">1</option>
                 </select>
                 <div class="error" th:if="${#fields.hasErrors('vigilanteId')}" th:errors="*{vigilanteId}"></div>
             </div>
