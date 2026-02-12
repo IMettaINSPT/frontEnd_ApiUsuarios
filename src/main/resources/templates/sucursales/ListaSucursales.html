@@ -4,7 +4,7 @@
 
 <section class="container">
   <h1>Sucursales</h1>
-  <p class="muted">Gestión de sucursales</p>
+
 
   <div class="card actions">
     <a class="btn btn-primary" th:href="@{/sucursales/new}"> Crear Sucursal</a>
@@ -14,16 +14,16 @@
     <table>
       <thead>
       <tr>
-        <th>ID</th><th>Código</th><th>Domicilio</th><th>Empleados</th><th>BancoId</th><th>Acciones</th>
+        <th>Código</th><th>Domicilio</th><th>Empleados</th><th>Banco</th><th>Acciones</th>
       </tr>
       </thead>
       <tbody>
       <tr th:each="s : ${items}">
-        <td th:text="${s.id}">1</td>
+
         <td th:text="${s.codigo}">SUC-01</td>
         <td th:text="${s.domicilio}">...</td>
         <td th:text="${s.nroEmpleados}">0</td>
-        <td th:text="${s.bancoId}">1</td>
+        <td th:text="${s.bancoCodigo}">1</td>
         <td class="td-actions">
           <a class="btn" th:href="@{/sucursales/{id}(id=${s.id})}">Ver/Editar</a>
           <a class="btn btn-danger" th:href="@{/sucursales/{id}/confirm-delete(id=${s.id})}">Borrar</a>
