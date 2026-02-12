@@ -19,8 +19,8 @@
         <form th:action="@{/asaltos/{id}(id=${item.id})}" method="post" th:object="${update}">
           <div style="display:grid; gap:12px; max-width:560px;">
 
-            <div th:if="${#fields.hasGlobalErrors()}" style="color:#ffb4b4; font-weight:800;"
-                 th:text="${#fields.globalErrors()[0].defaultMessage}">
+            <div th:if="${#fields.hasGlobalErrors()}" class="error">
+              <div th:each="e : ${#fields.globalErrors()}" th:text="${e}"></div>
             </div>
 
             <div>

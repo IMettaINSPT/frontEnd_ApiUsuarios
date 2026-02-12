@@ -16,8 +16,8 @@
         <div class="card-title">Editar</div>
 
         <form th:action="@{/bancos/{id}(id=${item.id})}" method="post" th:object="${update}" class="form">
-            <div th:if="${#fields.hasGlobalErrors()}" class="error"
-                 th:text="${#fields.globalErrors()[0].defaultMessage}">
+            <div th:if="${#fields.hasGlobalErrors()}" class="error">
+                <div th:each="e : ${#fields.globalErrors()}" th:text="${e}"></div>
             </div>
 
             <div>
