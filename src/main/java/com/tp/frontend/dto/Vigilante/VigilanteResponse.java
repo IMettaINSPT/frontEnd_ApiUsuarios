@@ -16,7 +16,7 @@ public class VigilanteResponse {
     public Integer getEdad() { return edad; }
     public void setEdad(Integer edad) { this.edad = edad; }
 
-    public Long contratoId() { return contratoId; }
+    public Long getContratoId() { return contratoId; }
     public void setContratoId(Long contratoId) { this.contratoId = contratoId; }
 
     public Long getNumContrato() { return numContrato; }

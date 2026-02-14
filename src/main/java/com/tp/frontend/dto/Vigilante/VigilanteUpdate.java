@@ -11,5 +11,8 @@ public record VigilanteUpdate (
 
     @NotNull(message = "La edad es obligatoria")
     @Min(value = 18, message = "La edad mínima es 18")
-     Integer edad
+     Integer edad,
+
+    @NotNull(message="El Nro de Contrato es obligatorio")
+    Long contratoId
 ){}

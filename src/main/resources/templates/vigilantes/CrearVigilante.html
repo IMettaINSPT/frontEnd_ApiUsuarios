@@ -24,7 +24,7 @@
                     <label>Nro.de Contrato
                         <select th:field="*{contratoId}">
                             <option value="">-- Seleccionar --</option>
-                            <option th:each="n : ${contratos}" th:value="${n.id}" th:text="${n.numContrato}">1</option>
+                            <option th:each="n : ${contratos}" th:value="${c.id}" th:text="${c.numContrato}">1</option>
                         </select></label>
                 </div>
 
