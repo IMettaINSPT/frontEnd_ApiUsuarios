@@ -11,7 +11,15 @@
         <p><b>Código:</b> <span th:text="${item.codigo}">BAN-01</span></p>
         <p><b>Domicilio central:</b> <span th:text="${item.domicilioCentral}">CABA</span></p>
         <p><b>Sucursales Asignadas:</b>
-            <span th:text="${item.sucursalCodigo}" class="badge">SUC-01</span>
+            <span th:each="sucursal : ${item.sucursales}"
+                  th:text="${sucursal.codigo}"
+                  class="badge"
+                  style="margin-right: 4px;">
+        SUC-01
+    </span>
+
+            <span th:if="${#lists.isEmpty(item.sucursales)}" class="muted">Sin sucursales asignadas</span>
+
             <br>
             <small class="muted">(Para gestionar sucursales, diríjase al menú de Sucursales)</small>
         </p>
