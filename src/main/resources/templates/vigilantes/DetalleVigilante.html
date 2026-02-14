@@ -23,6 +23,14 @@
                 <div class="error" th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></div>
             </div>
 
+            <div>
+                <label>Nro.de Contrato
+                    <select th:field="*{contratoId}">
+                        <option value="">-- Seleccionar --</option>
+                        <option th:each="n : ${contratos}" th:value="${n.id}" th:text="${n.numContrato}">1</option>
+                    </select></label>
+            </div>
+
             <div class="actions">
                 <button class="btn btn-primary" type="submit">Guardar cambios</button>
                 <a class="btn" th:href="@{/vigilantes}">Volver</a>

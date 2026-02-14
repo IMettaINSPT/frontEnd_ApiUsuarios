@@ -1,37 +1,40 @@
 <!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{fragments/layout :: layout('Vigilantes', ~{::section})}">
+      th:replace="~{fragments/layout :: layout('Crear Vigilante', ~{::section})}">
 
 <section class="container">
-    <h1>Vigilantes</h1>
+    <h1>Crear Vigilante</h1>
 
-    <div class="card actions">
-        <a class="btn btn-primary" th:href="@{/vigilantes/new}">+ Crear Vigilante</a>
-        <a class="btn" th:href="@{/vigilantes/me}">Mi perfil</a>
-    </div>
 
-    <div class="card">
-        <table>
-            <thead>
-            <tr>
-                <th>ID</th><th>Código</th><th>Edad</th><th>Acciones</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="v : ${items}">
-                <td th:text="${v.id}">1</td>
-                <td th:text="${v.codigo}">VIG-01</td>
-                <td th:text="${v.edad}">30</td>
-                <td class="td-actions">
-                    <a class="btn" th:href="@{/vigilantes/{id}(id=${v.id})}">Ver/Editar</a>
-                    <a class="btn btn-danger" th:href="@{/vigilantes/{id}/confirm-delete(id=${v.id})}">Borrar</a>
-                </td>
-            </tr>
-            <tr th:if="${items == null || #lists.isEmpty(items)}">
-                <td colspan="4" class="muted">No hay vigilantes.</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
-</html>
+
+        <div class="card">
+            <form th:action="@{/vigilanes}" method="post" th:object="${form}" class="form">
+                <div>
+                    <label>Código
+                        <input type="text" th:field="*{codigo}"></label>
+                </div>
+
+                <div>
+                    <label>Edad</label>
+                    <input type="text" th:field="*{edad}">
+                </div>
+
+
+                <div>
+                    <label>Nro.de Contrato
+                        <select th:field="*{contratoId}">
+                            <option value="">-- Seleccionar --</option>
+                            <option th:each="n : ${contratos}" th:value="${n.id}" th:text="${n.numContrato}">1</option>
+                        </select></label>
+                </div>
+
+                <div class="actions">
+                    <button class="btn btn-primary" type="submit">Guardar</button>
+                    <a class="btn" th:href="@{/vigilantes}">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </section>
+    </html>
+
+

@@ -4,15 +4,16 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class SucursalRequest {
-    @NotBlank(message="El codigo es obligatoria")
+    @NotBlank(message="El codigo es obligatorio")
     private String codigo;
-    @NotBlank(message="El codigo es obligatoria")
+
+    @NotBlank(message="El domicilio es obligatorio")
     private String domicilio;
 
-    @NotNull(message="El codigo es obligatoria")
+    @NotNull(message="El número de empleados es obligatorio")
     private Integer nroEmpleados;
 
-    @NotNull(message="El banco es obligatoria")
+    @NotNull(message="El banco es obligatorio")
     private Long bancoId;
 
     public String getCodigo() {
