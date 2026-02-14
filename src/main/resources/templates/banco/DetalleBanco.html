@@ -10,6 +10,13 @@
 
         <p><b>Código:</b> <span th:text="${item.codigo}">BAN-01</span></p>
         <p><b>Domicilio central:</b> <span th:text="${item.domicilioCentral}">CABA</span></p>
+        <p><b>Sucursales Asignadas:</b>
+            <span th:text="${item.sucursalCodigo}" class="badge">SUC-01</span>
+            <br>
+            <small class="muted">(Para gestionar sucursales, diríjase al menú de Sucursales)</small>
+        </p>
+
+
     </div>
 
     <div class="card" style="margin-top:16px;">
@@ -31,6 +38,8 @@
                 <input type="text" th:field="*{domicilioCentral}">
                 <div class="error" th:if="${#fields.hasErrors('domicilioCentral')}" th:errors="*{domicilioCentral}"></div>
             </div>
+
+
 
             <div class="actions">
                 <button class="btn btn-primary" type="submit">Guardar cambios</button>

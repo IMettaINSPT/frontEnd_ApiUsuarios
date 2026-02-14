@@ -15,6 +15,7 @@
 
                 <th>Código</th>
                 <th>Domicilio Central</th>
+                <th>Sucursal</th>
                 <th>Acciones</th>
             </tr>
             </thead>
@@ -23,6 +24,15 @@
 
                 <td th:text="${b.codigo}">BAN-01</td>
                 <td th:text="${b.domicilioCentral}">CABA</td>
+
+                <td>
+                     <span th:each="s : ${b.sucursales}"
+                           th:text="${s.codigo} + ' '"
+                           class="badge">SUC-01</span>
+                    <span th:if="${#lists.isEmpty(b.sucursales)}" class="muted">Sin sucursales</span>
+                </td>
+
+
                 <td class="td-actions">
                     <a class="btn" th:href="@{/bancos/{id}(id=${b.id})}">Ver/Editar</a>
                     <a class="btn btn-danger" th:href="@{/bancos/{id}/confirm-delete(id=${b.id})}">Borrar</a>
