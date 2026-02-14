@@ -165,10 +165,10 @@ a { color: inherit; text-decoration: none; }
   margin: 10px 10px 8px; font-size: 12px; font-weight: 900;
   text-transform: uppercase; color: var(--muted);
 }
-
+/* TIPOGRAFIA DE LOS BOTONES LATERALES DEL HOME  */
 .sb-link {
   display: block; padding: 10px 12px; border-radius: 12px;
-  font-weight: 800; font-size: 14px; border: 1px solid transparent;
+  font-weight: 700; font-size: 14px; border: 1px solid transparent;
 }
 
 .sb-link:hover { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.08); }
