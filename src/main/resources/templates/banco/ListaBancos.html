@@ -27,7 +27,7 @@
 
                 <td>
                      <span th:each="s : ${b.sucursales}"
-                           th:text="${s.codigo} + ' '"
+                           th:text="${s.codigo} + ' - '"
                            class="badge">SUC-01</span>
                     <span th:if="${#lists.isEmpty(b.sucursales)}" class="muted">Sin sucursales</span>
                 </td>
