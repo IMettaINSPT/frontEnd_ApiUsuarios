@@ -25,7 +25,7 @@
 
                 <td>
                     <select th:if="${not #lists.isEmpty(b.sucursales)}" class="form-select form-select-sm">
-                        <option selected>Ver sucursales ([[${#lists.size(b.sucursales)}]])</option>
+                        <option selected>Ver sucursales asociadas ([[${#lists.size(b.sucursales)}]])</option>
                         <option th:each="s : ${b.sucursales}"
                                 th:text="${s.codigo} + ' - ' + ${s.domicilio}">
                         </option>
