@@ -12,7 +12,7 @@
         <p><b>Domicilio central:</b> <span th:text="${item.domicilioCentral}">CABA</span></p>
         <p><b>Sucursales Asignadas:</b>
             <span th:each="sucursal : ${item.sucursales}"
-                  th:text="${sucursal.codigo}"
+                  th:text="${sucursal.codigo}+ ' - '"
                   class="badge"
                   style="margin-right: 4px;">
         SUC-01
