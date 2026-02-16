@@ -27,6 +27,13 @@ public class ContratoResponse {
     public Boolean getConArma() { return conArma; }
     public void setConArma(Boolean conArma) { this.conArma = conArma; }
 
+    // --- NUEVO MÉTODO PARA LA VISTA ---
+    public String getConArmaTexto() {
+        if (conArma == null) return "No"; // Por seguridad, si es null mostramos No
+        return conArma ? "Sí" : "No";
+    }
+    // ----------------------------------
+
     public Long getSucursalId() { return sucursalId; }
     public void setSucursalId(Long sucursalId) { this.sucursalId = sucursalId; }
 
