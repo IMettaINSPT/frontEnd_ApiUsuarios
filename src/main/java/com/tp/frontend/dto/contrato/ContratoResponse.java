@@ -68,4 +68,12 @@ public class ContratoResponse {
     public void setFechaFin(LocalDate fechaFin) {
         this.fechaFin = fechaFin;
     }
+
+    // --- NUEVO MÉTODO PARA LA VISTA ---
+    public String getFechaFinTexto() {
+        if (fechaFin == null) {
+            return "Vigencia indefinida";
+        }
+        return fechaFin.toString(); // Devuelve la fecha si existe
+    }
 }
