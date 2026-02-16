@@ -19,5 +19,6 @@ public record ContratoUpdate (
 
     @NotNull(message="El vigilante es obligatoria")
      Long vigilanteId,
+
      LocalDate fechaFin
 ){}

@@ -13,13 +13,14 @@
         <table>
             <thead>
             <tr>
-                <th>Nro de Contrato</th><th>Fecha</th><th>Con Arma</th><th>Sucursal</th><th>Vigilante</th><th>Acciones</th>
+                <th>Nro de Contrato</th><th>Fecha Inicio</th><th>Fecha Fin</th><th>Con Arma</th><th>Sucursal</th><th>Vigilante</th><th>Acciones</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="c : ${items}">
                 <td th:text="${c.numContrato}"></td>
                 <td th:text="${c.fechaContrato}">2026-01-01</td>
+                <td th:text="${c.fechaFin}">2026-02-01</td>
                 <td th:text="${c.conArmaTexto}"></td>
                 <td th:text="${c.sucursalCodigo}">1</td>
                 <td th:text="${c.vigilanteCodigo}">1</td>
