@@ -13,8 +13,7 @@ public class VigilanteRequest {
     @Min(value = 18, message = "La edad mínima es 18")
     private Integer edad;
 
-    @NotNull(message="El Nro de Contrato es obligatorio")
-    private Long contratoId;
+
 
     public String getCodigo() { return codigo; }
     public Integer getEdad() { return edad; }
@@ -22,7 +21,5 @@ public class VigilanteRequest {
     public void setCodigo(String codigo) { this.codigo = codigo; }
     public void setEdad(Integer edad) { this.edad = edad; }
 
-    public Long getContratoId() { return contratoId; }
-    public void setContratoId(Long contratoId) { this.contratoId = contratoId; }
 
 }

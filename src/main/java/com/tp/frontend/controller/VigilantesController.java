@@ -95,7 +95,7 @@ public class VigilantesController {
         log.info("GET /vigilantes/{}", id);
 
         var item = service.getById(jwt(session), id);
-        var update = new VigilanteUpdate(item.getCodigo(), item.getEdad(),item.getContratoId());
+        var update = new VigilanteUpdate(item.getCodigo(), item.getEdad());
 
         model.addAttribute("item", item);
         model.addAttribute("update", update);

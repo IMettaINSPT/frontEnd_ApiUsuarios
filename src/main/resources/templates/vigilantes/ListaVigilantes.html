@@ -14,20 +14,32 @@
         <table>
             <thead>
             <tr>
-                <th>Código</th><th>Edad</th><th>Contrato</th><th>Acciones</th>
+                <th>Código</th>
+                <th>Edad</th>
+                <th>Contratos</th> <th>Acciones</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="v : ${items}">
-
                 <td th:text="${v.codigo}">VIG-01</td>
                 <td th:text="${v.edad}">30</td>
-                <td th:text="${v.numContrato}">CONT-01</td>
+
+                <td>
+                    <select th:if="${not #lists.isEmpty(v.contratos)}" class="form-select form-select-sm">
+                        <option selected>Ver contratos asociados ([[${#lists.size(v.contratos)}]])</option>
+                        <option th:each="c : ${v.contratos}"
+                                th:text="${c.numContrato} + ' - ' + ${c.fechaContrato}">
+                        </option>
+                    </select>
+                    <span th:if="${#lists.isEmpty(v.contratos)}" class="muted">Sin contratos</span>
+                </td>
+
                 <td class="td-actions">
                     <a class="btn" th:href="@{/vigilantes/{id}(id=${v.id})}">Ver/Editar</a>
                     <a class="btn btn-danger" th:href="@{/vigilantes/{id}/confirm-delete(id=${v.id})}">Borrar</a>
                 </td>
             </tr>
+
             <tr th:if="${items == null || #lists.isEmpty(items)}">
                 <td colspan="4" class="muted">No hay vigilantes.</td>
             </tr>

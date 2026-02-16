@@ -6,6 +6,29 @@
     <h1>Detalle Vigilante</h1>
 
     <div class="card">
+        <div class="card-title">Datos</div>
+
+        <p><b>Código:</b> <span th:text="${item.codigo}">VIG-01</span></p>
+        <p><b>Edad:</b> <span th:text="${item.edad}">25</span> años</p>
+
+        <p><b>Contratos Asignados:</b>
+            <span th:each="contrato : ${item.contratos}"
+                  th:text="${contrato.numContrato} + ' - '"
+                  class="badge"
+                  style="margin-right: 4px;">
+                CON-01
+            </span>
+
+            <span th:if="${#lists.isEmpty(item.contratos)}" class="muted">Sin contratos asignados</span>
+
+            <br>
+            <small class="muted">(Para gestionar contratos, diríjase al menú de Contratos)</small>
+        </p>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+        <div class="card-title">Editar</div>
+
         <form th:action="@{/vigilantes/{id}(id=${item.id})}" method="post" th:object="${update}" class="form">
             <div th:if="${#fields.hasGlobalErrors()}" class="error"
                  th:text="${#fields.globalErrors()[0].defaultMessage}">
@@ -19,17 +42,11 @@
 
             <div>
                 <label>Edad</label>
-                <input type="number" min="18" th:field="*{edad}">
+                <input type="number" th:field="*{edad}">
                 <div class="error" th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></div>
             </div>
 
-            <div>
-                <label>Nro.de Contrato
-                    <select th:field="*{contratoId}">
-                        <option value="">-- Seleccionar --</option>
-                        <option th:each="n : ${contratos}" th:value="${n.id}" th:text="${n.numContrato}">1</option>
-                    </select></label>
-            </div>
+
 
             <div class="actions">
                 <button class="btn btn-primary" type="submit">Guardar cambios</button>
