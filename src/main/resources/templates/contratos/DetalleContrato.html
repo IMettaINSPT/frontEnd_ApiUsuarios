@@ -20,8 +20,11 @@
                 <div class="error" th:if="${#fields.hasErrors('fechaContrato')}" th:errors="*{fechaContrato}"></div>
             </div>
             <div>
-                <label>Fecha fin (opcional)
-                    <input type="date" th:field="*{fechaFin}"></label>
+                <label>Fecha fin (opcional)</label>
+                <input type="date"
+                       id="fechaFin"
+                       name="fechaFin"
+                       th:value="${update.fechaFin}">
                 <div class="error" th:if="${#fields.hasErrors('fechaFin')}" th:errors="*{fechaFin}"></div>
                 <div class="form-text muted">Si queda vacío, el contrato se considera activo indefinidamente.</div>
             </div>
