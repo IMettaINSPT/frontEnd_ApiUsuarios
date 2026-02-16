@@ -1,6 +1,6 @@
 package com.tp.frontend.service;
 
-//avances nuevos
+
 
 import com.tp.frontend.client.VigilantesApiClient;
 import com.tp.frontend.dto.Vigilante.VigilanteRequest;
