@@ -7,8 +7,9 @@
 
     <form th:action="@{/users}" method="post" th:object="${form}" class="form">
 
-        <div th:if="${#fields.hasGlobalErrors()}" class="error"
-             th:text="${#fields.globalErrors()[0].defaultMessage}"></div>
+        <div th:if="${#fields.hasGlobalErrors()}" class="error">
+            <div th:each="e : ${#fields.globalErrors()}" th:text="${e}"></div>
+        </div>
 
         <div>
             <label>Username</label>

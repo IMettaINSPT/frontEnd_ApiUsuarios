@@ -14,6 +14,8 @@ public class ContratoRequest {
     @NotNull(message="EL uso o no de arma es obligatoria de indicar")
     private Boolean conArma;
 
+    private LocalDate fechaFin;
+
     @NotNull(message="La sucursal es obligatoria")
     private Long sucursalId;
 
@@ -31,4 +33,12 @@ public class ContratoRequest {
 
     public Long getVigilanteId() { return vigilanteId; }
     public void setVigilanteId(Long vigilanteId) { this.vigilanteId = vigilanteId; }
+
+    public LocalDate getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(LocalDate fechaFin) {
+        this.fechaFin = fechaFin;
+    }
 }

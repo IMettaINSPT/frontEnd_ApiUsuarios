@@ -8,8 +8,8 @@
     <div class="card">
         <form th:action="@{/contratos}" method="post" th:object="${form}" class="form">
 
-            <div th:if="${#fields.hasGlobalErrors()}" class="error"
-                 th:text="${#fields.globalErrors()[0].defaultMessage}">
+            <div th:if="${#fields.hasGlobalErrors()}" class="error">
+                <div th:each="e : ${#fields.globalErrors()}" th:text="${e}"></div>
             </div>
 
             <div>
@@ -17,7 +17,12 @@
                 <input type="date" th:field="*{fechaContrato}">
                 <div class="error" th:if="${#fields.hasErrors('fechaContrato')}" th:errors="*{fechaContrato}"></div>
             </div>
-
+            <div>
+                <label>Fecha fin (opcional)
+                <input type="date" th:field="*{fechaFin}"></label>
+                <div class="error" th:if="${#fields.hasErrors('fechaFin')}" th:errors="*{fechaFin}"></div>
+                <div class="form-text muted">Si queda vacío, el contrato se considera activo indefinidamente.</div>
+            </div>
             <div>
                 <label>Con arma</label>
                 <select th:field="*{conArma}">
