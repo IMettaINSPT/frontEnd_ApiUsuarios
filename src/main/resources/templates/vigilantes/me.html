@@ -1,17 +1,36 @@
 <!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{fragments/layout :: layout('Vigilantes', ~{::section})}">
+      th:replace="~{fragments/layout :: layout('Mi Perfil', ~{::section})}">
 
 <section class="container">
-            <h1>Mi perfil</h1>
+    <h1>Mi perfil</h1>
 
+    <div class="card" style="margin-bottom: 20px;">
+        <p><b>Código:</b> <span th:text="${item.codigo}">-</span></p>
+        <p><b>Edad:</b> <span th:text="${item.edad}">-</span> años</p>
+    </div>
 
-            <div class="card">
+    <h3>Asignaciones y Contratos</h3>
 
-                <p><b>Código:</b> <span th:text="${item.codigo}">-</span></p>
-                <p><b>Edad:</b> <span th:text="${item.edad}">-</span></p>
+    <div th:if="${not #lists.isEmpty(item.contratos)}">
+        <div class="card" th:each="c : ${item.contratos}" style="margin-bottom: 15px; border-left: 5px solid #007bff;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div>
+                    <p><b>Nro. Contrato:</b> <span th:text="${c.numContrato}">-</span></p>
+                    <p><b>Fecha Inicio:</b> <span th:text="${c.fechaContrato}">-</span></p>
+                    <p><b>Fecha Fin:</b> <span th:text="${c.fechaFin != null ? c.fechaFin : 'Vigente'}">-</span></p>
+                    <p><b>Arma:</b> <span th:text="${c.conArma ? 'SI' : 'NO'}">-</span></p>
+                </div>
+                <div>
+                    <p><b>Sucursal:</b> <span th:text="${c.sucursalCodigo}">-</span></p>
+                    <p><b>Dirección:</b> <span th:text="${c.domicilioSucursal}">-</span></p>
+                </div>
             </div>
+        </div>
+    </div>
 
-
-        </section>
+    <div th:if="${#lists.isEmpty(item.contratos)}" class="card">
+        <p class="muted">No se registran contratos activos.</p>
+    </div>
+</section>
 </html>

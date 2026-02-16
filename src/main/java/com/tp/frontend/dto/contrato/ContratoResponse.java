@@ -13,6 +13,7 @@ public class ContratoResponse {
     private Long vigilanteId;
     private String vigilanteCodigo;
     private LocalDate fechaFin;
+    private String domicilioSucursal;
 
     public boolean isActivo() {
         return fechaFin == null || fechaFin.isAfter(LocalDate.now());
@@ -76,4 +77,6 @@ public class ContratoResponse {
         }
         return fechaFin.toString(); // Devuelve la fecha si existe
     }
+    public String getDomicilioSucursal() { return domicilioSucursal; }
+    public void setDomicilioSucursal(String domicilioSucursal) { this.domicilioSucursal = domicilioSucursal; }
 }
