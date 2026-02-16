@@ -8,7 +8,7 @@
 
 
         <div class="card">
-            <form th:action="@{/vigilanes}" method="post" th:object="${form}" class="form">
+            <form th:action="@{/vigilantes}" method="post" th:object="${form}" class="form">
                 <div>
                     <label>Código
                         <input type="text" th:field="*{codigo}"></label>
@@ -19,14 +19,6 @@
                     <input type="text" th:field="*{edad}">
                 </div>
 
-
-                <div>
-                    <label>Nro.de Contrato
-                        <select th:field="*{contratoId}">
-                            <option value="">-- Seleccionar --</option>
-                            <option th:each="n : ${contratos}" th:value="${c.id}" th:text="${c.numContrato}">1</option>
-                        </select></label>
-                </div>
 
                 <div class="actions">
                     <button class="btn btn-primary" type="submit">Guardar</button>

@@ -6,8 +6,7 @@ public class BancoResponse {
     private Long id;
     private String codigo;
     private String domicilioCentral;
-    private Long sucursalId;
-    private String sucursalCodigo;
+
     // Lista
     private List<SucursalResponse> sucursales;
 
@@ -20,19 +19,6 @@ public class BancoResponse {
     public String getDomicilioCentral() { return domicilioCentral; }
     public void setDomicilioCentral(String domicilioCentral) { this.domicilioCentral = domicilioCentral; }
 
-    public Long getSucursalId() {
-        return sucursalId;
-    }
-    public void setSucursalId(Long bancoId) {
-        this.sucursalId = sucursalId;
-    }
-
-    public String getSucursalCodigo() {
-        return sucursalCodigo;
-    }
-    public void setSucursalCodigo(String sucursalCodigo) {
-        this.sucursalCodigo = sucursalCodigo;
-    }
 
     // Getter y Setter para la lista
     public List<SucursalResponse> getSucursales() {
