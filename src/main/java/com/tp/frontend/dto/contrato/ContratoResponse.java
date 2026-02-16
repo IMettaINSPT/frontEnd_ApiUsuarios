@@ -11,6 +11,7 @@ public class ContratoResponse {
     private Long sucursalId;
     private String sucursalCodigo;
     private Long vigilanteId;
+    private String vigilanteCodigo;
     private LocalDate fechaFin;
 
     public boolean isActivo() {
@@ -52,10 +53,18 @@ public class ContratoResponse {
     public Long getVigilanteId() { return vigilanteId; }
     public void setVigilanteId(Long vigilanteId) { this.vigilanteId = vigilanteId; }
 
+
+    public String getVigilanteCodigo() {
+        return vigilanteCodigo;
+    }
+    public void setVigilanteCodigo(String vigilanteCodigo) {
+        this.vigilanteCodigo = vigilanteCodigo;
+    }
+
+
     public LocalDate getFechaFin() {
         return fechaFin;
     }
-
     public void setFechaFin(LocalDate fechaFin) {
         this.fechaFin = fechaFin;
     }
