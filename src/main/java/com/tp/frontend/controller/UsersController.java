@@ -284,4 +284,33 @@ public class UsersController {
             return "users/ConfirmarBorrado";
         }
     }
+
+
+
+    // =========================
+    // MI PERFIL
+    // =========================
+    @GetMapping("/me")
+    public String me(HttpSession session, Model model) {
+        String token = jwt(session);
+        log.info("GET /users/me - Mi perfil");
+
+        try {
+            UserResponse user = userService.me(token);
+            model.addAttribute("user", user);
+
+            // Se cambia getTipo() por getRol() para coincidir con el DTO UserResponse
+            if (user.getRol() != null && "VIGILANTE".equalsIgnoreCase(user.getRol())) {
+                var vigilanteData = vigilanteService.me(token);
+                model.addAttribute("item", vigilanteData);
+                return "vigilantes/me";
+            }
+            return "users/DetalleUsuario";
+
+        } catch (Exception ex) {
+            log.error("Error al obtener perfil propio", ex);
+            return "redirect:/login?error";
+        }
+    }
+
 }

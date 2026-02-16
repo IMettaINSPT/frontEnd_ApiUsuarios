@@ -92,6 +92,14 @@ public class VigilantesController {
         }
     }
 
+    @GetMapping("/me")
+    public String me(HttpSession session, Model model) {
+        log.info("GET /vigilantes/me");
+        model.addAttribute("item", service.me(jwt(session)));
+        return "vigilantes/me";
+    }
+
+
     @GetMapping("/{id}")
     public String detail(@PathVariable Long id, HttpSession session, Model model) {
         log.info("GET /vigilantes/{}", id);
@@ -184,10 +192,5 @@ public class VigilantesController {
         }
     }
 
-    @GetMapping("/me")
-    public String me(HttpSession session, Model model) {
-        log.info("GET /vigilantes/me");
-        model.addAttribute("item", service.me(jwt(session)));
-        return "vigilantes/me";
-    }
+
 }

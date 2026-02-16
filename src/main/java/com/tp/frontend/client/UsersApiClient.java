@@ -37,4 +37,9 @@ public class UsersApiClient extends BaseApiClient {
                 new ParameterizedTypeReference<List<UserResponse>>() {}
         );
     }
+
+
+    public UserResponse me(String jwt) {
+        return get("/usuarios/me", jwt, UserResponse.class);
+    }
 }

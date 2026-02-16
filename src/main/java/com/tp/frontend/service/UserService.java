@@ -36,4 +36,8 @@ public class UserService {
     public void delete(Long id, String jwt) {
         usersApiClient.delete(jwt, id);
     }
+
+    public UserResponse me(String jwt) {
+        return usersApiClient.me(jwt);
+    }
 }
