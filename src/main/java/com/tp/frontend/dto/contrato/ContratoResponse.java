@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class ContratoResponse {
 
     private Long id;
-    private String codigo;
+    private String numContrato;
     private LocalDate fechaContrato;
     private Boolean conArma;
     private Long sucursalId;
@@ -18,8 +18,11 @@ public class ContratoResponse {
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
-    public String getCodigo() { return codigo; }
-    public void setCodigo(String codigo) { this.codigo = codigo; }
+    // el Getter y Setter para numContrato
+    public String getNumContrato() { return numContrato; }
+    public void setNumContrato(String numContrato) { this.numContrato = numContrato; }
+
+
 
     public LocalDate getFechaContrato() { return fechaContrato; }
     public void setFechaContrato(LocalDate fechaContrato) { this.fechaContrato = fechaContrato; }
