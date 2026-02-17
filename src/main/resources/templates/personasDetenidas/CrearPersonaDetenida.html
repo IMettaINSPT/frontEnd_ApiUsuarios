@@ -12,11 +12,12 @@
                 <div th:each="e : ${#fields.globalErrors()}" th:text="${e}"></div>
             </div>
 
-            <div><label>Nombre</label><input type="text" th:field="*{nombre}"></div>
             <div><label>Codigo</label><input type="text" th:field="*{codigo}"></div>
+            <div><label>Nombre</label><input type="text" th:field="*{nombre}"></div>
+            <div><label>Apellido</label><input type="text" th:field="*{apellido}"></div>
 
             <div>
-                <label>Banda</label>
+                <label>Nro de Banda</label>
                 <select th:field="*{bandaId}">
                     <option value="">-- Seleccionar --</option>
                     <option th:each="b : ${bandas}" th:value="${b.id}" th:text="${b.numeroBanda}">1</option>
