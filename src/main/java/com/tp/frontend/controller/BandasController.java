@@ -95,9 +95,7 @@ public class BandasController {
         log.info("GET /bandas/{}", id);
 
         var item = service.get(token, id);
-
-
-        var update = new BandaUpdate(item.numeroBanda(),item.numeroMiembros());
+        var update = new BandaUpdate(item.getNumeroBanda(),item.getNumeroMiembros());
 
         model.addAttribute("item", item);
         model.addAttribute("update", update);

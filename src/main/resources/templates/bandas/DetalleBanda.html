@@ -6,23 +6,56 @@
     <h1>Detalle Banda</h1>
 
     <div class="card">
-        <form th:action="@{/bandas/{id}(id=${item.id})}" method="post" th:object="${update}" class="form">
-            <div th:if="${#fields.hasGlobalErrors()}" class="error">
-                <div th:each="e : ${#fields.globalErrors()}" th:text="${e}"></div>
+        <div class="card-title">Datos</div>
+        <br>
+        <p><b>Número de Banda:</b> <span th:text="${item.numeroBanda}">4</span></p>
+        <p><b>Número de Miembros:</b> <span th:text="${item.numeroMiembros}">6</span></p>
+        <p><b>Personas Detenidas Asociadas:</b>
+            <span th:each="p : ${item.personasDetenidas}"
+                  th:text="${p.codigo}+ ' - '"
+                  class="badge"
+                  style="margin-right: 4px;">
+        PERS-DETENIDA-01
+            </span>
+
+            <span th:if="${#lists.isEmpty(item.personasDetenidas)}" class="muted">Sin personas detenidas</span>
+
+            <br>
+            <small class="muted">(Para gestionar personas detenidas, diríjase al menú de Personas Detenidas)</small>
+        </p>
+
+
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+        <div class="card-title">Editar</div>
+
+            <form th:action="@{/bandas/{id}(id=${item.id})}" method="post" th:object="${update}" class="form">
+                <div th:if="${#fields.hasGlobalErrors()}" class="error">
+                    <div th:each="e : ${#fields.globalErrors()}" th:text="${e}"></div>
+                </div>
+
+            <div>
+                <label>Número de Banda</label>
+                <input type="text" th:field="*{numeroBanda}">
+                <div class="error" th:if="${#fields.hasErrors('numeroBanda')}" th:errors="*{numeroBanda}"></div>
             </div>
 
-            <!--div>
-                <label>Nombre</label>
-                <input type="text" th:field="*{nombre}">
-                <div class="error" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
-            </div-->
-
-            <div class="actions">
-                <button class="btn btn-primary" type="submit">Guardar cambios</button>
-                <a class="btn" th:href="@{/bandas}">Volver</a>
-                <a class="btn btn-danger" th:href="@{/bandas/{id}/confirm-delete(id=${item.id})}">Borrar</a>
+            <div>
+                <label>Número de Miembros</label>
+                <input type="text" th:field="*{numeroMiembros}">
+                <div class="error" th:if="${#fields.hasErrors('numeroMiembros')}" th:errors="*{numeroMiembros}"></div>
             </div>
-        </form>
+
+                <div class="actions">
+                    <button class="btn btn-primary" type="submit">Guardar cambios</button>
+                    <a class="btn" th:href="@{/bandas}">Volver</a>
+                    <a class="btn btn-danger" th:href="@{/bandas/{id}/confirm-delete(id=${item.id})}">Borrar</a>
+                </div>
+            </form>
+
     </div>
 </section>
 </html>
+
+

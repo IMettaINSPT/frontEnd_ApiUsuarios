@@ -7,7 +7,7 @@
 
     <div class="card">
         <div class="card-title">Datos</div>
-
+        <br>
         <p><b>Código:</b> <span th:text="${item.codigo}">BAN-01</span></p>
         <p><b>Domicilio central:</b> <span th:text="${item.domicilioCentral}">CABA</span></p>
         <p><b>Sucursales Asignadas:</b>
@@ -16,7 +16,7 @@
                   class="badge"
                   style="margin-right: 4px;">
         SUC-01
-    </span>
+            </span>
 
             <span th:if="${#lists.isEmpty(item.sucursales)}" class="muted">Sin sucursales asignadas</span>
 

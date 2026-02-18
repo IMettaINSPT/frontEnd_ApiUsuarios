@@ -11,11 +11,17 @@
                 <div th:each="e : ${#fields.globalErrors()}" th:text="${e}"></div>
             </div>
 
-            <!--div>
-                <label>Nombre</label>
-                <input type="text" th:field="*{nombre}">
-                <div class="error" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
-            </div-->
+            <div>
+                <label>Número de Banda</label>
+                <input type="text" th:field="*{numeroBanda}">
+                <div class="error" th:if="${#fields.hasErrors('numeroBanda')}" th:errors="*{numeroBanda}"></div>
+            </div>
+
+            <div>
+                <label>Número de Miembros</label>
+                <input type="text" th:field="*{numeroMiembros}">
+                <div class="error" th:if="${#fields.hasErrors('numeroMiembros')}" th:errors="*{numeroMiembros}"></div>
+            </div>
 
             <div class="actions">
                 <button class="btn btn-primary" type="submit">Guardar</button>
