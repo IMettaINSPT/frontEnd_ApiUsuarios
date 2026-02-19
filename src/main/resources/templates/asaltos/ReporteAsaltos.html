@@ -9,12 +9,12 @@
             <div class="card" style="margin-bottom:16px;">
                 <form th:action="@{/asaltos/reporte}" method="get" style="display:grid; gap:12px; grid-template-columns: repeat(4, minmax(0,1fr));">
                     <div>
-                        <label>Sucursal ID</label>
+                        <label>Sucursal</label>
                         <select name="sucursalId">
                             <option value="">-- Todas --</option>
                             <option th:each="s : ${sucursales}"
                                     th:value="${s.id}"
-                                    th:text="${s.id}"
+                                    th:text="${s.codigo + ' - ' + s.domicilio}"
                                     th:selected="${filterSucursalId != null && filterSucursalId == s.id}">
                             </option>
                         </select>
@@ -47,18 +47,30 @@
                 <table>
                     <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Código</th>
                         <th>Fecha</th>
-                        <th>Sucursal ID</th>
-                        <th>Persona Detenida ID</th>
+                        <th>Sucursal</th>
+                        <th>Sucursal Domicilio</th>
+                        <th>Persona Detenida</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="a : ${items}">
-                        <td th:text="${a.id}">1</td>
+                        <td th:text="${a.codigo}">1</td>
                         <td th:text="${a.fechaAsalto}">2026-01-01</td>
-                        <td th:text="${a.sucursalId}">1</td>
-                        <td th:text="${a.personaDetenidaId}">1</td>
+                        <td th:text="${a.sucursal.codigo}">1</td>
+                        <td th:text="${a.sucursal.domicilio}">1</td>
+
+                        <td>
+                            <select th:if="${not #lists.isEmpty(a.personas)}" class="form-select form-select-sm">
+                                <option selected>Ver personas detenidas asociadas ([[${#lists.size(a.personas)}]])</option>
+                                <option th:each="p : ${a.personas}"
+                                        th:text="${p.codigo + ' - ' + p.nombre + ' - ' + p.apellido}">
+                                </option>
+                            </select>
+                            <span th:if="${#lists.isEmpty(a.personas)}" class="muted">Sin personas detenidas</span>
+                        </td>
+
                     </tr>
                     <tr th:if="${items == null || #lists.isEmpty(items)}">
                         <td colspan="4" style="color: var(--muted);">No hay resultados para los filtros actuales.</td>

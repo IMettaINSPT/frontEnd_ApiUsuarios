@@ -14,7 +14,7 @@ public class AsaltoRequest {
     @NotNull(message="La sucursal es obligatorio")
     private Long sucursalId;
 
-    @NotNull(message="La persona detenida es obligatorio")
+    @NotNull(message="La persona detenida es obligatoria")
     private Long personaDetenidaId;
 
     public LocalDate getFechaAsalto() { return fechaAsalto; }

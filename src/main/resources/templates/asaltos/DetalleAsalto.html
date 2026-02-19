@@ -7,15 +7,27 @@
 
       <div class="card" style="margin-bottom:16px;">
         <div class="card-title">Datos actuales</div>
-        <p><b>ID:</b> <span th:text="${item.id}">1</span></p>
+        <br>
+        <p><b>Código:</b> <span th:text="${item.codigo}">1</span></p>
         <p><b>Fecha:</b> <span th:text="${item.fechaAsalto}">2026-01-01</span></p>
-        <p><b>Sucursal ID:</b> <span th:text="${item.sucursalId}">1</span></p>
-        <p><b>Persona Detenida ID:</b> <span th:text="${item.personaDetenidaId}">1</span></p>
+        <p><b>Sucursal:</b> <span th:text="${item.sucursal.codigo + ' - ' + item.sucursal.domicilio}">1</span></p>
+        <p><b>Personas Detenidas:</b>
+          <span th:each="p : ${item.personas}"
+                th:text="${p.codigo}+ ' - '"
+                class="badge"
+                style="margin-right: 4px;">
+        PERS-DET-01
+            </span>
+
+          <span th:if="${#lists.isEmpty(item.personas)}" class="muted">Sin personas detenidas</span>
+
+          <br>
+
       </div>
 
       <div class="card">
         <div class="card-title">Editar</div>
-
+        <br>
         <form th:action="@{/asaltos/{id}(id=${item.id})}" method="post" th:object="${update}">
           <div style="display:grid; gap:12px; max-width:560px;">
 
@@ -31,20 +43,24 @@
             </div>
 
             <div>
-              <label>Sucursal ID</label>
+              <label>Sucursal</label>
               <select th:field="*{sucursalId}">
                 <option value="">-- Seleccionar --</option>
-                <option th:each="s : ${sucursales}" th:value="${s.id}" th:text="${s.id}">1</option>
+                <option th:each="s : ${sucursales}"
+                        th:value="${s.id}"
+                        th:text="${s.codigo + ' - ' + s.domicilio}">1</option>
               </select>
               <div th:if="${#fields.hasErrors('sucursalId')}"
                    th:text="${#fields.errors('sucursalId')[0]}" style="color:#ffb4b4;"></div>
             </div>
 
             <div>
-              <label>Persona Detenida ID</label>
+              <label>Persona Detenida</label>
               <select th:field="*{personaDetenidaId}">
                 <option value="">-- Seleccionar --</option>
-                <option th:each="p : ${personas}" th:value="${p.id}" th:text="${p.id}">1</option>
+                <option th:each="p : ${personasDetenidas}"
+                        th:value="${p.id}"
+                        th:text="${p.codigo + ' - ' + p.nombre + ' - ' + p.apellido}">1</option>
               </select>
               <div th:if="${#fields.hasErrors('personaDetenidaId')}"
                    th:text="${#fields.errors('personaDetenidaId')[0]}" style="color:#ffb4b4;"></div>

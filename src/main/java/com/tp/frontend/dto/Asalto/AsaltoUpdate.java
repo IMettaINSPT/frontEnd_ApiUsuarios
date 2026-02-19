@@ -14,6 +14,6 @@ public record AsaltoUpdate(
     @NotNull(message="La sucursal es obligatorio")
      Long sucursalId,
 
-    @NotNull(message="La persona detenida es obligatorio")
+    @NotNull(message="La persona detenida es obligatoria")
      Long personaDetenidaId
 ){}

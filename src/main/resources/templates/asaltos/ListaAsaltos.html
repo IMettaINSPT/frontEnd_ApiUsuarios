@@ -14,14 +14,28 @@
         <table>
             <thead>
             <tr>
-                <th>ID</th><th>Fecha</th><th>SucursalId</th><th>PersonaDetenidaId</th><th>Acciones</th>
+                <th>Código</th><th>Fecha</th><th>Sucursal</th><th>Sucursal Domicilio</th><th>Personas Detenidas</th><th>Acciones</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="a : ${items}">
+                <td th:text="${a.codigo}">1</td>
                 <td th:text="${a.fechaAsalto}">2026-01-01</td>
-                <td th:text="${a.sucursalId}">1</td>
-                <td th:text="${a.personaDetenidaId}">1</td>
+                <td th:text="${a.sucursal.codigo}">1</td>
+                <td th:text="${a.sucursal.domicilio}">1</td>
+
+
+                <td>
+                    <select th:if="${not #lists.isEmpty(a.personas)}" class="form-select form-select-sm">
+                        <option selected>Ver personas detenidas asociadas ([[${#lists.size(a.personas)}]])</option>
+                        <option th:each="p : ${a.personas}"
+                                th:text="${p.codigo + ' - ' + p.nombre + ' - ' + p.apellido}">
+                        </option>
+                    </select>
+                    <span th:if="${#lists.isEmpty(a.personas)}" class="muted">Sin personas detenidas</span>
+                </td>
+
+
                 <td class="td-actions">
                     <a class="btn" th:href="@{/asaltos/{id}(id=${a.id})}">Ver/Editar</a>
                     <a class="btn btn-danger" th:href="@{/asaltos/{id}/confirm-delete(id=${a.id})}">Borrar</a>

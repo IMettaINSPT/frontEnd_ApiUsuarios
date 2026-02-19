@@ -5,6 +5,7 @@
 <section class="container">
             <h1>Crear Asalto</h1>
             <p>Completá los datos del nuevo asalto</p>
+            <br>
 
             <div class="card">
                 <form th:action="@{/asaltos}" method="post" th:object="${form}">
@@ -23,20 +24,24 @@
                         </div>
 
                         <div>
-                            <label>Sucursal ID</label>
+                            <label>Sucursal</label>
                             <select th:field="*{sucursalId}">
                                 <option value="">-- Seleccionar --</option>
-                                <option th:each="s : ${sucursales}" th:value="${s.id}" th:text="${s.id}">1</option>
+                                <option th:each="s : ${sucursales}"
+                                        th:value="${s.id}"
+                                        th:text="${s.codigo + ' - ' + s.domicilio}">1</option>
                             </select>
                             <div th:if="${#fields.hasErrors('sucursalId')}"
                                  th:text="${#fields.errors('sucursalId')[0]}" style="color:#ffb4b4;"></div>
                         </div>
 
                         <div>
-                            <label>Persona Detenida ID</label>
+                            <label>Persona Detenida</label>
                             <select th:field="*{personaDetenidaId}">
                                 <option value="">-- Seleccionar --</option>
-                                <option th:each="p : ${personas}" th:value="${p.id}" th:text="${p.id}">1</option>
+                                <option th:each="p : ${personasDetenidas}"
+                                        th:value="${p.id}"
+                                        th:text="${p.codigo + ' - ' + p.nombre + ' - ' + p.apellido}">1</option>
                             </select>
                             <div th:if="${#fields.hasErrors('personaDetenidaId')}"
                                  th:text="${#fields.errors('personaDetenidaId')[0]}" style="color:#ffb4b4;"></div>
