@@ -9,6 +9,9 @@ import java.util.List;
 
 public class AsaltoRequest {
 
+    @NotNull(message="El código es obligatorio")
+    private String codigo;
+
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @NotNull(message="La fecha es obligatoria")
     private LocalDate fechaAsalto;
@@ -20,6 +23,11 @@ public class AsaltoRequest {
     // Usamos @NotEmpty porque @NotNull en una lista no valida si está vacía
     @NotEmpty(message="Debe seleccionar al menos una persona detenida")
     private List<Long> personaDetenidaIds;
+
+
+
+    public String getCodigo() { return codigo; }
+    public void setCodigo(String codigo) { this.codigo = codigo; }
 
     public LocalDate getFechaAsalto() { return fechaAsalto; }
     public void setFechaAsalto(LocalDate fechaAsalto) { this.fechaAsalto = fechaAsalto; }

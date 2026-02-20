@@ -9,14 +9,17 @@ import java.util.List;
 
 public record AsaltoUpdate(
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    @NotNull(message="La fecha es obligatoria")
-     LocalDate fechaAsalto,
+        @NotNull(message="El código es obligatorio")
+        String codigo,
 
-    @NotNull(message="La sucursal es obligatorio")
-     Long sucursalId,
+        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+        @NotNull(message="La fecha es obligatoria")
+         LocalDate fechaAsalto,
 
-    // Usamos List<Long> y @NotEmpty para asegurar que al menos haya uno
-    @NotEmpty(message="Debe seleccionar al menos una persona detenida")
-    List<Long> personaDetenidaIds
+        @NotNull(message="La sucursal es obligatorio")
+        Long sucursalId,
+
+        // Usamos List<Long> y @NotEmpty para asegurar que al menos haya uno
+        @NotEmpty(message="Debe seleccionar al menos una persona detenida")
+        List<Long> personaDetenidaIds
 ){}
