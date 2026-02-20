@@ -210,13 +210,17 @@ public class AsaltoController {
 
         var item = asaltoService.get(token, id);
 
-        // Ajustá si tu DTO real cambia nombres:
-        // Cambia esa línea por esta:
-        var update = new AsaltoUpdate(
-                item.getFechaAsalto(),
-                item.getSucursal() != null ? item.getSucursal().getId() : null,
-                (item.getPersonas() != null && !item.getPersonas().isEmpty()) ? item.getPersonas().get(0).id() : null
-        );
+        // pasamos la lista completa de IDs de personas ---
+        List<Long> personaIds = (item.getPersonas() != null)
+                ? item.getPersonas().stream().map(PersonaDetenidaResponse::id).toList()
+                : List.of();
+
+
+        var update = new AsaltoUpdate();
+        update.setFechaAsalto(item.getFechaAsalto());
+        update.setSucursalId(item.getSucursal() != null ? item.getSucursal().getId() : null);
+        update.setPersonaDetenidaIds(personaIds);
+
 
         model.addAttribute("item", item);
         model.addAttribute("update", update);

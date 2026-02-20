@@ -1,9 +1,11 @@
 package com.tp.frontend.dto.Asalto;
 
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public record AsaltoUpdate(
 
@@ -14,6 +16,7 @@ public record AsaltoUpdate(
     @NotNull(message="La sucursal es obligatorio")
      Long sucursalId,
 
-    @NotNull(message="La persona detenida es obligatoria")
-     Long personaDetenidaId
+    // Usamos List<Long> y @NotEmpty para asegurar que al menos haya uno
+    @NotEmpty(message="Debe seleccionar al menos una persona detenida")
+    List<Long> personaDetenidaIds
 ){}

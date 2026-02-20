@@ -1,9 +1,11 @@
 package com.tp.frontend.dto.Asalto;
 
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class AsaltoRequest {
 
@@ -14,8 +16,10 @@ public class AsaltoRequest {
     @NotNull(message="La sucursal es obligatorio")
     private Long sucursalId;
 
-    @NotNull(message="La persona detenida es obligatoria")
-    private Long personaDetenidaId;
+    // List<Long> para soportar selección múltiple
+    // Usamos @NotEmpty porque @NotNull en una lista no valida si está vacía
+    @NotEmpty(message="Debe seleccionar al menos una persona detenida")
+    private List<Long> personaDetenidaIds;
 
     public LocalDate getFechaAsalto() { return fechaAsalto; }
     public void setFechaAsalto(LocalDate fechaAsalto) { this.fechaAsalto = fechaAsalto; }
@@ -23,6 +27,7 @@ public class AsaltoRequest {
     public Long getSucursalId() { return sucursalId; }
     public void setSucursalId(Long sucursalId) { this.sucursalId = sucursalId; }
 
-    public Long getPersonaDetenidaId() { return personaDetenidaId; }
-    public void setPersonaDetenidaId(Long personaDetenidaId) { this.personaDetenidaId = personaDetenidaId; }
+    public List<Long> getPersonaDetenidaIds() { return personaDetenidaIds; }
+    public void setPersonaDetenidaIds(List<Long> personaDetenidaIds) { this.personaDetenidaIds = personaDetenidaIds; }
+
 }
