@@ -17,6 +17,7 @@
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Nro de Banda</th>
+                <th>Historial de Asaltos</th>
                 <th>Acciones</th>
             </tr>
             </thead>
@@ -28,6 +29,16 @@
                 <td th:text="${p.apellido}">Apellido</td>
 
                 <td th:text="${p.banda != null ? p.banda.numeroBanda : 'Sin banda asignada'}">Sin banda asignada</td>
+
+                <td>
+                    <select th:if="${not #lists.isEmpty(p.asaltos)}" class="form-select form-select-sm">
+                        <option selected>Ver Historial de Asaltos ([[${#lists.size(p.asaltos)}]])</option>
+                        <option th:each="a : ${p.asaltos}"
+                                th:text="${a.codigo} + ' - ' + ${a.fechaAsalto}">
+                        </option>
+                    </select>
+                    <span th:if="${#lists.isEmpty(p.asaltos)}" class="muted">Sin asaltos asociados</span>
+                </td>
 
                 <td class="td-actions">
                     <a class="btn" th:href="@{/personas-detenidas/{id}(id=${p.id})}">Ver/Editar</a>

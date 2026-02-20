@@ -4,7 +4,29 @@
 
 <section class="container">
     <h1>Detalle Persona detenida</h1>
+    <div class="card">
+        <div class="card-title">Datos</div>
+        <br>
+        <p><b>Código:</b> <span th:text="${item.codigo}">COD-01</span></p>
+        <p><b>Nombre:</b> <span th:text="${item.nombre}">NOMBRE</span></p>
+        <p><b>Apellido:</b><span th:text="${item.apellido}">APELLIDO</span></p>
+        <p><b>Número de Banda:</b><span th:text="${item.numeroBanda}">NUMERO-BANDA</span></p>
+        <p><b>Historial de asaltos:</b>
+            <span th:each="a : ${item.asaltos}"
+                  th:text="${a.codigo + ' - ' + a.fechaAsalto}+ ' - '"
+                  class="badge"
+                  style="margin-right: 4px;">
+        BANDA-01
+            </span>
 
+            <span th:if="${#lists.isEmpty(item.asaltos)}" class="muted">Sin asaltos asociados</span>
+
+            <br>
+            <small class="muted">(Para gestionar Asaltos, diríjase al menú de Asaltos)</small>
+        </p>
+
+
+    </div>
 
     <div class="card" style="margin-top:16px;">
         <div class="card-title">Editar</div>
@@ -19,7 +41,7 @@
             <div><label>Apellido</label><input type="text" th:field="*{apellido}"></div>
 
             <div>
-                <label>Nro de Banda</label>
+                <label>Número de Banda</label>
                 <select th:field="*{bandaId}">
                     <option value="">-- Seleccionar --</option>
                     <option th:each="b : ${bandas}" th:value="${b.id}" th:text="${b.numeroBanda}">1</option>
