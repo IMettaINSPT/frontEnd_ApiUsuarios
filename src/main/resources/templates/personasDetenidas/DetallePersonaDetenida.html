@@ -11,15 +11,16 @@
         <p><b>Nombre:</b> <span th:text="${item.nombre}">NOMBRE</span></p>
         <p><b>Apellido:</b><span th:text="${item.apellido}">APELLIDO</span></p>
         <p><b>Número de Banda:</b><span th:text="${item.numeroBanda}">NUMERO-BANDA</span></p>
-        <p><b>Historial de asaltos:</b>
-            <span th:each="a : ${item.asaltos}"
-                  th:text="${a.codigo + ' - ' + a.fechaAsalto}+ ' - '"
-                  class="badge"
-                  style="margin-right: 4px;">
-        BANDA-01
-            </span>
-
-            <span th:if="${#lists.isEmpty(item.asaltos)}" class="muted">Sin asaltos asociados</span>
+        <br>
+        <p><b>Historial de asaltos:</b></p>
+        <ul th:if="${not #lists.isEmpty(item.asaltos)}" style="list-style: none; padding-left: 0;">
+            <li th:each="a : ${item.asaltos}" style="margin-bottom: 8px; padding: 5px; border-left: 3px solid #ccc; background: #f9f9f9;">
+                <strong th:text="${a.codigo}"></strong> -
+                <span th:text="${a.fechaAsalto}"></span><br>
+                <small th:text="${'Sucursal: ' + a.sucursal.codigo + ' (' + a.sucursal.domicilio + ')'}"></small>
+            </li>
+        </ul>
+        <span th:if="${#lists.isEmpty(item.asaltos)}" class="muted">Sin asaltos asociados</span>
 
             <br>
             <small class="muted">(Para gestionar Asaltos, diríjase al menú de Asaltos)</small>

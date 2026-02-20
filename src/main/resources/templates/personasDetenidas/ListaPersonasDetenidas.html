@@ -34,11 +34,12 @@
                     <select th:if="${not #lists.isEmpty(p.asaltos)}" class="form-select form-select-sm">
                         <option selected>Ver Historial de Asaltos ([[${#lists.size(p.asaltos)}]])</option>
                         <option th:each="a : ${p.asaltos}"
-                                th:text="${a.codigo} + ' - ' + ${a.fechaAsalto}">
+                                th:text="${a.codigo + ' (' + a.fechaAsalto + ') - Suc: ' + a.sucursal.codigo + ' - ' + a.sucursal.domicilio}">
                         </option>
                     </select>
                     <span th:if="${#lists.isEmpty(p.asaltos)}" class="muted">Sin asaltos asociados</span>
                 </td>
+
 
                 <td class="td-actions">
                     <a class="btn" th:href="@{/personas-detenidas/{id}(id=${p.id})}">Ver/Editar</a>
