@@ -17,6 +17,11 @@
                         </div>
 
                         <div>
+                            <label>Código</label>
+                            <input type="text" th:field="*{codigo}">
+                        </div>
+
+                        <div>
                             <label>Fecha</label>
                             <input type="date" th:field="*{fechaAsalto}">
                             <div th:if="${#fields.hasErrors('fechaAsalto')}"
@@ -35,17 +40,25 @@
                                  th:text="${#fields.errors('sucursalId')[0]}" style="color:#ffb4b4;"></div>
                         </div>
 
+
                         <div>
-                            <label>Persona Detenida</label>
-                            <select th:field="*{personaDetenidaId}">
-                                <option value="">-- Seleccionar --</option>
-                                <option th:each="p : ${personasDetenidas}"
+                            <label>Personas Detenidas</label>
+                            <p style="font-size: 0.8rem; color: #ccc; margin-bottom: 4px;">
+                                (Mantené presionado Ctrl para seleccionar varias personas)
+                            </p>
+
+                            <select th:field="*{personaDetenidaIds}" multiple class="form-select" style="height: 120px;">
+                                <option th:each="p : ${personas}"
                                         th:value="${p.id}"
                                         th:text="${p.codigo + ' - ' + p.nombre + ' - ' + p.apellido}">1</option>
                             </select>
-                            <div th:if="${#fields.hasErrors('personaDetenidaId')}"
-                                 th:text="${#fields.errors('personaDetenidaId')[0]}" style="color:#ffb4b4;"></div>
+
+                            <div th:if="${#fields.hasErrors('personaDetenidaIds')}"
+                                 th:text="${#fields.errors('personaDetenidaIds')[0]}"
+                                 style="color:#ffb4b4; margin-top: 4px;">
+                            </div>
                         </div>
+
 
                         <div th:if="${!(haySucursales && hayPersonas)}" style="color:#ffb4b4; font-weight:800;">
                             No hay sucursales o personas disponibles para crear un asalto.
