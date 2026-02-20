@@ -10,7 +10,8 @@
         <p><b>Código:</b> <span th:text="${item.codigo}">COD-01</span></p>
         <p><b>Nombre:</b> <span th:text="${item.nombre}">NOMBRE</span></p>
         <p><b>Apellido:</b><span th:text="${item.apellido}">APELLIDO</span></p>
-        <p><b>Número de Banda:</b><span th:text="${item.numeroBanda}">NUMERO-BANDA</span></p>
+        <p><b>Banda Número:</b> <span th:text="${item.banda != null ? item.banda.numeroBanda : 'Sin Banda'}"></span></p>
+
         <br>
         <p><b>Historial de asaltos:</b></p>
         <ul th:if="${not #lists.isEmpty(item.asaltos)}" style="list-style: none; padding-left: 0;">

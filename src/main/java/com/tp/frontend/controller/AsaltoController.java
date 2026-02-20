@@ -216,10 +216,12 @@ public class AsaltoController {
                 : List.of();
 
 
-        var update = new AsaltoUpdate();
-        update.setFechaAsalto(item.getFechaAsalto());
-        update.setSucursalId(item.getSucursal() != null ? item.getSucursal().getId() : null);
-        update.setPersonaDetenidaIds(personaIds);
+        var update = new AsaltoUpdate(
+                item.getCodigo(),
+                item.getFechaAsalto(),
+                item.getSucursal() != null ? item.getSucursal().getId() : null,
+                personaIds
+        );
 
 
         model.addAttribute("item", item);
