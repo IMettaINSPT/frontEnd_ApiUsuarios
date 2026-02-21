@@ -14,7 +14,12 @@
         <table>
             <thead>
             <tr>
-                <th>Código</th><th>Fecha</th><th>Sucursal</th><th>Sucursal Domicilio</th><th>Personas Detenidas</th><th>Acciones</th>
+                <th>Código</th>
+                <th>Fecha</th>
+                <th>Sucursal</th>
+                <th>Sucursal Domicilio</th>
+                <th>Personas Detenidas</th>
+                <th>Acciones</th>
             </tr>
             </thead>
             <tbody>
@@ -24,17 +29,16 @@
                 <td th:text="${a.sucursal.codigo}">SUC-CODIGO</td>
                 <td th:text="${a.sucursal.domicilio}">SUC-DOMICILIO</td>
 
-
                 <td>
                     <select th:if="${not #lists.isEmpty(a.personas)}" class="form-select form-select-sm">
                         <option selected>Ver personas detenidas asociadas ([[${#lists.size(a.personas)}]])</option>
                         <option th:each="p : ${a.personas}"
-                                th:text="${p.codigo + ' - ' + p.nombre + ' - ' + p.apellido}">
+                                th:text="${p.codigo + ' - ' + p.nombre + ' ' + p.apellido +
+                                (p.banda != null ? ' (Banda N°: ' + p.banda.numeroBanda + ')' : ' (Sin banda asignada)')}">
                         </option>
                     </select>
                     <span th:if="${#lists.isEmpty(a.personas)}" class="muted">Sin personas detenidas</span>
                 </td>
-
 
                 <td class="td-actions">
                     <a class="btn" th:href="@{/asaltos/{id}(id=${a.id})}">Ver/Editar</a>
@@ -42,7 +46,7 @@
                 </td>
             </tr>
             <tr th:if="${items == null || #lists.isEmpty(items)}">
-                <td colspan="5" class="muted">No hay asaltos.</td>
+                <td colspan="6" class="muted">No hay asaltos.</td>
             </tr>
             </tbody>
         </table>
