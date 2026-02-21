@@ -20,7 +20,7 @@
             <tbody>
             <tr th:each="a : ${items}">
                 <td th:text="${a.codigo}">1</td>
-                <td th:text="${a.fechaAsalto}">2026-01-01</td>
+                <td th:text="${#temporals.format(a.fechaAsalto, 'dd/MM/yyyy')}"></td>
                 <td th:text="${a.sucursal.codigo}">SUC-CODIGO</td>
                 <td th:text="${a.sucursal.domicilio}">SUC-DOMICILIO</td>
 

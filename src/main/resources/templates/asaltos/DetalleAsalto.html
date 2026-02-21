@@ -9,7 +9,7 @@
         <div class="card-title">Datos actuales</div>
         <br>
         <p><b>Código:</b> <span th:text="${item.codigo}">1</span></p>
-        <p><b>Fecha:</b> <span th:text="${item.fechaAsalto}">2026-01-01</span></p>
+        <p><b>Fecha:</b><span th:text="${#temporals.format(item.fechaAsalto, 'dd/MM/yyyy')}">01/01/2026</span></p>
         <p><b>Sucursal:</b> <span th:text="${item.sucursal.codigo + ' - ' + item.sucursal.domicilio}">1</span></p>
         <p><b>Personas Detenidas:</b>
           <span th:each="p : ${item.personas}"
