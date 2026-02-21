@@ -7,7 +7,7 @@
 
     <div class="card">
         <div class="card-title">Datos</div>
-
+        <br>
         <p><b>Código:</b> <span th:text="${item.codigo}">VIG-01</span></p>
         <p><b>Edad:</b> <span th:text="${item.edad}">25</span> años</p>
 
@@ -28,7 +28,7 @@
 
     <div class="card" style="margin-top:16px;">
         <div class="card-title">Editar</div>
-
+        <br>
         <form th:action="@{/vigilantes/{id}(id=${item.id})}" method="post" th:object="${update}" class="form">
             <div th:if="${#fields.hasGlobalErrors()}" class="error">
                 <p th:each="e : ${#fields.globalErrors()}"

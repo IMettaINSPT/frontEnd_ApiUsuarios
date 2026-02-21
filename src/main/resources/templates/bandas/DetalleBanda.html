@@ -29,7 +29,7 @@
 
     <div class="card" style="margin-top:16px;">
         <div class="card-title">Editar</div>
-
+            <br>
             <form th:action="@{/bandas/{id}(id=${item.id})}" method="post" th:object="${update}" class="form">
                 <div th:if="${#fields.hasGlobalErrors()}" class="error">
                     <div th:each="e : ${#fields.globalErrors()}" th:text="${e}"></div>
