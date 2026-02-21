@@ -18,12 +18,14 @@
         <ul th:if="${not #lists.isEmpty(item.asaltos)}" class="history-list">
             <li th:each="a : ${item.asaltos}" class="history-item">
                 <strong th:text="${a.codigo}"></strong> -
-                <span th:text="${a.fechaAsalto}"></span><br>
+                <span th:text="${#temporals.format(a.fechaAsalto, 'dd/MM/yyyy')}">01/01/2026</span><br>
+
                 <small th:if="${a.sucursal != null}"
                        th:text="${'Sucursal: ' + a.sucursal.codigo + ' (' + a.sucursal.domicilio + ')'}">
                 </small>
             </li>
         </ul>
+
         <span th:if="${#lists.isEmpty(item.asaltos)}" class="muted">Sin asaltos asociados</span>
 
             <br>
