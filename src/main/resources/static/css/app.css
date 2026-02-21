@@ -258,3 +258,42 @@ label { display: block; font-weight: 900; margin-bottom: 6px; color: var(--muted
   .sidebar { width: 100%; flex: none; }
   :root { --container: 100%; }
 }
+
+/* ==========================================================
+   HISTORIAL DE ASALTOS (Detalle)
+   ========================================================== */
+.history-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+.history-item {
+  margin-bottom: 12px;
+  padding: 12px;
+  border-left: 4px solid var(--primary); /* Verde para indicar actividad */
+  background: rgba(255, 255, 255, 0.04); /* Fondo sutil oscuro */
+  border-radius: 0 8px 8px 0;
+  transition: background 0.2s;
+}
+
+.history-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.history-item strong {
+  color: #ffffff;
+  font-size: 15px;
+}
+
+.history-item span {
+  color: var(--text);
+  font-size: 14px;
+}
+
+.history-item small {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-style: italic;
+}

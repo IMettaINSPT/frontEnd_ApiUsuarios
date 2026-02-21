@@ -13,9 +13,10 @@
         <p><b>Banda Número:</b> <span th:text="${item.banda != null ? item.banda.numeroBanda : 'Sin Banda'}"></span></p>
 
         <br>
+
         <p><b>Historial de asaltos:</b></p>
-        <ul th:if="${not #lists.isEmpty(item.asaltos)}" style="list-style: none; padding-left: 0;">
-            <li th:each="a : ${item.asaltos}" style="margin-bottom: 8px; padding: 5px; border-left: 3px solid #ccc; background: #f9f9f9;">
+        <ul th:if="${not #lists.isEmpty(item.asaltos)}" class="history-list">
+            <li th:each="a : ${item.asaltos}" class="history-item">
                 <strong th:text="${a.codigo}"></strong> -
                 <span th:text="${a.fechaAsalto}"></span><br>
                 <small th:if="${a.sucursal != null}"
