@@ -16,7 +16,7 @@ public class AsaltoRequest {
     @NotNull(message="La fecha es obligatoria")
     private LocalDate fechaAsalto;
 
-    @NotNull(message="La sucursal es obligatorio")
+    @NotNull(message="La sucursal es obligatoria")
     private Long sucursalId;
 
     // List<Long> para soportar selección múltiple

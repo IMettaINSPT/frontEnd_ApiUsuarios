@@ -13,7 +13,7 @@ public class ContratoRequest {
 
     private LocalDate fechaFin;
 
-    @NotNull(message="EL uso o no de arma es obligatoria de indicar")
+    @NotNull(message="EL uso o no de arma es obligatorio de indicar")
     private Boolean conArma;
 
 
@@ -21,7 +21,7 @@ public class ContratoRequest {
     @NotNull(message="La sucursal es obligatoria")
     private Long sucursalId;
 
-    @NotNull(message="El vigilante es obligatoria")
+    @NotNull(message="El vigilante es obligatorio")
     private Long vigilanteId;
 
     public LocalDate getFechaContrato() { return fechaContrato; }

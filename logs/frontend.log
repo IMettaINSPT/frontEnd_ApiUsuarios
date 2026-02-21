@@ -2762,3 +2762,722 @@ This generated password is for development use only. Your security configuration
                 sid=392173675BCBA0D3653D7B34AD6D3C5C rid=1827699d ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas/1 status=
                 user=admin role=ADMIN
                 c.t.f.c.PersonasDetenidasController - GET /personas-detenidas/1
+2026-02-20 22:04:17.443 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-20 22:04:17.510 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 6624 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
+2026-02-20 22:04:17.512 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-20 22:04:20.318 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-02-20 22:04:20.344 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-20 22:04:20.350 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-20 22:04:20.351 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-02-20 22:04:20.507 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-20 22:04:20.509 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2907 ms
+2026-02-20 22:04:21.809 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: fe2cd004-cc6b-47b4-aee3-3b497c0b562e
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-20 22:04:22.558 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@65cc5252, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@42c12b3e, org.springframework.security.web.context.SecurityContextHolderFilter@34c7232c, org.springframework.security.web.header.HeaderWriterFilter@367d34c0, org.springframework.web.filter.CorsFilter@2dbfa972, org.springframework.security.web.authentication.logout.LogoutFilter@6222391a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@37606fee, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@8b13d91, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@285a4fe3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@46f73ffa, org.springframework.security.web.session.SessionManagementFilter@6380e9e9, org.springframework.security.web.access.ExceptionTranslationFilter@34136bd1, org.springframework.security.web.access.intercept.AuthorizationFilter@cdb3c85]
+2026-02-20 22:04:23.226 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-02-20 22:04:23.269 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-02-20 22:04:23.286 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 6.948 seconds (process running for 8.022)
+2026-02-20 22:05:40.076 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-20 22:05:40.076 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-20 22:05:40.076 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-02-20 22:05:40.223 INFO 
+                sid=21604FD908522E916CF28D18EDCF2C93 rid=8cf11fea ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user= role=
+                c.t.f.controller.AuthController - GET /login logout=null err=null
+2026-02-20 22:05:42.667 INFO 
+                sid=21604FD908522E916CF28D18EDCF2C93 rid=ad81597e ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-20 22:05:44.005 INFO 
+                sid=21604FD908522E916CF28D18EDCF2C93 rid=ad81597e ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
+2026-02-20 22:05:47.669 INFO 
+                sid=21604FD908522E916CF28D18EDCF2C93 rid=04e30f4e ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-20 22:05:52.000 INFO 
+                sid=21604FD908522E916CF28D18EDCF2C93 rid=6eeb1214 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos/2 status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos/2
+2026-02-20 22:05:57.405 INFO 
+                sid=21604FD908522E916CF28D18EDCF2C93 rid=c613e00c ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-20 22:05:59.843 INFO 
+                sid=21604FD908522E916CF28D18EDCF2C93 rid=87f2b403 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos/2/confirm-delete status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos/2/confirm-delete
+2026-02-20 22:06:04.901 INFO 
+                sid=21604FD908522E916CF28D18EDCF2C93 rid=835d7c9e ip=0:0:0:0:0:0:0:1 method=GET path=/bancos/2 status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos/2
+2026-02-20 22:06:07.308 INFO 
+                sid=21604FD908522E916CF28D18EDCF2C93 rid=790bbf00 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-20 22:06:08.937 INFO 
+                sid=21604FD908522E916CF28D18EDCF2C93 rid=f723b0dc ip=0:0:0:0:0:0:0:1 method=GET path=/bancos/2/confirm-delete status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos/2/confirm-delete
+2026-02-20 22:09:06.105 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-20 22:09:06.191 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 3948 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
+2026-02-20 22:09:06.191 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-20 22:09:09.095 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-02-20 22:09:09.110 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-20 22:09:09.110 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-20 22:09:09.110 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-02-20 22:09:09.211 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-20 22:09:09.211 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2834 ms
+2026-02-20 22:09:10.296 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 0b265bb0-ade3-440f-8269-2899895c2694
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-20 22:09:10.882 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@20349058, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6cbb7a7d, org.springframework.security.web.context.SecurityContextHolderFilter@34136bd1, org.springframework.security.web.header.HeaderWriterFilter@5cfed0ba, org.springframework.web.filter.CorsFilter@cdb3c85, org.springframework.security.web.authentication.logout.LogoutFilter@6de43bc1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@14b4340c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@367d34c0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4ce25e47, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@37606fee, org.springframework.security.web.session.SessionManagementFilter@6a567f7b, org.springframework.security.web.access.ExceptionTranslationFilter@de77146, org.springframework.security.web.access.intercept.AuthorizationFilter@216372b7]
+2026-02-20 22:09:11.360 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-02-20 22:09:11.391 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-02-20 22:09:11.399 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 6.362 seconds (process running for 7.473)
+2026-02-20 22:09:11.524 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-20 22:09:11.524 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-20 22:09:11.524 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-02-20 22:09:11.657 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=fd47feb1 ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user= role=
+                c.t.f.controller.AuthController - GET /login logout=null err=null
+2026-02-20 22:09:15.218 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=7f7e07b3 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-20 22:09:15.997 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=7f7e07b3 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
+2026-02-20 22:09:19.330 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=081b52a0 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-20 22:09:20.606 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=9ac249ba ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales
+2026-02-20 22:09:24.853 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=b193a149 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-20 22:09:25.540 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=d03dffc6 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos/new
+2026-02-20 22:09:26.837 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=07972050 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-20 22:09:27.587 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=1794f481 ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales
+2026-02-20 22:09:28.365 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=adb95690 ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales/new
+2026-02-20 22:09:32.773 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=c419a5dc ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales
+2026-02-20 22:09:42.532 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=6e9e28bb ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes
+2026-02-20 22:09:53.644 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=61a6c342 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/me status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes/me
+2026-02-20 22:09:53.658 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=GET path=/vigilantes/me status=403 contentType=null apiMessage='No tenés permisos para realizar esta acción.' rawSnippet=''
+2026-02-20 22:09:53.666 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=GET path=/vigilantes/me exClass=com.tp.frontend.exception.ApiErrorException msg=No tenés permisos para realizar esta acción.
+com.tp.frontend.exception.ApiErrorException: No tenés permisos para realizar esta acción.
+	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$10(BaseApiClient.java:141)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onComplete(FluxDefaultIfEmpty.java:134)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onComplete(FluxOnAssembly.java:549)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onComplete(FluxMapFuseable.java:152)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onComplete(FluxContextWrite.java:126)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onComplete(FluxMapFuseable.java:350)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onComplete(FluxFilterFuseable.java:391)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2098)
+	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-20 22:09:53.672 WARN 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=61a6c342 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/me status=
+                user=admin role=ADMIN
+                c.t.f.web.GlobalExceptionHandler - FRONT ApiErrorException rid=9bd9a03d-d4b5-4de5-aa3b-e227fb6d36b3 path=/vigilantes/me status=403 code=null msg=No tenés permisos para realizar esta acción.
+2026-02-20 22:09:55.173 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=06448329 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes
+2026-02-20 22:09:57.291 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=8fb30705 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/1 status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes/1
+2026-02-20 22:10:01.635 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=9dbc8d4b ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes
+2026-02-20 22:10:02.811 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=2511f91e ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales
+2026-02-20 22:10:04.476 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=88357af6 ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales/new
+2026-02-20 22:10:14.844 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=3112dbf8 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-20 22:10:16.458 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=b4b70ac6 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos/new
+2026-02-20 22:10:18.282 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=00ba6f1a ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-20 22:10:21.644 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=44187eb8 ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales
+2026-02-20 22:10:22.515 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=0da1cda5 ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales/new
+2026-02-20 22:10:24.482 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=461b50c1 ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales
+2026-02-20 22:10:25.997 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=aeaddab9 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes
+2026-02-20 22:10:27.355 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=9ad9a6e9 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/new status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes/new
+2026-02-20 22:10:29.275 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=e763d7de ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes
+2026-02-20 22:10:31.972 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=75d89f71 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos
+2026-02-20 22:10:33.189 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=6aeddbd8 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos/new
+2026-02-20 22:10:36.580 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=717f42ef ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos
+2026-02-20 22:10:38.411 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=5aef0a31 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-20 22:10:39.828 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=b8fa3275 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos/2 status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos/2
+2026-02-20 22:10:44.990 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=17006f8d ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-20 22:10:46.140 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=60c8881d ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales
+2026-02-20 22:10:48.165 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=4f607d46 ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales/1 status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales/1
+2026-02-20 22:10:56.459 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=385c927f ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales
+2026-02-20 22:10:57.578 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=89a7bdd4 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes
+2026-02-20 22:10:58.885 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=db6703bb ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/1 status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes/1
+2026-02-20 22:11:04.050 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=22c080c6 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes
+2026-02-20 22:11:05.354 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=253d84fb ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales
+2026-02-20 22:11:06.748 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=00971f9f ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales/1 status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales/1
+2026-02-20 22:11:19.261 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=84128deb ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales
+2026-02-20 22:11:23.252 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=1b9dd6f9 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes
+2026-02-20 22:11:24.723 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=2ad4f4ce ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/1 status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes/1
+2026-02-20 22:11:34.571 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=bfe461cf ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes
+2026-02-20 22:11:36.483 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=38466506 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos
+2026-02-20 22:11:37.877 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=008747b1 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos
+2026-02-20 22:11:39.118 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=4b78e393 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos/4 status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos/4
+2026-02-20 22:11:46.907 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=706306cd ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos
+2026-02-20 22:11:49.118 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=69874af7 ip=0:0:0:0:0:0:0:1 method=GET path=/bandas status=
+                user=admin role=ADMIN
+                c.t.f.controller.BandasController - GET /bandas
+2026-02-20 22:11:57.396 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=55895c40 ip=0:0:0:0:0:0:0:1 method=GET path=/bandas/2 status=
+                user=admin role=ADMIN
+                c.t.f.controller.BandasController - GET /bandas/2
+2026-02-20 22:12:04.153 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=e5b398ed ip=0:0:0:0:0:0:0:1 method=GET path=/bandas status=
+                user=admin role=ADMIN
+                c.t.f.controller.BandasController - GET /bandas
+2026-02-20 22:12:07.340 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=9c417fd4 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
+                user=admin role=ADMIN
+                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
+2026-02-20 22:12:37.883 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=5f8ac9e8 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas/1 status=
+                user=admin role=ADMIN
+                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas/1
+2026-02-20 22:13:17.349 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=e2e1ab31 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos
+2026-02-20 22:13:20.210 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=b42d9032 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/new
+2026-02-20 22:13:34.025 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=190d6531 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos
+2026-02-20 22:13:36.645 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=d396dad8 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos
+2026-02-20 22:13:40.034 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=826fdac8 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/1 status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/1
+2026-02-20 22:13:51.345 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=28be65ce ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
+                user=admin role=ADMIN
+                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
+2026-02-20 22:13:53.344 INFO 
+                sid=B9FFB3CF077F9673818C748C2393A63B rid=e69a004e ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas/1 status=
+                user=admin role=ADMIN
+                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas/1
+2026-02-20 22:20:28.080 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-20 22:20:28.152 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 10832 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
+2026-02-20 22:20:28.168 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-20 22:20:30.492 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-02-20 22:20:30.520 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-20 22:20:30.520 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-20 22:20:30.520 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-02-20 22:20:30.661 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-20 22:20:30.661 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2394 ms
+2026-02-20 22:20:31.579 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 6f4bdd47-29bf-403b-bbf4-42c9bf14258c
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-20 22:20:32.255 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5a592c70, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@252ec02e, org.springframework.security.web.context.SecurityContextHolderFilter@16d431b4, org.springframework.security.web.header.HeaderWriterFilter@50ec4bfc, org.springframework.web.filter.CorsFilter@11e9ac24, org.springframework.security.web.authentication.logout.LogoutFilter@14b4340c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2dbfa972, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7558633, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5657967b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@74f280bd, org.springframework.security.web.session.SessionManagementFilter@285a4fe3, org.springframework.security.web.access.ExceptionTranslationFilter@6a09484c, org.springframework.security.web.access.intercept.AuthorizationFilter@42c12b3e]
+2026-02-20 22:20:32.739 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-02-20 22:20:32.786 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-02-20 22:20:32.800 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 5.787 seconds (process running for 6.713)
+2026-02-20 22:20:37.834 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-20 22:20:37.834 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-20 22:20:37.836 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-02-20 22:20:37.929 INFO 
+                sid=449760C65AE975AA785F12434ADBEFDF rid=fe6a842e ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user= role=
+                c.t.f.controller.AuthController - GET /login logout=null err=null
+2026-02-20 22:20:39.868 INFO 
+                sid=449760C65AE975AA785F12434ADBEFDF rid=a7bc58bc ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-20 22:20:40.673 INFO 
+                sid=449760C65AE975AA785F12434ADBEFDF rid=a7bc58bc ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
+2026-02-20 22:20:44.541 INFO 
+                sid=449760C65AE975AA785F12434ADBEFDF rid=2211264a ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
+                user=admin role=ADMIN
+                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
+2026-02-20 22:20:48.905 INFO 
+                sid=449760C65AE975AA785F12434ADBEFDF rid=810fc8bd ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos
+2026-02-20 22:20:51.961 INFO 
+                sid=449760C65AE975AA785F12434ADBEFDF rid=92d5efc7 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/new
+2026-02-20 22:21:07.797 INFO 
+                sid=449760C65AE975AA785F12434ADBEFDF rid=3e621133 ip=0:0:0:0:0:0:0:1 method=POST path=/asaltos status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - POST /asaltos create form=com.tp.frontend.dto.Asalto.AsaltoRequest@37fceb30
+2026-02-20 22:21:07.798 WARN 
+                sid=449760C65AE975AA785F12434ADBEFDF rid=3e621133 ip=0:0:0:0:0:0:0:1 method=POST path=/asaltos status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - POST /asaltos create SSR validation errors=1
+2026-02-20 22:23:02.590 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-20 22:23:02.692 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 8884 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
+2026-02-20 22:23:02.695 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-20 22:23:05.311 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-02-20 22:23:05.324 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-20 22:23:05.324 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-20 22:23:05.324 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-02-20 22:23:05.436 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-20 22:23:05.438 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2632 ms
+2026-02-20 22:23:06.250 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 27519539-009c-4f5d-9167-edcb86fddf6b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-20 22:23:06.763 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6094de13, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@bbb6f0, org.springframework.security.web.context.SecurityContextHolderFilter@45037e16, org.springframework.security.web.header.HeaderWriterFilter@6de43bc1, org.springframework.web.filter.CorsFilter@3e6ec74, org.springframework.security.web.authentication.logout.LogoutFilter@41aebbb4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@636985df, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6222391a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@538a2f0e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2bd8f7db, org.springframework.security.web.session.SessionManagementFilter@71936a92, org.springframework.security.web.access.ExceptionTranslationFilter@3dfd6220, org.springframework.security.web.access.intercept.AuthorizationFilter@4b7ed03e]
+2026-02-20 22:23:07.329 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-02-20 22:23:07.380 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-02-20 22:23:07.380 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 5.89 seconds (process running for 6.877)
+2026-02-20 22:23:09.520 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-20 22:23:09.520 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-20 22:23:09.520 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-02-20 22:23:10.247 INFO 
+                sid=75D00D302AE5607DF06F79CC76209F55 rid=47037b1a ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user= role=
+                c.t.f.controller.AuthController - GET /login logout=null err=null
+2026-02-20 22:23:12.261 INFO 
+                sid=75D00D302AE5607DF06F79CC76209F55 rid=334c97ce ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-20 22:23:13.083 INFO 
+                sid=75D00D302AE5607DF06F79CC76209F55 rid=334c97ce ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
+2026-02-20 22:23:18.020 INFO 
+                sid=75D00D302AE5607DF06F79CC76209F55 rid=b4ad35b9 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos
+2026-02-20 22:23:19.496 INFO 
+                sid=75D00D302AE5607DF06F79CC76209F55 rid=6522e897 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/new
+2026-02-20 22:23:33.117 INFO 
+                sid=75D00D302AE5607DF06F79CC76209F55 rid=bbd4d6e7 ip=0:0:0:0:0:0:0:1 method=POST path=/asaltos status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - POST /asaltos create form=com.tp.frontend.dto.Asalto.AsaltoRequest@5e87336
+2026-02-20 22:23:33.381 INFO 
+                sid=75D00D302AE5607DF06F79CC76209F55 rid=bbd4d6e7 ip=0:0:0:0:0:0:0:1 method=POST path=/asaltos status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - POST /asaltos create OK
+2026-02-20 22:23:33.389 INFO 
+                sid=75D00D302AE5607DF06F79CC76209F55 rid=52af2a47 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos
+2026-02-20 22:23:38.962 INFO 
+                sid=75D00D302AE5607DF06F79CC76209F55 rid=88545063 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/3 status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/3
+2026-02-20 22:23:44.230 INFO 
+                sid=75D00D302AE5607DF06F79CC76209F55 rid=b629ff66 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos
+2026-02-20 22:23:48.391 INFO 
+                sid=75D00D302AE5607DF06F79CC76209F55 rid=c045477a ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
+                user=admin role=ADMIN
+                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
+2026-02-20 22:23:50.791 INFO 
+                sid=75D00D302AE5607DF06F79CC76209F55 rid=518e4865 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas/1 status=
+                user=admin role=ADMIN
+                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas/1

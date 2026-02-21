@@ -18,7 +18,9 @@
             <li th:each="a : ${item.asaltos}" style="margin-bottom: 8px; padding: 5px; border-left: 3px solid #ccc; background: #f9f9f9;">
                 <strong th:text="${a.codigo}"></strong> -
                 <span th:text="${a.fechaAsalto}"></span><br>
-                <small th:text="${'Sucursal: ' + a.sucursal.codigo + ' (' + a.sucursal.domicilio + ')'}"></small>
+                <small th:if="${a.sucursal != null}"
+                       th:text="${'Sucursal: ' + a.sucursal.codigo + ' (' + a.sucursal.domicilio + ')'}">
+                </small>
             </li>
         </ul>
         <span th:if="${#lists.isEmpty(item.asaltos)}" class="muted">Sin asaltos asociados</span>

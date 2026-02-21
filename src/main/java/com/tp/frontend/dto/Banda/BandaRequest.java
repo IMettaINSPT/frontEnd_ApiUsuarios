@@ -3,10 +3,10 @@ package com.tp.frontend.dto.Banda;
 import jakarta.validation.constraints.NotNull;
 
 public class BandaRequest {
-    @NotNull(message="El numero de banda es obligatoria")
+    @NotNull(message="El numero de banda es obligatorio")
     private Integer numeroBanda;
 
-    @NotNull(message="El numero de miembros es obligatoria")
+    @NotNull(message="El numero de miembros es obligatorio")
     private Integer numeroMiembros;
 
     public Integer getNumeroBanda() { return numeroBanda; }

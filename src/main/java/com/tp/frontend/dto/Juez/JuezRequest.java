@@ -4,13 +4,13 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class JuezRequest {
-    @NotBlank(message="El codigo es obligatoria")
+    @NotBlank(message="El codigo es obligatorio")
     private String codigo;
 
-    @NotBlank(message="El nombre es obligatoria")
+    @NotBlank(message="El nombre es obligatorio")
     private String nombre;
 
-    @NotBlank(message="El apellido es obligatoria")
+    @NotBlank(message="El apellido es obligatorio")
     private String apellido;
 
     public String getCodigo() { return codigo; }

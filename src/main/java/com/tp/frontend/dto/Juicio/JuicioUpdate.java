@@ -13,10 +13,10 @@ public record JuicioUpdate (
      LocalDate fecha,
 
     // Ej: "CONDENADO", "ABSULTO", "EN_PROCESO" (según tu backend)
-    @NotBlank(message="El resultado es obligatoria")
+    @NotBlank(message="El resultado es obligatorio")
      String resultado,
 
-    @NotNull(message="El juez es obligatoria")
+    @NotNull(message="El juez es obligatorio")
      Long juezId,
 
     @NotNull(message="La persona detenida es obligatoria")

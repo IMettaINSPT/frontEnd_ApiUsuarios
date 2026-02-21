@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class UserRequest {
-    @NotBlank(message="El usuario es obligatoria")
+    @NotBlank(message="El usuario es obligatorio")
     private String username;
     @NotBlank(message="La contraseña es obligatoria")
     private String password;
@@ -12,7 +12,7 @@ public class UserRequest {
     /**
      * Backend espera: tipo = ADMIN | INVESTIGADOR | VIGILANTE
      */
-    @NotBlank(message="El tipo es obligatoria")
+    @NotBlank(message="El tipo es obligatorio")
     private String tipo;
 
     private Long vigilanteId;

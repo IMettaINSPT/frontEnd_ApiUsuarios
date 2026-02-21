@@ -13,10 +13,10 @@ public class JuicioRequest {
     private LocalDate fecha;
 
     // Ej: "CONDENADO", "ABSULTO", "EN_PROCESO" (según tu backend)
-    @NotBlank(message="El resultado es obligatoria")
+    @NotBlank(message="El resultado es obligatorio")
     private String resultado;
 
-    @NotNull(message="El juez es obligatoria")
+    @NotNull(message="El juez es obligatorio")
     private Long juezId;
 
     @NotNull(message="La persona detenida es obligatoria")

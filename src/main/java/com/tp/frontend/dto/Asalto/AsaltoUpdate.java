@@ -16,7 +16,7 @@ public record AsaltoUpdate(
         @NotNull(message="La fecha es obligatoria")
          LocalDate fechaAsalto,
 
-        @NotNull(message="La sucursal es obligatorio")
+        @NotNull(message="La sucursal es obligatoria")
         Long sucursalId,
 
         // Usamos List<Long> y @NotEmpty para asegurar que al menos haya uno
