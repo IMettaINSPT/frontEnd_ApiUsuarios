@@ -69,18 +69,16 @@ a { color: inherit; text-decoration: none; }
 .topbar-right {
   display: flex;
   align-items: center;
-  gap: 15px; /* Un poco más de espacio entre elementos */
+  gap: 15px;
 }
 
-/* TEXTO DEL USUARIO (Ahora más legible) */
 .topbar-user {
   font-size: 13px;
-  color: #ffffff; /* Blanco puro para máxima legibilidad */
+  color: #ffffff;
   font-weight: 600;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Sombra suave para que resalte */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-/* BOTONES DEL TOPBAR */
 .btn-sm {
   padding: 8px 16px;
   font-size: 13px;
@@ -94,15 +92,13 @@ a { color: inherit; text-decoration: none; }
   justify-content: center;
 }
 
-/* DASHBOARD: Con recuadro fino blanco */
 .btn-dashboard {
-  background: #1e4eb8; /* Azul distinto al del login */
+  background: #1e4eb8;
   color: white !important;
-  border: 1px solid rgba(255, 255, 255, 0.4); /* Recuadro fino blanco */
+  border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* LOGOUT: Sutil */
 .btn-logout {
   background: rgba(255, 255, 255, 0.1);
   color: #eaf0ff !important;
@@ -110,7 +106,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .btn-sm:hover {
-  transform: translateY(-1.5px); /* Se eleva un poco más */
+  transform: translateY(-1.5px);
   filter: brightness(1.2);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
@@ -121,7 +117,6 @@ a { color: inherit; text-decoration: none; }
   color: white !important;
 }
 
-/* Etiqueta de Rol */
 .role-badge {
   font-size: 11px;
   font-weight: 900;
@@ -165,7 +160,7 @@ a { color: inherit; text-decoration: none; }
   margin: 10px 10px 8px; font-size: 12px; font-weight: 900;
   text-transform: uppercase; color: var(--muted);
 }
-/* TIPOGRAFIA DE LOS BOTONES LATERALES DEL HOME  */
+
 .sb-link {
   display: block; padding: 10px 12px; border-radius: 12px;
   font-weight: 700; font-size: 14px; border: 1px solid transparent;
@@ -202,6 +197,12 @@ select, input[type="date"], input[type="number"], input[type="text"], input[type
   width: 100%; padding: 10px 12px; border-radius: 12px;
   border: 1px solid var(--border); background: rgba(255,255,255,.07);
   color: var(--text); outline: none;
+}
+
+/* CAMBIO SOLICITADO: Visibilidad de opciones en el select */
+select option {
+  background-color: #0f172a; /* Fondo oscuro sólido para la lista */
+  color: #ffffff;            /* Texto blanco */
 }
 
 label { display: block; font-weight: 900; margin-bottom: 6px; color: var(--muted); }
