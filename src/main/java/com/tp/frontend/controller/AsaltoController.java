@@ -1,6 +1,7 @@
 package com.tp.frontend.controller;
-//avances nuevos
+
 import com.tp.frontend.dto.Asalto.AsaltoRequest;
+import com.tp.frontend.dto.Asalto.AsaltoResponse;
 import com.tp.frontend.dto.Asalto.AsaltoUpdate;
 import com.tp.frontend.dto.PersonaDetenida.PersonaDetenidaResponse;
 import com.tp.frontend.dto.Sucursal.SucursalResponse;
@@ -57,10 +58,6 @@ public class AsaltoController {
         br.reject("global", msg);
     }
 
-    // =========================
-    // Combos + Maps (labels humanos)
-    // =========================
-
     private List<SucursalResponse> sucursales(String token) {
         return sucursalService.list(token);
     }
@@ -79,7 +76,6 @@ public class AsaltoController {
                 .collect(Collectors.toMap(PersonaDetenidaResponse::id, Function.identity()));
     }
 
-    /** Listas para selects + maps para renders sin IDs */
     private void cargarCombos(Model model, String token) {
         List<SucursalResponse> sucs = sucursales(token);
         List<PersonaDetenidaResponse> pers = personas(token);
@@ -97,10 +93,6 @@ public class AsaltoController {
                 .collect(Collectors.toMap(PersonaDetenidaResponse::id, Function.identity())));
     }
 
-    // =========================
-    // LISTA
-    // =========================
-
     @GetMapping
     public String list(HttpSession session, Model model) {
         String token = jwt(session);
@@ -112,10 +104,6 @@ public class AsaltoController {
 
         return "asaltos/ListaAsaltos";
     }
-
-    // =========================
-    // REPORTE (GET /asaltos/reporte?...)
-    // =========================
 
     @GetMapping("/reporte")
     public String reporte(@RequestParam(required = false) Long sucursalId,
@@ -129,19 +117,26 @@ public class AsaltoController {
         log.info("GET /asaltos/reporte sucursalId={} fecha={} desde={} hasta={}",
                 sucursalId, fecha, desde, hasta);
 
-        // datos para filtros
         model.addAttribute("sucursales", sucursales(token));
         model.addAttribute("sucursalesMap", sucursalesMap(token));
         model.addAttribute("personasMap", personasMap(token));
 
-        // para mantener valores en inputs
         model.addAttribute("filterSucursalId", sucursalId);
         model.addAttribute("filterFecha", fecha);
         model.addAttribute("filterDesde", desde);
         model.addAttribute("filterHasta", hasta);
 
         try {
-            model.addAttribute("items", asaltoService.reporte(token, sucursalId, fecha, desde, hasta));
+            List<AsaltoResponse> items = asaltoService.reporte(token, sucursalId, fecha, desde, hasta);
+            model.addAttribute("items", items);
+
+            // NUEVA LÓGICA: Si no hay resultados y seleccionó una sucursal, verificamos si es una sucursal "virgen"
+            if (items.isEmpty() && sucursalId != null) {
+                // Consultamos si esa sucursal tiene CUALQUIER asalto en la historia (sin fechas)
+                List<AsaltoResponse> historico = asaltoService.reporte(token, sucursalId, null, null, null);
+                model.addAttribute("sucursalSinAsaltos", historico.isEmpty());
+            }
+
         } catch (ApiErrorException ex) {
             log.warn("ApiError en reporte: {}", ex.getMessage());
             model.addAttribute("items", Collections.emptyList());
@@ -154,10 +149,6 @@ public class AsaltoController {
 
         return "asaltos/ReporteAsaltos";
     }
-
-    // =========================
-    // CREATE
-    // =========================
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/new")
@@ -210,10 +201,6 @@ public class AsaltoController {
         }
     }
 
-    // =========================
-    // DETALLE / UPDATE
-    // =========================
-
     @GetMapping("/{id}")
     public String detail(@PathVariable Long id, HttpSession session, Model model) {
         String token = jwt(session);
@@ -221,11 +208,9 @@ public class AsaltoController {
 
         var item = asaltoService.get(token, id);
 
-        // pasamos la lista completa de IDs de personas ---
         List<Long> personaIds = (item.getPersonas() != null)
                 ? item.getPersonas().stream().map(PersonaDetenidaResponse::id).toList()
                 : List.of();
-
 
         var update = new AsaltoUpdate(
                 item.getCodigo(),
@@ -233,7 +218,6 @@ public class AsaltoController {
                 item.getSucursal() != null ? item.getSucursal().getId() : null,
                 personaIds
         );
-
 
         model.addAttribute("item", item);
         model.addAttribute("update", update);
@@ -284,10 +268,6 @@ public class AsaltoController {
             return "asaltos/DetalleAsalto";
         }
     }
-
-    // =========================
-    // DELETE
-    // =========================
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/{id}/confirm-delete")

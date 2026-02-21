@@ -81,11 +81,15 @@
             <tr th:if="${items == null || #lists.isEmpty(items)}">
                 <td colspan="5" class="empty-row">
                     <div class="empty-container">
-                        <p th:if="${filterSucursalId != null && filterSucursalId != '' && ((filterFecha != null && filterFecha != '') || (filterDesde != null && filterDesde != '') || (filterHasta != null && filterHasta != ''))}">
+                        <p th:if="${sucursalSinAsaltos != null && sucursalSinAsaltos}">
+                            La sucursal seleccionada no registra aún asaltos asociados.
+                        </p>
+
+                        <p th:if="${(sucursalSinAsaltos == null || !sucursalSinAsaltos) && filterSucursalId != null && filterSucursalId != '' && ((filterFecha != null && filterFecha != '') || (filterDesde != null && filterDesde != '') || (filterHasta != null && filterHasta != ''))}">
                             La sucursal seleccionada no registra asaltos para el período o fecha indicados.
                         </p>
 
-                        <p th:if="${filterSucursalId != null && filterSucursalId != '' && (filterFecha == null || filterFecha == '') && (filterDesde == null || filterDesde == '') && (filterHasta == null || filterHasta == '')}">
+                        <p th:if="${(sucursalSinAsaltos == null || !sucursalSinAsaltos) && filterSucursalId != null && filterSucursalId != '' && (filterFecha == null || filterFecha == '') && (filterDesde == null || filterDesde == '') && (filterHasta == null || filterHasta == '')}">
                             La sucursal seleccionada aún no tiene asaltos asociados en el sistema.
                         </p>
 
