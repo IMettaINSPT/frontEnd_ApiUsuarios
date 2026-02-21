@@ -44,6 +44,11 @@
         </form>
     </div>
 
+    <div th:if="${errorFechas != null}" class="alert alert-danger"
+         style="color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 12px; margin-bottom: 16px; border-radius: 4px; display: flex; align-items: center; gap: 8px;">
+        <strong>¡Error!</strong> <span th:text="${errorFechas}"></span>
+    </div>
+
     <div class="card">
         <table>
             <thead>
@@ -92,7 +97,7 @@
                             No se encontraron asaltos en el período de fechas seleccionado a nivel general.
                         </p>
 
-                        <p th:if="${(filterSucursalId == null || filterSucursalId == '') && (filterFecha == null || filterFecha == '') && (filterDesde == null || filterDesde == '')}">
+                        <p th:if="${errorFechas == null && (filterSucursalId == null || filterSucursalId == '') && (filterFecha == null || filterFecha == '') && (filterDesde == null || filterDesde == '')}">
                             No hay resultados para los criterios actuales.
                         </p>
                     </div>

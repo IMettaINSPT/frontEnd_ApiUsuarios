@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClientRequestException;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -139,7 +140,17 @@ public class AsaltoController {
         model.addAttribute("filterDesde", desde);
         model.addAttribute("filterHasta", hasta);
 
-        model.addAttribute("items", asaltoService.reporte(token, sucursalId, fecha, desde, hasta));
+        try {
+            model.addAttribute("items", asaltoService.reporte(token, sucursalId, fecha, desde, hasta));
+        } catch (ApiErrorException ex) {
+            log.warn("ApiError en reporte: {}", ex.getMessage());
+            model.addAttribute("items", Collections.emptyList());
+            model.addAttribute("errorFechas", ex.getMessage());
+        } catch (Exception ex) {
+            log.error("Error inesperado en reporte", ex);
+            model.addAttribute("items", Collections.emptyList());
+            model.addAttribute("errorFechas", "No se pudo cargar el reporte. Verifique la conexión.");
+        }
 
         return "asaltos/ReporteAsaltos";
     }
