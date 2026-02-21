@@ -132,3 +132,889 @@ com.tp.frontend.exception.ApiErrorException: Tu sesión venció o no es válida.
                 sid=527AB961FD093282B46F46EF4555007E rid=d6637998 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
                 user=admin role=ADMIN
                 c.t.f.web.GlobalExceptionHandler - FRONT ApiErrorException rid=b897556a-6480-4467-9552-c1d10e11d1ce path=/asaltos/reporte status=401 code=null msg=Tu sesión venció o no es válida. Iniciá sesión nuevamente.
+2026-02-21 00:09:25.907 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-21 00:09:25.995 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 8644 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
+2026-02-21 00:09:25.995 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-21 00:09:28.289 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-02-21 00:09:28.305 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-21 00:09:28.305 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-21 00:09:28.305 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-02-21 00:09:28.423 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-21 00:09:28.423 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2338 ms
+2026-02-21 00:09:29.210 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: aa9662ce-d862-4f9d-9190-687aea4b57cc
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-21 00:09:29.738 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3fb450d7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4b7ed03e, org.springframework.security.web.context.SecurityContextHolderFilter@3815146b, org.springframework.security.web.header.HeaderWriterFilter@61394494, org.springframework.web.filter.CorsFilter@636985df, org.springframework.security.web.authentication.logout.LogoutFilter@48d739f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@34279b8a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@27a9f025, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@71936a92, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6f91fbda, org.springframework.security.web.session.SessionManagementFilter@7c453c34, org.springframework.security.web.access.ExceptionTranslationFilter@7558633, org.springframework.security.web.access.intercept.AuthorizationFilter@675b18ff]
+2026-02-21 00:09:30.144 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-02-21 00:09:30.191 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-02-21 00:09:30.207 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 5.289 seconds (process running for 6.346)
+2026-02-21 00:09:39.857 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-21 00:09:39.857 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-21 00:09:39.857 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-02-21 00:09:39.957 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=83af129f ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user= role=
+                c.t.f.controller.AuthController - GET /login logout=null err=null
+2026-02-21 00:09:41.716 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=4bc92df5 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-21 00:09:42.773 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=4bc92df5 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
+2026-02-21 00:09:45.965 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=882a6ae9 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos
+2026-02-21 00:09:47.820 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=e2baf108 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:09:51.087 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=b8e02c8d ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=4 fecha=null desde=null hasta=null
+2026-02-21 00:09:55.098 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=a68e6993 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=3 fecha=null desde=null hasta=null
+2026-02-21 00:10:00.376 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=0b03a867 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:10:07.052 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=1e27bb92 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=2026-02-03 desde=null hasta=null
+2026-02-21 00:10:11.662 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=f930bbce ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:10:23.881 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=18a1149d ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-03 hasta=2026-02-10
+2026-02-21 00:10:27.599 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=b1d1a2fd ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:10:37.835 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=8a688f66 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=3 fecha=2026-02-18 desde=null hasta=null
+2026-02-21 00:10:42.647 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=c25a9c10 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:10:52.663 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=cdb7164c ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=3 fecha=null desde=2026-02-03 hasta=2026-02-10
+2026-02-21 00:10:56.951 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=c9e540be ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:11:06.896 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=153eeff6 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=4 fecha=2026-02-04 desde=null hasta=null
+2026-02-21 00:11:28.975 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=46d00f7c ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:11:38.720 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=43a420ed ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=1 fecha=2026-02-04 desde=null hasta=null
+2026-02-21 00:11:56.855 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=7e2463c5 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:12:10.055 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=383cfcd7 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=4 fecha=null desde=2026-02-18 hasta=2026-02-26
+2026-02-21 00:12:14.198 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=efb06c15 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:12:22.352 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=4e111bda ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=4 fecha=null desde=2026-02-03 hasta=2026-02-06
+2026-02-21 00:12:32.846 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=b38711be ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:16:22.157 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=11f45a9a ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=3 fecha=null desde=null hasta=null
+2026-02-21 00:16:22.357 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=GET path=/sucursales status=401 contentType=null apiMessage='Tu sesión venció o no es válida. Iniciá sesión nuevamente.' rawSnippet=''
+2026-02-21 00:16:22.357 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=GET path=/sucursales exClass=com.tp.frontend.exception.ApiErrorException msg=Tu sesión venció o no es válida. Iniciá sesión nuevamente.
+com.tp.frontend.exception.ApiErrorException: Tu sesión venció o no es válida. Iniciá sesión nuevamente.
+	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$11(BaseApiClient.java:155)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onComplete(FluxDefaultIfEmpty.java:134)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onComplete(FluxOnAssembly.java:549)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onComplete(FluxMapFuseable.java:152)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onComplete(FluxContextWrite.java:126)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onComplete(FluxMapFuseable.java:350)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onComplete(FluxFilterFuseable.java:391)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2098)
+	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-21 00:16:22.373 WARN 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=11f45a9a ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.web.GlobalExceptionHandler - FRONT ApiErrorException rid=f77026e3-4364-4a1f-828a-8a67af7251f1 path=/asaltos/reporte status=401 code=null msg=Tu sesión venció o no es válida. Iniciá sesión nuevamente.
+2026-02-21 00:16:23.734 INFO 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=14fbd069 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:16:23.743 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=GET path=/sucursales status=401 contentType=null apiMessage='Tu sesión venció o no es válida. Iniciá sesión nuevamente.' rawSnippet=''
+2026-02-21 00:16:23.744 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=GET path=/sucursales exClass=com.tp.frontend.exception.ApiErrorException msg=Tu sesión venció o no es válida. Iniciá sesión nuevamente.
+com.tp.frontend.exception.ApiErrorException: Tu sesión venció o no es válida. Iniciá sesión nuevamente.
+	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$11(BaseApiClient.java:155)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onComplete(FluxDefaultIfEmpty.java:134)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onComplete(FluxOnAssembly.java:549)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onComplete(FluxMapFuseable.java:152)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onComplete(FluxContextWrite.java:126)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onComplete(FluxMapFuseable.java:350)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onComplete(FluxFilterFuseable.java:391)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2098)
+	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-21 00:16:23.746 WARN 
+                sid=C3513B7B73B8A08EF3886F0ADEA4E494 rid=14fbd069 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.web.GlobalExceptionHandler - FRONT ApiErrorException rid=fd4420ce-8e30-4813-9fa8-cddd78a7f0b6 path=/asaltos/reporte status=401 code=null msg=Tu sesión venció o no es válida. Iniciá sesión nuevamente.
+2026-02-21 00:16:37.255 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-21 00:16:37.320 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 10032 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
+2026-02-21 00:16:37.336 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-21 00:16:40.337 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-02-21 00:16:40.352 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-21 00:16:40.352 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-21 00:16:40.352 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-02-21 00:16:40.486 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-21 00:16:40.488 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2977 ms
+2026-02-21 00:16:41.338 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 5f65f47b-948a-40ae-860d-ef4637a5e730
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-21 00:16:41.931 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2dbfa972, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@46f73ffa, org.springframework.security.web.context.SecurityContextHolderFilter@8b13d91, org.springframework.security.web.header.HeaderWriterFilter@6380e9e9, org.springframework.web.filter.CorsFilter@41aebbb4, org.springframework.security.web.authentication.logout.LogoutFilter@d2708a7, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@48d739f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2589d787, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1788cb61, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@afde064, org.springframework.security.web.session.SessionManagementFilter@6a09484c, org.springframework.security.web.access.ExceptionTranslationFilter@367d34c0, org.springframework.security.web.access.intercept.AuthorizationFilter@33d28f0a]
+2026-02-21 00:16:42.450 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-02-21 00:16:42.499 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-02-21 00:16:42.514 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 6.267 seconds (process running for 7.189)
+2026-02-21 00:16:43.503 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-21 00:16:43.503 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-21 00:16:43.503 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-02-21 00:16:43.619 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=f8113d42 ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user= role=
+                c.t.f.controller.AuthController - GET /login logout=null err=null
+2026-02-21 00:16:45.465 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=ba16d826 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-21 00:16:47.155 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=ba16d826 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
+2026-02-21 00:16:50.569 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=0861279d ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos
+2026-02-21 00:16:52.876 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=847816d4 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:16:57.014 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=92aa3366 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=3 fecha=null desde=null hasta=null
+2026-02-21 00:17:35.898 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=7601ba66 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=3 fecha=2026-02-11 desde=null hasta=null
+2026-02-21 00:17:40.204 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=167b7b56 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:17:47.084 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=39d9d00f ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=3 fecha=null desde=2026-02-03 hasta=2026-02-04
+2026-02-21 00:17:51.901 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=46af8e78 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:17:56.230 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=907eca1c ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=2026-02-03 desde=null hasta=null
+2026-02-21 00:17:59.853 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=7a589280 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:18:05.301 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=405ea960 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-04 hasta=2026-02-05
+2026-02-21 00:18:09.916 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=1384ae76 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:18:15.014 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=b172b451 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=2026-02-11 desde=null hasta=null
+2026-02-21 00:18:16.835 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=4c65273b ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:18:27.173 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=441ab7cc ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-11 hasta=2026-02-27
+2026-02-21 00:18:30.001 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=5803aa20 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-11 hasta=2026-02-27
+2026-02-21 00:18:31.274 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=9acff67b ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-11 hasta=2026-02-27
+2026-02-21 00:18:31.728 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=a1396744 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-11 hasta=2026-02-27
+2026-02-21 00:18:32.561 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=c1f879b2 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-11 hasta=2026-02-27
+2026-02-21 00:18:35.209 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=33c36caf ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-11 hasta=2026-02-27
+2026-02-21 00:18:35.478 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=37fb176a ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-11 hasta=2026-02-27
+2026-02-21 00:18:36.112 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=fcc680ad ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-11 hasta=2026-02-27
+2026-02-21 00:18:40.533 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=712d471b ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-11 hasta=2026-02-28
+2026-02-21 00:18:41.093 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=5d41a083 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-11 hasta=2026-02-28
+2026-02-21 00:18:41.641 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=81c3bd93 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-11 hasta=2026-02-28
+2026-02-21 00:18:41.979 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=1d2c1ae8 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-11 hasta=2026-02-28
+2026-02-21 00:18:42.329 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=69c99e29 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-11 hasta=2026-02-28
+2026-02-21 00:18:42.856 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=fd83d636 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-11 hasta=2026-02-28
+2026-02-21 00:18:48.972 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=d68fa880 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-11 hasta=2026-02-25
+2026-02-21 00:18:58.148 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=2e351020 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=2026-02-03 desde=2026-02-11 hasta=2026-02-25
+2026-02-21 00:18:58.260 WARN 
+                sid=B819BA594474025FC416B6943CF0567F rid=2e351020 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.web.GlobalExceptionHandler - FRONT ApiErrorException rid=bb461523-1a2e-4dd5-85da-ca95ec6a7eda path=/asaltos/reporte status=400 code=BAD_REQUEST msg=No se puede usar 'fecha' junto con 'desde/hasta'.
+2026-02-21 00:18:59.742 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=9b841d52 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-11 hasta=2026-02-25
+2026-02-21 00:19:01.882 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=82a24096 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:19:07.203 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=8c0ff9d2 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=2026-02-04 desde=null hasta=null
+2026-02-21 00:19:09.602 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=343f31ff ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:19:15.036 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=40e51d2a ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-02 hasta=2026-02-04
+2026-02-21 00:19:17.379 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=7000b56f ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:19:26.739 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=c7166f92 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=2 fecha=2026-02-11 desde=null hasta=null
+2026-02-21 00:19:29.274 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=a1b19aea ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:19:38.932 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=03c9ea47 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=2 fecha=null desde=2026-02-02 hasta=2026-02-13
+2026-02-21 00:19:42.570 INFO 
+                sid=B819BA594474025FC416B6943CF0567F rid=ecb21c31 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:22:29.290 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-21 00:22:29.355 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 8396 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
+2026-02-21 00:22:29.355 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-21 00:22:31.887 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-02-21 00:22:31.895 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-21 00:22:31.895 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-21 00:22:31.895 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-02-21 00:22:32.008 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-21 00:22:32.009 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2553 ms
+2026-02-21 00:22:32.800 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: f340ead4-3955-4f0d-8f0e-e948b2f55213
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-21 00:22:33.430 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@42c12b3e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2dbfa972, org.springframework.security.web.context.SecurityContextHolderFilter@50ec4bfc, org.springframework.security.web.header.HeaderWriterFilter@4ce25e47, org.springframework.web.filter.CorsFilter@46f73ffa, org.springframework.security.web.authentication.logout.LogoutFilter@538a2f0e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@33d28f0a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@285a4fe3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2589d787, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@41aebbb4, org.springframework.security.web.session.SessionManagementFilter@350da119, org.springframework.security.web.access.ExceptionTranslationFilter@6de7778f, org.springframework.security.web.access.intercept.AuthorizationFilter@37606fee]
+2026-02-21 00:22:33.924 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-02-21 00:22:33.965 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-02-21 00:22:33.978 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 5.719 seconds (process running for 6.639)
+2026-02-21 00:22:35.271 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-21 00:22:35.272 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-21 00:22:35.273 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-02-21 00:22:35.373 INFO 
+                sid=- rid=6e669fa9 ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user=anon role=-
+                c.t.f.controller.AuthController - GET /login logout= err=null
+2026-02-21 00:22:40.287 INFO 
+                sid=- rid=f1778117 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-21 00:22:41.094 INFO 
+                sid=- rid=f1778117 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
+2026-02-21 00:22:44.289 INFO 
+                sid=98DC785E48EE9F1401AAF887BA90C3D8 rid=6e6c944a ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos
+2026-02-21 00:22:46.427 INFO 
+                sid=98DC785E48EE9F1401AAF887BA90C3D8 rid=e2e05db5 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:22:49.939 INFO 
+                sid=98DC785E48EE9F1401AAF887BA90C3D8 rid=04601719 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=3 fecha=null desde=null hasta=null
+2026-02-21 00:22:53.626 INFO 
+                sid=98DC785E48EE9F1401AAF887BA90C3D8 rid=c23b397d ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:22:59.494 INFO 
+                sid=98DC785E48EE9F1401AAF887BA90C3D8 rid=03f98a50 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=3 fecha=2026-02-05 desde=null hasta=null
+2026-02-21 00:23:01.610 INFO 
+                sid=98DC785E48EE9F1401AAF887BA90C3D8 rid=d418d556 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:23:08.636 INFO 
+                sid=98DC785E48EE9F1401AAF887BA90C3D8 rid=ec373338 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=3 fecha=null desde=2026-02-03 hasta=2026-02-25
+2026-02-21 00:23:11.107 INFO 
+                sid=98DC785E48EE9F1401AAF887BA90C3D8 rid=1b7a4178 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:23:17.212 INFO 
+                sid=98DC785E48EE9F1401AAF887BA90C3D8 rid=7b19f986 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=2 fecha=2026-02-03 desde=null hasta=null
+2026-02-21 00:23:19.089 INFO 
+                sid=98DC785E48EE9F1401AAF887BA90C3D8 rid=a756ec8d ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:23:27.237 INFO 
+                sid=98DC785E48EE9F1401AAF887BA90C3D8 rid=a2454b4c ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=2 fecha=2026-02-11 desde=null hasta=null
+2026-02-21 00:23:29.043 INFO 
+                sid=98DC785E48EE9F1401AAF887BA90C3D8 rid=41e819dc ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:23:38.476 INFO 
+                sid=98DC785E48EE9F1401AAF887BA90C3D8 rid=65bbfc9f ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=2 fecha=null desde=2026-02-02 hasta=2026-02-03
+2026-02-21 00:23:59.625 INFO 
+                sid=98DC785E48EE9F1401AAF887BA90C3D8 rid=e0ad5c85 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:24:08.306 INFO 
+                sid=98DC785E48EE9F1401AAF887BA90C3D8 rid=ddd20e62 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=2 fecha=2026-02-02 desde=null hasta=null
+2026-02-21 00:24:12.819 INFO 
+                sid=98DC785E48EE9F1401AAF887BA90C3D8 rid=8a63b09b ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:25:52.322 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-21 00:25:52.391 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 2588 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
+2026-02-21 00:25:52.391 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-21 00:25:54.547 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-02-21 00:25:54.562 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-21 00:25:54.562 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-21 00:25:54.562 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-02-21 00:25:54.672 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-21 00:25:54.672 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2195 ms
+2026-02-21 00:25:55.407 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: eb135d68-e211-496c-86bd-34a9a57a85cb
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-21 00:25:55.865 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@afde064, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5a592c70, org.springframework.security.web.context.SecurityContextHolderFilter@1788cb61, org.springframework.security.web.header.HeaderWriterFilter@34c7232c, org.springframework.web.filter.CorsFilter@252ec02e, org.springframework.security.web.authentication.logout.LogoutFilter@216372b7, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@42c12b3e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6c0b51da, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7558633, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@11e9ac24, org.springframework.security.web.session.SessionManagementFilter@8b13d91, org.springframework.security.web.access.ExceptionTranslationFilter@350da119, org.springframework.security.web.access.intercept.AuthorizationFilter@65cc5252]
+2026-02-21 00:25:56.273 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-02-21 00:25:56.312 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-02-21 00:25:56.320 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 4.922 seconds (process running for 5.805)
+2026-02-21 00:28:30.854 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-21 00:28:30.854 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-21 00:28:30.854 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-02-21 00:28:30.954 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=1b8d42d8 ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user= role=
+                c.t.f.controller.AuthController - GET /login logout=null err=null
+2026-02-21 00:28:32.809 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=cd6f37fa ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-21 00:28:33.633 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=cd6f37fa ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
+2026-02-21 00:28:36.877 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=9bc62f3e ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos
+2026-02-21 00:28:38.754 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=a4c45f2a ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:28:41.615 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=6790a2ee ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=2 fecha=null desde=null hasta=null
+2026-02-21 00:28:45.953 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=76896bf1 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=3 fecha=null desde=null hasta=null
+2026-02-21 00:28:52.577 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=25e84bdd ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:29:01.068 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=af7c56d4 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=2 fecha=2026-02-03 desde=null hasta=null
+2026-02-21 00:29:06.824 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=9e2bcc65 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:29:14.465 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=0f4deaa9 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=2 fecha=null desde=2026-02-04 hasta=2026-02-05
+2026-02-21 00:29:17.040 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=9bcd3c4c ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:29:24.866 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=5fa4b8bb ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=2 fecha=2026-02-11 desde=null hasta=null
+2026-02-21 00:29:26.568 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=1e8ce0a1 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:29:33.922 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=04f7a4bd ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=2 fecha=null desde=2026-02-03 hasta=2026-02-27
+2026-02-21 00:29:46.305 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=e8006db7 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=2 fecha=null desde=2026-02-03 hasta=2025-12-03
+2026-02-21 00:29:46.356 WARN 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=e8006db7 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.web.GlobalExceptionHandler - FRONT ApiErrorException rid=c3e041b7-bdd9-489a-9243-13b6c7b23c22 path=/asaltos/reporte status=400 code=BAD_REQUEST msg='hasta' no puede ser anterior a 'desde'.
+2026-02-21 00:29:49.063 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=9d864d2d ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=2 fecha=null desde=2026-02-03 hasta=2026-02-27
+2026-02-21 00:30:18.750 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=13fc496c ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=2 fecha=null desde=2026-02-03 hasta=2026-02-06
+2026-02-21 00:30:22.023 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=69ba89d5 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:30:29.930 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=1514f87c ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:30:34.192 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=dd27f115 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=2026-02-04 desde=null hasta=null
+2026-02-21 00:30:38.263 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=71b9acf7 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:30:47.131 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=8e99eda2 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-03 hasta=2026-02-05
+2026-02-21 00:30:51.032 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=36ad1811 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:30:57.976 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=30e80118 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=2026-02-27 desde=null hasta=null
+2026-02-21 00:30:59.326 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=28f06130 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
+2026-02-21 00:31:11.625 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=fe96bcc4 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=2026-02-20 hasta=2026-02-26
+2026-02-21 00:31:13.599 INFO 
+                sid=2A8B30ED635F088BA2C949E3B2FFDCEC rid=4063821e ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/reporte status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null

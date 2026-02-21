@@ -76,15 +76,22 @@
             <tr th:if="${items == null || #lists.isEmpty(items)}">
                 <td colspan="5" class="empty-row">
                     <div class="empty-container">
-                        <p th:if="${filterSucursalId != null && filterSucursalId != ''}">
-                            La sucursal seleccionada aún no tiene asaltos asociados.
+                        <p th:if="${filterSucursalId != null && filterSucursalId != '' && ((filterFecha != null && filterFecha != '') || (filterDesde != null && filterDesde != '') || (filterHasta != null && filterHasta != ''))}">
+                            La sucursal seleccionada no registra asaltos para el período o fecha indicados.
                         </p>
-                        <p th:if="${filterFecha != null && filterFecha != ''}">
-                            No hay asaltos registrados en la fecha especificada.
+
+                        <p th:if="${filterSucursalId != null && filterSucursalId != '' && (filterFecha == null || filterFecha == '') && (filterDesde == null || filterDesde == '') && (filterHasta == null || filterHasta == '')}">
+                            La sucursal seleccionada aún no tiene asaltos asociados en el sistema.
                         </p>
-                        <p th:if="${(filterDesde != null && filterDesde != '') || (filterHasta != null && filterHasta != '')}">
-                            No se encontraron asaltos en el período de fechas seleccionado.
+
+                        <p th:if="${(filterSucursalId == null || filterSucursalId == '') && (filterFecha != null && filterFecha != '')}">
+                            No hay asaltos registrados en ninguna sucursal para la fecha especificada.
                         </p>
+
+                        <p th:if="${(filterSucursalId == null || filterSucursalId == '') && ((filterDesde != null && filterDesde != '') || (filterHasta != null && filterHasta != ''))}">
+                            No se encontraron asaltos en el período de fechas seleccionado a nivel general.
+                        </p>
+
                         <p th:if="${(filterSucursalId == null || filterSucursalId == '') && (filterFecha == null || filterFecha == '') && (filterDesde == null || filterDesde == '')}">
                             No hay resultados para los criterios actuales.
                         </p>
