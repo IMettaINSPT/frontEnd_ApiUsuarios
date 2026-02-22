@@ -13,6 +13,12 @@
             </div>
 
             <div>
+                <label>Clave Juzgado</label>
+                <input type="text" th:field="*{claveJuzgado}">
+                <div class="error" th:if="${#fields.hasErrors('claveJuzgado')}" th:errors="*{claveJuzgado}"></div>
+            </div>
+
+            <div>
                 <label>Nombre</label>
                 <input type="text" th:field="*{nombre}">
                 <div class="error" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
@@ -25,9 +31,9 @@
             </div>
 
             <div>
-                <label>codigo</label>
-                <input type="text" th:field="*{codigo}">
-                <div class="error" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
+                <label>Años de Servicio</label>
+                <input type="text" th:field="*{anosServicio}">
+                <div class="error" th:if="${#fields.hasErrors('anosServicio')}" th:errors="*{anosServicio}"></div>
             </div>
 
             <div class="actions">

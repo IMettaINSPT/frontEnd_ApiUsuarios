@@ -14,15 +14,29 @@
         <table>
             <thead>
             <tr>
-                <th>ID</th><th>Nombre</th><th>Apellido</th><th>Matrícula</th><th>Acciones</th>
+                <th>Clave Juzgado</th><th>Nombre</th><th>Apellido</th><th>Años de Servicio</th><th>Cant. Juicios</th><th>Juicios Asociados</th><th>Acciones</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="j : ${items}">
-                <td th:text="${j.id}">1</td>
+                <td th:text="${j.claveJuzgado}">1</td>
                 <td th:text="${j.nombre}">Juan</td>
                 <td th:text="${j.apellido}">Pérez</td>
-                <td th:text="${j.codigo}">MAT-1</td>
+                <td th:text="${j.anosServicio}">AÑOS-1</td>
+                <td th:text="${j.cantidadJuicios}">CANTIDAD JUICIOS</td>
+
+                <td>
+                    <select th:if="${not #lists.isEmpty(j.juicios)}" class="form-select form-select-sm">
+                        <option selected>Ver juicios asociados ([[${#lists.size(j.juicios)}]])</option>
+                        <option th:each="jui : ${j.juicios}"
+                                th:text="${jui.expediente + ' - ' + #temporals.format(jui.fechaJuicio, 'dd/MM/yyyy') +
+                                (jui.personas != null ? ' (Código N°: ' + jui.personas.codigo + ' - ' + jui.personas.apellido + ')' : ' (Sin persona detenida asignada)')+
+                                ' - ' + jui.situacionPenal}">
+                        </option>
+                    </select>
+                    <span th:if="${#lists.isEmpty(j.juicios)}" class="muted">Sin juicios asociados</span>
+                </td>
+
                 <td class="td-actions">
                     <a class="btn" th:href="@{/jueces/{id}(id=${j.id})}">Ver/Editar</a>
                     <a class="btn btn-danger" th:href="@{/jueces/{id}/confirm-delete(id=${j.id})}">Borrar</a>
@@ -30,7 +44,7 @@
             </tr>
 
             <tr th:if="${items == null || #lists.isEmpty(items)}">
-                <td colspan="5" class="muted">No hay jueces.</td>
+                <td colspan="7" class="muted">No hay jueces.</td>
             </tr>
             </tbody>
         </table>

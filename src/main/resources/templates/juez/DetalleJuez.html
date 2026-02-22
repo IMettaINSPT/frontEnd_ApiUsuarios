@@ -3,12 +3,53 @@
       th:replace="~{fragments/layout :: layout('Detalle Juez', ~{::section})}">
 
 <section class="container">
-    <h1>Crear Juez</h1>
+    <h1>Detalle Juez</h1>
+
+    <div class="card" style="margin-bottom:16px;">
+        <div class="card-title">Datos actuales</div>
+        <br>
+        <p><b>Clave Juzgado:</b> <span th:text="${item.claveJuzgado}">1</span></p>
+        <p><b>Nombre:</b><span <span th:text="${item.nombre}">NOMBRE</span></p>
+        <p><b>Apellido:</b><span <span th:text="${item.apellido}">APELLIDO</span></p>
+        <p><b>Años de Servicio:</b><span <span th:text="${item.anosServicio}">AÑOS-1</span></p>
+        <p><b>Cantidad de Juicios:</b><span <span th:text="${item.cantidadJuicios}">CANTIDAD JUICIOS</span></p>
+
+        <p><b>Juicios Asociados:</b>
+            <ul th:if="${not #lists.isEmpty(item.juicios)}" class="history-list">
+                <li th:each="jui : ${item.juicios}" class="history-item">
+                    <strong th:text="${jui.expediente}"></strong> -
+                    <span th:text="${#temporals.format(jui.fechaJuicio, 'dd/MM/yyyy')}">01/01/2026</span><br>
+
+                    <small th:if="${jui.personas != null}"
+                           th:text="${'Código: ' + jui.personas.codigo + ' - ' + jui.personas.apellido + ')' : ' (Sin persona detenida asignada)')+
+                           ' - ' + jui.situacionPenal}">
+                    </small>
+                </li>
+            </ul>
+
+            <span th:if="${#lists.isEmpty(item.juicios)}" class="muted">Sin juicios asociados</span>
+
+             <br>
+             <small class="muted">(Para gestionar Juicios, diríjase al menú de Juicios)</small>
+        </p>
+
+    </div>
+
+
 
     <div class="card">
+        <div class="card-title">Editar</div>
+        <br>
         <form th:action="@{/jueces/{id}(id=${item.id})}" method="post" th:object="${update}" class="form">
             <div th:if="${#fields.hasGlobalErrors()}" class="error">
                 <div th:each="e : ${#fields.globalErrors()}" th:text="${e}"></div>
+            </div>
+
+
+            <div>
+                <label>Clave Juzgado</label>
+                <input type="text" th:field="*{claveJuzgado}">
+                <div class="error" th:if="${#fields.hasErrors('claveJuzgado')}" th:errors="*{claveJuzgado}"></div>
             </div>
 
             <div>
@@ -24,9 +65,9 @@
             </div>
 
             <div>
-                <label>codigo</label>
-                <input type="text" th:field="*{codigo}">
-                <div class="error" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
+                <label>Años de Servicio</label>
+                <input type="text" th:field="*{anosServicio}">
+                <div class="error" th:if="${#fields.hasErrors('anosServicio')}" th:errors="*{anosServicio}"></div>
             </div>
 
             <div class="actions">
