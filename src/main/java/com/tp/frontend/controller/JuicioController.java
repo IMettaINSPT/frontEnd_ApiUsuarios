@@ -2,13 +2,15 @@ package com.tp.frontend.controller;
 
 import com.tp.frontend.dto.PersonaDetenida.PersonaDetenidaResponse;
 import com.tp.frontend.dto.Juez.JuezResponse;
+import com.tp.frontend.dto.Asalto.AsaltoResponse; // Agregado
 import com.tp.frontend.dto.Juicio.JuicioRequest;
 import com.tp.frontend.dto.Juicio.JuicioUpdate;
-import com.tp.frontend.dto.Juicio.JuicioResponse; // Asegúrate de importar esto
+import com.tp.frontend.dto.Juicio.JuicioResponse;
 import com.tp.frontend.exception.ApiErrorException;
 import com.tp.frontend.service.JuezService;
 import com.tp.frontend.service.JuicioService;
 import com.tp.frontend.service.PersonaDetenidaService;
+import com.tp.frontend.service.AsaltoService; // Agregado
 import com.tp.frontend.support.ErrorBinder;
 import com.tp.frontend.web.SessionKeys;
 import jakarta.servlet.http.HttpSession;
@@ -36,15 +38,18 @@ public class JuicioController {
     private final JuicioService juicioService;
     private final JuezService juezService;
     private final PersonaDetenidaService personaDetenidaService;
+    private final AsaltoService asaltoService; // Agregado
     private final ErrorBinder errorBinder;
 
     public JuicioController(JuicioService juicioService,
                             JuezService juezService,
                             PersonaDetenidaService personaDetenidaService,
+                            AsaltoService asaltoService, // Agregado
                             ErrorBinder errorBinder) {
         this.juicioService = juicioService;
         this.juezService = juezService;
         this.personaDetenidaService = personaDetenidaService;
+        this.asaltoService = asaltoService; // Agregado
         this.errorBinder = errorBinder;
     }
 
@@ -58,48 +63,16 @@ public class JuicioController {
 
     private void cargarCombos(Model model, String token) {
         List<JuezResponse> jueces = juezService.list(token);
-        List<PersonaDetenidaResponse> delincuentes = personaDetenidaService.list(token);
+        List<PersonaDetenidaResponse> personas = personaDetenidaService.list(token);
+        List<AsaltoResponse> asaltos = asaltoService.list(token); // Agregado
 
         model.addAttribute("jueces", jueces);
-        model.addAttribute("delincuentes", delincuentes);
+        model.addAttribute("persona", personas);
+        model.addAttribute("asaltos", asaltos); // Agregado
 
         model.addAttribute("hayJueces", !jueces.isEmpty());
-        model.addAttribute("hayDetenidos", !delincuentes.isEmpty());
-
-        model.addAttribute("juecesMap",
-                jueces.stream().collect(Collectors.toMap(JuezResponse::getId, Function.identity())));
-
-        model.addAttribute("DelincuentesLabelMap",
-                delincuentes.stream().collect(Collectors.toMap(PersonaDetenidaResponse::id, this::delincuenteLabel)));
-    }
-
-    private String delincuenteLabel(PersonaDetenidaResponse c) {
-        if (c == null) return "(Delincuente no disponible)";
-        String codigo = firstNonBlank(invokeString(c, "Codigo"));
-        String nombre = invokeString(c, "nombre");
-        String banda  =  invokeString(c.banda(), "numeroBanda");
-        String base = (codigo != null) ? codigo : "Delincuente";
-        if (nombre != null && !nombre.isBlank()) base = base + " • " + nombre;
-        if (banda != null && !banda.isBlank()) base = base + " • " + banda;
-        return base;
-    }
-
-    private String invokeString(Object target, String methodName) {
-        try {
-            Method m = target.getClass().getMethod(methodName);
-            Object v = m.invoke(target);
-            return v == null ? null : String.valueOf(v);
-        } catch (Exception ignored) {
-            return null;
-        }
-    }
-
-    private String firstNonBlank(String... values) {
-        if (values == null) return null;
-        for (String v : values) {
-            if (v != null && !v.isBlank()) return v;
-        }
-        return null;
+        model.addAttribute("hayDetenidos", !personas.isEmpty());
+        model.addAttribute("hayAsaltos", !asaltos.isEmpty()); // Agregado
     }
 
     @GetMapping
@@ -144,9 +117,6 @@ public class JuicioController {
         }
     }
 
-    // =========================
-    // DETALLE / UPDATE (CORREGIDO)
-    // =========================
     @GetMapping("/{id}")
     public String detail(@PathVariable Long id, HttpSession session, Model model) {
         String token = jwt(session);
@@ -154,14 +124,15 @@ public class JuicioController {
 
         JuicioResponse item = juicioService.get(token, id);
 
-        // CORRECCIÓN: Usar setters porque JuicioUpdate ya no es un record con ese constructor
         JuicioUpdate update = new JuicioUpdate();
         update.setExpediente(item.getExpediente());
         update.setFechaJuicio(item.getFechaJuicio());
-        update.setCondenado(item.isCondenado());
-        update.setJuezId(item.getJuez().getId());
-        update.setAsaltoId(item.getAsalto().getId());
-        update.setPersonaDetenidaId(item.getPersona().id());
+
+        update.setCondenado(item.getCondenado());
+
+        if (item.getJuez() != null) update.setJuezId(item.getJuez().getId());
+        if (item.getAsalto() != null) update.setAsaltoId(item.getAsalto().getId());
+        if (item.getPersona() != null) update.setPersonaDetenidaId(item.getPersona().id());
 
         model.addAttribute("item", item);
         model.addAttribute("update", update);
@@ -204,7 +175,6 @@ public class JuicioController {
     public String confirmDelete(@PathVariable Long id, HttpSession session, Model model) {
         String token = jwt(session);
         model.addAttribute("item", juicioService.get(token, id));
-        cargarCombos(model, token);
         return "juicios/ConfirmarBorrado";
     }
 
@@ -217,7 +187,6 @@ public class JuicioController {
             return "redirect:/juicios";
         } catch (ApiErrorException ex) {
             model.addAttribute("item", juicioService.get(token, id));
-            cargarCombos(model, token);
             return "juicios/ConfirmarBorrado";
         }
     }

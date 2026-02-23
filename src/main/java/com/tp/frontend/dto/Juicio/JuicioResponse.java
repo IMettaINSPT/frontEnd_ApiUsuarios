@@ -10,12 +10,11 @@ public class JuicioResponse {
     private String expediente;
     private LocalDate fechaJuicio;
 
-    // CAMBIO: Ahora es boolean para que coincida con la Entidad y el Service
-    private boolean condenado;
+    // MEJOR PRÁCTICA: Usar Boolean para evitar problemas de nulidad en el mapeo
+    private Boolean condenado;
 
-    // Este String es el que usará el Front para mostrar "Condenado" o "Absuelto"
+    // Visualización en UI
     private String situacionPenal;
-
     private String detallePena;
 
     private JuezResponse juez;
@@ -24,7 +23,6 @@ public class JuicioResponse {
 
     public JuicioResponse() {}
 
-    // Getters y Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -34,16 +32,28 @@ public class JuicioResponse {
     public LocalDate getFechaJuicio() { return fechaJuicio; }
     public void setFechaJuicio(LocalDate fechaJuicio) { this.fechaJuicio = fechaJuicio; }
 
-    // --- CAMBIO CLAVE AQUÍ ---
-    public boolean isCondenado() { return condenado; }
+    // Cambiado a getCondenado para seguir la convención de objetos Boolean
+    public Boolean getCondenado() { return condenado; }
 
-    public void setCondenado(boolean condenado) {
+    /**
+     * Al recibir el valor del Backend, actualizamos automáticamente
+     * el texto descriptivo para la vista.
+     */
+    public void setCondenado(Boolean condenado) {
         this.condenado = condenado;
-        // Automáticamente seteamos el texto para el Front
-        this.situacionPenal = condenado ? "CONDENADO" : "ABSUELTO";
+        if (condenado != null) {
+            this.situacionPenal = condenado ? "CONDENADO" : "ABSUELTO";
+        }
     }
 
-    public String getSituacionPenal() { return situacionPenal; }
+    public String getSituacionPenal() {
+        // Salvaguarda por si el setter de condenado no se disparó o es null
+        if (situacionPenal == null && condenado != null) {
+            return condenado ? "CONDENADO" : "ABSUELTO";
+        }
+        return situacionPenal;
+    }
+
     public void setSituacionPenal(String situacionPenal) { this.situacionPenal = situacionPenal; }
 
     public String getDetallePena() { return detallePena; }

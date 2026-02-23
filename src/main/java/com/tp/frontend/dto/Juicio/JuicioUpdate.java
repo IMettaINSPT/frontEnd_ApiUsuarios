@@ -15,9 +15,9 @@ public class JuicioUpdate {
         @NotNull(message = "La fecha del juicio es obligatoria")
         private LocalDate fechaJuicio;
 
-        // CAMBIO: De String a boolean para coincidir con el resto del sistema
+        // MEJOR PRÁCTICA: Cambiado a Boolean para consistencia y manejo de nulos
         @NotNull(message = "Debe indicar si la persona fue condenada o no")
-        private boolean condenado;
+        private Boolean condenado;
 
         @NotNull(message = "El juez es obligatorio")
         private Long juezId;
@@ -43,8 +43,9 @@ public class JuicioUpdate {
         public LocalDate getFechaJuicio() { return fechaJuicio; }
         public void setFechaJuicio(LocalDate fechaJuicio) { this.fechaJuicio = fechaJuicio; }
 
-        public boolean isCondenado() { return condenado; }
-        public void setCondenado(boolean condenado) { this.condenado = condenado; }
+        // Cambiado a getCondenado por convención de objetos Boolean
+        public Boolean getCondenado() { return condenado; }
+        public void setCondenado(Boolean condenado) { this.condenado = condenado; }
 
         public Long getJuezId() { return juezId; }
         public void setJuezId(Long juezId) { this.juezId = juezId; }

@@ -15,9 +15,9 @@ public class JuicioRequest {
     @NotNull(message = "La fecha del juicio es obligatoria")
     private LocalDate fechaJuicio;
 
-    // CAMBIO: Ahora es boolean. true = condenado, false = absuelto.
+    // MEJOR PRÁCTICA: Usar Boolean (Wrapper) para permitir nulidad inicial en el form
     @NotNull(message = "Debe indicar si la persona fue condenada o no")
-    private boolean condenado;
+    private Boolean condenado;
 
     @NotNull(message = "El juez es obligatorio")
     private Long juezId;
@@ -42,9 +42,9 @@ public class JuicioRequest {
     public LocalDate getFechaJuicio() { return fechaJuicio; }
     public void setFechaJuicio(LocalDate fechaJuicio) { this.fechaJuicio = fechaJuicio; }
 
-    // Getter y Setter para boolean
-    public boolean isCondenado() { return condenado; }
-    public void setCondenado(boolean condenado) { this.condenado = condenado; }
+    // Al ser Boolean (objeto), la convención de Java Beans recomienda usar 'get'
+    public Boolean getCondenado() { return condenado; }
+    public void setCondenado(Boolean condenado) { this.condenado = condenado; }
 
     public Long getJuezId() { return juezId; }
     public void setJuezId(Long juezId) { this.juezId = juezId; }

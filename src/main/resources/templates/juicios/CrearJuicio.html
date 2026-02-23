@@ -42,7 +42,7 @@
                     <option value="">-- Seleccionar --</option>
                     <option th:each="a : ${asaltos}"
                             th:value="${a.id}"
-                            th:text="${a.codigo + ' - ' + a.fecha}">1</option>
+                            th:text="${a.codigo + ' - ' + #temporals.format(a.fechaAsalto, 'dd/MM/yyyy')}">1</option>
                 </select>
                 <div th:if="${#fields.hasErrors('asaltoId')}"
                      th:text="${#fields.errors('asaltoId')[0]}" style="color:#ffb4b4;"></div>
@@ -63,12 +63,12 @@
 
             <div>
                 <label>Situación Penal</label>
-                <select th:field="*{situacionPenal}" id="situacionPenal" onchange="toggleCondena()">
+                <select th:field="*{condenado}" id="situacionPenal" onchange="toggleCondena()">
                     <option value="">-- Seleccionar --</option>
-                    <option value="Condenado">Condenado</option>
-                    <option value="Absuelto">Absuelto</option>
+                    <option th:value="true">Condenado</option>
+                    <option th:value="false">Absuelto</option>
                 </select>
-                <div class="error" th:if="${#fields.hasErrors('situacionPenal')}" th:errors="*{situacionPenal}"></div>
+                <div class="error" th:if="${#fields.hasErrors('condenado')}" th:errors="*{condenado}"></div>
             </div>
 
             <div id="seccion-condena" style="display: none; border-left: 4px solid #007bff; padding-left: 15px; margin-top: 10px;">
@@ -86,10 +86,23 @@
             </div>
 
             <div class="actions">
-                <button class="btn btn-primary" type="submit" th:disabled="${!(hayJueces && hayDetenidos)}">Guardar</button>
+                <button class="btn btn-primary" type="submit" th:disabled="${!(hayJueces && hayDetenidos && hayAsaltos)}">Guardar</button>
                 <a class="btn" th:href="@{/juicios}">Cancelar</a>
             </div>
         </form>
     </div>
+
+    <script th:inline="javascript">
+        function toggleCondena() {
+            const select = document.getElementById('situacionPenal');
+            const seccion = document.getElementById('seccion-condena');
+            if (select.value === "true") {
+                seccion.style.display = 'block';
+            } else {
+                seccion.style.display = 'none';
+            }
+        }
+        window.onload = toggleCondena;
+    </script>
 </section>
 </html>

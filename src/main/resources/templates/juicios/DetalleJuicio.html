@@ -24,7 +24,6 @@
                 <div class="error" th:if="${#fields.hasErrors('expediente')}" th:errors="*{expediente}"></div>
             </div>
 
-
             <div>
                 <label>Fecha juicio</label>
                 <input type="date" th:field="*{fechaJuicio}" data-required>
@@ -67,15 +66,14 @@
                      th:text="${#fields.errors('personaDetenidaId')[0]}" style="color:#ffb4b4;"></div>
             </div>
 
-
             <div>
                 <label>Situación Penal</label>
-                <select th:field="*{situacionPenal}" id="situacionPenal" onchange="toggleCondena()">
+                <select th:field="*{condenado}" id="situacionPenal" onchange="toggleCondena()">
                     <option value="">-- Seleccionar --</option>
-                    <option value="Condenado">Condenado</option>
-                    <option value="Absuelto">Absuelto</option>
+                    <option th:value="true">Condenado</option>
+                    <option th:value="false">Absuelto</option>
                 </select>
-                <div class="error" th:if="${#fields.hasErrors('situacionPenal')}" th:errors="*{situacionPenal}"></div>
+                <div class="error" th:if="${#fields.hasErrors('condenado')}" th:errors="*{condenado}"></div>
             </div>
 
             <div id="seccion-condena" style="display: none; border-left: 4px solid #007bff; padding-left: 15px; margin-top: 10px;">
@@ -92,8 +90,6 @@
                 </div>
             </div>
 
-
-
             <div class="actions">
                 <button class="btn btn-primary" type="submit">Guardar cambios</button>
                 <a class="btn" th:href="@{/juicios}">Volver</a>
@@ -101,5 +97,24 @@
             </div>
         </form>
     </div>
+
+    <script th:inline="javascript">
+        function toggleCondena() {
+            const select = document.getElementById('situacionPenal');
+            const seccion = document.getElementById('seccion-condena');
+            // Verificamos si es el string "true" o el booleano true
+            if (select.value === "true" || select.value === true) {
+                seccion.style.display = 'block';
+            } else {
+                seccion.style.display = 'none';
+            }
+        }
+
+        // EJECUCIÓN INICIAL: Fundamental en la edición
+        // Esto hace que si el juicio ya era condenado, la sección se vea al abrir la página
+        document.addEventListener("DOMContentLoaded", function() {
+            toggleCondena();
+        });
+    </script>
 </section>
 </html>
