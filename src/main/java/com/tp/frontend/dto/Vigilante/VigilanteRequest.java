@@ -16,10 +16,12 @@ public class VigilanteRequest {
 
 
     public String getCodigo() { return codigo; }
-    public Integer getEdad() { return edad; }
-
     public void setCodigo(String codigo) { this.codigo = codigo; }
+
+    public Integer getEdad() { return edad; }
     public void setEdad(Integer edad) { this.edad = edad; }
+
+
 
 
 }
