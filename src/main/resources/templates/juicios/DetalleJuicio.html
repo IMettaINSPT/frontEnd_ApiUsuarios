@@ -11,16 +11,24 @@
 
     <div class="card" style="margin-top:16px;">
         <div class="card-title">Editar</div>
-
+        <br>
         <form th:action="@{/juicios/{id}(id=${item.id})}" method="post" th:object="${update}" class="form">
 
             <div th:if="${#fields.hasGlobalErrors()}" class="error">
                 <div th:each="e : ${#fields.globalErrors()}" th:text="${e}"></div>
             </div>
+
+            <div>
+                <label>Número de Expediente</label>
+                <input type="text" th:field="*{expediente}">
+                <div class="error" th:if="${#fields.hasErrors('expediente')}" th:errors="*{expediente}"></div>
+            </div>
+
+
             <div>
                 <label>Fecha juicio</label>
-                <input type="date" th:field="*{fecha}" data-required>
-                <div class="error" th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></div>
+                <input type="date" th:field="*{fechaJuicio}" data-required>
+                <div class="error" th:if="${#fields.hasErrors('fechaJuicio')}" th:errors="*{fechaJuicio}"></div>
             </div>
 
             <div>
@@ -29,25 +37,62 @@
                     <option value="">-- Seleccionar --</option>
                     <option th:each="j : ${jueces}"
                             th:value="${j.id}"
-                            th:text="${juecesMap != null && juecesMap[j.id] != null ? juecesMap[j.id] : j.id}">
-                    </option>
+                            th:text="${j.claveJuzgado + ' - ' + j.apellido}">1</option>
                 </select>
-                <div class="error" th:if="${#fields.hasErrors('juezId')}" th:errors="*{juezId}"></div>
+                <div th:if="${#fields.hasErrors('juezId')}"
+                     th:text="${#fields.errors('juezId')[0]}" style="color:#ffb4b4;"></div>
             </div>
 
             <div>
-                <label>Persona detenida</label>
+                <label>Delito</label>
+                <select th:field="*{asaltoId}" data-required>
+                    <option value="">-- Seleccionar --</option>
+                    <option th:each="a : ${asaltos}"
+                            th:value="${a.id}"
+                            th:text="${a.codigo + ' - ' + a.fecha}">1</option>
+                </select>
+                <div th:if="${#fields.hasErrors('asaltoId')}"
+                     th:text="${#fields.errors('asaltoId')[0]}" style="color:#ffb4b4;"></div>
+            </div>
+
+            <div>
+                <label>Detenido</label>
                 <select th:field="*{personaDetenidaId}" data-required>
                     <option value="">-- Seleccionar --</option>
-
-                    <!-- ✅ ahora itera delincuentes (no contratos) -->
-                    <option th:each="d : ${delincuentes}"
-                            th:value="${d.id}"
-                            th:text="${DelincuentesLabelMap != null && DelincuentesLabelMap[d.id] != null ? DelincuentesLabelMap[d.id] : d.id}">
-                    </option>
+                    <option th:each="p : ${persona}"
+                            th:value="${p.id}"
+                            th:text="${p.codigo + ' - ' + p.apellido}">1</option>
                 </select>
-                <div class="error" th:if="${#fields.hasErrors('personaDetenidaId')}" th:errors="*{personaDetenidaId}"></div>
+                <div th:if="${#fields.hasErrors('personaDetenidaId')}"
+                     th:text="${#fields.errors('personaDetenidaId')[0]}" style="color:#ffb4b4;"></div>
             </div>
+
+
+            <div>
+                <label>Situación Penal</label>
+                <select th:field="*{situacionPenal}" id="situacionPenal" onchange="toggleCondena()">
+                    <option value="">-- Seleccionar --</option>
+                    <option value="Condenado">Condenado</option>
+                    <option value="Absuelto">Absuelto</option>
+                </select>
+                <div class="error" th:if="${#fields.hasErrors('situacionPenal')}" th:errors="*{situacionPenal}"></div>
+            </div>
+
+            <div id="seccion-condena" style="display: none; border-left: 4px solid #007bff; padding-left: 15px; margin-top: 10px;">
+                <div>
+                    <label>Fecha Inicio de Condena</label>
+                    <input type="date" th:field="*{fechaInicioCondena}">
+                    <div class="error" th:if="${#fields.hasErrors('fechaInicioCondena')}" th:errors="*{fechaInicioCondena}"></div>
+                </div>
+
+                <div>
+                    <label>Tiempo de Condena (meses)</label>
+                    <input type="number" th:field="*{tiempoCondenaMeses}" min="1">
+                    <div class="error" th:if="${#fields.hasErrors('tiempoCondenaMeses')}" th:errors="*{tiempoCondenaMeses}"></div>
+                </div>
+            </div>
+
+
 
             <div class="actions">
                 <button class="btn btn-primary" type="submit">Guardar cambios</button>
