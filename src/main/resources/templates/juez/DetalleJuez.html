@@ -20,8 +20,8 @@
                     <strong th:text="${jui.expediente}"></strong> -
                     <span th:text="${#temporals.format(jui.fechaJuicio, 'dd/MM/yyyy')}">01/01/2026</span><br>
 
-                    <small th:if="${jui.personas != null}"
-                           th:text="${'Código: ' + jui.personas.codigo + ' - ' + jui.personas.apellido + ')' : ' (Sin persona detenida asignada)')+
+                    <small th:if="${jui.persona != null}"
+                           th:text="${'Código: ' + jui.persona.codigo + ' - ' + jui.persona.apellido + ')' : ' (Sin persona detenida asignada)')+
                            ' - ' + jui.situacionPenal}">
                     </small>
                 </li>

@@ -13,15 +13,31 @@
         <table>
             <thead>
             <tr>
-                <th>ID</th><th>Fecha</th><th>Juez</th><th>Persona detenida</th><th>Acciones</th>
+                <th>Nro.Expediente</th>
+                <th>Fecha</th>
+                <th>Juez</th>
+                <th>Delito</th>
+                <th>Detenido</th>
+                <th>Situación Penal</th>
+                <th>Detalle de pena</th>
+                <th>Acciones</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="j : ${items}">
-                <td th:text="${j.id}">1</td>
-                <td th:text="${j.fecha}">2026-01-01</td>
-                <td th:text="${j.juezId}">1</td>
-                <td th:text="${j.personaDetenidaId}">1</td>
+                <td th:text="${j.expediente}">EXPEDIENTE</td>
+                <td th:text="${#temporals.format(j.fechaJuicio, 'dd/MM/yyyy')}"></td>
+                <td th:text="${j.juez != null ? ' Clave Juzgado: ' + j.juez.claveJuzgado + ' - ' + j.juez.apellido: 'Sin juez asociado'}">Sin juez asociado</td>
+                <td th:text="${j.asalto != null ? ' Código: ' + j.asalto.codigo + ' - ' + j.asalto.fechaAsalto: 'Sin asalto asociado'}">Sin asalto asociado</td>
+                <td th:text="${j.persona != null ?
+                    ' Código: ' + j.persona.codigo + ' ' + j.persona.apellido + (j.persona.banda != null ? ' (Banda N°: ' + j.persona.banda.numeroBanda + ')' : ' (Sin banda)') :
+                    'Sin persona detenida asignada'}">
+                </td>
+                <td th:text="${j.situacionPenal}">SITUACION-PENAL</td>
+                <td th:text="${j.detallePena}">DETALLE-PENA</td>
+
+
+
                 <td class="td-actions">
                     <a class="btn" th:href="@{/juicios/{id}(id=${j.id})}">Ver/Editar</a>
                     <a class="btn btn-danger" th:href="@{/juicios/{id}/confirm-delete(id=${j.id})}">Borrar</a>
@@ -29,7 +45,7 @@
             </tr>
 
             <tr th:if="${items == null || #lists.isEmpty(items)}">
-                <td colspan="5" class="muted">No hay juicios.</td>
+                <td colspan="8" class="muted">No hay juicios.</td>
             </tr>
             </tbody>
         </table>
