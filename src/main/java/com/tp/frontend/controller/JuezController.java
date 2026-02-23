@@ -2,7 +2,7 @@ package com.tp.frontend.controller;
 
 import com.tp.frontend.dto.Juez.JuezRequest;
 import com.tp.frontend.dto.Juez.JuezUpdate;
-import com.tp.frontend.dto.Juez.JuezResponse; // Asegúrate de que este import exista
+import com.tp.frontend.dto.Juez.JuezResponse;
 import com.tp.frontend.exception.ApiErrorException;
 import com.tp.frontend.service.JuezService;
 import com.tp.frontend.support.ErrorBinder;
@@ -17,6 +17,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClientRequestException;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/jueces")
@@ -80,9 +82,6 @@ public class JuezController {
         }
     }
 
-    // =========================
-    // DETALLE / UPDATE (CORREGIDO)
-    // =========================
     @GetMapping("/{id}")
     public String detail(@PathVariable Long id, HttpSession session, Model model) {
         String token = jwt(session);
@@ -90,7 +89,6 @@ public class JuezController {
 
         JuezResponse item = service.get(token, id);
 
-        // CORRECCIÓN: Usamos setters ya que JuezUpdate es una clase con campos privados
         JuezUpdate update = new JuezUpdate();
         update.setClaveJuzgado(item.getClaveJuzgado());
         update.setNombre(item.getNombre());

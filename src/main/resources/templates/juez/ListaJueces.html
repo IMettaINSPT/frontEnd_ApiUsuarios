@@ -26,15 +26,15 @@
                 <td th:text="${j.cantidadJuicios}">CANTIDAD JUICIOS</td>
 
                 <td>
-                    <select th:if="${not #lists.isEmpty(j.juicios)}" class="form-select form-select-sm">
-                        <option selected>Ver juicios asociados ([[${#lists.size(j.juicios)}]])</option>
+                    <select th:if="${j.juicios != null and !j.juicios.isEmpty()}" class="form-select form-select-sm">
+                        <option selected th:text="'Ver juicios asociados (' + ${j.juicios.size()} + ')'"></option>
                         <option th:each="jui : ${j.juicios}"
                                 th:text="${jui.expediente + ' - ' + #temporals.format(jui.fechaJuicio, 'dd/MM/yyyy') +
-                                (jui.persona != null ? ' (Código N°: ' + jui.persona.codigo + ' - ' + jui.persona.apellido + ')' : ' (Sin persona detenida asignada)')+
-                                (jui.situacionPenal) }">
+                                (jui.persona != null ? ' (Código N°: ' + jui.persona.codigo + ' - ' + jui.persona.apellido + ')' : ' (Sin persona detenida asignada)') +
+                                ' [' + (jui.situacionPenal != null ? jui.situacionPenal : 'PENDIENTE') + ']'}">
                         </option>
                     </select>
-                    <span th:if="${#lists.isEmpty(j.juicios)}" class="muted">Sin juicios asociados</span>
+                    <span th:if="${j.juicios == null or j.juicios.isEmpty()}" class="muted">Sin juicios asociados</span>
                 </td>
 
                 <td class="td-actions">
