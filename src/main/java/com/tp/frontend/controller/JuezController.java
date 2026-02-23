@@ -2,6 +2,7 @@ package com.tp.frontend.controller;
 
 import com.tp.frontend.dto.Juez.JuezRequest;
 import com.tp.frontend.dto.Juez.JuezUpdate;
+import com.tp.frontend.dto.Juez.JuezResponse; // Asegúrate de que este import exista
 import com.tp.frontend.exception.ApiErrorException;
 import com.tp.frontend.service.JuezService;
 import com.tp.frontend.support.ErrorBinder;
@@ -64,39 +65,37 @@ public class JuezController {
         log.info("POST /jueces create form={}", form);
 
         if (br.hasErrors()) {
-            log.warn("POST /jueces create SSR validation errors={}", br.getErrorCount());
             return "juez/CrearJuez";
         }
 
         try {
             service.create(jwt(session), form);
-            log.info("POST /jueces create OK");
             return "redirect:/jueces";
-
         } catch (ApiErrorException ex) {
-            log.warn("POST /jueces create ApiError status={} code={} msg={}",
-                    ex.getHttpStatus(),
-                    ex.getApiError() != null ? ex.getApiError().getCode() : null,
-                    ex.getApiError() != null ? ex.getApiError().getMessage() : ex.getMessage());
-
             errorBinder.bind(ex, br);
             return "juez/CrearJuez";
-
         } catch (WebClientRequestException ex) {
-            log.warn("POST /jueces create transport error: {}", ex.getMessage());
-            addGlobalError(br, "No pudimos conectarnos al servidor. Intentá nuevamente.");
+            addGlobalError(br, "Error de conexión.");
             return "juez/CrearJuez";
         }
     }
 
+    // =========================
+    // DETALLE / UPDATE (CORREGIDO)
+    // =========================
     @GetMapping("/{id}")
     public String detail(@PathVariable Long id, HttpSession session, Model model) {
         String token = jwt(session);
         log.info("GET /juez/{}", id);
 
-        var item = service.get(token, id);
+        JuezResponse item = service.get(token, id);
 
-        var update = new JuezUpdate(item.getCodigo(), item.getNombre(),item.getApellido());
+        // CORRECCIÓN: Usamos setters ya que JuezUpdate es una clase con campos privados
+        JuezUpdate update = new JuezUpdate();
+        update.setClaveJuzgado(item.getClaveJuzgado());
+        update.setNombre(item.getNombre());
+        update.setApellido(item.getApellido());
+        update.setAnosServicio(item.getAnosServicio());
 
         model.addAttribute("item", item);
         model.addAttribute("update", update);
@@ -122,22 +121,13 @@ public class JuezController {
 
         try {
             service.update(token, id, update);
-            log.info("POST /juez/{} update OK", id);
             return "redirect:/jueces";
-
         } catch (ApiErrorException ex) {
-            log.warn("POST /juez/{} update ApiError status={} code={} msg={}",
-                    id, ex.getHttpStatus(),
-                    ex.getApiError() != null ? ex.getApiError().getCode() : null,
-                    ex.getApiError() != null ? ex.getApiError().getMessage() : ex.getMessage());
-
             errorBinder.bind(ex, br);
             model.addAttribute("item", service.get(token, id));
             return "juez/DetalleJuez";
-
         } catch (WebClientRequestException ex) {
-            log.warn("POST /juez/{} update transport error: {}", id, ex.getMessage());
-            addGlobalError(br, "No pudimos conectarnos al servidor. Intentá nuevamente.");
+            addGlobalError(br, "Error de conexión.");
             model.addAttribute("item", service.get(token, id));
             return "juez/DetalleJuez";
         }
@@ -146,7 +136,6 @@ public class JuezController {
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/{id}/confirm-delete")
     public String confirmDelete(@PathVariable Long id, HttpSession session, Model model) {
-        log.info("GET /juez/{}/confirm-delete", id);
         model.addAttribute("item", service.get(jwt(session), id));
         return "juez/ConfirmarBorrado";
     }
@@ -155,31 +144,11 @@ public class JuezController {
     @PostMapping("/{id}/delete")
     public String delete(@PathVariable Long id, HttpSession session, Model model) {
         String token = jwt(session);
-        log.info("POST /juez/{}/delete", id);
-
         try {
             service.delete(token, id);
-            log.info("POST /juez/{}/delete OK", id);
             return "redirect:/jueces";
-
         } catch (ApiErrorException ex) {
-            log.warn("POST /juez/{}/delete ApiError status={} code={} msg={}",
-                    id, ex.getHttpStatus(),
-                    ex.getApiError() != null ? ex.getApiError().getCode() : null,
-                    ex.getApiError() != null ? ex.getApiError().getMessage() : ex.getMessage());
-
             model.addAttribute("item", service.get(token, id));
-            model.addAttribute("deleteError",
-                    ex.getApiError() != null && ex.getApiError().getMessage() != null
-                            ? ex.getApiError().getMessage()
-                            : "No se pudo eliminar el juez. Intentá nuevamente.");
-
-            return "juez/ConfirmarBorrado";
-
-        } catch (WebClientRequestException ex) {
-            log.warn("POST /juez/{}/delete transport error: {}", id, ex.getMessage());
-            model.addAttribute("item", service.get(token, id));
-            model.addAttribute("deleteError", "No pudimos conectarnos al servidor. Intentá nuevamente.");
             return "juez/ConfirmarBorrado";
         }
     }

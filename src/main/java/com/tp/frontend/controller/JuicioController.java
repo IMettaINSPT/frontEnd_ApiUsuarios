@@ -4,6 +4,7 @@ import com.tp.frontend.dto.PersonaDetenida.PersonaDetenidaResponse;
 import com.tp.frontend.dto.Juez.JuezResponse;
 import com.tp.frontend.dto.Juicio.JuicioRequest;
 import com.tp.frontend.dto.Juicio.JuicioUpdate;
+import com.tp.frontend.dto.Juicio.JuicioResponse; // Asegúrate de importar esto
 import com.tp.frontend.exception.ApiErrorException;
 import com.tp.frontend.service.JuezService;
 import com.tp.frontend.service.JuicioService;
@@ -39,7 +40,7 @@ public class JuicioController {
 
     public JuicioController(JuicioService juicioService,
                             JuezService juezService,
-                             PersonaDetenidaService personaDetenidaService,
+                            PersonaDetenidaService personaDetenidaService,
                             ErrorBinder errorBinder) {
         this.juicioService = juicioService;
         this.juezService = juezService;
@@ -72,36 +73,14 @@ public class JuicioController {
                 delincuentes.stream().collect(Collectors.toMap(PersonaDetenidaResponse::id, this::delincuenteLabel)));
     }
 
-    /**
-     * Genera un label "humano" sin mostrar id.
-     * Usa reflexión para no romper compilación si el DTO cambia nombres de getters.
-     * Si querés algo perfecto, reemplazá esto por campos concretos (ej: codigo/fecha/estado/etc.).
-     */
     private String delincuenteLabel(PersonaDetenidaResponse c) {
         if (c == null) return "(Delincuente no disponible)";
-
-        // Intentos comunes (ajustá si querés)
-        String codigo = firstNonBlank(
-                invokeString(c, "Codigo")
-        );
-
+        String codigo = firstNonBlank(invokeString(c, "Codigo"));
         String nombre = invokeString(c, "nombre");
-
         String banda  =  invokeString(c.banda(), "numeroBanda");
-
-        // Armamos un label compacto sin IDs
         String base = (codigo != null) ? codigo : "Delincuente";
         if (nombre != null && !nombre.isBlank()) base = base + " • " + nombre;
         if (banda != null && !banda.isBlank()) base = base + " • " + banda;
-
-        // Último recurso: toString (ojo: si tu toString incluye id, cambiá esto)
-        if ("Delincuente".equals(base)) {
-            String ts = String.valueOf(c);
-            if (ts != null && !ts.isBlank() && !ts.matches(".*\\b\\d+\\b.*")) { // evita strings que parezcan puro id
-                return ts;
-            }
-        }
-
         return base;
     }
 
@@ -123,10 +102,6 @@ public class JuicioController {
         return null;
     }
 
-    // =========================
-    // LISTA
-    // =========================
-
     @GetMapping
     public String list(HttpSession session, Model model) {
         log.info("GET /juicios");
@@ -134,19 +109,13 @@ public class JuicioController {
         return "juicios/ListaJuicios";
     }
 
-    // =========================
-    // CREATE
-    // =========================
-
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/new")
     public String newForm(HttpSession session, Model model) {
         String token = jwt(session);
         log.info("GET /juicios/new");
-
         model.addAttribute("form", new JuicioRequest());
         cargarCombos(model, token);
-
         return "juicios/CrearJuicio";
     }
 
@@ -156,48 +125,46 @@ public class JuicioController {
                          BindingResult br,
                          HttpSession session,
                          Model model) {
-
         String token = jwt(session);
-        log.info("POST /juicios create form={}", form);
-
         if (br.hasErrors()) {
             cargarCombos(model, token);
             return "juicios/CrearJuicio";
         }
-
         try {
             juicioService.create(token, form);
             return "redirect:/juicios";
-
         } catch (ApiErrorException ex) {
             errorBinder.bind(ex, br);
             cargarCombos(model, token);
             return "juicios/CrearJuicio";
-
         } catch (WebClientRequestException ex) {
-            log.warn("POST /juicios create transport error: {}", ex.getMessage());
-            addGlobalError(br, "No pudimos conectarnos al servidor. Intentá nuevamente.");
+            addGlobalError(br, "No pudimos conectarnos al servidor.");
             cargarCombos(model, token);
             return "juicios/CrearJuicio";
         }
     }
 
     // =========================
-    // DETALLE / UPDATE
+    // DETALLE / UPDATE (CORREGIDO)
     // =========================
-
     @GetMapping("/{id}")
     public String detail(@PathVariable Long id, HttpSession session, Model model) {
         String token = jwt(session);
         log.info("GET /juicios/{}", id);
 
-        var item = juicioService.get(token, id);
+        JuicioResponse item = juicioService.get(token, id);
 
-        var update = new JuicioUpdate(item.getFecha(), item.getResultado(),item.getJuezId(), item.getPersonaDetenidaId());
+        // CORRECCIÓN: Usar setters porque JuicioUpdate ya no es un record con ese constructor
+        JuicioUpdate update = new JuicioUpdate();
+        update.setExpediente(item.getExpediente());
+        update.setFechaJuicio(item.getFechaJuicio());
+        update.setCondenado(item.isCondenado());
+        update.setJuezId(item.getJuez().getId());
+        update.setAsaltoId(item.getAsalto().getId());
+        update.setPersonaDetenidaId(item.getPersona().id());
 
         model.addAttribute("item", item);
         model.addAttribute("update", update);
-
         cargarCombos(model, token);
 
         return "juicios/DetalleJuicio";
@@ -210,48 +177,34 @@ public class JuicioController {
                          BindingResult br,
                          HttpSession session,
                          Model model) {
-
         String token = jwt(session);
-        log.info("POST /juicios/{} update={}", id, update);
-
         if (br.hasErrors()) {
             model.addAttribute("item", juicioService.get(token, id));
             cargarCombos(model, token);
             return "juicios/DetalleJuicio";
         }
-
         try {
             juicioService.update(token, id, update);
             return "redirect:/juicios/" + id;
-
         } catch (ApiErrorException ex) {
             errorBinder.bind(ex, br);
             model.addAttribute("item", juicioService.get(token, id));
             cargarCombos(model, token);
             return "juicios/DetalleJuicio";
-
         } catch (WebClientRequestException ex) {
-            log.warn("POST /juicios/{} update transport error: {}", id, ex.getMessage());
-            addGlobalError(br, "No pudimos conectarnos al servidor. Intentá nuevamente.");
+            addGlobalError(br, "Error de conexión.");
             model.addAttribute("item", juicioService.get(token, id));
             cargarCombos(model, token);
             return "juicios/DetalleJuicio";
         }
     }
 
-    // =========================
-    // DELETE
-    // =========================
-
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/{id}/confirm-delete")
     public String confirmDelete(@PathVariable Long id, HttpSession session, Model model) {
         String token = jwt(session);
-        log.info("GET /juicios/{}/confirm-delete", id);
-
         model.addAttribute("item", juicioService.get(token, id));
         cargarCombos(model, token);
-
         return "juicios/ConfirmarBorrado";
     }
 
@@ -259,26 +212,11 @@ public class JuicioController {
     @PostMapping("/{id}/delete")
     public String delete(@PathVariable Long id, HttpSession session, Model model) {
         String token = jwt(session);
-        log.info("POST /juicios/{}/delete", id);
-
         try {
             juicioService.delete(token, id);
             return "redirect:/juicios";
-
         } catch (ApiErrorException ex) {
             model.addAttribute("item", juicioService.get(token, id));
-            model.addAttribute("deleteError",
-                    ex.getApiError() != null && ex.getApiError().getMessage() != null
-                            ? ex.getApiError().getMessage()
-                            : "No se pudo eliminar el juicio. Intentá nuevamente.");
-
-            cargarCombos(model, token);
-            return "juicios/ConfirmarBorrado";
-
-        } catch (WebClientRequestException ex) {
-            model.addAttribute("item", juicioService.get(token, id));
-            model.addAttribute("deleteError", "No pudimos conectarnos al servidor. Intentá nuevamente.");
-
             cargarCombos(model, token);
             return "juicios/ConfirmarBorrado";
         }

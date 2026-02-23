@@ -1,556 +1,130 @@
-2026-02-22 00:00:12.147 INFO 
+2026-02-23 01:40:56.473 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
-2026-02-22 00:00:12.226 INFO 
+2026-02-23 01:40:56.547 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
-                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 9732 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
-2026-02-22 00:00:12.229 INFO 
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 12248 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
+2026-02-23 01:40:56.549 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
-2026-02-22 00:00:16.229 INFO 
+2026-02-23 01:40:59.110 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
-2026-02-22 00:00:16.254 INFO 
+2026-02-23 01:40:59.125 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
-2026-02-22 00:00:16.259 INFO 
+2026-02-23 01:40:59.125 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-02-22 00:00:16.260 INFO 
+2026-02-23 01:40:59.125 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
-2026-02-22 00:00:16.420 INFO 
+2026-02-23 01:40:59.237 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-02-22 00:00:16.422 INFO 
+2026-02-23 01:40:59.253 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
-                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3999 ms
-2026-02-22 00:00:17.718 WARN 
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2591 ms
+2026-02-23 01:41:01.673 WARN 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: 8c367b27-6f1a-4721-ae5f-4c47044a48d0
+Using generated security password: 6655ca23-ee00-48e8-9508-49774b44dc7e
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2026-02-22 00:00:19.822 INFO 
+2026-02-23 01:41:02.207 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
-                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@74f280bd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@675b18ff, org.springframework.security.web.context.SecurityContextHolderFilter@5657967b, org.springframework.security.web.header.HeaderWriterFilter@2589d787, org.springframework.web.filter.CorsFilter@34279b8a, org.springframework.security.web.authentication.logout.LogoutFilter@1595d2b2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@afde064, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@578a5ce8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7c453c34, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@687389a6, org.springframework.security.web.session.SessionManagementFilter@16d431b4, org.springframework.security.web.access.ExceptionTranslationFilter@8b13d91, org.springframework.security.web.access.intercept.AuthorizationFilter@41aebbb4]
-2026-02-22 00:00:21.028 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
-2026-02-22 00:00:21.164 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
-2026-02-22 00:00:21.199 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 10.93 seconds (process running for 12.122)
-2026-02-22 00:00:21.362 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-02-22 00:00:21.363 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-02-22 00:00:21.365 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2026-02-22 00:00:21.474 INFO 
-                sid=- rid=11de5e80 ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
-                user=anon role=-
-                c.t.f.controller.AuthController - GET /login logout=null err=null
-2026-02-22 00:00:25.553 INFO 
-                sid=- rid=0a744500 ip=127.0.0.1 method=POST path=/auth/login status=
-                user=admin role=-
-                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
-2026-02-22 00:00:27.515 INFO 
-                sid=- rid=0a744500 ip=127.0.0.1 method=POST path=/auth/login status=
-                user=admin role=-
-                c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
-2026-02-22 00:01:05.065 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=db9b92f6 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
-                user=admin role=ADMIN
-                c.t.f.controller.BancoController - GET /bancos
-2026-02-22 00:01:10.514 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=d79e11d4 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
-                user=admin role=ADMIN
-                c.t.f.c.VigilantesController - GET /vigilantes
-2026-02-22 00:01:16.657 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=b38f34b4 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
-                user=admin role=ADMIN
-                c.t.f.controller.ContratosController - GET /contratos
-2026-02-22 00:01:23.994 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=c4d424cf ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
-2026-02-22 00:01:25.046 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=15bac1b4 ip=127.0.0.1 method=GET path=/asaltos status=
-                user=admin role=ADMIN
-                c.t.f.controller.AsaltoController - GET /asaltos
-2026-02-22 00:01:27.012 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=359fda04 ip=127.0.0.1 method=GET path=/asaltos/reporte status=
-                user=admin role=ADMIN
-                c.t.f.controller.AsaltoController - GET /asaltos/reporte sucursalId=null fecha=null desde=null hasta=null
-2026-02-22 00:01:34.055 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=a9566781 ip=127.0.0.1 method=GET path=/asaltos status=
-                user=admin role=ADMIN
-                c.t.f.controller.AsaltoController - GET /asaltos
-2026-02-22 00:01:36.422 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=a2af8525 ip=127.0.0.1 method=GET path=/jueces status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuezController - GET /jueces
-2026-02-22 00:03:22.536 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=5759069c ip=0:0:0:0:0:0:0:1 method=GET path=/jueces/new status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuezController - GET /juez/new
-2026-02-22 00:03:29.065 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=cdc550fd ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuezController - GET /jueces
-2026-02-22 00:03:55.079 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=9e8aaa54 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
-2026-02-22 00:04:11.757 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=3cc22c84 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
-                user=admin role=ADMIN
-                c.t.f.controller.AsaltoController - GET /asaltos
-2026-02-22 00:04:28.855 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=09c4b8f5 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
-2026-02-22 00:04:31.480 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=16aa0875 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas/2 status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas/2
-2026-02-22 00:04:37.567 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=12a0f0b2 ip=0:0:0:0:0:0:0:1 method=POST path=/personas-detenidas/2 status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - POST /personas-detenidas/2 update=PersonaDetenidaUpdate[codigo=567, nombre=Maria, apellido=Perez, bandaId=null]
-2026-02-22 00:04:37.715 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=12a0f0b2 ip=0:0:0:0:0:0:0:1 method=POST path=/personas-detenidas/2 status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - POST /personas-detenidas/2 update OK
-2026-02-22 00:04:37.715 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=699cfdbd ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas/2 status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas/2
-2026-02-22 00:04:39.965 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=82658216 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
-                user=admin role=ADMIN
-                c.t.f.c.VigilantesController - GET /vigilantes
-2026-02-22 00:04:40.597 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=96615892 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
-                user=admin role=ADMIN
-                c.t.f.controller.ContratosController - GET /contratos
-2026-02-22 00:04:43.014 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=2fd39c3c ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
-2026-02-22 00:04:43.815 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=8ae7ecb5 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
-2026-02-22 00:04:44.960 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=503b487e ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
-2026-02-22 00:04:46.293 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=68feedf1 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
-                user=admin role=ADMIN
-                c.t.f.controller.AsaltoController - GET /asaltos
-2026-02-22 00:05:05.729 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=31775d79 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuezController - GET /jueces
-2026-02-22 00:06:10.420 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=9d9a4f38 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
-                user=admin role=ADMIN
-                c.t.f.controller.BancoController - GET /bancos
-2026-02-22 00:11:21.378 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=8e633927 ip=0:0:0:0:0:0:0:1 method=GET path=/juicios status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuicioController - GET /juicios
-2026-02-22 00:11:37.378 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=dbd483c7 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuezController - GET /jueces
-2026-02-22 00:13:46.871 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=0f2c40ff ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
-                user=admin role=ADMIN
-                c.t.f.controller.BancoController - GET /bancos
-2026-02-22 00:13:51.108 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=cdc31cef ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales status=
-                user=admin role=ADMIN
-                c.t.f.controller.SucursalController - GET /sucursales
-2026-02-22 00:13:55.621 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=3b1a956b ip=0:0:0:0:0:0:0:1 method=GET path=/juicios status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuicioController - GET /juicios
-2026-02-22 00:31:48.605 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=bd4e6432 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuezController - GET /jueces
-2026-02-22 00:32:56.007 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=88d4ea9a ip=0:0:0:0:0:0:0:1 method=GET path=/juicios status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuicioController - GET /juicios
-2026-02-22 00:39:39.539 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=72bd7f08 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
-                user=admin role=ADMIN
-                c.t.f.controller.AsaltoController - GET /asaltos
-2026-02-22 00:39:58.330 INFO 
-                sid=76CE214E7C015594335CF972877C977B rid=ad65f22f ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
-2026-02-22 15:43:43.719 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
-2026-02-22 15:43:43.790 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 13644 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
-2026-02-22 15:43:43.792 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
-2026-02-22 15:43:46.551 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
-2026-02-22 15:43:46.576 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
-2026-02-22 15:43:46.589 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-02-22 15:43:46.590 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
-2026-02-22 15:43:46.740 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-02-22 15:43:46.742 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2851 ms
-2026-02-22 15:43:47.900 WARN 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
-
-Using generated security password: 2f0480d4-1416-4770-b97f-11775d2478dd
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2026-02-22 15:43:48.629 INFO 
-                sid= rid= ip= method= path= status=
-                user= role=
-                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@48d739f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@51e7589f, org.springframework.security.web.context.SecurityContextHolderFilter@350da119, org.springframework.security.web.header.HeaderWriterFilter@34136bd1, org.springframework.web.filter.CorsFilter@65cc5252, org.springframework.security.web.authentication.logout.LogoutFilter@45037e16, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6cbb7a7d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@34c7232c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@50ec4bfc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@42c12b3e, org.springframework.security.web.session.SessionManagementFilter@367d34c0, org.springframework.security.web.access.ExceptionTranslationFilter@28be7fec, org.springframework.security.web.access.intercept.AuthorizationFilter@20349058]
-2026-02-22 15:43:49.268 INFO 
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1595d2b2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@20349058, org.springframework.security.web.context.SecurityContextHolderFilter@26f0141, org.springframework.security.web.header.HeaderWriterFilter@691567ea, org.springframework.web.filter.CorsFilter@6cbb7a7d, org.springframework.security.web.authentication.logout.LogoutFilter@3815146b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@216372b7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6de7778f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@367d34c0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@cdb3c85, org.springframework.security.web.session.SessionManagementFilter@5c8d58ed, org.springframework.security.web.access.ExceptionTranslationFilter@11f23038, org.springframework.security.web.access.intercept.AuthorizationFilter@2313db84]
+2026-02-23 01:41:02.644 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
-2026-02-22 15:43:49.314 INFO 
+2026-02-23 01:41:02.676 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
-2026-02-22 15:43:49.330 INFO 
+2026-02-23 01:41:02.691 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
-                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 6.613 seconds (process running for 19.05)
-2026-02-22 15:44:13.123 INFO 
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 7.176 seconds (process running for 8.129)
+2026-02-23 01:41:20.819 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-02-22 15:44:13.124 INFO 
+2026-02-23 01:41:20.820 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
                 o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-02-22 15:44:13.126 INFO 
+2026-02-23 01:41:20.823 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
-                o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2026-02-22 15:44:13.278 INFO 
-                sid=727010AD5C059E21F7FF8671DB4D06B2 rid=4de93dce ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
-                user= role=
-                c.t.f.controller.AuthController - GET /login logout=null err=null
-2026-02-22 15:44:16.029 INFO 
-                sid=727010AD5C059E21F7FF8671DB4D06B2 rid=fcfdd3e9 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
-                user=admin role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-02-23 01:41:21.016 INFO 
+                sid=- rid=0d5b252e ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=-
                 c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
-2026-02-22 15:44:17.616 INFO 
-                sid=727010AD5C059E21F7FF8671DB4D06B2 rid=fcfdd3e9 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
-                user=admin role=
+2026-02-23 01:41:22.168 INFO 
+                sid=- rid=0d5b252e ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=-
                 c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
-2026-02-22 15:44:26.443 INFO 
-                sid=727010AD5C059E21F7FF8671DB4D06B2 rid=f9301fd4 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
-                user=admin role=ADMIN
-                c.t.f.controller.BancoController - GET /bancos
-2026-02-22 15:44:31.100 INFO 
-                sid=727010AD5C059E21F7FF8671DB4D06B2 rid=88db458c ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
-                user=admin role=ADMIN
-                c.t.f.controller.AsaltoController - GET /asaltos
-2026-02-22 15:44:35.128 INFO 
-                sid=727010AD5C059E21F7FF8671DB4D06B2 rid=8bd671b6 ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales status=
-                user=admin role=ADMIN
-                c.t.f.controller.SucursalController - GET /sucursales
-2026-02-22 15:44:39.296 INFO 
-                sid=727010AD5C059E21F7FF8671DB4D06B2 rid=a0d281ce ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
-                user=admin role=ADMIN
-                c.t.f.c.VigilantesController - GET /vigilantes
-2026-02-22 15:44:45.281 INFO 
-                sid=727010AD5C059E21F7FF8671DB4D06B2 rid=d9cf4e04 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
-                user=admin role=ADMIN
-                c.t.f.controller.ContratosController - GET /contratos
-2026-02-22 15:44:55.738 INFO 
-                sid=727010AD5C059E21F7FF8671DB4D06B2 rid=4fa7148c ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
-                user=admin role=ADMIN
-                c.t.f.controller.UsersController - GET /users msg=null err=null
-2026-02-22 17:56:13.654 INFO 
-                sid=A0BC87952FD3442084BFF91666BE7BFF rid=2e103e78 ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
-                user= role=
-                c.t.f.controller.AuthController - GET /login logout=null err=null
-2026-02-22 17:56:14.925 INFO 
-                sid=A0BC87952FD3442084BFF91666BE7BFF rid=e9934e72 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
-                user=admin role=
-                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
-2026-02-22 17:56:15.107 INFO 
-                sid=A0BC87952FD3442084BFF91666BE7BFF rid=e9934e72 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
-                user=admin role=
-                c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
-2026-02-22 17:56:19.652 INFO 
-                sid=A0BC87952FD3442084BFF91666BE7BFF rid=4e0482eb ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
+2026-02-23 01:41:28.446 INFO 
+                sid=D027B211781459288075AF71DB255BF9 rid=6393c09e ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
                 user=admin role=ADMIN
                 c.t.f.controller.JuezController - GET /jueces
-2026-02-22 17:56:31.740 INFO 
-                sid=A0BC87952FD3442084BFF91666BE7BFF rid=596cc6b4 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces/new status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuezController - GET /juez/new
-2026-02-22 17:56:35.644 INFO 
-                sid=A0BC87952FD3442084BFF91666BE7BFF rid=4f63c213 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuezController - GET /jueces
-2026-02-22 18:03:27.524 INFO 
-                sid=A0BC87952FD3442084BFF91666BE7BFF rid=df5904fe ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
-2026-02-22 18:03:34.433 INFO 
-                sid=A0BC87952FD3442084BFF91666BE7BFF rid=f2331b9d ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
-                user=admin role=ADMIN
-                c.t.f.controller.AsaltoController - GET /asaltos
-2026-02-22 18:03:38.280 INFO 
-                sid=A0BC87952FD3442084BFF91666BE7BFF rid=59752717 ip=0:0:0:0:0:0:0:1 method=GET path=/bandas status=
-                user=admin role=ADMIN
-                c.t.f.controller.BandasController - GET /bandas
-2026-02-22 18:03:40.570 INFO 
-                sid=A0BC87952FD3442084BFF91666BE7BFF rid=ffe6d5e5 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
-2026-02-22 18:03:59.368 INFO 
-                sid=A0BC87952FD3442084BFF91666BE7BFF rid=f2ffd96b ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
-2026-02-22 18:03:59.823 INFO 
-                sid=A0BC87952FD3442084BFF91666BE7BFF rid=62622b66 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
-                user=admin role=ADMIN
-                c.t.f.controller.AsaltoController - GET /asaltos
-2026-02-22 18:42:07.433 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=5c4c4460 ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
-                user= role=
-                c.t.f.controller.AuthController - GET /login logout=null err=null
-2026-02-22 18:42:09.213 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=c122177a ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
-                user=admin role=
-                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
-2026-02-22 18:42:09.577 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=c122177a ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
-                user=admin role=
-                c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
-2026-02-22 18:42:13.319 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=fba22524 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
-                user=admin role=ADMIN
-                c.t.f.controller.AsaltoController - GET /asaltos
-2026-02-22 18:42:14.945 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=49d436e0 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/1 status=
-                user=admin role=ADMIN
-                c.t.f.controller.AsaltoController - GET /asaltos/1
-2026-02-22 18:43:17.111 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=eafb1ebe ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuezController - GET /jueces
-2026-02-22 18:43:20.631 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=4b17b06a ip=0:0:0:0:0:0:0:1 method=GET path=/jueces/new status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuezController - GET /juez/new
-2026-02-22 18:43:22.526 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=9624d1e9 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuezController - GET /jueces
-2026-02-22 18:43:23.983 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=c88f391a ip=0:0:0:0:0:0:0:1 method=GET path=/jueces/new status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuezController - GET /juez/new
-2026-02-22 18:43:46.348 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=02fe0517 ip=0:0:0:0:0:0:0:1 method=POST path=/jueces status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuezController - POST /jueces create form=com.tp.frontend.dto.Juez.JuezRequest@12bdd20d
-2026-02-22 18:43:46.472 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=02fe0517 ip=0:0:0:0:0:0:0:1 method=POST path=/jueces status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuezController - POST /jueces create OK
-2026-02-22 18:43:46.472 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=e968ec3a ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuezController - GET /jueces
-2026-02-22 18:44:09.081 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=9cf790e3 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces/1 status=
+2026-02-23 01:41:42.909 INFO 
+                sid=D027B211781459288075AF71DB255BF9 rid=c2b278f9 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces/1 status=
                 user=admin role=ADMIN
                 c.t.f.controller.JuezController - GET /juez/1
-2026-02-22 18:44:18.391 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=45042c07 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
+2026-02-23 01:41:56.573 INFO 
+                sid=D027B211781459288075AF71DB255BF9 rid=f6390153 ip=0:0:0:0:0:0:0:1 method=POST path=/jueces/1 status=
                 user=admin role=ADMIN
-                c.t.f.controller.AsaltoController - GET /asaltos
-2026-02-22 18:44:19.998 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=ac00769e ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/1 status=
-                user=admin role=ADMIN
-                c.t.f.controller.AsaltoController - GET /asaltos/1
-2026-02-22 18:44:24.870 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=41fd7f72 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
+                c.t.f.controller.JuezController - POST /juez/1 update=com.tp.frontend.dto.Juez.JuezUpdate@1e840bda
+2026-02-23 01:41:56.673 INFO 
+                sid=D027B211781459288075AF71DB255BF9 rid=21d4ab82 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
                 user=admin role=ADMIN
                 c.t.f.controller.JuezController - GET /jueces
-2026-02-22 18:44:26.519 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=f0792166 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
+2026-02-23 01:42:05.035 INFO 
+                sid=D027B211781459288075AF71DB255BF9 rid=02abf6d0 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces/1 status=
                 user=admin role=ADMIN
-                c.t.f.controller.AsaltoController - GET /asaltos
-2026-02-22 18:44:27.743 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=99ab74f7 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/1 status=
-                user=admin role=ADMIN
-                c.t.f.controller.AsaltoController - GET /asaltos/1
-2026-02-22 19:00:55.088 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=3fde3497 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
+                c.t.f.controller.JuezController - GET /juez/1
+2026-02-23 01:42:20.616 INFO 
+                sid=D027B211781459288075AF71DB255BF9 rid=98561c49 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
                 user=admin role=ADMIN
                 c.t.f.controller.JuezController - GET /jueces
-2026-02-22 19:00:57.119 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=3f896973 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces/new status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuezController - GET /juez/new
-2026-02-22 19:01:02.047 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=550f1db4 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuezController - GET /jueces
-2026-02-22 19:01:06.267 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=91c8fe04 ip=0:0:0:0:0:0:0:1 method=GET path=/juicios status=
+2026-02-23 01:42:28.367 INFO 
+                sid=D027B211781459288075AF71DB255BF9 rid=844eaab9 ip=0:0:0:0:0:0:0:1 method=GET path=/juicios status=
                 user=admin role=ADMIN
                 c.t.f.controller.JuicioController - GET /juicios
-2026-02-22 19:01:08.073 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=4d290b9c ip=0:0:0:0:0:0:0:1 method=GET path=/juicios/new status=
-                user=admin role=ADMIN
-                c.t.f.controller.JuicioController - GET /juicios/new
-2026-02-22 19:02:13.951 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=65bf53dd ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
-2026-02-22 19:02:16.226 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=32c65dbc ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas/1 status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas/1
-2026-02-22 19:03:12.068 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=57477606 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
-2026-02-22 19:03:15.607 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=4b3abde4 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas/4 status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas/4
-2026-02-22 19:10:33.829 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=eaa6d319 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
-2026-02-22 19:10:40.698 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=d8695ca4 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas/1 status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas/1
-2026-02-22 19:10:43.611 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=7aebd9bc ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
-2026-02-22 19:10:44.867 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=7ecbd7a0 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas/3 status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas/3
-2026-02-22 19:23:36.616 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=8aff7fe2 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
-2026-02-22 19:23:38.823 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=487a2aad ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas/new status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas/new
-2026-02-22 19:23:57.197 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=906fc2ea ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
-2026-02-22 19:23:58.510 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=c7e4d500 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas/1 status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas/1
-2026-02-22 19:24:02.374 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=0416d84e ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
-2026-02-22 19:37:28.088 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=8b582618 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
-                user=admin role=ADMIN
-                c.t.f.c.VigilantesController - GET /vigilantes
-2026-02-22 19:37:30.752 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=e240670b ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/new status=
-                user=admin role=ADMIN
-                c.t.f.c.VigilantesController - GET /vigilantes/new
-2026-02-22 19:49:32.420 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=9c04cd88 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
-                user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
-2026-02-22 19:49:32.442 ERROR
+2026-02-23 01:42:28.428 ERROR
                 sid= rid= ip= method= path= status=
                 user= role=
-                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=GET path=/personasDetenidas status=401 contentType=null apiMessage='Tu sesión venció o no es válida. Iniciá sesión nuevamente.' rawSnippet=''
-2026-02-22 19:49:32.450 ERROR
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=GET path=/juicios status=500 contentType=application/json apiMessage='Error interno del servidor' rawSnippet='{"message":"Error interno del servidor","status":"INTERNAL_SERVER_ERROR","timestamp":"2026-02-23T01:42:28.3960704-03:00","trace":null,"code":"INTERNAL_ERROR","fieldErrors":{}}'
+2026-02-23 01:42:28.428 ERROR
                 sid= rid= ip= method= path= status=
                 user= role=
-                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=GET path=/personasDetenidas exClass=com.tp.frontend.exception.ApiErrorException msg=Tu sesión venció o no es válida. Iniciá sesión nuevamente.
-com.tp.frontend.exception.ApiErrorException: Tu sesión venció o no es válida. Iniciá sesión nuevamente.
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=GET path=/juicios exClass=com.tp.frontend.exception.ApiErrorException msg=Error interno del servidor
+com.tp.frontend.exception.ApiErrorException: Error interno del servidor
 	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$11(BaseApiClient.java:155)
 	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onNext(FluxOnAssembly.java:539)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337)
 	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
-	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onComplete(FluxDefaultIfEmpty.java:134)
-	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onComplete(FluxOnAssembly.java:549)
-	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onComplete(FluxMapFuseable.java:152)
-	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onComplete(FluxContextWrite.java:126)
-	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onComplete(FluxMapFuseable.java:350)
-	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onComplete(FluxFilterFuseable.java:391)
-	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2098)
 	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
 	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
 	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
@@ -591,37 +165,36 @@ com.tp.frontend.exception.ApiErrorException: Tu sesión venció o no es válida.
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-02-22 19:49:32.460 WARN 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=9c04cd88 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
+2026-02-23 01:42:28.445 WARN 
+                sid=D027B211781459288075AF71DB255BF9 rid=844eaab9 ip=0:0:0:0:0:0:0:1 method=GET path=/juicios status=
                 user=admin role=ADMIN
-                c.t.f.web.GlobalExceptionHandler - FRONT ApiErrorException rid=7e980971-d2d6-4d14-b046-fb83ac7221a4 path=/personas-detenidas status=401 code=null msg=Tu sesión venció o no es válida. Iniciá sesión nuevamente.
-2026-02-22 19:49:34.287 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=5201628d ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/new status=
+                c.t.f.web.GlobalExceptionHandler - FRONT ApiErrorException rid=61d64237-cc41-4e81-9111-fce66994d2a5 path=/juicios status=500 code=INTERNAL_ERROR msg=Error interno del servidor
+2026-02-23 01:42:30.131 INFO 
+                sid=D027B211781459288075AF71DB255BF9 rid=f56cef38 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
                 user=admin role=ADMIN
-                c.t.f.c.VigilantesController - GET /vigilantes/new
-2026-02-22 19:49:36.082 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=53d78594 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
+                c.t.f.controller.JuezController - GET /jueces
+2026-02-23 01:42:31.911 INFO 
+                sid=D027B211781459288075AF71DB255BF9 rid=f53b4e0c ip=0:0:0:0:0:0:0:1 method=GET path=/juicios status=
                 user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
-2026-02-22 19:49:36.088 ERROR
+                c.t.f.controller.JuicioController - GET /juicios
+2026-02-23 01:42:31.922 ERROR
                 sid= rid= ip= method= path= status=
                 user= role=
-                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=GET path=/personasDetenidas status=401 contentType=null apiMessage='Tu sesión venció o no es válida. Iniciá sesión nuevamente.' rawSnippet=''
-2026-02-22 19:49:36.089 ERROR
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=GET path=/juicios status=500 contentType=application/json apiMessage='Error interno del servidor' rawSnippet='{"message":"Error interno del servidor","status":"INTERNAL_SERVER_ERROR","timestamp":"2026-02-23T01:42:31.9226971-03:00","trace":null,"code":"INTERNAL_ERROR","fieldErrors":{}}'
+2026-02-23 01:42:31.922 ERROR
                 sid= rid= ip= method= path= status=
                 user= role=
-                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=GET path=/personasDetenidas exClass=com.tp.frontend.exception.ApiErrorException msg=Tu sesión venció o no es válida. Iniciá sesión nuevamente.
-com.tp.frontend.exception.ApiErrorException: Tu sesión venció o no es válida. Iniciá sesión nuevamente.
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=GET path=/juicios exClass=com.tp.frontend.exception.ApiErrorException msg=Error interno del servidor
+com.tp.frontend.exception.ApiErrorException: Error interno del servidor
 	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$11(BaseApiClient.java:155)
 	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onNext(FluxOnAssembly.java:539)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337)
 	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
-	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onComplete(FluxDefaultIfEmpty.java:134)
-	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onComplete(FluxOnAssembly.java:549)
-	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onComplete(FluxMapFuseable.java:152)
-	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onComplete(FluxContextWrite.java:126)
-	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onComplete(FluxMapFuseable.java:350)
-	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onComplete(FluxFilterFuseable.java:391)
-	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2098)
 	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
 	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
 	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
@@ -662,301 +235,166 @@ com.tp.frontend.exception.ApiErrorException: Tu sesión venció o no es válida.
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-02-22 19:49:36.091 WARN 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=53d78594 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
+2026-02-23 01:42:31.922 WARN 
+                sid=D027B211781459288075AF71DB255BF9 rid=f53b4e0c ip=0:0:0:0:0:0:0:1 method=GET path=/juicios status=
                 user=admin role=ADMIN
-                c.t.f.web.GlobalExceptionHandler - FRONT ApiErrorException rid=f43ba046-080f-4eb6-b16c-2335202c0310 path=/personas-detenidas status=401 code=null msg=Tu sesión venció o no es válida. Iniciá sesión nuevamente.
-2026-02-22 19:49:37.848 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=46fc0219 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/new status=
+                c.t.f.web.GlobalExceptionHandler - FRONT ApiErrorException rid=d5025a86-ee54-4b3a-8c61-bce7b05e3d9c path=/juicios status=500 code=INTERNAL_ERROR msg=Error interno del servidor
+2026-02-23 01:42:35.276 INFO 
+                sid=D027B211781459288075AF71DB255BF9 rid=aa6b9076 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
                 user=admin role=ADMIN
-                c.t.f.c.VigilantesController - GET /vigilantes/new
-2026-02-22 19:49:37.907 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=6228154c ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/new status=
+                c.t.f.controller.JuezController - GET /jueces
+2026-02-23 01:42:35.370 INFO 
+                sid=D027B211781459288075AF71DB255BF9 rid=67b29299 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
                 user=admin role=ADMIN
-                c.t.f.c.VigilantesController - GET /vigilantes/new
-2026-02-22 19:49:39.986 INFO 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=cb8f5ab4 ip=0:0:0:0:0:0:0:1 method=GET path=/bandas status=
-                user=admin role=ADMIN
-                c.t.f.controller.BandasController - GET /bandas
-2026-02-22 19:49:39.993 ERROR
+                c.t.f.controller.JuezController - GET /jueces
+2026-02-23 01:43:34.482 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
-                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=GET path=/bandas status=401 contentType=null apiMessage='Tu sesión venció o no es válida. Iniciá sesión nuevamente.' rawSnippet=''
-2026-02-22 19:49:39.994 ERROR
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-23 01:43:34.551 INFO 
                 sid= rid= ip= method= path= status=
                 user= role=
-                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=GET path=/bandas exClass=com.tp.frontend.exception.ApiErrorException msg=Tu sesión venció o no es válida. Iniciá sesión nuevamente.
-com.tp.frontend.exception.ApiErrorException: Tu sesión venció o no es válida. Iniciá sesión nuevamente.
-	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$11(BaseApiClient.java:155)
-	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
-	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
-	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onComplete(FluxDefaultIfEmpty.java:134)
-	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onComplete(FluxOnAssembly.java:549)
-	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onComplete(FluxMapFuseable.java:152)
-	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onComplete(FluxContextWrite.java:126)
-	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onComplete(FluxMapFuseable.java:350)
-	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onComplete(FluxFilterFuseable.java:391)
-	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2098)
-	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
-	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
-	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
-	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
-	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
-	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
-	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
-	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
-	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
-	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
-	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
-	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
-	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
-	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
-	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
-	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-02-22 19:49:39.996 WARN 
-                sid=AA6F42AA29C2418AAF262C3DC3818210 rid=cb8f5ab4 ip=0:0:0:0:0:0:0:1 method=GET path=/bandas status=
-                user=admin role=ADMIN
-                c.t.f.web.GlobalExceptionHandler - FRONT ApiErrorException rid=0d56e6d4-427c-4557-a1c3-8dd7355fc3c5 path=/bandas status=401 code=null msg=Tu sesión venció o no es válida. Iniciá sesión nuevamente.
-2026-02-22 20:26:08.031 INFO 
-                sid=65EAB5491FB20490057A2C26507EC0F5 rid=0b0f778c ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 14708 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
+2026-02-23 01:43:34.551 INFO 
+                sid= rid= ip= method= path= status=
                 user= role=
-                c.t.f.controller.AuthController - GET /login logout=null err=null
-2026-02-22 20:26:09.308 INFO 
-                sid=65EAB5491FB20490057A2C26507EC0F5 rid=49b29f99 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
-                user=admin role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-23 01:43:36.757 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-02-23 01:43:36.772 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-23 01:43:36.772 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-23 01:43:36.772 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-02-23 01:43:36.868 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-23 01:43:36.884 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2230 ms
+2026-02-23 01:43:37.655 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: ed00446c-bf1e-4c22-a14b-4ef562f0f95d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-23 01:43:38.134 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@687389a6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@8641b7d, org.springframework.security.web.context.SecurityContextHolderFilter@7c453c34, org.springframework.security.web.header.HeaderWriterFilter@6c0b51da, org.springframework.web.filter.CorsFilter@37c7766e, org.springframework.security.web.authentication.logout.LogoutFilter@cdb3c85, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@11e9ac24, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3dfd6220, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3815146b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3fb450d7, org.springframework.security.web.session.SessionManagementFilter@5657967b, org.springframework.security.web.access.ExceptionTranslationFilter@1788cb61, org.springframework.security.web.access.intercept.AuthorizationFilter@252ec02e]
+2026-02-23 01:43:38.556 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-02-23 01:43:38.587 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-02-23 01:43:38.603 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 5.06 seconds (process running for 5.922)
+2026-02-23 01:44:05.203 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-23 01:44:05.203 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-23 01:44:05.220 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 17 ms
+2026-02-23 01:44:05.305 INFO 
+                sid=- rid=130f74b4 ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user=anon role=-
+                c.t.f.controller.AuthController - GET /login logout= err=null
+2026-02-23 01:44:07.396 INFO 
+                sid=- rid=a40d89ae ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=-
                 c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
-2026-02-22 20:26:09.502 INFO 
-                sid=65EAB5491FB20490057A2C26507EC0F5 rid=49b29f99 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
-                user=admin role=
+2026-02-23 01:44:08.506 INFO 
+                sid=- rid=a40d89ae ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=-
                 c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
-2026-02-22 20:26:13.087 INFO 
-                sid=65EAB5491FB20490057A2C26507EC0F5 rid=d9365d61 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
+2026-02-23 01:44:12.057 INFO 
+                sid=7CE7517D599A5608EBD63E0A67775BC0 rid=70474c46 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
                 user=admin role=ADMIN
-                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
-2026-02-22 21:22:03.851 INFO 
-                sid=25FD2ECA0747BB395B6B222D87153135 rid=024c9542 ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                c.t.f.controller.JuezController - GET /jueces
+2026-02-23 01:44:13.985 INFO 
+                sid=7CE7517D599A5608EBD63E0A67775BC0 rid=c16efd9f ip=0:0:0:0:0:0:0:1 method=GET path=/jueces/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /juez/new
+2026-02-23 01:44:36.607 INFO 
+                sid=7CE7517D599A5608EBD63E0A67775BC0 rid=00033969 ip=0:0:0:0:0:0:0:1 method=POST path=/jueces status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - POST /jueces create form=com.tp.frontend.dto.Juez.JuezRequest@21893727
+2026-02-23 01:44:36.759 ERROR
+                sid= rid= ip= method= path= status=
                 user= role=
-                c.t.f.controller.AuthController - GET /login logout=null err=null
-2026-02-22 21:22:05.309 INFO 
-                sid=25FD2ECA0747BB395B6B222D87153135 rid=fadcaddc ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
-                user=admin role=
-                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
-2026-02-22 21:22:07.406 ERROR
-                sid=25FD2ECA0747BB395B6B222D87153135 rid=fadcaddc ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
-                user=admin role=
-                c.t.f.controller.AuthController - POST /auth/login backend no disponible user=admin
-org.springframework.web.reactive.function.client.WebClientRequestException: Connection refused: getsockopt: /192.168.0.77:8080
-	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136)
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ⇢ Request to POST http://192.168.0.77:8080/api/auth/login [DefaultWebClient]
-Original Stack Trace:
-		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136)
-		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55)
-		at reactor.core.publisher.Mono.subscribe(Mono.java:4512)
-		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
-		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
-		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:228)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:278)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
-		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:326)
-		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:211)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
-		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476)
-		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620)
-		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
-		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:336)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
-		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:195)
-		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
-		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:311)
-		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
-		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:172)
-		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:488)
-		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:433)
-		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186)
-		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
-		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:583)
-		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241)
-		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315)
-		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106)
-		at reactor.core.publisher.Operators.error(Operators.java:198)
-		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53)
-		at reactor.core.publisher.Mono.subscribe(Mono.java:4512)
-		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
-		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:576)
-		at reactor.netty.transport.TransportConnector$MonoChannelPromise.setFailure(TransportConnector.java:522)
-		at reactor.netty.transport.TransportConnector.lambda$doConnect$7(TransportConnector.java:261)
-		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
-		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583)
-		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559)
-		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
-		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
-		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629)
-		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118)
-		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:322)
-		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:338)
-		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
-		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
-		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
-		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
-		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
-		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-		at java.base/java.lang.Thread.run(Thread.java:1583)
-	Suppressed: java.lang.Exception: #block terminated with an error
-		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:103)
-		at reactor.core.publisher.Mono.block(Mono.java:1728)
-		at com.tp.frontend.client.BaseApiClient.post(BaseApiClient.java:62)
-		at com.tp.frontend.client.AuthApiClient.login(AuthApiClient.java:17)
-		at com.tp.frontend.service.AuthService.login(AuthService.java:19)
-		at com.tp.frontend.service.AuthService.login(AuthService.java:23)
-		at com.tp.frontend.controller.AuthController.doLogin(AuthController.java:104)
-		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-		at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:262)
-		at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
-		at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
-		at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917)
-		at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829)
-		at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-		at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
-		at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
-		at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
-		at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
-		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
-		at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
-		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
-		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-		at com.tp.frontend.config.NoCacheFilter.doFilterInternal(NoCacheFilter.java:21)
-		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-		at com.tp.frontend.config.MdcFilter.doFilterInternal(MdcFilter.java:51)
-		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-		at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
-		at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
-		at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
-		at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
-		at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
-		at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
-		at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
-		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-		at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
-		at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
-		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
-		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
-		at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
-		at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-		at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
-		at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-		at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
-		at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:225)
-		at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
-		at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
-		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-		at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-		at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-		at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
-		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
-		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
-		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
-		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
-		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-		at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: /192.168.0.77:8080
-Caused by: java.net.ConnectException: Connection refused: getsockopt
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
-	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973)
-	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
-	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:335)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=POST path=/jueces status=500 contentType=application/json apiMessage='Error interno del servidor' rawSnippet='{"message":"Error interno del servidor","status":"INTERNAL_SERVER_ERROR","timestamp":"2026-02-23T01:44:36.7434053-03:00","trace":null,"code":"INTERNAL_ERROR","fieldErrors":{}}'
+2026-02-23 01:44:36.776 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=POST path=/jueces exClass=com.tp.frontend.exception.ApiErrorException msg=Error interno del servidor
+com.tp.frontend.exception.ApiErrorException: Error interno del servidor
+	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$10(BaseApiClient.java:141)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onNext(FluxOnAssembly.java:539)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
+	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
 	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
@@ -964,202 +402,61 @@ Caused by: java.net.ConnectException: Connection refused: getsockopt
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-02-22 21:22:09.983 INFO 
-                sid=25FD2ECA0747BB395B6B222D87153135 rid=19f13be0 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
-                user=admin role=
-                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
-2026-02-22 21:22:12.039 ERROR
-                sid=25FD2ECA0747BB395B6B222D87153135 rid=19f13be0 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
-                user=admin role=
-                c.t.f.controller.AuthController - POST /auth/login backend no disponible user=admin
-org.springframework.web.reactive.function.client.WebClientRequestException: Connection refused: getsockopt: /192.168.0.77:8080
-	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136)
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ⇢ Request to POST http://192.168.0.77:8080/api/auth/login [DefaultWebClient]
-Original Stack Trace:
-		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:136)
-		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55)
-		at reactor.core.publisher.Mono.subscribe(Mono.java:4512)
-		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222)
-		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93)
-		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:204)
-		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:228)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:278)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121)
-		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:326)
-		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:211)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
-		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476)
-		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620)
-		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
-		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:336)
-		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136)
-		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743)
-		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:195)
-		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
-		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:311)
-		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
-		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:172)
-		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:488)
-		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:433)
-		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186)
-		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205)
-		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:583)
-		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241)
-		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315)
-		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106)
-		at reactor.core.publisher.Operators.error(Operators.java:198)
-		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53)
-		at reactor.core.publisher.Mono.subscribe(Mono.java:4512)
-		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103)
-		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:576)
-		at reactor.netty.transport.TransportConnector$MonoChannelPromise.setFailure(TransportConnector.java:522)
-		at reactor.netty.transport.TransportConnector.lambda$doConnect$7(TransportConnector.java:261)
-		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590)
-		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583)
-		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559)
-		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492)
-		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636)
-		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629)
-		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118)
-		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:322)
-		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:338)
-		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
-		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
-		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
-		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
-		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
-		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-		at java.base/java.lang.Thread.run(Thread.java:1583)
-	Suppressed: java.lang.Exception: #block terminated with an error
-		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:103)
-		at reactor.core.publisher.Mono.block(Mono.java:1728)
-		at com.tp.frontend.client.BaseApiClient.post(BaseApiClient.java:62)
-		at com.tp.frontend.client.AuthApiClient.login(AuthApiClient.java:17)
-		at com.tp.frontend.service.AuthService.login(AuthService.java:19)
-		at com.tp.frontend.service.AuthService.login(AuthService.java:23)
-		at com.tp.frontend.controller.AuthController.doLogin(AuthController.java:104)
-		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-		at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:262)
-		at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
-		at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
-		at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917)
-		at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829)
-		at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-		at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
-		at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
-		at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
-		at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
-		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
-		at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
-		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
-		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-		at com.tp.frontend.config.NoCacheFilter.doFilterInternal(NoCacheFilter.java:21)
-		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-		at com.tp.frontend.config.MdcFilter.doFilterInternal(MdcFilter.java:51)
-		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-		at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
-		at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
-		at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
-		at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
-		at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
-		at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
-		at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
-		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-		at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
-		at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
-		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
-		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-		at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-		at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
-		at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
-		at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-		at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
-		at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-		at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
-		at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:225)
-		at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
-		at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
-		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-		at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-		at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-		at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-		at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
-		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
-		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
-		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
-		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
-		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-		at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: /192.168.0.77:8080
-Caused by: java.net.ConnectException: Connection refused: getsockopt
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
-	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973)
-	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
-	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:335)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+2026-02-23 01:44:45.705 INFO 
+                sid=7CE7517D599A5608EBD63E0A67775BC0 rid=6e0aa24a ip=0:0:0:0:0:0:0:1 method=POST path=/jueces status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - POST /jueces create form=com.tp.frontend.dto.Juez.JuezRequest@1c84bc66
+2026-02-23 01:44:45.727 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=POST path=/jueces status=500 contentType=application/json apiMessage='Error interno del servidor' rawSnippet='{"message":"Error interno del servidor","status":"INTERNAL_SERVER_ERROR","timestamp":"2026-02-23T01:44:45.7247424-03:00","trace":null,"code":"INTERNAL_ERROR","fieldErrors":{}}'
+2026-02-23 01:44:45.727 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=POST path=/jueces exClass=com.tp.frontend.exception.ApiErrorException msg=Error interno del servidor
+com.tp.frontend.exception.ApiErrorException: Error interno del servidor
+	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$10(BaseApiClient.java:141)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onNext(FluxOnAssembly.java:539)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
+	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
 	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
@@ -1167,3 +464,139 @@ Caused by: java.net.ConnectException: Connection refused: getsockopt
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-23 01:44:47.840 INFO 
+                sid=7CE7517D599A5608EBD63E0A67775BC0 rid=e7944fe6 ip=0:0:0:0:0:0:0:1 method=POST path=/jueces status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - POST /jueces create form=com.tp.frontend.dto.Juez.JuezRequest@38bb6537
+2026-02-23 01:44:47.858 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=POST path=/jueces status=500 contentType=application/json apiMessage='Error interno del servidor' rawSnippet='{"message":"Error interno del servidor","status":"INTERNAL_SERVER_ERROR","timestamp":"2026-02-23T01:44:47.8589039-03:00","trace":null,"code":"INTERNAL_ERROR","fieldErrors":{}}'
+2026-02-23 01:44:47.858 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=POST path=/jueces exClass=com.tp.frontend.exception.ApiErrorException msg=Error interno del servidor
+com.tp.frontend.exception.ApiErrorException: Error interno del servidor
+	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$10(BaseApiClient.java:141)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onNext(FluxOnAssembly.java:539)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
+	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-23 01:44:48.532 INFO 
+                sid=7CE7517D599A5608EBD63E0A67775BC0 rid=44b1983b ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /jueces
+2026-02-23 01:44:51.078 INFO 
+                sid=7CE7517D599A5608EBD63E0A67775BC0 rid=d7d19668 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /juez/new
+2026-02-23 01:45:12.047 INFO 
+                sid=7CE7517D599A5608EBD63E0A67775BC0 rid=43088f31 ip=0:0:0:0:0:0:0:1 method=POST path=/jueces status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - POST /jueces create form=com.tp.frontend.dto.Juez.JuezRequest@4575b06d
+2026-02-23 01:45:12.070 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=POST path=/jueces status=500 contentType=application/json apiMessage='Error interno del servidor' rawSnippet='{"message":"Error interno del servidor","status":"INTERNAL_SERVER_ERROR","timestamp":"2026-02-23T01:45:12.0672126-03:00","trace":null,"code":"INTERNAL_ERROR","fieldErrors":{}}'
+2026-02-23 01:45:12.070 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=POST path=/jueces exClass=com.tp.frontend.exception.ApiErrorException msg=Error interno del servidor
+com.tp.frontend.exception.ApiErrorException: Error interno del servidor
+	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$10(BaseApiClient.java:141)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onNext(FluxOnAssembly.java:539)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
+	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-23 01:45:23.299 INFO 
+                sid=7CE7517D599A5608EBD63E0A67775BC0 rid=8e718b25 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /jueces

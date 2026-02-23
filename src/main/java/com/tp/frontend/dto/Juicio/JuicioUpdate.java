@@ -4,34 +4,60 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import java.time.LocalDate;
 
-public record JuicioUpdate (
+public class JuicioUpdate {
 
         @NotBlank(message = "El número de expediente es obligatorio")
-        String expediente,
+        private String expediente;
 
         @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
         @NotNull(message = "La fecha del juicio es obligatoria")
-        LocalDate fechaJuicio,
+        private LocalDate fechaJuicio;
 
-        @NotBlank(message = "La situación penal es obligatoria")
-        String situacionPenal,
+        // CAMBIO: De String a boolean para coincidir con el resto del sistema
+        @NotNull(message = "Debe indicar si la persona fue condenada o no")
+        private boolean condenado;
 
         @NotNull(message = "El juez es obligatorio")
-        Long juezId,
+        private Long juezId;
 
         @NotNull(message = "El asalto/delito es obligatorio")
-        Long asaltoId,
+        private Long asaltoId;
 
         @NotNull(message = "La persona detenida es obligatoria")
-        Long personaDetenidaId,
+        private Long personaDetenidaId;
 
-        // Campos opcionales para cuando es "Condenado"
         @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-        LocalDate fechaInicioCondena,
+        private LocalDate fechaInicioCondena;
 
         @Min(value = 1, message = "El tiempo de condena debe ser al menos 1 mes")
-        Integer tiempoCondenaMeses
-){}
+        private Integer tiempoCondenaMeses;
+
+        public JuicioUpdate() {}
+
+        // Getters y Setters
+        public String getExpediente() { return expediente; }
+        public void setExpediente(String expediente) { this.expediente = expediente; }
+
+        public LocalDate getFechaJuicio() { return fechaJuicio; }
+        public void setFechaJuicio(LocalDate fechaJuicio) { this.fechaJuicio = fechaJuicio; }
+
+        public boolean isCondenado() { return condenado; }
+        public void setCondenado(boolean condenado) { this.condenado = condenado; }
+
+        public Long getJuezId() { return juezId; }
+        public void setJuezId(Long juezId) { this.juezId = juezId; }
+
+        public Long getAsaltoId() { return asaltoId; }
+        public void setAsaltoId(Long asaltoId) { this.asaltoId = asaltoId; }
+
+        public Long getPersonaDetenidaId() { return personaDetenidaId; }
+        public void setPersonaDetenidaId(Long personaDetenidaId) { this.personaDetenidaId = personaDetenidaId; }
+
+        public LocalDate getFechaInicioCondena() { return fechaInicioCondena; }
+        public void setFechaInicioCondena(LocalDate fechaInicioCondena) { this.fechaInicioCondena = fechaInicioCondena; }
+
+        public Integer getTiempoCondenaMeses() { return tiempoCondenaMeses; }
+        public void setTiempoCondenaMeses(Integer tiempoCondenaMeses) { this.tiempoCondenaMeses = tiempoCondenaMeses; }
+}

@@ -7,12 +7,17 @@ import java.time.LocalDate;
 
 public class JuicioResponse {
     private Long id;
-    private String expediente;      // Coincide con j.expediente
-    private LocalDate fechaJuicio;  // Coincide con j.fechaJuicio
-    private String situacionPenal;  // Coincide con j.situacionPenal
-    private String detallePena;     // Coincide con j.detallePena
+    private String expediente;
+    private LocalDate fechaJuicio;
 
-    // Objetos anidados para que funcione la navegación j.juez.apellido, etc.
+    // CAMBIO: Ahora es boolean para que coincida con la Entidad y el Service
+    private boolean condenado;
+
+    // Este String es el que usará el Front para mostrar "Condenado" o "Absuelto"
+    private String situacionPenal;
+
+    private String detallePena;
+
     private JuezResponse juez;
     private AsaltoResponse asalto;
     private PersonaDetenidaResponse persona;
@@ -28,6 +33,15 @@ public class JuicioResponse {
 
     public LocalDate getFechaJuicio() { return fechaJuicio; }
     public void setFechaJuicio(LocalDate fechaJuicio) { this.fechaJuicio = fechaJuicio; }
+
+    // --- CAMBIO CLAVE AQUÍ ---
+    public boolean isCondenado() { return condenado; }
+
+    public void setCondenado(boolean condenado) {
+        this.condenado = condenado;
+        // Automáticamente seteamos el texto para el Front
+        this.situacionPenal = condenado ? "CONDENADO" : "ABSUELTO";
+    }
 
     public String getSituacionPenal() { return situacionPenal; }
     public void setSituacionPenal(String situacionPenal) { this.situacionPenal = situacionPenal; }
