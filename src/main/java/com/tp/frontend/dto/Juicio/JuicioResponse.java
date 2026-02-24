@@ -10,10 +10,10 @@ public class JuicioResponse {
     private String expediente;
     private LocalDate fechaJuicio;
 
-    // MEJOR PRÁCTICA: Usar Boolean para evitar problemas de nulidad en el mapeo
+
     private Boolean condenado;
 
-    // Visualización en UI
+
     private String situacionPenal;
     private String detallePena;
 
@@ -32,7 +32,7 @@ public class JuicioResponse {
     public LocalDate getFechaJuicio() { return fechaJuicio; }
     public void setFechaJuicio(LocalDate fechaJuicio) { this.fechaJuicio = fechaJuicio; }
 
-    // Cambiado a getCondenado para seguir la convención de objetos Boolean
+
     public Boolean getCondenado() { return condenado; }
 
     /**
@@ -47,7 +47,6 @@ public class JuicioResponse {
     }
 
     public String getSituacionPenal() {
-        // Salvaguarda por si el setter de condenado no se disparó o es null
         if (situacionPenal == null && condenado != null) {
             return condenado ? "CONDENADO" : "ABSUELTO";
         }

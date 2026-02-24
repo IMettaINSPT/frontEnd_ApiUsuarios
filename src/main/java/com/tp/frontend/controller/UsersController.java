@@ -39,7 +39,7 @@ public class UsersController {
         return (String) session.getAttribute(SessionKeys.JWT);
     }
 
-    /** Carga vigilantes disponibles con el NOMBRE que usa tu template: ${vigilantes} */
+
     private void cargarVigilantesDisponibles(Model model, String token) {
         var disponibles = vigilanteService.disponibles(token);
         model.addAttribute("vigilantes", disponibles); // ✅ coincide con CrearUsuario.html
@@ -167,14 +167,14 @@ public class UsersController {
             UserResponse user = userService.get(id, token);
             model.addAttribute("user", user);
 
-            // ✅ Sincronizamos el DTO de update con los datos actuales
+
             UserUpdate update = new UserUpdate();
             update.setEnabled(user.isEnabled());
             update.setRol(user.getRol());
             update.setVigilanteId(user.getVigilanteId());
             model.addAttribute("update", update);
 
-            // ✅ Cargamos vigilantes para evitar error de variable null en el template
+
             cargarVigilantesDisponibles(model, token);
 
             return "users/DetalleUsuario";
@@ -212,12 +212,12 @@ public class UsersController {
         if (br.hasErrors()) {
             log.warn("POST /users/{} update SSR validation errors={}", id, br.getErrorCount());
             model.addAttribute("user", userService.get(id, token));
-            // ✅ Cargamos vigilantes para que no rompa el template al re-mostrar con errores
+
             cargarVigilantesDisponibles(model, token);
             return "users/DetalleUsuario";
         }
 
-        // si password viene vacío, lo mandamos como null (para no “pisar”)
+        // si password viene vacío, lo mandamos como null
         if (update.getPassword() != null && update.getPassword().isBlank()) {
             update.setPassword(null);
         }
@@ -235,7 +235,7 @@ public class UsersController {
 
             errorBinder.bind(ex, br);
             model.addAttribute("user", userService.get(id, token));
-            // ✅ Cargamos vigilantes aquí también
+            // Cargamos vigilantes
             cargarVigilantesDisponibles(model, token);
             return "users/DetalleUsuario";
 
@@ -243,7 +243,7 @@ public class UsersController {
             log.warn("POST /users/{} update transport error: {}", id, ex.getMessage());
             addGlobalError(br, "No pudimos conectarnos al servidor. Intentá nuevamente.");
             model.addAttribute("user", userService.get(id, token));
-            // ✅ Y aquí
+
             cargarVigilantesDisponibles(model, token);
             return "users/DetalleUsuario";
         }
@@ -314,14 +314,14 @@ public class UsersController {
             UserResponse user = userService.me(token);
             model.addAttribute("user", user);
 
-            // Se cambia getTipo() por getRol() para coincidir con el DTO UserResponse
+
             if (user.getRol() != null && "VIGILANTE".equalsIgnoreCase(user.getRol())) {
                 var vigilanteData = vigilanteService.me(token);
                 model.addAttribute("item", vigilanteData);
                 return "vigilantes/me";
             }
 
-            // ✅ Para el perfil propio también cargamos los datos necesarios por si usa el mismo template
+
             cargarVigilantesDisponibles(model, token);
             return "users/DetalleUsuario";
 

@@ -15,7 +15,7 @@ public class JuicioRequest {
     @NotNull(message = "La fecha del juicio es obligatoria")
     private LocalDate fechaJuicio;
 
-    // MEJOR PRÁCTICA: Usar Boolean (Wrapper) para permitir nulidad inicial en el form
+
     @NotNull(message = "Debe indicar si la persona fue condenada o no")
     private Boolean condenado;
 

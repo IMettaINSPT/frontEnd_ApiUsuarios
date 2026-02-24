@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 public class UserUpdate {
 
     @Size(min = 4, max = 100, message = "La password debe tener al menos 4 caracteres")
-    private String password; // Opcional en edición
+    private String password;
 
     private Boolean enabled;
 
@@ -14,7 +14,6 @@ public class UserUpdate {
     private String rol;
 
     // No lleva @NotNull porque solo es obligatorio si el rol es VIGILANTE
-    // (esa lógica la manejas en el script del front o con validación custom en el back)
     private Long vigilanteId;
 
     public UserUpdate() {}

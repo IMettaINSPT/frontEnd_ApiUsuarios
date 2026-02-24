@@ -2,12 +2,12 @@ package com.tp.frontend.dto.User;
 
 public class UserResponse {
     private Long id;
-    private String codigo;          // ✅ Agregado: para mostrar en la primera columna
+    private String codigo;
     private String username;
     private String rol;
     private boolean enabled;
     private Long vigilanteId;
-    private String vigilanteCodigo; // ✅ Agregado: para mostrar el código del vigilante asociado
+    private String vigilanteCodigo;
 
     public UserResponse() {}
 

@@ -36,11 +36,10 @@ public class DashboardController {
         var summary = service.summary(jwt(session));
 
         model.addAttribute("summary", summary);
-        // opcional: si lo querés usar inline en el HTML
+
         model.addAttribute("summaryJson", objectMapper.writeValueAsString(summary));
 
-        // ⚠️ Asegurate que exista: templates/dashboard/Dashboard.html
-        // Si tu archivo es templates/dashboard/dashboard.html, cambiá a "dashboard/dashboard"
+
         return "dashboard/dashboard";
     }
 

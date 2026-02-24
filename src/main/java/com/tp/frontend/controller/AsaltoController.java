@@ -1,5 +1,5 @@
 package com.tp.frontend.controller;
-//cambios
+
 import com.tp.frontend.dto.Asalto.AsaltoRequest;
 import com.tp.frontend.dto.Asalto.AsaltoResponse;
 import com.tp.frontend.dto.Asalto.AsaltoUpdate;
@@ -130,7 +130,7 @@ public class AsaltoController {
             List<AsaltoResponse> items = asaltoService.reporte(token, sucursalId, fecha, desde, hasta);
             model.addAttribute("items", items);
 
-            // NUEVA LÓGICA: Si no hay resultados y seleccionó una sucursal, verificamos si es una sucursal "virgen"
+            //  Si no hay resultados y seleccionó una sucursal, verificamos si es una sucursal "virgen"
             if (items.isEmpty() && sucursalId != null) {
                 // Consultamos si esa sucursal tiene CUALQUIER asalto en la historia (sin fechas)
                 List<AsaltoResponse> historico = asaltoService.reporte(token, sucursalId, null, null, null);

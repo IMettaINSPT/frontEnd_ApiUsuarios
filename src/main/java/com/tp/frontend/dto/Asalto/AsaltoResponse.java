@@ -15,7 +15,6 @@ public class AsaltoResponse {
     private SucursalResponse sucursal;
 
     // Lista - RELACIÓN 1 a N: Un asalto es cometido por MUCHAS personas
-    // para evitar que .size() o el th:each fallen si el objeto es nulo
     private List<PersonaDetenidaResponse> personas = new java.util.ArrayList<>();
 
 

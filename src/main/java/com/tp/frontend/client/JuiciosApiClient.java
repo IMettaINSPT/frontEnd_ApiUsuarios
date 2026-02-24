@@ -20,7 +20,7 @@ public class JuiciosApiClient extends BaseApiClient {
         return put("/juicios/" + id, jwt, req, JuicioResponse.class);
     }
 
-    // --- ESTOS SON LOS MÉTODOS QUE FALTABAN ---
+
     public List<JuicioResponse> list(String jwt) {
         return getList("/juicios", jwt, new ParameterizedTypeReference<List<JuicioResponse>>() {});
     }

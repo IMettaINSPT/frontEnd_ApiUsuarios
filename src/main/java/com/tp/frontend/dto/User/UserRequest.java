@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 public class UserRequest {
 
     @NotBlank(message = "El código es obligatorio")
-    private String codigo; // ✅ Agregado para consistencia con el resto del sistema
+    private String codigo;
 
     @NotBlank(message = "El usuario es obligatorio")
     @Size(min = 4, max = 20, message = "El username debe tener entre 4 y 20 caracteres")
@@ -17,7 +17,7 @@ public class UserRequest {
     private String password;
 
     @NotBlank(message = "El rol es obligatorio")
-    private String rol; // ✅ Unificado a 'rol' para coincidir con el Update y el Response
+    private String rol;
 
     private Long vigilanteId;
 
