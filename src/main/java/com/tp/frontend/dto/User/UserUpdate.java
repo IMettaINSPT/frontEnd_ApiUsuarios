@@ -1,15 +1,23 @@
 package com.tp.frontend.dto.User;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class UserUpdate {
 
     @Size(min = 4, max = 100, message = "La password debe tener al menos 4 caracteres")
-    private String password; // opcional
+    private String password; // Opcional en edición
 
-    private Boolean enabled; // opcional
+    private Boolean enabled;
+
+    @NotBlank(message = "El rol es obligatorio")
+    private String rol;
+
+    // No lleva @NotNull porque solo es obligatorio si el rol es VIGILANTE
+    // (esa lógica la manejas en el script del front o con validación custom en el back)
+    private Long vigilanteId;
+
+    public UserUpdate() {}
 
     // ===== getters / setters =====
 
@@ -27,5 +35,21 @@ public class UserUpdate {
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    public Long getVigilanteId() {
+        return vigilanteId;
+    }
+
+    public void setVigilanteId(Long vigilanteId) {
+        this.vigilanteId = vigilanteId;
     }
 }

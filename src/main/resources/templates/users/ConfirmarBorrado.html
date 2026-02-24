@@ -1,59 +1,18 @@
 <!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{fragments/layout :: layout('Detalle Usuario', ~{::section})}">
+      th:replace="~{fragments/layout :: layout('Borrar Usuario', ~{::section})}">
 
 <section class="container">
-    <h1>Detalle Usuario</h1>
+    <h1>Confirmar borrado</h1>
 
     <div class="card">
-        <p><b>ID:</b> <span th:text="${user.id}">1</span></p>
-    </div>
+        <p>¿Seguro querés borrar el Usuario con Código Nro: <b th:text="${item.codigo}">CODIGO</b>?</p>
 
-    <div class="card" style="margin-top:16px;">
-        <div class="card-title">Editar</div>
+        <p th:if="${deleteError != null}" class="error" th:text="${deleteError}"></p>
 
-        <form th:action="@{/users/{id}(id=${user.id})}" method="post" th:object="${update}" class="form">
-
-            <div th:if="${#fields.hasGlobalErrors()}" class="error">
-                <div th:each="e : ${#fields.globalErrors()}" th:text="${e}"></div>
-            </div>
-
-            <div>
-                <label>Username</label>
-                <input type="text" th:field="*{username}">
-                <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
-            </div>
-
-            <div>
-                <label>Password (solo si querés resetear)</label>
-                <input type="password" th:field="*{password}" placeholder="(dejar vacío para no cambiar)">
-                <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
-            </div>
-
-            <div>
-                <label>rol</label>
-                <select th:field="*{rol}">
-                    <option value="ADMIN">ADMIN</option>
-                    <option value="INVESTIGADOR">INVESTIGADOR</option>
-                    <option value="USER">USER</option>
-                </select>
-                <div class="error" th:if="${#fields.hasErrors('rol')}" th:errors="*{rol}"></div>
-            </div>
-
-            <div>
-                <label>VigilanteId</label>
-                <select th:field="*{vigilanteId}">
-                    <option value="">-- Ninguno --</option>
-                    <option th:each="v : ${vigilantes}" th:value="${v.id}" th:text="${v.id}">1</option>
-                </select>
-                <div class="error" th:if="${#fields.hasErrors('vigilanteId')}" th:errors="*{vigilanteId}"></div>
-            </div>
-
-            <div class="actions">
-                <button class="btn btn-primary" type="submit">Guardar cambios</button>
-                <a class="btn" th:href="@{/users}">Volver</a>
-                <a class="btn btn-danger" th:href="@{/users/{id}/confirm-delete(id=${user.id})}">Borrar</a>
-            </div>
+        <form th:action="@{/users/{id}/delete(id=${item.id})}" method="post" class="actions">
+            <button class="btn btn-danger" type="submit">Sí, borrar</button>
+            <a class="btn" th:href="@{/users/{id}(id=${item.id})}">Cancelar</a>
         </form>
     </div>
 </section>

@@ -46,7 +46,7 @@
                 <option value="">-- Seleccionar vigilante --</option>
                 <option th:each="v : ${vigilantes}"
                         th:value="${v.id}"
-                        th:text="${v.id + ' - ' + v.codigo}">
+                        th:text="${' Código: ' + v.codigo}">
                 </option>
             </select>
 

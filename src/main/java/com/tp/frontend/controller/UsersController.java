@@ -109,10 +109,10 @@ public class UsersController {
                          Model model) {
 
         String token = jwt(session);
-        log.info("POST /users create username={} tipo={}", form.getUsername(), form.getTipo());
+        log.info("POST /users create username={} tipo={}", form.getUsername(), form.getRol());
 
         // si no es VIGILANTE, anulamos vigilanteId (tal como ya estabas haciendo)
-        if (!"VIGILANTE".equalsIgnoreCase(form.getTipo())) {
+        if (!"VIGILANTE".equalsIgnoreCase(form.getRol())) {
             form.setVigilanteId(null);
         }
 
@@ -166,7 +166,16 @@ public class UsersController {
         try {
             UserResponse user = userService.get(id, token);
             model.addAttribute("user", user);
-            model.addAttribute("update", new UserUpdate()); // password/ enabled
+
+            // ✅ Sincronizamos el DTO de update con los datos actuales
+            UserUpdate update = new UserUpdate();
+            update.setEnabled(user.isEnabled());
+            update.setRol(user.getRol());
+            update.setVigilanteId(user.getVigilanteId());
+            model.addAttribute("update", update);
+
+            // ✅ Cargamos vigilantes para evitar error de variable null en el template
+            cargarVigilantesDisponibles(model, token);
 
             return "users/DetalleUsuario";
 
@@ -203,6 +212,8 @@ public class UsersController {
         if (br.hasErrors()) {
             log.warn("POST /users/{} update SSR validation errors={}", id, br.getErrorCount());
             model.addAttribute("user", userService.get(id, token));
+            // ✅ Cargamos vigilantes para que no rompa el template al re-mostrar con errores
+            cargarVigilantesDisponibles(model, token);
             return "users/DetalleUsuario";
         }
 
@@ -224,12 +235,16 @@ public class UsersController {
 
             errorBinder.bind(ex, br);
             model.addAttribute("user", userService.get(id, token));
+            // ✅ Cargamos vigilantes aquí también
+            cargarVigilantesDisponibles(model, token);
             return "users/DetalleUsuario";
 
         } catch (WebClientRequestException ex) {
             log.warn("POST /users/{} update transport error: {}", id, ex.getMessage());
             addGlobalError(br, "No pudimos conectarnos al servidor. Intentá nuevamente.");
             model.addAttribute("user", userService.get(id, token));
+            // ✅ Y aquí
+            cargarVigilantesDisponibles(model, token);
             return "users/DetalleUsuario";
         }
     }
@@ -305,6 +320,9 @@ public class UsersController {
                 model.addAttribute("item", vigilanteData);
                 return "vigilantes/me";
             }
+
+            // ✅ Para el perfil propio también cargamos los datos necesarios por si usa el mismo template
+            cargarVigilantesDisponibles(model, token);
             return "users/DetalleUsuario";
 
         } catch (Exception ex) {

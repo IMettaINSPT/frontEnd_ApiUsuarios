@@ -16,15 +16,20 @@
         <table>
             <thead>
             <tr>
-                <th>ID</th><th>Username</th><th>rol</th><th>VigilanteId</th><th>Acciones</th>
+                <th>Código</th>
+                <th>Username</th>
+                <th>Rol</th>
+                <th>Vigilante Código</th>
+                <th class="text-center">Acciones</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="u : ${users}">
-                <td th:text="${u.id}">1</td>
+                <td th:text="${u.codigo}">U-001</td>
                 <td th:text="${u.username}">admin</td>
                 <td th:text="${u.rol}">ADMIN</td>
-                <td th:text="${u.vigilanteId != null ? u.vigilanteId : '-'}">-</td>
+                <td th:text="${u.vigilanteId != null ? u.vigilanteCodigo : '-'}">-</td>
+
                 <td class="td-actions">
                     <a class="btn" th:href="@{/users/{id}(id=${u.id})}">Ver/Editar</a>
                     <a class="btn btn-danger" th:href="@{/users/{id}/confirm-delete(id=${u.id})}">Borrar</a>
@@ -32,7 +37,7 @@
             </tr>
 
             <tr th:if="${users == null || #lists.isEmpty(users)}">
-                <td colspan="5" class="muted">No hay usuarios.</td>
+                <td colspan="5" class="muted" style="text-align: center;">No hay usuarios registrados.</td>
             </tr>
             </tbody>
         </table>
