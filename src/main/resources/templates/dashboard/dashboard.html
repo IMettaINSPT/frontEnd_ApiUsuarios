@@ -37,7 +37,6 @@
         </div>
     </header>
 
-    <!-- KPIs -->
     <section class="dash-grid">
         <article class="kpi card">
             <div class="kpi-top">
@@ -83,9 +82,53 @@
             <div class="kpi-value" id="kpiUsuarios">—</div>
             <div class="kpi-sub muted">Cuentas registradas</div>
         </article>
+
+        <article class="kpi card">
+            <div class="kpi-top">
+                <span class="kpi-label">Jueces</span>
+                <span class="kpi-chip">Total</span>
+            </div>
+            <div class="kpi-value" id="kpiJueces">—</div>
+            <div class="kpi-sub muted">Magistrados registrados</div>
+        </article>
+
+        <article class="kpi card">
+            <div class="kpi-top">
+                <span class="kpi-label">Juicios</span>
+                <span class="kpi-chip">Total</span>
+            </div>
+            <div class="kpi-value" id="kpiJuicios">—</div>
+            <div class="kpi-sub muted">Procesos legales</div>
+        </article>
+
+        <article class="kpi card">
+            <div class="kpi-top">
+                <span class="kpi-label">Bandas</span>
+                <span class="kpi-chip">Total</span>
+            </div>
+            <div class="kpi-value" id="kpiBandas">—</div>
+            <div class="kpi-sub muted">Grupos organizados</div>
+        </article>
+
+        <article class="kpi card">
+            <div class="kpi-top">
+                <span class="kpi-label">Detenidos</span>
+                <span class="kpi-chip">Total</span>
+            </div>
+            <div class="kpi-value" id="kpiDetenidos">—</div>
+            <div class="kpi-sub muted">Personas detenidas</div>
+        </article>
+
+        <article class="kpi card">
+            <div class="kpi-top">
+                <span class="kpi-label">Asaltos</span>
+                <span class="kpi-chip">Total</span>
+            </div>
+            <div class="kpi-value" id="kpiAsaltos">—</div>
+            <div class="kpi-sub muted">Incidentes reportados</div>
+        </article>
     </section>
 
-    <!-- Accesos rápidos -->
     <section class="card dash-actions">
         <div class="card-title">Accesos rápidos</div>
         <div class="dash-actions__grid">
@@ -112,6 +155,22 @@
             <a class="dash-link" th:href="@{/users}">
                 <div class="dash-link__title">Usuarios</div>
                 <div class="dash-link__sub muted">Administración</div>
+            </a>
+            <a class="dash-link" th:href="@{/jueces}">
+                <div class="dash-link__title">Jueces</div>
+                <div class="dash-link__sub muted">Gestión de magistrados</div>
+            </a>
+            <a class="dash-link" th:href="@{/juicios}">
+                <div class="dash-link__title">Juicios</div>
+                <div class="dash-link__sub muted">Seguimiento de causas</div>
+            </a>
+            <a class="dash-link" th:href="@{/bandas}">
+                <div class="dash-link__title">Bandas</div>
+                <div class="dash-link__sub muted">Grupos criminales</div>
+            </a>
+            <a class="dash-link" th:href="@{/personas-detenidas}">
+                <div class="dash-link__title">Personas Detenidas</div>
+                <div class="dash-link__sub muted">Fichas de detenidos</div>
             </a>
         </div>
     </section>
