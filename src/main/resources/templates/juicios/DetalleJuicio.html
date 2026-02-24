@@ -44,11 +44,11 @@
 
             <div>
                 <label>Delito</label>
-                <select th:field="*{asaltoId}" data-required>
+                <select th:field="*{asaltoId}" id="asaltoId" data-required>
                     <option value="">-- Seleccionar --</option>
                     <option th:each="a : ${asaltos}"
                             th:value="${a.id}"
-                            th:text="${a.codigo + ' - ' + a.fecha}">1</option>
+                            th:text="${a.codigo + ' - ' + #temporals.format(a.fechaAsalto, 'dd/MM/yyyy')}">1</option>
                 </select>
                 <div th:if="${#fields.hasErrors('asaltoId')}"
                      th:text="${#fields.errors('asaltoId')[0]}" style="color:#ffb4b4;"></div>
@@ -56,11 +56,9 @@
 
             <div>
                 <label>Detenido</label>
-                <select th:field="*{personaDetenidaId}" data-required>
-                    <option value="">-- Seleccionar --</option>
-                    <option th:each="p : ${persona}"
-                            th:value="${p.id}"
-                            th:text="${p.codigo + ' - ' + p.apellido}">1</option>
+                <select th:field="*{personaDetenidaId}" id="personaDetenidaId"
+                        th:data-selected-id="${update.personaDetenidaId}" data-required>
+                    <option value="">-- Seleccione un delito primero --</option>
                 </select>
                 <div th:if="${#fields.hasErrors('personaDetenidaId')}"
                      th:text="${#fields.errors('personaDetenidaId')[0]}" style="color:#ffb4b4;"></div>
@@ -99,10 +97,12 @@
     </div>
 
     <script th:inline="javascript">
+        const jwtToken = [[${session.JWT}]];
+        const backendBaseUrl = [[${backendUrl}]];
+
         function toggleCondena() {
             const select = document.getElementById('situacionPenal');
             const seccion = document.getElementById('seccion-condena');
-            // Verificamos si es el string "true" o el booleano true
             if (select.value === "true" || select.value === true) {
                 seccion.style.display = 'block';
             } else {
@@ -110,10 +110,52 @@
             }
         }
 
-        // EJECUCIÓN INICIAL: Fundamental en la edición
-        // Esto hace que si el juicio ya era condenado, la sección se vea al abrir la página
+        async function cargarPersonas(asaltoId, personaSeleccionadaId = null) {
+            const personaSelect = document.getElementById('personaDetenidaId');
+            if (!asaltoId) return;
+
+            personaSelect.innerHTML = '<option value="">Cargando...</option>';
+
+            try {
+                const response = await fetch(`${backendBaseUrl}/asaltos/${asaltoId}/personas`, {
+                    headers: { 'Authorization': `Bearer ${jwtToken}`, 'Accept': 'application/json' }
+                });
+
+                if (!response.ok) throw new Error("Error en red");
+                const data = await response.json();
+
+                personaSelect.innerHTML = '<option value="">-- Seleccionar --</option>';
+                data.forEach(p => {
+                    const option = document.createElement('option');
+                    option.value = p.id;
+                    option.textContent = `${p.codigo} - ${p.apellido} ${p.nombre}`;
+                    // Si el ID coincide con el que ya tiene el juicio, lo marcamos
+                    if (personaSeleccionadaId && p.id == personaSeleccionadaId) {
+                        option.selected = true;
+                    }
+                    personaSelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error("Error cargando personas:", error);
+                personaSelect.innerHTML = '<option value="">Error al cargar datos</option>';
+            }
+        }
+
+        // Listener para cambios manuales en el select de Delito
+        document.getElementById('asaltoId').addEventListener('change', function() {
+            cargarPersonas(this.value);
+        });
+
+        // Ejecución al cargar la página
         document.addEventListener("DOMContentLoaded", function() {
             toggleCondena();
+
+            // Disparar carga inicial para mostrar la persona que ya estaba seleccionada
+            const asaltoInicial = document.getElementById('asaltoId').value;
+            const personaActualId = document.getElementById('personaDetenidaId').getAttribute('data-selected-id');
+            if (asaltoInicial) {
+                cargarPersonas(asaltoInicial, personaActualId);
+            }
         });
     </script>
 </section>
