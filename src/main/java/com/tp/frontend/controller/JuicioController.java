@@ -17,6 +17,7 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value; // Agregado
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,6 +41,9 @@ public class JuicioController {
     private final PersonaDetenidaService personaDetenidaService;
     private final AsaltoService asaltoService; // Agregado
     private final ErrorBinder errorBinder;
+
+    @Value("${frontend.backend-base-url}")
+    private String backendApiUrl;
 
     public JuicioController(JuicioService juicioService,
                             JuezService juezService,
@@ -88,6 +92,7 @@ public class JuicioController {
         String token = jwt(session);
         log.info("GET /juicios/new");
         model.addAttribute("form", new JuicioRequest());
+        model.addAttribute("backendUrl", backendApiUrl); // Agregado para JS
         cargarCombos(model, token);
         return "juicios/CrearJuicio";
     }
@@ -100,6 +105,7 @@ public class JuicioController {
                          Model model) {
         String token = jwt(session);
         if (br.hasErrors()) {
+            model.addAttribute("backendUrl", backendApiUrl); // Agregado para JS en caso de error
             cargarCombos(model, token);
             return "juicios/CrearJuicio";
         }
@@ -108,10 +114,12 @@ public class JuicioController {
             return "redirect:/juicios";
         } catch (ApiErrorException ex) {
             errorBinder.bind(ex, br);
+            model.addAttribute("backendUrl", backendApiUrl); // Agregado para JS
             cargarCombos(model, token);
             return "juicios/CrearJuicio";
         } catch (WebClientRequestException ex) {
             addGlobalError(br, "No pudimos conectarnos al servidor.");
+            model.addAttribute("backendUrl", backendApiUrl); // Agregado para JS
             cargarCombos(model, token);
             return "juicios/CrearJuicio";
         }
@@ -132,10 +140,13 @@ public class JuicioController {
 
         if (item.getJuez() != null) update.setJuezId(item.getJuez().getId());
         if (item.getAsalto() != null) update.setAsaltoId(item.getAsalto().getId());
+
+        // REVERTIDO: Se volvió a usar .id() ya que PersonaDetenidaResponse es un Record
         if (item.getPersona() != null) update.setPersonaDetenidaId(item.getPersona().id());
 
         model.addAttribute("item", item);
         model.addAttribute("update", update);
+        model.addAttribute("backendUrl", backendApiUrl); // Agregado para JS
         cargarCombos(model, token);
 
         return "juicios/DetalleJuicio";
@@ -151,6 +162,7 @@ public class JuicioController {
         String token = jwt(session);
         if (br.hasErrors()) {
             model.addAttribute("item", juicioService.get(token, id));
+            model.addAttribute("backendUrl", backendApiUrl); // Agregado para JS
             cargarCombos(model, token);
             return "juicios/DetalleJuicio";
         }
@@ -160,11 +172,13 @@ public class JuicioController {
         } catch (ApiErrorException ex) {
             errorBinder.bind(ex, br);
             model.addAttribute("item", juicioService.get(token, id));
+            model.addAttribute("backendUrl", backendApiUrl); // Agregado para JS
             cargarCombos(model, token);
             return "juicios/DetalleJuicio";
         } catch (WebClientRequestException ex) {
             addGlobalError(br, "Error de conexión.");
             model.addAttribute("item", juicioService.get(token, id));
+            model.addAttribute("backendUrl", backendApiUrl); // Agregado para JS
             cargarCombos(model, token);
             return "juicios/DetalleJuicio";
         }

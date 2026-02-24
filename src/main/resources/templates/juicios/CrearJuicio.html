@@ -38,7 +38,7 @@
 
             <div>
                 <label>Delito</label>
-                <select th:field="*{asaltoId}" data-required>
+                <select th:field="*{asaltoId}" id="asaltoId" data-required>
                     <option value="">-- Seleccionar --</option>
                     <option th:each="a : ${asaltos}"
                             th:value="${a.id}"
@@ -50,8 +50,8 @@
 
             <div>
                 <label>Detenido</label>
-                <select th:field="*{personaDetenidaId}" data-required>
-                    <option value="">-- Seleccionar --</option>
+                <select th:field="*{personaDetenidaId}" id="personaDetenidaId" data-required>
+                    <option value="">-- Seleccione primero un delito --</option>
                     <option th:each="p : ${persona}"
                             th:value="${p.id}"
                             th:text="${p.codigo + ' - ' + p.apellido}">1</option>
@@ -93,6 +93,50 @@
     </div>
 
     <script th:inline="javascript">
+        // Variables desde el modelo de Spring
+        const jwtToken = [[${session.JWT}]];
+        const backendBaseUrl = [[${backendUrl}]];
+
+        document.getElementById('asaltoId').addEventListener('change', function() {
+            const asaltoId = this.value;
+            const personaSelect = document.getElementById('personaDetenidaId');
+
+            personaSelect.innerHTML = '<option value="">Cargando...</option>';
+            personaSelect.disabled = true;
+
+            if (!asaltoId) {
+                personaSelect.innerHTML = '<option value="">-- Seleccione primero un delito --</option>';
+                return;
+            }
+
+            // Usamos backendBaseUrl para asegurar que pegue al puerto 8080 (o la IP configurada)
+            fetch(backendBaseUrl + '/asaltos/' + asaltoId + '/personas', {
+                headers: {
+                    'Authorization': 'Bearer ' + jwtToken,
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('No autorizado o error de red');
+                return response.json();
+            })
+            .then(data => {
+                personaSelect.innerHTML = '<option value="">-- Seleccionar --</option>';
+                data.forEach(p => {
+                    const option = document.createElement('option');
+                    option.value = p.id;
+                    const bandaTexto = p.banda ? ' (Banda: ' + p.banda.numeroBanda + ')' : ' (Sin banda)';
+                    option.textContent = p.codigo + ' - ' + p.apellido + ' ' + p.nombre + bandaTexto;
+                    personaSelect.appendChild(option);
+                });
+                personaSelect.disabled = false;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                personaSelect.innerHTML = '<option value="">Error al cargar datos</option>';
+            });
+        });
+
         function toggleCondena() {
             const select = document.getElementById('situacionPenal');
             const seccion = document.getElementById('seccion-condena');
