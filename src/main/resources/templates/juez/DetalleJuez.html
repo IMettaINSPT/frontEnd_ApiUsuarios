@@ -9,33 +9,32 @@
         <div class="card-title">Datos actuales</div>
         <br>
         <p><b>Clave Juzgado:</b> <span th:text="${item.claveJuzgado}">1</span></p>
-        <p><b>Nombre:</b><span <span th:text="${item.nombre}">NOMBRE</span></p>
-        <p><b>Apellido:</b><span <span th:text="${item.apellido}">APELLIDO</span></p>
-        <p><b>Años de Servicio:</b><span <span th:text="${item.anosServicio}">AÑOS-1</span></p>
-        <p><b>Cantidad de Juicios:</b><span <span th:text="${item.cantidadJuicios}">CANTIDAD JUICIOS</span></p>
+        <p><b>Nombre:</b> <span th:text="${item.nombre}">NOMBRE</span></p>
+        <p><b>Apellido:</b> <span th:text="${item.apellido}">APELLIDO</span></p>
+        <p><b>Años de Servicio:</b> <span th:text="${item.anosServicio}">AÑOS-1</span></p>
+        <p><b>Cantidad de Juicios:</b> <span th:text="${item.cantidadJuicios}">CANTIDAD JUICIOS</span></p>
 
-        <p><b>Juicios Asociados:</b>
-            <ul th:if="${not #lists.isEmpty(item.juicios)}" class="history-list">
+        <div>
+            <b>Juicios Asociados:</b>
+            <ul th:if="${item.juicios != null and !item.juicios.isEmpty()}" class="history-list">
                 <li th:each="jui : ${item.juicios}" class="history-item">
                     <strong th:text="${jui.expediente}"></strong> -
                     <span th:text="${#temporals.format(jui.fechaJuicio, 'dd/MM/yyyy')}">01/01/2026</span><br>
 
-                    <small th:if="${jui.persona != null}"
-                           th:text="${'Código: ' + jui.persona.codigo + ' - ' + jui.persona.apellido + ')' : ' (Sin persona detenida asignada)')+
-                           ' - ' + jui.situacionPenal}">
+                    <small th:text="${jui.persona != null ?
+                                   'Código: ' + jui.persona.codigo + ' - ' + jui.persona.apellido :
+                                   'Sin persona detenida asignada'}">
                     </small>
+                    <small th:text="${' [' + (jui.condenado ? 'CONDENADO' : 'ABSUELTO') + ']'}"></small>
                 </li>
             </ul>
 
-            <span th:if="${#lists.isEmpty(item.juicios)}" class="muted">Sin juicios asociados</span>
+            <span th:if="${item.juicios == null or item.juicios.isEmpty()}" class="muted">Sin juicios asociados</span>
 
-             <br>
-             <small class="muted">(Para gestionar Juicios, diríjase al menú de Juicios)</small>
-        </p>
-
+            <br>
+            <small class="muted">(Para gestionar Juicios, diríjase al menú de Juicios)</small>
+        </div>
     </div>
-
-
 
     <div class="card">
         <div class="card-title">Editar</div>
@@ -44,7 +43,6 @@
             <div th:if="${#fields.hasGlobalErrors()}" class="error">
                 <div th:each="e : ${#fields.globalErrors()}" th:text="${e}"></div>
             </div>
-
 
             <div>
                 <label>Clave Juzgado</label>
