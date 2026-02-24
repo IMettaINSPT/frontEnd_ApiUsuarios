@@ -6,13 +6,13 @@
     <h1>Confirmar borrado</h1>
 
     <div class="card">
-        <p>¿Seguro querés borrar el Usuario con Código Nro: <b th:text="${item.codigo}">CODIGO</b>?</p>
+        <p>¿Seguro querés borrar el Usuario con Código Nro: <b th:text="${user.codigo}">CODIGO</b>?</p>
 
         <p th:if="${deleteError != null}" class="error" th:text="${deleteError}"></p>
 
-        <form th:action="@{/users/{id}/delete(id=${item.id})}" method="post" class="actions">
+        <form th:action="@{/users/{id}/delete(id=${user.id})}" method="post" class="actions">
             <button class="btn btn-danger" type="submit">Sí, borrar</button>
-            <a class="btn" th:href="@{/users/{id}(id=${item.id})}">Cancelar</a>
+            <a class="btn" th:href="@{/users/{id}(id=${user.id})}">Cancelar</a>
         </form>
     </div>
 </section>
