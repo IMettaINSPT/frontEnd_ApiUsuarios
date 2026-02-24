@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{fragments/layout :: layout('Usuarios', ~{::section})}">
+      th:replace="~{fragments/layout :: layout('Crear Usuario', ~{::section})}">
 
 <section>
     <h2>Crear usuario</h2>
@@ -9,6 +9,12 @@
 
         <div th:if="${#fields.hasGlobalErrors()}" class="error">
             <div th:each="e : ${#fields.globalErrors()}" th:text="${e}"></div>
+        </div>
+
+        <div>
+            <label>Código de Usuario / Legajo</label>
+            <input type="text" th:field="*{codigo}" data-required placeholder="Ej: U-001">
+            <div class="error" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
         </div>
 
         <div>
@@ -23,39 +29,32 @@
             <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
         </div>
 
-        <!-- Rol (hardcodeado) -->
         <div class="mb-3">
             <label for="rol" class="form-label">Rol</label>
-
             <select id="rol" class="form-select" th:field="*{rol}" data-required>
                 <option value="">-- Seleccionar --</option>
                 <option value="ADMIN">ADMIN</option>
                 <option value="INVESTIGADOR">INVESTIGADOR</option>
                 <option value="VIGILANTE">VIGILANTE</option>
-                <option value="USER">USER</option>
             </select>
-
             <div class="error" th:if="${#fields.hasErrors('rol')}" th:errors="*{rol}"></div>
         </div>
 
-        <!-- Vigilante -->
         <div id="vigilanteGroup" class="mb-3" style="display:none;">
-            <label for="vigilanteId" class="form-label">Vigilante</label>
-
+            <label for="vigilanteId" class="form-label">Asociar a Vigilante</label>
             <select id="vigilanteId" class="form-select" th:field="*{vigilanteId}">
                 <option value="">-- Seleccionar vigilante --</option>
                 <option th:each="v : ${vigilantes}"
                         th:value="${v.id}"
-                        th:text="${' Código: ' + v.codigo}">
+                        th:text="${' Código: ' + v.codigo + ' (Edad: ' + v.edad + ')'}">
                 </option>
             </select>
 
             <div class="error" th:if="${#fields.hasErrors('vigilanteId')}" th:errors="*{vigilanteId}"></div>
-
             <div class="form-text">Obligatorio si el rol es VIGILANTE.</div>
 
-            <div th:if="${!hayVigilantes}" class="muted">
-                (No hay vigilantes disponibles para asociar. Podés crear igual sin asignar.)
+            <div th:if="${!hayVigilantes}" class="muted" style="color: orange;">
+                (No hay perfiles de vigilantes disponibles para asociar.)
             </div>
         </div>
 
@@ -66,31 +65,23 @@
 
     </form>
 
-    <!-- ✅ IMPORTANTE: el script DEBE estar dentro del section -->
     <script th:inline="javascript">
         (function () {
           const rol = document.getElementById('rol');
           const vigilanteGroup = document.getElementById('vigilanteGroup');
           const vigilanteId = document.getElementById('vigilanteId');
-
           const hayVigilantes = /*[[${hayVigilantes}]]*/ false;
 
           if (!rol || !vigilanteGroup || !vigilanteId) return;
 
           function syncVigilanteRequirement() {
             const isVigilante = (rol.value === 'VIGILANTE');
-
-            // console.log('ROL:', rol.value, 'isVigilante:', isVigilante); // (opcional)
-
             vigilanteGroup.style.display = isVigilante ? '' : 'none';
 
             if (isVigilante && hayVigilantes) {
-              vigilanteId.setAttribute('data-required', 'true');
               vigilanteId.setAttribute('required', 'required');
             } else {
-              vigilanteId.removeAttribute('data-required');
               vigilanteId.removeAttribute('required');
-
               if (!isVigilante) vigilanteId.value = '';
             }
           }
@@ -99,6 +90,5 @@
           rol.addEventListener('change', syncVigilanteRequirement);
         })();
     </script>
-
 </section>
 </html>
