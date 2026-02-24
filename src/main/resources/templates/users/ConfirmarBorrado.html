@@ -12,7 +12,7 @@
 
         <form th:action="@{/users/{id}/delete(id=${user.id})}" method="post" class="actions">
             <button class="btn btn-danger" type="submit">Sí, borrar</button>
-            <a class="btn" th:href="@{/users/{id}(id=${user.id})}">Cancelar</a>
+            <a class="btn" th:href="@{/users}">Cancelar</a>
         </form>
     </div>
 </section>
