@@ -20,7 +20,7 @@
 
             <div>
                 <label>Fecha juicio</label>
-                <input type="date" th:field="*{fechaJuicio}" data-required>
+                <input type="date" th:field="*{fechaJuicio}" id="fechaJuicio" data-required>
                 <div class="error" th:if="${#fields.hasErrors('fechaJuicio')}" th:errors="*{fechaJuicio}"></div>
             </div>
 
@@ -74,7 +74,7 @@
             <div id="seccion-condena" style="display: none; border-left: 4px solid #007bff; padding-left: 15px; margin-top: 10px;">
                 <div>
                     <label>Fecha Inicio de Condena</label>
-                    <input type="date" th:field="*{fechaInicioCondena}">
+                    <input type="date" th:field="*{fechaInicioCondena}" id="fechaInicioCondena">
                     <div class="error" th:if="${#fields.hasErrors('fechaInicioCondena')}" th:errors="*{fechaInicioCondena}"></div>
                 </div>
 
@@ -97,6 +97,10 @@
         const jwtToken = [[${session.JWT}]];
         const backendBaseUrl = [[${backendUrl}]];
 
+        // Elementos para validación de fechas
+        const inputFechaJuicio = document.getElementById('fechaJuicio');
+        const inputFechaCondena = document.getElementById('fechaInicioCondena');
+
         document.getElementById('asaltoId').addEventListener('change', function() {
             const asaltoId = this.value;
             const personaSelect = document.getElementById('personaDetenidaId');
@@ -106,10 +110,26 @@
 
             if (!asaltoId) {
                 personaSelect.innerHTML = '<option value="">-- Seleccione primero un delito --</option>';
+                inputFechaJuicio.min = "";
                 return;
             }
 
-            // Usamos backendBaseUrl para asegurar que pegue al puerto 8080 (o la IP configurada)
+            // --- LÓGICA DE FECHA MÍNIMA (Asalto < Juicio) ---
+            const selectedOptionText = this.options[this.selectedIndex].text;
+            const dateMatch = selectedOptionText.match(/(\d{2})\/(\d{2})\/(\d{4})/);
+            if (dateMatch) {
+                const [_, day, month, year] = dateMatch;
+                const formattedDate = `${year}-${month}-${day}`;
+                inputFechaJuicio.min = formattedDate; // Bloquea días anteriores al asalto
+
+                // Si la fecha de juicio puesta es anterior a la del asalto, se limpia
+                if(inputFechaJuicio.value && inputFechaJuicio.value < formattedDate) {
+                    inputFechaJuicio.value = "";
+                    inputFechaCondena.value = "";
+                }
+            }
+
+            // Fetch original
             fetch(backendBaseUrl + '/asaltos/' + asaltoId + '/personas', {
                 headers: {
                     'Authorization': 'Bearer ' + jwtToken,
@@ -137,6 +157,18 @@
             });
         });
 
+        // --- LÓGICA DE FECHA MÍNIMA (Juicio < Condena) ---
+        inputFechaJuicio.addEventListener('change', function() {
+            if (this.value) {
+                inputFechaCondena.min = this.value; // Bloquea días anteriores al juicio para la condena
+
+                // Si la condena puesta es anterior al nuevo juicio, se limpia
+                if(inputFechaCondena.value && inputFechaCondena.value < this.value) {
+                    inputFechaCondena.value = "";
+                }
+            }
+        });
+
         function toggleCondena() {
             const select = document.getElementById('situacionPenal');
             const seccion = document.getElementById('seccion-condena');
@@ -144,6 +176,7 @@
                 seccion.style.display = 'block';
             } else {
                 seccion.style.display = 'none';
+                inputFechaCondena.value = ""; // Limpia si no es condenado
             }
         }
         window.onload = toggleCondena;
