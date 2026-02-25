@@ -11,12 +11,24 @@
             <div th:if="${#fields.hasGlobalErrors()}" class="error">
                 <div th:each="e : ${#fields.globalErrors()}" th:text="${e}"></div>
             </div>
+
             <div>
                 <label>Número de Expediente</label>
                 <input type="text" th:field="*{expediente}">
                 <div class="error" th:if="${#fields.hasErrors('expediente')}" th:errors="*{expediente}"></div>
             </div>
 
+            <div>
+                <label>Delito (Asalto)</label>
+                <select th:field="*{asaltoId}" id="asaltoId" data-required>
+                    <option value="">-- Seleccionar --</option>
+                    <option th:each="a : ${asaltos}"
+                            th:value="${a.id}"
+                            th:text="${a.codigo + ' - ' + #temporals.format(a.fechaAsalto, 'dd/MM/yyyy')}">1</option>
+                </select>
+                <div th:if="${#fields.hasErrors('asaltoId')}"
+                     th:text="${#fields.errors('asaltoId')[0]}" style="color:#ffb4b4;"></div>
+            </div>
 
             <div>
                 <label>Fecha juicio</label>
@@ -37,18 +49,6 @@
             </div>
 
             <div>
-                <label>Delito</label>
-                <select th:field="*{asaltoId}" id="asaltoId" data-required>
-                    <option value="">-- Seleccionar --</option>
-                    <option th:each="a : ${asaltos}"
-                            th:value="${a.id}"
-                            th:text="${a.codigo + ' - ' + #temporals.format(a.fechaAsalto, 'dd/MM/yyyy')}">1</option>
-                </select>
-                <div th:if="${#fields.hasErrors('asaltoId')}"
-                     th:text="${#fields.errors('asaltoId')[0]}" style="color:#ffb4b4;"></div>
-            </div>
-
-            <div>
                 <label>Detenido</label>
                 <select th:field="*{personaDetenidaId}" id="personaDetenidaId" data-required>
                     <option value="">-- Seleccione primero un delito --</option>
@@ -59,7 +59,6 @@
                 <div th:if="${#fields.hasErrors('personaDetenidaId')}"
                      th:text="${#fields.errors('personaDetenidaId')[0]}" style="color:#ffb4b4;"></div>
             </div>
-
 
             <div>
                 <label>Situación Penal</label>
@@ -93,43 +92,58 @@
     </div>
 
     <script th:inline="javascript">
-        // Variables desde el modelo de Spring
         const jwtToken = [[${session.JWT}]];
         const backendBaseUrl = [[${backendUrl}]];
 
-        // Elementos para validación de fechas
+        const selectAsalto = document.getElementById('asaltoId');
         const inputFechaJuicio = document.getElementById('fechaJuicio');
         const inputFechaCondena = document.getElementById('fechaInicioCondena');
 
-        document.getElementById('asaltoId').addEventListener('change', function() {
+        // Función para aplicar los límites de fecha (Min)
+        function actualizarLimitesFechas() {
+            const asaltoId = selectAsalto.value;
+            if (!asaltoId) {
+                inputFechaJuicio.min = "";
+                return;
+            }
+
+            const selectedOptionText = selectAsalto.options[selectAsalto.selectedIndex].text;
+            const dateMatch = selectedOptionText.match(/(\d{2})\/(\d{2})\/(\d{4})/);
+
+            if (dateMatch) {
+                const [_, day, month, year] = dateMatch;
+                const formattedDate = `${year}-${month}-${day}`;
+
+                // Bloqueamos el calendario
+                inputFechaJuicio.min = formattedDate;
+
+                // Si la fecha que quedó cargada tras el error de validación es inválida, la limpiamos
+                if(inputFechaJuicio.value && inputFechaJuicio.value < formattedDate) {
+                    inputFechaJuicio.value = "";
+                }
+            }
+
+            // También actualizamos el límite de la condena si ya hay fecha de juicio
+            if (inputFechaJuicio.value) {
+                inputFechaCondena.min = inputFechaJuicio.value;
+            }
+        }
+
+        // Al cambiar el asalto (Carga de personas y validación de fecha)
+        selectAsalto.addEventListener('change', function() {
             const asaltoId = this.value;
             const personaSelect = document.getElementById('personaDetenidaId');
+
+            actualizarLimitesFechas();
 
             personaSelect.innerHTML = '<option value="">Cargando...</option>';
             personaSelect.disabled = true;
 
             if (!asaltoId) {
                 personaSelect.innerHTML = '<option value="">-- Seleccione primero un delito --</option>';
-                inputFechaJuicio.min = "";
                 return;
             }
 
-            // --- LÓGICA DE FECHA MÍNIMA (Asalto < Juicio) ---
-            const selectedOptionText = this.options[this.selectedIndex].text;
-            const dateMatch = selectedOptionText.match(/(\d{2})\/(\d{2})\/(\d{4})/);
-            if (dateMatch) {
-                const [_, day, month, year] = dateMatch;
-                const formattedDate = `${year}-${month}-${day}`;
-                inputFechaJuicio.min = formattedDate; // Bloquea días anteriores al asalto
-
-                // Si la fecha de juicio puesta es anterior a la del asalto, se limpia
-                if(inputFechaJuicio.value && inputFechaJuicio.value < formattedDate) {
-                    inputFechaJuicio.value = "";
-                    inputFechaCondena.value = "";
-                }
-            }
-
-            // Fetch original
             fetch(backendBaseUrl + '/asaltos/' + asaltoId + '/personas', {
                 headers: {
                     'Authorization': 'Bearer ' + jwtToken,
@@ -137,7 +151,7 @@
                 }
             })
             .then(response => {
-                if (!response.ok) throw new Error('No autorizado o error de red');
+                if (!response.ok) throw new Error('No autorizado');
                 return response.json();
             })
             .then(data => {
@@ -157,12 +171,10 @@
             });
         });
 
-        // --- LÓGICA DE FECHA MÍNIMA (Juicio < Condena) ---
+        // Al cambiar la fecha del juicio, actualizamos el min de la condena
         inputFechaJuicio.addEventListener('change', function() {
             if (this.value) {
-                inputFechaCondena.min = this.value; // Bloquea días anteriores al juicio para la condena
-
-                // Si la condena puesta es anterior al nuevo juicio, se limpia
+                inputFechaCondena.min = this.value;
                 if(inputFechaCondena.value && inputFechaCondena.value < this.value) {
                     inputFechaCondena.value = "";
                 }
@@ -174,12 +186,18 @@
             const seccion = document.getElementById('seccion-condena');
             if (select.value === "true") {
                 seccion.style.display = 'block';
+                if(inputFechaJuicio.value) inputFechaCondena.min = inputFechaJuicio.value;
             } else {
                 seccion.style.display = 'none';
-                inputFechaCondena.value = ""; // Limpia si no es condenado
+                inputFechaCondena.value = "";
             }
         }
-        window.onload = toggleCondena;
+
+        // EJECUCIÓN AL CARGAR LA PÁGINA (Importante para cuando vuelve con error de expediente)
+        window.onload = function() {
+            actualizarLimitesFechas();
+            toggleCondena();
+        };
     </script>
 </section>
 </html>

@@ -2,7 +2,7 @@ package com.tp.frontend.controller;
 
 import com.tp.frontend.dto.PersonaDetenida.PersonaDetenidaResponse;
 import com.tp.frontend.dto.Juez.JuezResponse;
-import com.tp.frontend.dto.Asalto.AsaltoResponse; // Agregado
+import com.tp.frontend.dto.Asalto.AsaltoResponse;
 import com.tp.frontend.dto.Juicio.JuicioRequest;
 import com.tp.frontend.dto.Juicio.JuicioUpdate;
 import com.tp.frontend.dto.Juicio.JuicioResponse;
@@ -10,14 +10,14 @@ import com.tp.frontend.exception.ApiErrorException;
 import com.tp.frontend.service.JuezService;
 import com.tp.frontend.service.JuicioService;
 import com.tp.frontend.service.PersonaDetenidaService;
-import com.tp.frontend.service.AsaltoService; // Agregado
+import com.tp.frontend.service.AsaltoService;
 import com.tp.frontend.support.ErrorBinder;
 import com.tp.frontend.web.SessionKeys;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value; // Agregado
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,10 +25,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClientRequestException;
 
-import java.lang.reflect.Method;
 import java.util.List;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/juicios")
@@ -39,7 +36,7 @@ public class JuicioController {
     private final JuicioService juicioService;
     private final JuezService juezService;
     private final PersonaDetenidaService personaDetenidaService;
-    private final AsaltoService asaltoService; // Agregado
+    private final AsaltoService asaltoService;
     private final ErrorBinder errorBinder;
 
     @Value("${frontend.backend-base-url}")
@@ -48,12 +45,12 @@ public class JuicioController {
     public JuicioController(JuicioService juicioService,
                             JuezService juezService,
                             PersonaDetenidaService personaDetenidaService,
-                            AsaltoService asaltoService, // Agregado
+                            AsaltoService asaltoService,
                             ErrorBinder errorBinder) {
         this.juicioService = juicioService;
         this.juezService = juezService;
         this.personaDetenidaService = personaDetenidaService;
-        this.asaltoService = asaltoService; // Agregado
+        this.asaltoService = asaltoService;
         this.errorBinder = errorBinder;
     }
 
@@ -68,15 +65,15 @@ public class JuicioController {
     private void cargarCombos(Model model, String token) {
         List<JuezResponse> jueces = juezService.list(token);
         List<PersonaDetenidaResponse> personas = personaDetenidaService.list(token);
-        List<AsaltoResponse> asaltos = asaltoService.list(token); // Agregado
+        List<AsaltoResponse> asaltos = asaltoService.list(token);
 
         model.addAttribute("jueces", jueces);
         model.addAttribute("persona", personas);
-        model.addAttribute("asaltos", asaltos); // Agregado
+        model.addAttribute("asaltos", asaltos);
 
         model.addAttribute("hayJueces", !jueces.isEmpty());
         model.addAttribute("hayDetenidos", !personas.isEmpty());
-        model.addAttribute("hayAsaltos", !asaltos.isEmpty()); // Agregado
+        model.addAttribute("hayAsaltos", !asaltos.isEmpty());
     }
 
     @GetMapping
@@ -92,7 +89,7 @@ public class JuicioController {
         String token = jwt(session);
         log.info("GET /juicios/new");
         model.addAttribute("form", new JuicioRequest());
-        model.addAttribute("backendUrl", backendApiUrl); // Agregado para JS
+        model.addAttribute("backendUrl", backendApiUrl);
         cargarCombos(model, token);
         return "juicios/CrearJuicio";
     }
@@ -105,7 +102,7 @@ public class JuicioController {
                          Model model) {
         String token = jwt(session);
         if (br.hasErrors()) {
-            model.addAttribute("backendUrl", backendApiUrl); // Agregado para JS en caso de error
+            model.addAttribute("backendUrl", backendApiUrl);
             cargarCombos(model, token);
             return "juicios/CrearJuicio";
         }
@@ -113,13 +110,13 @@ public class JuicioController {
             juicioService.create(token, form);
             return "redirect:/juicios";
         } catch (ApiErrorException ex) {
-            errorBinder.bind(ex, br);
-            model.addAttribute("backendUrl", backendApiUrl); // Agregado para JS
+            handleBusinessError(ex, br);
+            model.addAttribute("backendUrl", backendApiUrl);
             cargarCombos(model, token);
             return "juicios/CrearJuicio";
         } catch (WebClientRequestException ex) {
             addGlobalError(br, "No pudimos conectarnos al servidor.");
-            model.addAttribute("backendUrl", backendApiUrl); // Agregado para JS
+            model.addAttribute("backendUrl", backendApiUrl);
             cargarCombos(model, token);
             return "juicios/CrearJuicio";
         }
@@ -135,18 +132,15 @@ public class JuicioController {
         JuicioUpdate update = new JuicioUpdate();
         update.setExpediente(item.getExpediente());
         update.setFechaJuicio(item.getFechaJuicio());
-
         update.setCondenado(item.getCondenado());
 
         if (item.getJuez() != null) update.setJuezId(item.getJuez().getId());
         if (item.getAsalto() != null) update.setAsaltoId(item.getAsalto().getId());
-
-        // REVERTIDO: Se volvió a usar .id() ya que PersonaDetenidaResponse es un Record
         if (item.getPersona() != null) update.setPersonaDetenidaId(item.getPersona().id());
 
         model.addAttribute("item", item);
         model.addAttribute("update", update);
-        model.addAttribute("backendUrl", backendApiUrl); // Agregado para JS
+        model.addAttribute("backendUrl", backendApiUrl);
         cargarCombos(model, token);
 
         return "juicios/DetalleJuicio";
@@ -162,7 +156,7 @@ public class JuicioController {
         String token = jwt(session);
         if (br.hasErrors()) {
             model.addAttribute("item", juicioService.get(token, id));
-            model.addAttribute("backendUrl", backendApiUrl); // Agregado para JS
+            model.addAttribute("backendUrl", backendApiUrl);
             cargarCombos(model, token);
             return "juicios/DetalleJuicio";
         }
@@ -170,17 +164,38 @@ public class JuicioController {
             juicioService.update(token, id, update);
             return "redirect:/juicios/" + id;
         } catch (ApiErrorException ex) {
-            errorBinder.bind(ex, br);
+            handleBusinessError(ex, br);
             model.addAttribute("item", juicioService.get(token, id));
-            model.addAttribute("backendUrl", backendApiUrl); // Agregado para JS
+            model.addAttribute("backendUrl", backendApiUrl);
             cargarCombos(model, token);
             return "juicios/DetalleJuicio";
         } catch (WebClientRequestException ex) {
             addGlobalError(br, "Error de conexión.");
             model.addAttribute("item", juicioService.get(token, id));
-            model.addAttribute("backendUrl", backendApiUrl); // Agregado para JS
+            model.addAttribute("backendUrl", backendApiUrl);
             cargarCombos(model, token);
             return "juicios/DetalleJuicio";
+        }
+    }
+
+    /**
+     * Método privado para diferenciar el texto según el mensaje del backend
+     */
+    private void handleBusinessError(ApiErrorException ex, BindingResult br) {
+        // Usamos solo getMessage() que es lo que existe en ApiErrorException
+        String msg = (ex.getMessage() != null) ? ex.getMessage().toUpperCase() : "";
+
+        // En tus logs el error viene con "[EXPEDIENTE_DUPLICADO]" o contiene "EXPEDIENTE"
+        if (msg.contains("EXPEDIENTE")) {
+            addGlobalError(br, "Ese nro de expediente ya existe.");
+        }
+        // Si no es expediente, pero el mensaje indica algo de fechas
+        else if (msg.contains("FECHA") || msg.contains("ANTERIOR")) {
+            addGlobalError(br, "No se pudo procesar la solicitud. Revisá las fechas ingresadas e intentá de nuevo.");
+        }
+        // Mensaje por defecto basado en tu requerimiento actual
+        else {
+            addGlobalError(br, "No se pudo procesar la solicitud. Revisá las fechas ingresadas e intentá de nuevo.");
         }
     }
 

@@ -5,7 +5,6 @@
 <section class="container">
     <h1>Detalle Juicio</h1>
 
-
     <div class="card" style="margin-top:16px;">
         <div class="card-title">Editar</div>
         <br>
@@ -22,8 +21,20 @@
             </div>
 
             <div>
+                <label>Delito (Asalto)</label>
+                <select th:field="*{asaltoId}" id="asaltoId" data-required>
+                    <option value="">-- Seleccionar --</option>
+                    <option th:each="a : ${asaltos}"
+                            th:value="${a.id}"
+                            th:text="${a.codigo + ' - ' + #temporals.format(a.fechaAsalto, 'dd/MM/yyyy')}">1</option>
+                </select>
+                <div th:if="${#fields.hasErrors('asaltoId')}"
+                     th:text="${#fields.errors('asaltoId')[0]}" style="color:#ffb4b4;"></div>
+            </div>
+
+            <div>
                 <label>Fecha juicio</label>
-                <input type="date" th:field="*{fechaJuicio}" data-required>
+                <input type="date" th:field="*{fechaJuicio}" id="fechaJuicio" data-required>
                 <div class="error" th:if="${#fields.hasErrors('fechaJuicio')}" th:errors="*{fechaJuicio}"></div>
             </div>
 
@@ -37,18 +48,6 @@
                 </select>
                 <div th:if="${#fields.hasErrors('juezId')}"
                      th:text="${#fields.errors('juezId')[0]}" style="color:#ffb4b4;"></div>
-            </div>
-
-            <div>
-                <label>Delito</label>
-                <select th:field="*{asaltoId}" id="asaltoId" data-required>
-                    <option value="">-- Seleccionar --</option>
-                    <option th:each="a : ${asaltos}"
-                            th:value="${a.id}"
-                            th:text="${a.codigo + ' - ' + #temporals.format(a.fechaAsalto, 'dd/MM/yyyy')}">1</option>
-                </select>
-                <div th:if="${#fields.hasErrors('asaltoId')}"
-                     th:text="${#fields.errors('asaltoId')[0]}" style="color:#ffb4b4;"></div>
             </div>
 
             <div>
@@ -74,7 +73,7 @@
             <div id="seccion-condena" style="display: none; border-left: 4px solid #007bff; padding-left: 15px; margin-top: 10px;">
                 <div>
                     <label>Fecha Inicio de Condena</label>
-                    <input type="date" th:field="*{fechaInicioCondena}">
+                    <input type="date" th:field="*{fechaInicioCondena}" id="fechaInicioCondena">
                     <div class="error" th:if="${#fields.hasErrors('fechaInicioCondena')}" th:errors="*{fechaInicioCondena}"></div>
                 </div>
 
@@ -97,6 +96,10 @@
         const jwtToken = [[${session.JWT}]];
         const backendBaseUrl = [[${backendUrl}]];
 
+        const inputFechaJuicio = document.getElementById('fechaJuicio');
+        const inputFechaCondena = document.getElementById('fechaInicioCondena');
+        const asaltoSelect = document.getElementById('asaltoId');
+
         function toggleCondena() {
             const select = document.getElementById('situacionPenal');
             const seccion = document.getElementById('seccion-condena');
@@ -104,6 +107,25 @@
                 seccion.style.display = 'block';
             } else {
                 seccion.style.display = 'none';
+            }
+        }
+
+        // Función para actualizar los límites .min de los calendarios
+        function actualizarLimitesFechas() {
+            const selectedOption = asaltoSelect.options[asaltoSelect.selectedIndex];
+            if (!selectedOption || !selectedOption.value) return;
+
+            // Extraer fecha del asalto del texto: "COD - 25/02/2026"
+            const dateMatch = selectedOption.text.match(/(\d{2})\/(\d{2})\/(\d{4})/);
+            if (dateMatch) {
+                const [_, day, month, year] = dateMatch;
+                const formattedDate = `${year}-${month}-${day}`;
+                inputFechaJuicio.min = formattedDate;
+            }
+
+            // La condena no puede ser antes del juicio
+            if (inputFechaJuicio.value) {
+                inputFechaCondena.min = inputFechaJuicio.value;
             }
         }
 
@@ -126,7 +148,6 @@
                     const option = document.createElement('option');
                     option.value = p.id;
                     option.textContent = `${p.codigo} - ${p.apellido} ${p.nombre}`;
-                    // Si el ID coincide con el que ya tiene el juicio, lo marcamos
                     if (personaSeleccionadaId && p.id == personaSeleccionadaId) {
                         option.selected = true;
                     }
@@ -138,17 +159,29 @@
             }
         }
 
-        // Listener para cambios manuales en el select de Delito
-        document.getElementById('asaltoId').addEventListener('change', function() {
+        asaltoSelect.addEventListener('change', function() {
+            actualizarLimitesFechas();
             cargarPersonas(this.value);
+
+            // Si cambian el asalto, validamos si la fecha de juicio actual quedó vieja
+            if (inputFechaJuicio.value && inputFechaJuicio.value < inputFechaJuicio.min) {
+                inputFechaJuicio.value = "";
+                inputFechaCondena.value = "";
+            }
         });
 
-        // Ejecución al cargar la página
+        inputFechaJuicio.addEventListener('change', function() {
+            actualizarLimitesFechas();
+            if (inputFechaCondena.value && inputFechaCondena.value < this.value) {
+                inputFechaCondena.value = "";
+            }
+        });
+
         document.addEventListener("DOMContentLoaded", function() {
             toggleCondena();
+            actualizarLimitesFechas();
 
-            // Disparar carga inicial para mostrar la persona que ya estaba seleccionada
-            const asaltoInicial = document.getElementById('asaltoId').value;
+            const asaltoInicial = asaltoSelect.value;
             const personaActualId = document.getElementById('personaDetenidaId').getAttribute('data-selected-id');
             if (asaltoInicial) {
                 cargarPersonas(asaltoInicial, personaActualId);

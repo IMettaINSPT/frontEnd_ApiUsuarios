@@ -16,7 +16,7 @@
 
             <div>
                 <label>Fecha contrato</label>
-                <input type="date" th:field="*{fechaContrato}">
+                <input type="date" th:field="*{fechaContrato}" id="fechaInicio">
                 <div class="error" th:if="${#fields.hasErrors('fechaContrato')}" th:errors="*{fechaContrato}"></div>
             </div>
             <div>
@@ -62,5 +62,30 @@
             </div>
         </form>
     </div>
+
+    <script th:inline="javascript">
+        const inputInicio = document.getElementById('fechaInicio');
+        const inputFin = document.getElementById('fechaFin');
+
+        function sincronizarFechas() {
+            if (inputInicio.value) {
+                // Establece el mínimo permitido para la fecha de fin
+                inputFin.min = inputInicio.value;
+
+                // Si al cambiar el inicio, la fecha fin queda fuera de rango, se limpia
+                if (inputFin.value && inputFin.value < inputInicio.value) {
+                    inputFin.value = "";
+                }
+            } else {
+                inputFin.min = "";
+            }
+        }
+
+        // Escuchar cambios mientras el usuario edita
+        inputInicio.addEventListener('change', sincronizarFechas);
+
+        // Ejecutar al cargar la página para aplicar la restricción con los datos actuales
+        window.onload = sincronizarFechas;
+    </script>
 </section>
 </html>

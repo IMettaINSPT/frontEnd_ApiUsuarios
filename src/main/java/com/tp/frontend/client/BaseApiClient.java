@@ -177,7 +177,7 @@ public abstract class BaseApiClient {
         if (code == 401) fallback.setMessage("Tu sesión venció o no es válida. Iniciá sesión nuevamente.");
         else if (code == 403) fallback.setMessage("No tenés permisos para realizar esta acción.");
         else if (code == 404) fallback.setMessage("No se encontró el recurso solicitado.");
-        else if (code >= 400 && code < 500) fallback.setMessage("No se pudo procesar la solicitud. Revisá los datos e intentá de nuevo.");
+        else if (code >= 400 && code < 500) fallback.setMessage("No se pudo procesar la solicitud. Revisá el Nro de Expediente o las fechas ingresadas e intentá de nuevo.");
         else fallback.setMessage("Ocurrió un problema en el servidor. Intentá más tarde.");
 
         // NO lo muestres al usuario; queda para log/debug.

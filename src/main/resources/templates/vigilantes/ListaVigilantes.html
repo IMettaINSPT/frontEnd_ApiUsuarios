@@ -28,7 +28,9 @@
                     <select th:if="${not #lists.isEmpty(v.contratos)}" class="form-select form-select-sm">
                         <option selected>Ver contratos asociados ([[${#lists.size(v.contratos)}]])</option>
                         <option th:each="c : ${v.contratos}"
-                                th:text="${c.numContrato} + ' - ' + ${c.fechaContrato}+ ' - ' + ${c.fechaFinTexto}">
+                                th:text="${c.numContrato} + ' - ' +
+                                         ${#temporals.format(c.fechaContrato, 'dd/MM/yyyy')} + ' - ' +
+                                         ${#temporals.format(c.fechaFin, 'dd/MM/yyyy')}">
                         </option>
                     </select>
                     <span th:if="${#lists.isEmpty(v.contratos)}" class="muted">Sin contratos</span>

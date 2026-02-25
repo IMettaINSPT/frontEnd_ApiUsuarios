@@ -14,12 +14,12 @@
 
             <div>
                 <label>Fecha contrato</label>
-                <input type="date" th:field="*{fechaContrato}">
+                <input type="date" th:field="*{fechaContrato}" id="fechaInicio">
                 <div class="error" th:if="${#fields.hasErrors('fechaContrato')}" th:errors="*{fechaContrato}"></div>
             </div>
             <div>
                 <label>Fecha fin (opcional)</label>
-                <input type="date" th:field="*{fechaFin}">
+                <input type="date" th:field="*{fechaFin}" id="fechaFin">
 
                 <div class="error" th:if="${#fields.hasErrors('fechaFin')}" th:errors="*{fechaFin}"></div>
                 <div class="form-text muted">Si queda vacío, el contrato se considera activo indefinidamente.</div>
@@ -61,5 +61,30 @@
             </div>
         </form>
     </div>
+
+    <script th:inline="javascript">
+        const inputInicio = document.getElementById('fechaInicio');
+        const inputFin = document.getElementById('fechaFin');
+
+        function actualizarRestriccion() {
+            if (inputInicio.value) {
+                // El mínimo de la fecha fin es la fecha de inicio
+                inputFin.min = inputInicio.value;
+
+                // Si la fecha fin ya escrita es menor a la de inicio, la borramos
+                if (inputFin.value && inputFin.value < inputInicio.value) {
+                    inputFin.value = "";
+                }
+            } else {
+                inputFin.min = "";
+            }
+        }
+
+        // Escuchar cambios en la fecha de inicio
+        inputInicio.addEventListener('change', actualizarRestriccion);
+
+        // Ejecutar al cargar (por si vuelve con errores de validación del servidor)
+        window.onload = actualizarRestriccion;
+    </script>
 </section>
 </html>
