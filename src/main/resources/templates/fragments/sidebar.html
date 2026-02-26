@@ -7,12 +7,12 @@
         </div>
     </div>
 
-    <nav class="sb-section">
+    <nav class="sb-section" sec:authorize="hasAnyRole('ADMIN', 'INVESTIGADOR')">
         <div class="sb-section-title">Panel</div>
         <a class="sb-link" th:href="@{/dashboard}">📊 Dashboard</a>
     </nav>
 
-    <nav class="sb-section">
+    <nav class="sb-section" sec:authorize="hasAnyRole('ADMIN', 'INVESTIGADOR')">
         <div class="sb-section-title">Gestión</div>
         <a class="sb-link" th:href="@{/bancos}">🏦 Bancos</a>
         <a class="sb-link" th:href="@{/sucursales}">🏢 Sucursales</a>

@@ -1,10 +1,9 @@
 <!doctype html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<!-- =========================
-     LAYOUT BASE (para TODOS los módulos)
-========================= -->
-<html lang="es"  th:fragment="layout(title, content)">
+<html lang="es" th:fragment="layout(title, content)"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -27,11 +26,8 @@
 </body>
 </html>
 
-<!-- =========================
-     LAYOUT CON ASSETS (solo DASHBOARD)
-     - NO lo usan otros módulos
-========================= -->
-<html lang="es"  th:fragment="layoutAssets(title, pageCss, pageJs, content)">
+<html lang="es" th:fragment="layoutAssets(title, pageCss, pageJs, content)"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
