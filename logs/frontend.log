@@ -7544,3 +7544,99 @@ This generated password is for development use only. Your security configuration
                 sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=ab815b65 ip=0:0:0:0:0:0:0:1 method=GET path=/juicios status=
                 user=admin role=ADMIN
                 c.t.f.controller.JuicioController - GET /juicios
+2026-02-25 23:43:27.160 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=e1c10925 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos
+2026-02-25 23:43:31.726 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=ad761225 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-25 23:43:35.088 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=845218ca ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos
+2026-02-25 23:43:38.175 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=5ef1dbea ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /jueces
+2026-02-25 23:43:42.057 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=33d1605e ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
+                user=admin role=ADMIN
+                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
+2026-02-25 23:43:45.493 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=98080929 ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales
+2026-02-25 23:43:48.822 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=d1e8ab9a ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes
+2026-02-25 23:43:51.718 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=022dad0e ip=0:0:0:0:0:0:0:1 method=GET path=/juicios status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuicioController - GET /juicios
+2026-02-25 23:43:55.543 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=b4fb748b ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos
+2026-02-25 23:43:58.730 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=88944e1c ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                c.t.f.controller.UsersController - GET /users msg=null err=null
+2026-02-25 23:44:01.662 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=4bc4b4ca ip=0:0:0:0:0:0:0:1 method=GET path=/bandas status=
+                user=admin role=ADMIN
+                c.t.f.controller.BandasController - GET /bandas
+2026-02-25 23:44:16.198 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=597a75d7 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos
+2026-02-25 23:44:22.682 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=65c90059 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos/new
+2026-02-25 23:44:42.168 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=563fbc78 ip=0:0:0:0:0:0:0:1 method=POST path=/contratos status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - POST /contratos create form=com.tp.frontend.dto.contrato.ContratoRequest@43e50bb2
+2026-02-25 23:44:42.469 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=0a73e9dd ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos
+2026-02-25 23:44:57.656 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=4a57243f ip=0:0:0:0:0:0:0:1 method=GET path=/contratos/3/confirm-delete status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos/3/confirm-delete
+2026-02-25 23:44:59.696 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=1ad086af ip=0:0:0:0:0:0:0:1 method=POST path=/contratos/3/delete status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - POST /contratos/3/delete
+2026-02-25 23:44:59.741 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=2ee5e322 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos
+2026-02-25 23:45:12.605 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=ed069a2c ip=0:0:0:0:0:0:0:1 method=GET path=/contratos/9/confirm-delete status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos/9/confirm-delete
+2026-02-25 23:45:14.175 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=d9c745db ip=0:0:0:0:0:0:0:1 method=POST path=/contratos/9/delete status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - POST /contratos/9/delete
+2026-02-25 23:45:14.224 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=a334f5d5 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos
+2026-02-25 23:45:26.453 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=7daa7ce3 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos/new
+2026-02-25 23:45:43.196 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=3b8433a4 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos
+2026-02-25 23:45:51.108 INFO 
+                sid=5F5CF792FAB3D3F3F048A3B543B64458 rid=ac0d4f4f ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos
