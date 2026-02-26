@@ -17,8 +17,8 @@
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                 <div>
                     <p><b>Nro. Contrato:</b> <span th:text="${c.numContrato}">-</span></p>
-                    <p><b>Fecha Inicio:</b> <span th:text="${c.fechaContrato}">-</span></p>
-                    <p><b>Fecha Fin:</b> <span th:text="${c.fechaFin != null ? c.fechaFin : 'Vigente'}">-</span></p>
+                    <p><b>Fecha Inicio:</b> <span th:text="${c.fechaContrato != null ? #temporals.format(c.fechaContrato, 'dd/MM/yyyy') : '-'}">-</span></p>
+                    <p><b>Fecha Fin:</b> <span th:text="${c.fechaFin != null ? #temporals.format(c.fechaFin, 'dd/MM/yyyy') : 'Vigente'}">-</span></p>
                     <p><b>Arma:</b> <span th:text="${c.conArma ? 'SI' : 'NO'}">-</span></p>
                 </div>
                 <div>
