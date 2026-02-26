@@ -51,11 +51,19 @@
 
       const data = await resp.json();
 
+      // KPIs Originales
       setText("kpiBancos", data.bancos ?? 0);
       setText("kpiSucursales", data.sucursales ?? 0);
       setText("kpiContratos", data.contratos ?? 0);
       setText("kpiVigilantes", data.vigilantes ?? 0);
       setText("kpiUsuarios", data.usuarios ?? 0);
+
+      // NUEVOS KPIs (Jueces, Juicios, Bandas, Detenidos, Asaltos)
+      setText("kpiJueces", data.jueces ?? 0);
+      setText("kpiJuicios", data.juicios ?? 0);
+      setText("kpiBandas", data.bandas ?? 0);
+      setText("kpiDetenidos", data.detenidos ?? 0);
+      setText("kpiAsaltos", data.asaltos ?? 0);
 
       setText("dashStatus", "OK");
       setText("dashStatusSub", "Métricas actualizadas");
@@ -67,11 +75,19 @@
     } catch (e) {
       setText("dashStatus", "Error");
       setText("dashStatusSub", "No se pudieron cargar métricas");
+
+      // Reset de todos los KPIs a raya en caso de error
       setText("kpiBancos", "—");
       setText("kpiSucursales", "—");
       setText("kpiContratos", "—");
       setText("kpiVigilantes", "—");
       setText("kpiUsuarios", "—");
+      setText("kpiJueces", "—");
+      setText("kpiJuicios", "—");
+      setText("kpiBandas", "—");
+      setText("kpiDetenidos", "—");
+      setText("kpiAsaltos", "—");
+
       setHealth(false, "Sin conexión", String(e.message || e));
 
       // ✅ oculto si falla
