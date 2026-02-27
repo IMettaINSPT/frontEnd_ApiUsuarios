@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       th:replace="~{fragments/layout :: layout('Usuarios', ~{::section})}">
 
 <section class="container">
@@ -8,7 +9,7 @@
     <p th:if="${msg != null}" class="muted" th:text="${msg}"></p>
     <p th:if="${error != null}" class="error" th:text="${error}"></p>
 
-    <div class="card actions">
+    <div class="card actions" sec:authorize="hasRole('ADMIN')">
         <a class="btn btn-primary" th:href="@{/users/new}"> Crear Usuario</a>
     </div>
 
@@ -31,8 +32,11 @@
                 <td th:text="${u.vigilanteId != null ? u.vigilanteCodigo : '-'}">-</td>
 
                 <td class="td-actions">
-                    <a class="btn" th:href="@{/users/{id}(id=${u.id})}">Ver/Editar</a>
-                    <a class="btn btn-danger" th:href="@{/users/{id}/confirm-delete(id=${u.id})}">Borrar</a>
+                    <a sec:authorize="hasRole('ADMIN')" class="btn" th:href="@{/users/{id}(id=${u.id})}">Ver/Editar</a>
+
+                    <a sec:authorize="hasRole('INVESTIGADOR')" class="btn" th:href="@{/users/{id}(id=${u.id})}">Ver Detalle</a>
+
+                    <a sec:authorize="hasRole('ADMIN')" class="btn btn-danger" th:href="@{/users/{id}/confirm-delete(id=${u.id})}">Borrar</a>
                 </td>
             </tr>
 

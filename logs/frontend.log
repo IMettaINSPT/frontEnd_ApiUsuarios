@@ -3318,3 +3318,937 @@ This generated password is for development use only. Your security configuration
                 sid=- rid=67e6e75a ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
                 user=anon role=-
                 c.t.f.controller.AuthController - GET /login logout= err=null
+2026-02-26 23:08:55.127 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-26 23:08:55.205 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 8804 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
+2026-02-26 23:08:55.206 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-26 23:08:57.858 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-02-26 23:08:57.882 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-26 23:08:57.887 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-26 23:08:57.888 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-02-26 23:08:58.024 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-26 23:08:58.024 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2723 ms
+2026-02-26 23:08:59.016 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 30ae8c76-fd2a-4b67-94e9-76ce61924f13
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-26 23:08:59.521 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@636985df, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6f91fbda, org.springframework.security.web.context.SecurityContextHolderFilter@27a9f025, org.springframework.security.web.header.HeaderWriterFilter@7c453c34, org.springframework.web.filter.CorsFilter@723e3c17, org.springframework.security.web.authentication.logout.LogoutFilter@65cc5252, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@8641b7d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@61359e87, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2dc39b53, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4ffced4e, org.springframework.security.web.session.SessionManagementFilter@3dfd6220, org.springframework.security.web.access.ExceptionTranslationFilter@61394494, org.springframework.security.web.access.intercept.AuthorizationFilter@687389a6]
+2026-02-26 23:08:59.976 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-02-26 23:09:00.029 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-02-26 23:09:00.040 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 5.827 seconds (process running for 6.779)
+2026-02-26 23:09:00.283 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-26 23:09:00.283 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-26 23:09:00.285 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-02-26 23:09:00.369 INFO 
+                sid=- rid=663ecb95 ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user=anon role=-
+                c.t.f.controller.AuthController - GET /login logout= err=null
+2026-02-26 23:09:02.166 INFO 
+                sid=- rid=af3564c9 ip=127.0.0.1 method=POST path=/auth/login status=
+                user=InvestigadorJosé role=-
+                c.t.f.controller.AuthController - POST /auth/login user=InvestigadorJosé passwordLength=4
+2026-02-26 23:09:03.569 INFO 
+                sid=- rid=af3564c9 ip=127.0.0.1 method=POST path=/auth/login status=
+                user=InvestigadorJosé role=-
+                c.t.f.controller.AuthController - POST /auth/login OK user=InvestigadorJosé role=INVESTIGADOR
+2026-02-26 23:09:06.002 INFO 
+                sid=24FDCF60D8C82523C245077D9343F6BC rid=1f06b476 ip=0:0:0:0:0:0:0:1 method=GET path=/ status=
+                user=InvestigadorJosé role=INVESTIGADOR
+                c.t.f.controller.HomeController - GET / (home)
+2026-02-26 23:09:07.585 INFO 
+                sid=- rid=da877e0b ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user=anon role=-
+                c.t.f.controller.AuthController - GET /login logout= err=null
+2026-02-26 23:09:09.014 INFO 
+                sid=- rid=271b7015 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=InvestigadorJosé role=-
+                c.t.f.controller.AuthController - POST /auth/login user=InvestigadorJosé passwordLength=4
+2026-02-26 23:09:09.184 INFO 
+                sid=- rid=271b7015 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=InvestigadorJosé role=-
+                c.t.f.controller.AuthController - POST /auth/login OK user=InvestigadorJosé role=INVESTIGADOR
+2026-02-26 23:09:41.972 INFO 
+                sid=- rid=9c675f7c ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user=anon role=-
+                c.t.f.controller.AuthController - GET /login logout= err=null
+2026-02-26 23:09:50.604 INFO 
+                sid=- rid=2b987871 ip=127.0.0.1 method=POST path=/auth/login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-26 23:09:51.241 INFO 
+                sid=- rid=2b987871 ip=127.0.0.1 method=POST path=/auth/login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
+2026-02-26 23:09:54.387 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=7b0d517a ip=127.0.0.1 method=GET path=/users status=
+                user=admin role=ADMIN
+                c.t.f.controller.UsersController - GET /users msg=null err=null
+2026-02-26 23:10:10.017 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=c37ca176 ip=0:0:0:0:0:0:0:1 method=GET path=/users/7 status=
+                user=admin role=ADMIN
+                c.t.f.controller.UsersController - GET /users/7 msg=null err=null
+2026-02-26 23:10:12.885 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=c4d32494 ip=127.0.0.1 method=GET path=/users status=
+                user=admin role=ADMIN
+                c.t.f.controller.UsersController - GET /users msg=null err=null
+2026-02-26 23:10:14.749 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=80448927 ip=0:0:0:0:0:0:0:1 method=GET path=/users/8 status=
+                user=admin role=ADMIN
+                c.t.f.controller.UsersController - GET /users/8 msg=null err=null
+2026-02-26 23:10:16.606 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=f1ffcd90 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                c.t.f.controller.UsersController - GET /users msg=null err=null
+2026-02-26 23:10:19.446 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=793c7417 ip=0:0:0:0:0:0:0:1 method=GET path=/juicios status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuicioController - GET /juicios
+2026-02-26 23:10:22.453 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=ff6e4010 ip=0:0:0:0:0:0:0:1 method=GET path=/juicios/11 status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuicioController - GET /juicios/11
+2026-02-26 23:10:27.604 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=42691ffe ip=127.0.0.1 method=GET path=/juicios status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuicioController - GET /juicios
+2026-02-26 23:10:29.644 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=43349e5f ip=0:0:0:0:0:0:0:1 method=GET path=/bandas status=
+                user=admin role=ADMIN
+                c.t.f.controller.BandasController - GET /bandas
+2026-02-26 23:10:31.012 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=57b63d88 ip=0:0:0:0:0:0:0:1 method=GET path=/bandas/2 status=
+                user=admin role=ADMIN
+                c.t.f.controller.BandasController - GET /bandas/2
+2026-02-26 23:10:32.476 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=3f410846 ip=127.0.0.1 method=GET path=/bandas status=
+                user=admin role=ADMIN
+                c.t.f.controller.BandasController - GET /bandas
+2026-02-26 23:10:33.907 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=39cc4692 ip=0:0:0:0:0:0:0:1 method=GET path=/bandas/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.BandasController - GET /bandas/new
+2026-02-26 23:10:35.012 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=5c19da0e ip=0:0:0:0:0:0:0:1 method=GET path=/bandas status=
+                user=admin role=ADMIN
+                c.t.f.controller.BandasController - GET /bandas
+2026-02-26 23:10:35.995 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=934e817b ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-26 23:10:37.361 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=01b4379e ip=0:0:0:0:0:0:0:1 method=GET path=/bancos/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos/new
+2026-02-26 23:10:38.299 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=f83f3d10 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-26 23:10:41.203 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=15a3657c ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales
+2026-02-26 23:10:43.311 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=d0166717 ip=127.0.0.1 method=GET path=/sucursales/1 status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales/1
+2026-02-26 23:10:45.331 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=2f361ebe ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales/1/confirm-delete status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales/1/confirm-delete
+2026-02-26 23:10:47.108 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=2f8af5fa ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales/1 status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales/1
+2026-02-26 23:10:49.049 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=8f75a9db ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales
+2026-02-26 23:10:52.658 INFO 
+                sid=FAD691D8EC13728BA7EDB1968B3C5DB7 rid=87b4842d ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                c.t.f.controller.UsersController - GET /users msg=null err=null
+2026-02-26 23:10:56.624 INFO 
+                sid=- rid=861eb459 ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user=anon role=-
+                c.t.f.controller.AuthController - GET /login logout= err=null
+2026-02-26 23:11:02.193 INFO 
+                sid=- rid=002db876 ip=127.0.0.1 method=POST path=/auth/login status=
+                user=InvestigadorJosé role=-
+                c.t.f.controller.AuthController - POST /auth/login user=InvestigadorJosé passwordLength=4
+2026-02-26 23:11:02.350 INFO 
+                sid=- rid=002db876 ip=127.0.0.1 method=POST path=/auth/login status=
+                user=InvestigadorJosé role=-
+                c.t.f.controller.AuthController - POST /auth/login OK user=InvestigadorJosé role=INVESTIGADOR
+2026-02-26 23:11:05.103 INFO 
+                sid=986C9A32CED02664DAC315DA49CE1044 rid=bbced4fb ip=0:0:0:0:0:0:0:1 method=GET path=/juicios status=
+                user=InvestigadorJosé role=INVESTIGADOR
+                c.t.f.controller.JuicioController - GET /juicios
+2026-02-26 23:11:07.127 INFO 
+                sid=986C9A32CED02664DAC315DA49CE1044 rid=58572769 ip=0:0:0:0:0:0:0:1 method=GET path=/juicios/11 status=
+                user=InvestigadorJosé role=INVESTIGADOR
+                c.t.f.controller.JuicioController - GET /juicios/11
+2026-02-26 23:11:09.438 INFO 
+                sid=986C9A32CED02664DAC315DA49CE1044 rid=99d0e1a3 ip=0:0:0:0:0:0:0:1 method=GET path=/juicios status=
+                user=InvestigadorJosé role=INVESTIGADOR
+                c.t.f.controller.JuicioController - GET /juicios
+2026-02-26 23:11:10.629 INFO 
+                sid=986C9A32CED02664DAC315DA49CE1044 rid=889d08b1 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=InvestigadorJosé role=INVESTIGADOR
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-26 23:11:13.415 INFO 
+                sid=986C9A32CED02664DAC315DA49CE1044 rid=66636faf ip=0:0:0:0:0:0:0:1 method=GET path=/bancos/4 status=
+                user=InvestigadorJosé role=INVESTIGADOR
+                c.t.f.controller.BancoController - GET /bancos/4
+2026-02-26 23:11:15.413 INFO 
+                sid=986C9A32CED02664DAC315DA49CE1044 rid=96a5bd88 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=InvestigadorJosé role=INVESTIGADOR
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-26 23:11:17.262 INFO 
+                sid=986C9A32CED02664DAC315DA49CE1044 rid=9f5d56f2 ip=0:0:0:0:0:0:0:1 method=GET path=/ status=
+                user=InvestigadorJosé role=INVESTIGADOR
+                c.t.f.controller.HomeController - GET / (home)
+2026-02-26 23:13:50.442 INFO 
+                sid=- rid=ea3670b2 ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user=anon role=-
+                c.t.f.controller.AuthController - GET /login logout= err=null
+2026-02-26 23:13:51.881 INFO 
+                sid=- rid=9a0f3fb8 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=InvestigadorJosé role=-
+                c.t.f.controller.AuthController - POST /auth/login user=InvestigadorJosé passwordLength=4
+2026-02-26 23:13:52.042 INFO 
+                sid=- rid=9a0f3fb8 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=InvestigadorJosé role=-
+                c.t.f.controller.AuthController - POST /auth/login OK user=InvestigadorJosé role=INVESTIGADOR
+2026-02-26 23:13:53.529 INFO 
+                sid=274213C5BFC0C9494D902404F6A674C4 rid=54547167 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
+                user=InvestigadorJosé role=INVESTIGADOR
+                c.t.f.controller.ContratosController - GET /contratos
+2026-02-26 23:13:55.177 INFO 
+                sid=274213C5BFC0C9494D902404F6A674C4 rid=4e20327b ip=0:0:0:0:0:0:0:1 method=GET path=/contratos/4 status=
+                user=InvestigadorJosé role=INVESTIGADOR
+                c.t.f.controller.ContratosController - GET /contratos/4
+2026-02-26 23:13:58.064 INFO 
+                sid=274213C5BFC0C9494D902404F6A674C4 rid=b48400d6 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
+                user=InvestigadorJosé role=INVESTIGADOR
+                c.t.f.controller.ContratosController - GET /contratos
+2026-02-26 23:14:00.408 INFO 
+                sid=274213C5BFC0C9494D902404F6A674C4 rid=f3150ab5 ip=0:0:0:0:0:0:0:1 method=GET path=/ status=
+                user=InvestigadorJosé role=INVESTIGADOR
+                c.t.f.controller.HomeController - GET / (home)
+2026-02-26 23:16:40.012 INFO 
+                sid=- rid=e695cefe ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user=anon role=-
+                c.t.f.controller.AuthController - GET /login logout= err=null
+2026-02-26 23:16:45.148 INFO 
+                sid=- rid=497b647e ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-26 23:16:45.311 INFO 
+                sid=- rid=497b647e ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
+2026-02-26 23:16:48.178 INFO 
+                sid=F960C6F609ACCE5F7A2745936163930D rid=760c8877 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                c.t.f.controller.UsersController - GET /users msg=null err=null
+2026-02-26 23:28:52.207 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-26 23:28:52.276 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 7316 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
+2026-02-26 23:28:52.276 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-26 23:28:55.465 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-02-26 23:28:55.466 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-26 23:28:55.482 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-26 23:28:55.482 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-02-26 23:28:55.606 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-26 23:28:55.606 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3211 ms
+2026-02-26 23:28:56.465 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 233c16e9-57e6-4881-ad12-7aad6328e181
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-26 23:28:57.743 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@8641b7d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@37c7766e, org.springframework.security.web.context.SecurityContextHolderFilter@16cb9989, org.springframework.security.web.header.HeaderWriterFilter@7558633, org.springframework.web.filter.CorsFilter@3fb450d7, org.springframework.security.web.authentication.logout.LogoutFilter@37606fee, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@74f280bd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3815146b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6de43bc1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4b7ed03e, org.springframework.security.web.session.SessionManagementFilter@61394494, org.springframework.security.web.access.ExceptionTranslationFilter@16d431b4, org.springframework.security.web.access.intercept.AuthorizationFilter@11e9ac24]
+2026-02-26 23:28:58.728 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-02-26 23:28:58.790 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-02-26 23:28:58.806 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 7.605 seconds (process running for 8.452)
+2026-02-26 23:29:04.328 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-26 23:29:04.328 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-26 23:29:04.328 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-02-26 23:29:04.412 INFO 
+                sid=- rid=1f869ca9 ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user=anon role=-
+                c.t.f.controller.AuthController - GET /login logout= err=null
+2026-02-26 23:29:06.492 INFO 
+                sid=- rid=9dd74c18 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-26 23:29:07.308 INFO 
+                sid=- rid=9dd74c18 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
+2026-02-26 23:29:09.390 INFO 
+                sid=33359848D5B1255AB3FC769E794E5939 rid=66ebb877 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                c.t.f.controller.UsersController - GET /users msg=null err=null
+2026-02-26 23:29:12.206 INFO 
+                sid=33359848D5B1255AB3FC769E794E5939 rid=a8b9ca38 ip=0:0:0:0:0:0:0:1 method=GET path=/users/2 status=
+                user=admin role=ADMIN
+                c.t.f.controller.UsersController - GET /users/2 msg=null err=null
+2026-02-26 23:29:13.489 INFO 
+                sid=33359848D5B1255AB3FC769E794E5939 rid=4aedfa94 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-26 23:29:14.668 INFO 
+                sid=33359848D5B1255AB3FC769E794E5939 rid=86c1bd21 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos/3 status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos/3
+2026-02-26 23:29:17.547 INFO 
+                sid=33359848D5B1255AB3FC769E794E5939 rid=92972c82 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-26 23:29:19.538 INFO 
+                sid=33359848D5B1255AB3FC769E794E5939 rid=46e2b188 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                c.t.f.controller.UsersController - GET /users msg=null err=null
+2026-02-26 23:29:22.275 INFO 
+                sid=33359848D5B1255AB3FC769E794E5939 rid=49c22e87 ip=0:0:0:0:0:0:0:1 method=GET path=/users/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.UsersController - GET /users/new
+2026-02-26 23:29:23.529 INFO 
+                sid=33359848D5B1255AB3FC769E794E5939 rid=ee2a1653 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                c.t.f.controller.UsersController - GET /users msg=null err=null
+2026-02-26 23:29:25.121 INFO 
+                sid=33359848D5B1255AB3FC769E794E5939 rid=e6f15acb ip=0:0:0:0:0:0:0:1 method=GET path=/users/1 status=
+                user=admin role=ADMIN
+                c.t.f.controller.UsersController - GET /users/1 msg=null err=null
+2026-02-26 23:29:26.257 INFO 
+                sid=33359848D5B1255AB3FC769E794E5939 rid=7742500c ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                c.t.f.controller.UsersController - GET /users msg=null err=null
+2026-02-26 23:29:28.965 INFO 
+                sid=33359848D5B1255AB3FC769E794E5939 rid=8da2aa5f ip=0:0:0:0:0:0:0:1 method=GET path=/users/1/confirm-delete status=
+                user=admin role=ADMIN
+                c.t.f.controller.UsersController - GET /users/1/confirm-delete
+2026-02-26 23:29:30.407 INFO 
+                sid=33359848D5B1255AB3FC769E794E5939 rid=4879db16 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=admin role=ADMIN
+                c.t.f.controller.UsersController - GET /users msg=null err=null
+2026-02-26 23:29:31.544 INFO 
+                sid=- rid=bdecba1f ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user=anon role=-
+                c.t.f.controller.AuthController - GET /login logout= err=null
+2026-02-26 23:29:35.036 INFO 
+                sid=- rid=09c8acd3 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=InvetigLucrecia role=-
+                c.t.f.controller.AuthController - POST /auth/login user=InvetigLucrecia passwordLength=7
+2026-02-26 23:29:35.198 INFO 
+                sid=- rid=09c8acd3 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=InvetigLucrecia role=-
+                c.t.f.controller.AuthController - POST /auth/login OK user=InvetigLucrecia role=INVESTIGADOR
+2026-02-26 23:29:36.689 INFO 
+                sid=2C385278AC7020301625031F38751C11 rid=3da1fb50 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.ContratosController - GET /contratos
+2026-02-26 23:29:37.929 INFO 
+                sid=2C385278AC7020301625031F38751C11 rid=85be7ee5 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos/5 status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.ContratosController - GET /contratos/5
+2026-02-26 23:29:39.766 INFO 
+                sid=2C385278AC7020301625031F38751C11 rid=4e8213dc ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.ContratosController - GET /contratos
+2026-02-26 23:29:41.319 INFO 
+                sid=2C385278AC7020301625031F38751C11 rid=f0dc3cfd ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.UsersController - GET /users msg=null err=null
+2026-02-26 23:29:49.588 ERROR
+                sid=2C385278AC7020301625031F38751C11 rid=072687e0 ip=0:0:0:0:0:0:0:1 method=GET path=/users/new status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.web.GlobalExceptionHandler - FRONT GenericException rid=4408367d-76c3-45a6-be9c-15729a3ed3e4 path=/users/new exClass=org.springframework.security.access.AccessDeniedException msg=Access Denied
+org.springframework.security.access.AccessDeniedException: Access Denied
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.attemptAuthorization(AuthorizationManagerBeforeMethodInterceptor.java:256)
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.invoke(AuthorizationManagerBeforeMethodInterceptor.java:197)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at com.tp.frontend.controller.UsersController$$SpringCGLIB$$0.newForm(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:262)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.tp.frontend.config.NoCacheFilter.doFilterInternal(NoCacheFilter.java:21)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.tp.frontend.config.MdcFilter.doFilterInternal(MdcFilter.java:51)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:225)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-26 23:29:51.114 INFO 
+                sid=2C385278AC7020301625031F38751C11 rid=2c1a5eb3 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.UsersController - GET /users msg=null err=null
+2026-02-26 23:29:52.534 INFO 
+                sid=2C385278AC7020301625031F38751C11 rid=24f04012 ip=0:0:0:0:0:0:0:1 method=GET path=/users/1 status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.UsersController - GET /users/1 msg=null err=null
+2026-02-26 23:29:55.165 INFO 
+                sid=2C385278AC7020301625031F38751C11 rid=540170a2 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.UsersController - GET /users msg=null err=null
+2026-02-26 23:29:56.804 ERROR
+                sid=2C385278AC7020301625031F38751C11 rid=87b90e72 ip=0:0:0:0:0:0:0:1 method=GET path=/users/1/confirm-delete status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.web.GlobalExceptionHandler - FRONT GenericException rid=33dd243d-f96e-481b-8e79-94329fc1b144 path=/users/1/confirm-delete exClass=org.springframework.security.access.AccessDeniedException msg=Access Denied
+org.springframework.security.access.AccessDeniedException: Access Denied
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.attemptAuthorization(AuthorizationManagerBeforeMethodInterceptor.java:256)
+	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.invoke(AuthorizationManagerBeforeMethodInterceptor.java:197)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at com.tp.frontend.controller.UsersController$$SpringCGLIB$$0.confirmDelete(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:262)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.tp.frontend.config.NoCacheFilter.doFilterInternal(NoCacheFilter.java:21)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.tp.frontend.config.MdcFilter.doFilterInternal(MdcFilter.java:51)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:225)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-26 23:29:59.032 INFO 
+                sid=2C385278AC7020301625031F38751C11 rid=043eb955 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.UsersController - GET /users msg=null err=null
+2026-02-26 23:34:37.455 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-26 23:34:37.534 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 8760 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
+2026-02-26 23:34:37.534 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-26 23:34:40.610 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-02-26 23:34:40.625 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-26 23:34:40.625 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-26 23:34:40.625 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-02-26 23:34:40.741 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-26 23:34:40.757 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3068 ms
+2026-02-26 23:34:41.658 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 9bb0f291-9ac3-4c76-a9b3-b8e11229db66
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-26 23:34:42.276 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@42c12b3e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2dbfa972, org.springframework.security.web.context.SecurityContextHolderFilter@50ec4bfc, org.springframework.security.web.header.HeaderWriterFilter@4ce25e47, org.springframework.web.filter.CorsFilter@46f73ffa, org.springframework.security.web.authentication.logout.LogoutFilter@538a2f0e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@33d28f0a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@285a4fe3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2589d787, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@41aebbb4, org.springframework.security.web.session.SessionManagementFilter@350da119, org.springframework.security.web.access.ExceptionTranslationFilter@6de7778f, org.springframework.security.web.access.intercept.AuthorizationFilter@37606fee]
+2026-02-26 23:34:42.744 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-02-26 23:34:42.775 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-02-26 23:34:42.775 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 6.353 seconds (process running for 7.322)
+2026-02-26 23:34:52.441 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-26 23:34:52.441 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-26 23:34:52.441 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-02-26 23:34:52.525 INFO 
+                sid=- rid=ce2d6b1f ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user=anon role=-
+                c.t.f.controller.AuthController - GET /login logout= err=null
+2026-02-26 23:34:54.502 INFO 
+                sid=- rid=32948c04 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=InvetigLucrecia role=-
+                c.t.f.controller.AuthController - POST /auth/login user=InvetigLucrecia passwordLength=7
+2026-02-26 23:34:55.288 INFO 
+                sid=- rid=32948c04 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=InvetigLucrecia role=-
+                c.t.f.controller.AuthController - POST /auth/login OK user=InvetigLucrecia role=INVESTIGADOR
+2026-02-26 23:34:57.364 INFO 
+                sid=B51E0C4811105FBFBAC2D994B6DDF58F rid=a859ddb9 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.JuezController - GET /jueces
+2026-02-26 23:34:59.886 INFO 
+                sid=B51E0C4811105FBFBAC2D994B6DDF58F rid=d4ec0f97 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces/2 status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.JuezController - GET /juez/2
+2026-02-26 23:35:01.995 INFO 
+                sid=B51E0C4811105FBFBAC2D994B6DDF58F rid=ad449f74 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.UsersController - GET /users msg=null err=null
+2026-02-26 23:35:09.006 INFO 
+                sid=B51E0C4811105FBFBAC2D994B6DDF58F rid=6a936737 ip=0:0:0:0:0:0:0:1 method=GET path=/users/1 status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.UsersController - GET /users/1 msg=null err=null
+2026-02-26 23:35:17.897 INFO 
+                sid=B51E0C4811105FBFBAC2D994B6DDF58F rid=ae2bbc0c ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.UsersController - GET /users msg=null err=null
+2026-02-26 23:35:19.761 INFO 
+                sid=B51E0C4811105FBFBAC2D994B6DDF58F rid=6d18b293 ip=0:0:0:0:0:0:0:1 method=GET path=/juicios status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.JuicioController - GET /juicios
+2026-02-26 23:35:21.195 INFO 
+                sid=B51E0C4811105FBFBAC2D994B6DDF58F rid=ce6535ac ip=0:0:0:0:0:0:0:1 method=GET path=/juicios/14 status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.JuicioController - GET /juicios/14
+2026-02-26 23:37:02.347 INFO 
+                sid=B51E0C4811105FBFBAC2D994B6DDF58F rid=2688d9d1 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.UsersController - GET /users msg=null err=null
+2026-02-26 23:37:04.050 INFO 
+                sid=B51E0C4811105FBFBAC2D994B6DDF58F rid=48674f41 ip=0:0:0:0:0:0:0:1 method=GET path=/users/1 status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.UsersController - GET /users/1 msg=null err=null
+2026-02-26 23:38:16.300 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-26 23:38:16.371 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 13560 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
+2026-02-26 23:38:16.371 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-26 23:38:18.934 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-02-26 23:38:18.949 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-26 23:38:18.952 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-26 23:38:18.952 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-02-26 23:38:19.049 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-26 23:38:19.049 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2582 ms
+2026-02-26 23:38:20.001 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 83f6e05c-3070-45e0-bf2d-a4218fca376f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-26 23:38:20.482 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3fb450d7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4b7ed03e, org.springframework.security.web.context.SecurityContextHolderFilter@3815146b, org.springframework.security.web.header.HeaderWriterFilter@61394494, org.springframework.web.filter.CorsFilter@636985df, org.springframework.security.web.authentication.logout.LogoutFilter@48d739f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@34279b8a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@27a9f025, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@71936a92, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6f91fbda, org.springframework.security.web.session.SessionManagementFilter@7c453c34, org.springframework.security.web.access.ExceptionTranslationFilter@7558633, org.springframework.security.web.access.intercept.AuthorizationFilter@675b18ff]
+2026-02-26 23:38:20.924 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-02-26 23:38:20.967 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-02-26 23:38:20.971 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 5.709 seconds (process running for 6.785)
+2026-02-26 23:38:23.022 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-26 23:38:23.022 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-26 23:38:23.037 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-02-26 23:38:23.122 INFO 
+                sid=- rid=78fea72c ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user=anon role=-
+                c.t.f.controller.AuthController - GET /login logout= err=null
+2026-02-26 23:38:25.295 INFO 
+                sid=- rid=0f0e2cef ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=InvetigLucrecia role=-
+                c.t.f.controller.AuthController - POST /auth/login user=InvetigLucrecia passwordLength=7
+2026-02-26 23:38:26.114 INFO 
+                sid=- rid=0f0e2cef ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=InvetigLucrecia role=-
+                c.t.f.controller.AuthController - POST /auth/login OK user=InvetigLucrecia role=INVESTIGADOR
+2026-02-26 23:38:28.421 INFO 
+                sid=0E9CFACAEE34B8D00C4934603F3BE7C2 rid=3d085a17 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.JuezController - GET /jueces
+2026-02-26 23:38:29.595 INFO 
+                sid=0E9CFACAEE34B8D00C4934603F3BE7C2 rid=5f5b5915 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces/3 status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.JuezController - GET /juez/3
+2026-02-26 23:38:34.347 INFO 
+                sid=0E9CFACAEE34B8D00C4934603F3BE7C2 rid=5ddb226c ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.JuezController - GET /jueces
+2026-02-26 23:38:36.348 INFO 
+                sid=0E9CFACAEE34B8D00C4934603F3BE7C2 rid=4dd3ca09 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.UsersController - GET /users msg=null err=null
+2026-02-26 23:38:37.823 INFO 
+                sid=0E9CFACAEE34B8D00C4934603F3BE7C2 rid=d9730c17 ip=0:0:0:0:0:0:0:1 method=GET path=/users/1 status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.UsersController - GET /users/1 msg=null err=null
+2026-02-26 23:38:50.401 INFO 
+                sid=0E9CFACAEE34B8D00C4934603F3BE7C2 rid=ce44195c ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.UsersController - GET /users msg=null err=null
+2026-02-26 23:38:54.628 INFO 
+                sid=0E9CFACAEE34B8D00C4934603F3BE7C2 rid=bc1b71e7 ip=0:0:0:0:0:0:0:1 method=GET path=/users/1 status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.UsersController - GET /users/1 msg=null err=null
+2026-02-26 23:38:56.555 INFO 
+                sid=0E9CFACAEE34B8D00C4934603F3BE7C2 rid=63575739 ip=0:0:0:0:0:0:0:1 method=GET path=/users status=
+                user=InvetigLucrecia role=INVESTIGADOR
+                c.t.f.controller.UsersController - GET /users msg=null err=null
