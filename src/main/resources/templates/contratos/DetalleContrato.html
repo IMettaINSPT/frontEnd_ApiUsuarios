@@ -6,8 +6,17 @@
     <h1>Detalle Contrato</h1>
 
     <div class="card">
-        <div class="card-title">Editar</div>
+        <div class="card-title">
+            <span sec:authorize="hasRole('ADMIN')">Editar</span>
+            <span sec:authorize="hasRole('INVESTIGADOR')">📄 Ficha de Consulta</span>
+        </div>
         <br>
+
+        <div class="info-badge" sec:authorize="hasRole('INVESTIGADOR')"
+             style="background: #e1f5fe; color: #01579b; padding: 12px; border-radius: 4px; margin-bottom: 15px; border: 1px solid #b3e5fc; font-weight: 500;">
+            Usted está en modo lectura. Para solicitar cambios, contacte al administrador.
+        </div>
+
         <form th:action="@{/contratos/{id}(id=${item.id})}" method="post" th:object="${update}" class="form">
 
             <div th:if="${#fields.hasGlobalErrors()}" class="error">
@@ -16,7 +25,8 @@
 
             <div>
                 <label>Fecha contrato</label>
-                <input type="date" th:field="*{fechaContrato}" id="fechaInicio">
+                <input type="date" th:field="*{fechaContrato}" id="fechaInicio"
+                       th:readonly="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
                 <div class="error" th:if="${#fields.hasErrors('fechaContrato')}" th:errors="*{fechaContrato}"></div>
             </div>
             <div>
@@ -24,13 +34,15 @@
                 <input type="date"
                        id="fechaFin"
                        name="fechaFin"
-                       th:value="${update.fechaFin}">
+                       th:value="${update.fechaFin}"
+                       th:readonly="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
                 <div class="error" th:if="${#fields.hasErrors('fechaFin')}" th:errors="*{fechaFin}"></div>
                 <div class="form-text muted">Si queda vacío, el contrato se considera activo indefinidamente.</div>
             </div>
             <div>
                 <label>Con arma</label>
-                <select th:field="*{conArma}">
+                <select th:field="*{conArma}"
+                        th:disabled="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
                     <option th:value="true">SI</option>
                     <option th:value="false">NO</option>
                 </select>
@@ -39,7 +51,8 @@
 
             <div>
                 <label>Sucursal</label>
-                <select th:field="*{sucursalId}">
+                <select th:field="*{sucursalId}"
+                        th:disabled="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
                     <option value="">-- Seleccionar --</option>
                     <option th:each="s : ${sucursales}" th:value="${s.id}" th:text="${s.codigo}">1</option>
                 </select>
@@ -48,7 +61,8 @@
 
             <div>
                 <label>Vigilante</label>
-                <select th:field="*{vigilanteId}">
+                <select th:field="*{vigilanteId}"
+                        th:disabled="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
                     <option value="">-- Seleccionar --</option>
                     <option th:each="v : ${vigilantes}" th:value="${v.id}" th:text="${v.codigo}">1</option>
                 </select>
@@ -56,9 +70,11 @@
             </div>
 
             <div class="actions">
-                <button class="btn btn-primary" type="submit">Guardar cambios</button>
+                <button class="btn btn-primary" type="submit"
+                        sec:authorize="hasRole('ADMIN')">Guardar cambios</button>
                 <a class="btn" th:href="@{/contratos}">Volver</a>
-                <a class="btn btn-danger" th:href="@{/contratos/{id}/confirm-delete(id=${item.id})}">Borrar</a>
+                <a class="btn btn-danger" th:href="@{/contratos/{id}/confirm-delete(id=${item.id})}"
+                   sec:authorize="hasRole('ADMIN')">Borrar</a>
             </div>
         </form>
     </div>

@@ -28,8 +28,17 @@
     </div>
 
     <div class="card" style="margin-top:16px;">
-        <div class="card-title">Editar</div>
+        <div class="card-title">
+            <span sec:authorize="hasRole('ADMIN')">Editar</span>
+            <span sec:authorize="hasRole('INVESTIGADOR')">📄 Ficha de Consulta</span>
+        </div>
         <br>
+
+        <div class="info-badge" sec:authorize="hasRole('INVESTIGADOR')"
+             style="background: #e1f5fe; color: #01579b; padding: 12px; border-radius: 4px; margin-bottom: 15px; border: 1px solid #b3e5fc; font-weight: 500;">
+            Usted está en modo lectura. Para solicitar cambios, contacte al administrador.
+        </div>
+
         <form th:action="@{/bancos/{id}(id=${item.id})}" method="post" th:object="${update}" class="form">
             <div th:if="${#fields.hasGlobalErrors()}" class="error">
                 <div th:each="e : ${#fields.globalErrors()}" th:text="${e}"></div>
@@ -37,22 +46,26 @@
 
             <div>
                 <label>Código</label>
-                <input type="text" th:field="*{codigo}">
+                <input type="text" th:field="*{codigo}"
+                       th:readonly="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
                 <div class="error" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
             </div>
 
             <div>
                 <label>Domicilio central</label>
-                <input type="text" th:field="*{domicilioCentral}">
+                <input type="text" th:field="*{domicilioCentral}"
+                       th:readonly="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
                 <div class="error" th:if="${#fields.hasErrors('domicilioCentral')}" th:errors="*{domicilioCentral}"></div>
             </div>
 
 
 
             <div class="actions">
-                <button class="btn btn-primary" type="submit">Guardar cambios</button>
+                <button class="btn btn-primary" type="submit"
+                        sec:authorize="hasRole('ADMIN')">Guardar cambios</button>
                 <a class="btn" th:href="@{/bancos}">Volver</a>
-                <a class="btn btn-danger" th:href="@{/bancos/{id}/confirm-delete(id=${item.id})}">Borrar</a>
+                <a class="btn btn-danger" th:href="@{/bancos/{id}/confirm-delete(id=${item.id})}"
+                   sec:authorize="hasRole('ADMIN')">Borrar</a>
             </div>
         </form>
     </div>

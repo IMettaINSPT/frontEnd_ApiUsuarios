@@ -1,5 +1,8 @@
 package com.tp.frontend.dto.User;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserResponse {
     private Long id;
     private String codigo;
@@ -27,6 +30,8 @@ public class UserResponse {
     public boolean isEnabled() { return enabled; }
     public void setEnabled(boolean enabled) { this.enabled = enabled; }
 
+    // El cambio aquí permite que si la API no envía estos campos (ej. para un Admin),
+    // el Frontend no intente procesar referencias nulas.
     public Long getVigilanteId() { return vigilanteId; }
     public void setVigilanteId(Long vigilanteId) { this.vigilanteId = vigilanteId; }
 

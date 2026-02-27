@@ -28,34 +28,47 @@
     </div>
 
     <div class="card" style="margin-top:16px;">
-        <div class="card-title">Editar</div>
-            <br>
-            <form th:action="@{/bandas/{id}(id=${item.id})}" method="post" th:object="${update}" class="form">
-                <div th:if="${#fields.hasGlobalErrors()}" class="error">
-                    <div th:each="e : ${#fields.globalErrors()}" th:text="${e}"></div>
-                </div>
+        <div class="card-title">
+            <span sec:authorize="hasRole('ADMIN')">Editar</span>
+            <span sec:authorize="hasRole('INVESTIGADOR')">📄 Ficha de Consulta</span>
+        </div>
+        <br>
+
+        <div class="info-badge" sec:authorize="hasRole('INVESTIGADOR')"
+             style="background: #e1f5fe; color: #01579b; padding: 12px; border-radius: 4px; margin-bottom: 15px; border: 1px solid #b3e5fc; font-weight: 500;">
+            Usted está en modo lectura. Para solicitar cambios, contacte al administrador.
+        </div>
+
+        <form th:action="@{/bandas/{id}(id=${item.id})}" method="post" th:object="${update}" class="form">
+            <div th:if="${#fields.hasGlobalErrors()}" class="error">
+                <div th:each="e : ${#fields.globalErrors()}" th:text="${e}"></div>
+            </div>
 
             <div>
                 <label>Número de Banda</label>
-                <input type="text" th:field="*{numeroBanda}">
+                <input type="text" th:field="*{numeroBanda}"
+                       th:readonly="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
                 <div class="error" th:if="${#fields.hasErrors('numeroBanda')}" th:errors="*{numeroBanda}"></div>
             </div>
 
             <div>
                 <label>Número de Miembros</label>
-                <input type="text" th:field="*{numeroMiembros}">
+                <input type="text" th:field="*{numeroMiembros}"
+                       th:readonly="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
                 <div class="error" th:if="${#fields.hasErrors('numeroMiembros')}" th:errors="*{numeroMiembros}"></div>
             </div>
 
-                <div class="actions">
-                    <button class="btn btn-primary" type="submit">Guardar cambios</button>
-                    <a class="btn" th:href="@{/bandas}">Volver</a>
-                    <a class="btn btn-danger" th:href="@{/bandas/{id}/confirm-delete(id=${item.id})}">Borrar</a>
-                </div>
-            </form>
+            <div class="actions">
+                <button class="btn btn-primary" type="submit"
+                        sec:authorize="hasRole('ADMIN')">Guardar cambios</button>
+
+                <a class="btn" th:href="@{/bandas}">Volver</a>
+
+                <a class="btn btn-danger" th:href="@{/bandas/{id}/confirm-delete(id=${item.id})}"
+                   sec:authorize="hasRole('ADMIN')">Borrar</a>
+            </div>
+        </form>
 
     </div>
 </section>
 </html>
-
-

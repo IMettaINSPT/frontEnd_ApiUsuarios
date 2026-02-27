@@ -6,7 +6,8 @@
     <h1>Bandas</h1>
 
     <div class="card actions">
-        <a class="btn btn-primary" th:href="@{/bandas/new}"> Crear Banda</a>
+        <a class="btn btn-primary" th:href="@{/bandas/new}"
+           sec:authorize="hasRole('ADMIN')"> Crear Banda</a>
     </div>
 
     <div class="card">
@@ -32,12 +33,15 @@
                     <span th:if="${#lists.isEmpty(b.personasDetenidas)}" class="muted">Sin personas detenidas</span>
                 </td>
 
+                <td class="td-actions">
+                    <a class="btn" th:href="@{/bandas/{id}(id=${b.id})}"
+                       sec:authorize="hasRole('ADMIN')">Ver/Editar</a>
 
+                    <a class="btn" th:href="@{/bandas/{id}(id=${b.id})}"
+                       sec:authorize="hasRole('INVESTIGADOR')">Ver detalle</a>
 
-
-                 <td class="td-actions">
-                    <a class="btn" th:href="@{/bandas/{id}(id=${b.id})}">Ver/Editar</a>
-                    <a class="btn btn-danger" th:href="@{/bandas/{id}/confirm-delete(id=${b.id})}">Borrar</a>
+                    <a class="btn btn-danger" th:href="@{/bandas/{id}/confirm-delete(id=${b.id})}"
+                       sec:authorize="hasRole('ADMIN')">Borrar</a>
                 </td>
             </tr>
             <tr th:if="${items == null || #lists.isEmpty(items)}">

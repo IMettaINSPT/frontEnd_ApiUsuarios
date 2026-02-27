@@ -6,8 +6,11 @@
     <h1>Vigilantes</h1>
 
     <div class="card actions">
-        <a class="btn btn-primary" th:href="@{/vigilantes/new}"> Crear Vigilante</a>
-        <a class="btn" th:href="@{/vigilantes/me}">Mi perfil</a>
+        <a class="btn btn-primary" th:href="@{/vigilantes/new}"
+           sec:authorize="hasRole('ADMIN')"> Crear Vigilante</a>
+
+        <a class="btn" th:href="@{/vigilantes/me}"
+           sec:authorize="hasRole('VIGILANTE')">Mi perfil</a>
     </div>
 
     <div class="card">
@@ -37,8 +40,14 @@
                 </td>
 
                 <td class="td-actions">
-                    <a class="btn" th:href="@{/vigilantes/{id}(id=${v.id})}">Ver/Editar</a>
-                    <a class="btn btn-danger" th:href="@{/vigilantes/{id}/confirm-delete(id=${v.id})}">Borrar</a>
+                    <a class="btn" th:href="@{/vigilantes/{id}(id=${v.id})}"
+                       sec:authorize="hasRole('ADMIN')">Ver/Editar</a>
+
+                    <a class="btn" th:href="@{/vigilantes/{id}(id=${v.id})}"
+                       sec:authorize="hasRole('INVESTIGADOR')">Ver detalle</a>
+
+                    <a class="btn btn-danger" th:href="@{/vigilantes/{id}/confirm-delete(id=${v.id})}"
+                       sec:authorize="hasRole('ADMIN')">Borrar</a>
                 </td>
             </tr>
 

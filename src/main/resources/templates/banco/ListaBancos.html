@@ -4,7 +4,8 @@
     <h1>Bancos</h1>
 
     <div class="card actions">
-        <a class="btn btn-primary" th:href="@{/bancos/new}"> Crear Banco</a>
+        <a class="btn btn-primary" th:href="@{/bancos/new}"
+           sec:authorize="hasRole('ADMIN')"> Crear Banco</a>
     </div>
 
     <div class="card">
@@ -34,8 +35,14 @@
                 </td>
 
                 <td class="td-actions">
-                    <a class="btn" th:href="@{/bancos/{id}(id=${b.id})}">Ver/Editar</a>
-                    <a class="btn btn-danger" th:href="@{/bancos/{id}/confirm-delete(id=${b.id})}">Borrar</a>
+                    <a class="btn" th:href="@{/bancos/{id}(id=${b.id})}"
+                       sec:authorize="hasRole('ADMIN')">Ver/Editar</a>
+
+                    <a class="btn" th:href="@{/bancos/{id}(id=${b.id})}"
+                       sec:authorize="hasRole('INVESTIGADOR')">Ver detalle</a>
+
+                    <a class="btn btn-danger" th:href="@{/bancos/{id}/confirm-delete(id=${b.id})}"
+                       sec:authorize="hasRole('ADMIN')">Borrar</a>
                 </td>
             </tr>
 

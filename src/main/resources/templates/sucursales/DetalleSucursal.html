@@ -6,36 +6,53 @@
     <h1>Detalle Sucursal</h1>
 
     <div class="card">
-        <div class="card-title">Editar</div>
+        <div class="card-title">
+            <span sec:authorize="hasRole('ADMIN')">Editar</span>
+            <span sec:authorize="hasRole('INVESTIGADOR')">📄 Ficha de Consulta</span>
+        </div>
         <br>
+
+        <div class="info-badge" sec:authorize="hasRole('INVESTIGADOR')"
+             style="background: #e1f5fe; color: #01579b; padding: 12px; border-radius: 4px; margin-bottom: 15px; border: 1px solid #b3e5fc; font-weight: 500;">
+            Usted está en modo lectura. Para solicitar cambios, contacte al administrador.
+        </div>
+
         <form th:action="@{/sucursales/{id}(id=${item.id})}" method="post" th:object="${update}" class="form">
             <div>
                 <label>Código</label>
-                <input type="text" th:field="*{codigo}">
+                <input type="text" th:field="*{codigo}"
+                       th:readonly="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
             </div>
 
             <div>
                 <label>Domicilio</label>
-                <input type="text" th:field="*{domicilio}">
+                <input type="text" th:field="*{domicilio}"
+                       th:readonly="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
             </div>
 
             <div>
                 <label>Nro. empleados</label>
-                <input type="number" min="0" th:field="*{nroEmpleados}">
+                <input type="number" min="0" th:field="*{nroEmpleados}"
+                       th:readonly="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
             </div>
 
             <div>
                 <label>Banco</label>
-                <select th:field="*{bancoId}">
+                <select th:field="*{bancoId}"
+                        th:disabled="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
                     <option value="">-- Seleccionar --</option>
                     <option th:each="b : ${bancos}" th:value="${b.id}" th:text="${b.codigo}">1</option>
                 </select>
             </div>
 
             <div class="actions">
-                <button class="btn btn-primary" type="submit">Guardar</button>
+                <button class="btn btn-primary" type="submit"
+                        sec:authorize="hasRole('ADMIN')">Guardar</button>
+
                 <a class="btn" th:href="@{/sucursales}">Volver</a>
-                <a class="btn btn-danger" th:href="@{/sucursales/{id}/confirm-delete(id=${item.id})}">Borrar</a>
+
+                <a class="btn btn-danger" th:href="@{/sucursales/{id}/confirm-delete(id=${item.id})}"
+                   sec:authorize="hasRole('ADMIN')">Borrar</a>
             </div>
         </form>
     </div>

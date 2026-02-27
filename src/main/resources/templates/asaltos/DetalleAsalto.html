@@ -26,8 +26,17 @@
   </div>
 
   <div class="card">
-    <div class="card-title">Editar</div>
+    <div class="card-title">
+      <span sec:authorize="hasRole('ADMIN')">Editar</span>
+      <span sec:authorize="hasRole('INVESTIGADOR')">📄 Ficha de Consulta</span>
+    </div>
     <br>
+
+    <div class="info-badge" sec:authorize="hasRole('INVESTIGADOR')"
+         style="background: #e1f5fe; color: #01579b; padding: 12px; border-radius: 4px; margin-bottom: 15px; border: 1px solid #b3e5fc; font-weight: 500;">
+      Usted está en modo lectura. Para solicitar cambios, contacte al administrador.
+    </div>
+
     <form th:action="@{/asaltos/{id}(id=${item.id})}" method="post" th:object="${update}">
       <div style="display:grid; gap:12px; max-width:560px;">
 
@@ -37,19 +46,22 @@
 
         <div>
           <label>Código</label>
-          <input type="text" th:field="*{codigo}">
+          <input type="text" th:field="*{codigo}"
+                 th:readonly="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
         </div>
 
         <div>
           <label>Fecha</label>
-          <input type="date" th:field="*{fechaAsalto}">
+          <input type="date" th:field="*{fechaAsalto}"
+                 th:readonly="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
           <div th:if="${#fields.hasErrors('fechaAsalto')}"
                th:text="${#fields.errors('fechaAsalto')[0]}" style="color:#ffb4b4;"></div>
         </div>
 
         <div>
           <label>Sucursal</label>
-          <select th:field="*{sucursalId}">
+          <select th:field="*{sucursalId}"
+                  th:disabled="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
             <option value="">-- Seleccionar --</option>
             <option th:each="s : ${sucursales}"
                     th:value="${s.id}"
@@ -66,7 +78,8 @@
             (Mantené presionado Ctrl para seleccionar varias personas)
           </p>
 
-          <select th:field="*{personaDetenidaIds}" multiple class="form-select" style="height: 120px;">
+          <select th:field="*{personaDetenidaIds}" multiple class="form-select" style="height: 120px;"
+                  th:disabled="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
             <option th:each="p : ${personas}"
                     th:value="${p.id}"
                     th:text="${p.codigo + ' - ' + p.nombre + ' ' + p.apellido +
@@ -81,9 +94,13 @@
 
 
         <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;">
-          <button class="btn btn-primary" type="submit">Guardar cambios</button>
+          <button class="btn btn-primary" type="submit"
+                  sec:authorize="hasRole('ADMIN')">Guardar cambios</button>
+
           <a class="btn" th:href="@{/asaltos}">Volver</a>
-          <a class="btn btn-danger" th:href="@{/asaltos/{id}/confirm-delete(id=${item.id})}">Borrar</a>
+
+          <a class="btn btn-danger" th:href="@{/asaltos/{id}/confirm-delete(id=${item.id})}"
+             sec:authorize="hasRole('ADMIN')">Borrar</a>
         </div>
 
       </div>

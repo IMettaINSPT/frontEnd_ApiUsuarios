@@ -6,7 +6,8 @@
     <h1>Asaltos</h1>
 
     <div class="card actions">
-        <a class="btn btn-primary" th:href="@{/asaltos/new}"> Crear Asalto</a>
+        <a class="btn btn-primary" th:href="@{/asaltos/new}"
+           sec:authorize="hasRole('ADMIN')"> Crear Asalto</a>
         <a class="btn" th:href="@{/asaltos/reporte}">Reporte</a>
     </div>
 
@@ -41,8 +42,14 @@
                 </td>
 
                 <td class="td-actions">
-                    <a class="btn" th:href="@{/asaltos/{id}(id=${a.id})}">Ver/Editar</a>
-                    <a class="btn btn-danger" th:href="@{/asaltos/{id}/confirm-delete(id=${a.id})}">Borrar</a>
+                    <a class="btn" th:href="@{/asaltos/{id}(id=${a.id})}"
+                       sec:authorize="hasRole('ADMIN')">Ver/Editar</a>
+
+                    <a class="btn" th:href="@{/asaltos/{id}(id=${a.id})}"
+                       sec:authorize="hasRole('INVESTIGADOR')">Ver detalle</a>
+
+                    <a class="btn btn-danger" th:href="@{/asaltos/{id}/confirm-delete(id=${a.id})}"
+                       sec:authorize="hasRole('ADMIN')">Borrar</a>
                 </td>
             </tr>
             <tr th:if="${items == null || #lists.isEmpty(items)}">

@@ -6,7 +6,8 @@
     <h1>Personas detenidas</h1>
 
     <div class="card actions">
-        <a class="btn btn-primary" th:href="@{/personas-detenidas/new}"> Crear</a>
+        <a class="btn btn-primary" th:href="@{/personas-detenidas/new}"
+           sec:authorize="hasRole('ADMIN')"> Crear</a>
     </div>
 
     <div class="card">
@@ -42,8 +43,14 @@
 
 
                 <td class="td-actions">
-                    <a class="btn" th:href="@{/personas-detenidas/{id}(id=${p.id})}">Ver/Editar</a>
-                    <a class="btn btn-danger" th:href="@{/personas-detenidas/{id}/confirm-delete(id=${p.id})}">Borrar</a>
+                    <a class="btn" th:href="@{/personas-detenidas/{id}(id=${p.id})}"
+                       sec:authorize="hasRole('ADMIN')">Ver/Editar</a>
+
+                    <a class="btn" th:href="@{/personas-detenidas/{id}(id=${p.id})}"
+                       sec:authorize="hasRole('INVESTIGADOR')">Ver detalle</a>
+
+                    <a class="btn btn-danger" th:href="@{/personas-detenidas/{id}/confirm-delete(id=${p.id})}"
+                       sec:authorize="hasRole('ADMIN')">Borrar</a>
                 </td>
             </tr>
 

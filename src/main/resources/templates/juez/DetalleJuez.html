@@ -37,8 +37,17 @@
     </div>
 
     <div class="card">
-        <div class="card-title">Editar</div>
+        <div class="card-title">
+            <span sec:authorize="hasRole('ADMIN')">Editar</span>
+            <span sec:authorize="hasRole('INVESTIGADOR')">📄 Ficha de Consulta</span>
+        </div>
         <br>
+
+        <div class="info-badge" sec:authorize="hasRole('INVESTIGADOR')"
+             style="background: #e1f5fe; color: #01579b; padding: 12px; border-radius: 4px; margin-bottom: 15px; border: 1px solid #b3e5fc; font-weight: 500;">
+            Usted está en modo lectura. Para solicitar cambios, contacte al administrador.
+        </div>
+
         <form th:action="@{/jueces/{id}(id=${item.id})}" method="post" th:object="${update}" class="form">
             <div th:if="${#fields.hasGlobalErrors()}" class="error">
                 <div th:each="e : ${#fields.globalErrors()}" th:text="${e}"></div>
@@ -46,32 +55,38 @@
 
             <div>
                 <label>Clave Juzgado</label>
-                <input type="text" th:field="*{claveJuzgado}">
+                <input type="text" th:field="*{claveJuzgado}"
+                       th:readonly="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
                 <div class="error" th:if="${#fields.hasErrors('claveJuzgado')}" th:errors="*{claveJuzgado}"></div>
             </div>
 
             <div>
                 <label>Nombre</label>
-                <input type="text" th:field="*{nombre}">
+                <input type="text" th:field="*{nombre}"
+                       th:readonly="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
                 <div class="error" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
             </div>
 
             <div>
                 <label>Apellido</label>
-                <input type="text" th:field="*{apellido}">
+                <input type="text" th:field="*{apellido}"
+                       th:readonly="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
                 <div class="error" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
             </div>
 
             <div>
                 <label>Años de Servicio</label>
-                <input type="text" th:field="*{anosServicio}">
+                <input type="text" th:field="*{anosServicio}"
+                       th:readonly="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
                 <div class="error" th:if="${#fields.hasErrors('anosServicio')}" th:errors="*{anosServicio}"></div>
             </div>
 
             <div class="actions">
-                <button class="btn btn-primary" type="submit">Guardar cambios</button>
+                <button class="btn btn-primary" type="submit"
+                        sec:authorize="hasRole('ADMIN')">Guardar cambios</button>
                 <a class="btn" th:href="@{/jueces}">Volver</a>
-                <a class="btn btn-danger" th:href="@{/jueces/{id}/confirm-delete(id=${item.id})}">Borrar</a>
+                <a class="btn btn-danger" th:href="@{/jueces/{id}/confirm-delete(id=${item.id})}"
+                   sec:authorize="hasRole('ADMIN')">Borrar</a>
             </div>
         </form>
     </div>

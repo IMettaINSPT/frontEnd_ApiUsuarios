@@ -18,19 +18,22 @@
 
                 <div>
                     <label>Código</label>
-                    <input type="text" th:field="*{codigo}">
+                    <input type="text" th:field="*{codigo}"
+                           th:readonly="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
                 </div>
 
                 <div>
                     <label>Fecha</label>
-                    <input type="date" th:field="*{fechaAsalto}">
+                    <input type="date" th:field="*{fechaAsalto}"
+                           th:readonly="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
                     <div th:if="${#fields.hasErrors('fechaAsalto')}"
                          th:text="${#fields.errors('fechaAsalto')[0]}" style="color:#ffb4b4;"></div>
                 </div>
 
                 <div>
                     <label>Sucursal</label>
-                    <select th:field="*{sucursalId}">
+                    <select th:field="*{sucursalId}"
+                            th:disabled="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
                         <option value="">-- Seleccionar --</option>
                         <option th:each="s : ${sucursales}"
                                 th:value="${s.id}"
@@ -47,7 +50,8 @@
                         (Mantené presionado Ctrl para seleccionar varias personas)
                     </p>
 
-                    <select th:field="*{personaDetenidaIds}" multiple class="form-select" style="height: 120px;">
+                    <select th:field="*{personaDetenidaIds}" multiple class="form-select" style="height: 120px;"
+                            th:disabled="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
                         <option th:each="p : ${personas}"
                                 th:value="${p.id}"
                                 th:text="${p.codigo + ' - ' + p.nombre + ' ' + p.apellido +
@@ -66,7 +70,9 @@
                 </div>
 
                 <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;">
-                    <button class="btn btn-primary" type="submit" th:disabled="${!(haySucursales && hayPersonas)}">
+                    <button class="btn btn-primary" type="submit"
+                            sec:authorize="hasRole('ADMIN')"
+                            th:disabled="${!(haySucursales && hayPersonas)}">
                         Guardar
                     </button>
                     <a class="btn" th:href="@{/asaltos}">Cancelar</a>

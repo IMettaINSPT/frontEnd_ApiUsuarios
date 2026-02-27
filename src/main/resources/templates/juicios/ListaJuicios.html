@@ -6,7 +6,8 @@
     <h1>Juicios</h1>
 
     <div class="card actions">
-        <a class="btn btn-primary" th:href="@{/juicios/new}"> Crear Juicio</a>
+        <a class="btn btn-primary" th:href="@{/juicios/new}"
+           sec:authorize="hasRole('ADMIN')"> Crear Juicio</a>
     </div>
 
     <div class="card">
@@ -43,8 +44,14 @@
                 <td th:text="${j.detallePena}">DETALLE-PENA</td>
 
                 <td class="td-actions">
-                    <a class="btn" th:href="@{/juicios/{id}(id=${j.id})}">Ver/Editar</a>
-                    <a class="btn btn-danger" th:href="@{/juicios/{id}/confirm-delete(id=${j.id})}">Borrar</a>
+                    <a class="btn" th:href="@{/juicios/{id}(id=${j.id})}"
+                       sec:authorize="hasRole('ADMIN')">Ver/Editar</a>
+
+                    <a class="btn" th:href="@{/juicios/{id}(id=${j.id})}"
+                       sec:authorize="hasRole('INVESTIGADOR')">Ver detalle</a>
+
+                    <a class="btn btn-danger" th:href="@{/juicios/{id}/confirm-delete(id=${j.id})}"
+                       sec:authorize="hasRole('ADMIN')">Borrar</a>
                 </td>
             </tr>
 
