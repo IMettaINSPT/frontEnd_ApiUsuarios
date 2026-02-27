@@ -71,7 +71,7 @@ public class BandasController {
         try {
             service.create(jwt(session), form);
             log.info("POST /bandas create OK");
-            return "redirect:/bandas";
+            return "redirect:/bandas?msg=Banda creada exitosamente";
 
         } catch (ApiErrorException ex) {
             log.warn("POST /bandas create ApiError status={} code={} msg={}",
@@ -123,7 +123,7 @@ public class BandasController {
         try {
             service.update(token, id, update);
             log.info("POST /bandas/{} update OK", id);
-            return "redirect:/bandas/" + id;
+            return "redirect:/bandas?msg=Banda actualizada correctamente";
 
         } catch (ApiErrorException ex) {
             log.warn("POST /bandas/{} update ApiError status={} code={} msg={}",
@@ -160,7 +160,7 @@ public class BandasController {
         try {
             service.delete(token, id);
             log.info("POST /bandas/{}/delete OK", id);
-            return "redirect:/bandas";
+            return "redirect:/bandas?msg=Banda eliminada correctamente";
 
         } catch (ApiErrorException ex) {
             log.warn("POST /bandas/{}/delete ApiError status={} code={} msg={}",

@@ -9,7 +9,7 @@
     <form th:action="@{/sucursales}" method="post" th:object="${form}" class="form">
       <div>
         <label>Código
-        <input type="text" th:field="*{codigo}"></label>
+          <input type="text" th:field="*{codigo}"></label>
       </div>
 
       <div>
@@ -19,15 +19,15 @@
 
       <div>
         <label>Nro. empleados
-        <input type="number" min="0" th:field="*{nroEmpleados}"></label>
+          <input type="number" min="1" max="100" th:field="*{nroEmpleados}"></label>
       </div>
 
       <div>
         <label>Banco
-        <select th:field="*{bancoId}">
-          <option value="">-- Seleccionar --</option>
-          <option th:each="b : ${bancos}" th:value="${b.id}" th:text="${b.codigo}">1</option>
-        </select></label>
+          <select th:field="*{bancoId}">
+            <option value="">-- Seleccionar --</option>
+            <option th:each="b : ${bancos}" th:value="${b.id}" th:text="${b.codigo}">1</option>
+          </select></label>
       </div>
 
       <div class="actions">

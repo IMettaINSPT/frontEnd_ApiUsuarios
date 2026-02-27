@@ -79,7 +79,7 @@
 
                 <div>
                     <label>Tiempo de Condena (meses)</label>
-                    <input type="number" th:field="*{tiempoCondenaMeses}" min="1">
+                    <input type="number" th:field="*{tiempoCondenaMeses}" min="1" max="600" placeholder="Rango 1 a 600">
                     <div class="error" th:if="${#fields.hasErrors('tiempoCondenaMeses')}" th:errors="*{tiempoCondenaMeses}"></div>
                 </div>
             </div>

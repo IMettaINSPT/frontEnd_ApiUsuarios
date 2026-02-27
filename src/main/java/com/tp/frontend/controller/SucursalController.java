@@ -105,7 +105,7 @@ public class SucursalController {
         try {
             sucursalService.create(token, form);
             log.info("POST /sucursales create OK");
-            return "redirect:/sucursales";
+            return "redirect:/sucursales?msg=Sucursal creada exitosamente";
 
         } catch (ApiErrorException ex) {
             log.warn("POST /sucursales create ApiError status={} code={} msg={}",
@@ -168,7 +168,7 @@ public class SucursalController {
         try {
             sucursalService.update(token, id, update);
             log.info("POST /sucursales/{} update OK", id);
-            return "redirect:/sucursales/" + id;
+            return "redirect:/sucursales?msg=Sucursal actualizada correctamente";
 
         } catch (ApiErrorException ex) {
             log.warn("POST /sucursales/{} update ApiError status={} code={} msg={}",
@@ -214,7 +214,7 @@ public class SucursalController {
         try {
             sucursalService.delete(token, id);
             log.info("POST /sucursales/{}/delete OK", id);
-            return "redirect:/sucursales";
+            return "redirect:/sucursales?msg=Sucursal eliminada correctamente";
 
         } catch (ApiErrorException ex) {
             log.warn("POST /sucursales/{}/delete ApiError status={} code={} msg={}",

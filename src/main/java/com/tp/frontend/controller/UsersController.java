@@ -225,7 +225,7 @@ public class UsersController {
         try {
             userService.update(id, update, token);
             log.info("POST /users/{} update OK", id);
-            return "redirect:/users/" + id + "?msg=Usuario actualizado";
+            return "redirect:/users?msg=Usuario actualizado correctamente";
 
         } catch (ApiErrorException ex) {
             log.warn("POST /users/{} update ApiError status={} code={} msg={}",

@@ -886,3 +886,1590 @@ This generated password is for development use only. Your security configuration
                 sid=E024202A4320C1387AC086DD8D3816B4 rid=2cfc42b0 ip=0:0:0:0:0:0:0:1 method=GET path=/bandas/new status=
                 user=admin role=ADMIN
                 c.t.f.controller.BandasController - GET /bandas/new
+2026-02-27 00:26:41.424 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-27 00:26:41.501 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 3320 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
+2026-02-27 00:26:41.501 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-27 00:26:44.167 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-02-27 00:26:44.182 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-27 00:26:44.185 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-27 00:26:44.185 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-02-27 00:26:44.288 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-27 00:26:44.290 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2623 ms
+2026-02-27 00:26:45.218 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: b1b5f8bb-1b28-4b4e-a9b2-578011243e4f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-27 00:26:45.705 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@34279b8a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@687389a6, org.springframework.security.web.context.SecurityContextHolderFilter@578a5ce8, org.springframework.security.web.header.HeaderWriterFilter@16d431b4, org.springframework.web.filter.CorsFilter@8641b7d, org.springframework.security.web.authentication.logout.LogoutFilter@6cbb7a7d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@252ec02e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@16cb9989, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3dfd6220, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@37c7766e, org.springframework.security.web.session.SessionManagementFilter@7558633, org.springframework.security.web.access.ExceptionTranslationFilter@2589d787, org.springframework.security.web.access.intercept.AuthorizationFilter@5a592c70]
+2026-02-27 00:26:46.171 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-02-27 00:26:46.202 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-02-27 00:26:46.217 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 5.92 seconds (process running for 6.797)
+2026-02-27 00:26:47.475 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-27 00:26:47.475 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-27 00:26:47.475 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-02-27 00:26:47.559 INFO 
+                sid=- rid=2b65832c ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user=anon role=-
+                c.t.f.controller.AuthController - GET /login logout= err=null
+2026-02-27 00:26:49.648 INFO 
+                sid=- rid=69e611e1 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-27 00:26:50.449 INFO 
+                sid=- rid=69e611e1 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
+2026-02-27 00:26:56.305 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=94ddaec8 ip=0:0:0:0:0:0:0:1 method=GET path=/bandas status=
+                user=admin role=ADMIN
+                c.t.f.controller.BandasController - GET /bandas
+2026-02-27 00:26:57.744 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=a63535f9 ip=0:0:0:0:0:0:0:1 method=GET path=/bandas/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.BandasController - GET /bandas/new
+2026-02-27 00:27:25.578 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=9a28a4cb ip=0:0:0:0:0:0:0:1 method=POST path=/bandas status=
+                user=admin role=ADMIN
+                c.t.f.controller.BandasController - POST /bandas create form=com.tp.frontend.dto.Banda.BandaRequest@1a86467d
+2026-02-27 00:27:25.596 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=9a28a4cb ip=0:0:0:0:0:0:0:1 method=POST path=/bandas status=
+                user=admin role=ADMIN
+                c.t.f.controller.BandasController - POST /bandas create OK
+2026-02-27 00:27:25.605 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=1075a37d ip=0:0:0:0:0:0:0:1 method=GET path=/bandas status=
+                user=admin role=ADMIN
+                c.t.f.controller.BandasController - GET /bandas
+2026-02-27 00:27:27.775 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=23b4943d ip=0:0:0:0:0:0:0:1 method=GET path=/bandas/7/confirm-delete status=
+                user=admin role=ADMIN
+                c.t.f.controller.BandasController - GET /bandas/7/confirm-delete
+2026-02-27 00:27:29.153 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=0839b943 ip=0:0:0:0:0:0:0:1 method=POST path=/bandas/7/delete status=
+                user=admin role=ADMIN
+                c.t.f.controller.BandasController - POST /bandas/7/delete
+2026-02-27 00:27:29.162 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=0839b943 ip=0:0:0:0:0:0:0:1 method=POST path=/bandas/7/delete status=
+                user=admin role=ADMIN
+                c.t.f.controller.BandasController - POST /bandas/7/delete OK
+2026-02-27 00:27:29.162 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=ab73cfaf ip=0:0:0:0:0:0:0:1 method=GET path=/bandas status=
+                user=admin role=ADMIN
+                c.t.f.controller.BandasController - GET /bandas
+2026-02-27 00:27:31.591 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=941047ce ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes
+2026-02-27 00:27:33.710 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=a15904a6 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/new status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes/new
+2026-02-27 00:27:36.445 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=91028a90 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes
+2026-02-27 00:27:38.758 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=00335f5c ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/new status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes/new
+2026-02-27 00:27:42.834 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=d5230bd6 ip=0:0:0:0:0:0:0:1 method=POST path=/vigilantes status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - POST /vigilantes create form=com.tp.frontend.dto.Vigilante.VigilanteRequest@9709dde
+2026-02-27 00:27:42.834 WARN 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=d5230bd6 ip=0:0:0:0:0:0:0:1 method=POST path=/vigilantes status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - POST /vigilantes create SSR validation errors=1
+2026-02-27 00:27:45.437 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=33c95b60 ip=0:0:0:0:0:0:0:1 method=POST path=/vigilantes status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - POST /vigilantes create form=com.tp.frontend.dto.Vigilante.VigilanteRequest@15b47d5a
+2026-02-27 00:27:45.458 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=33c95b60 ip=0:0:0:0:0:0:0:1 method=POST path=/vigilantes status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - POST /vigilantes create OK
+2026-02-27 00:27:45.458 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=582c74f9 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes
+2026-02-27 00:27:50.063 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=3d8b429a ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/8/confirm-delete status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes/8/confirm-delete
+2026-02-27 00:27:51.433 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=4950175e ip=0:0:0:0:0:0:0:1 method=POST path=/vigilantes/8/delete status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - POST /vigilantes/8/delete
+2026-02-27 00:27:51.458 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=4950175e ip=0:0:0:0:0:0:0:1 method=POST path=/vigilantes/8/delete status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - POST /vigilantes/8/delete OK
+2026-02-27 00:27:51.465 INFO 
+                sid=1CE7C581114DD2EC2653AE29D1AF6202 rid=bd2ea94e ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes
+2026-02-27 00:31:25.709 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-27 00:31:25.774 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 8756 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
+2026-02-27 00:31:25.774 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-27 00:31:28.399 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-02-27 00:31:28.427 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-27 00:31:28.431 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-27 00:31:28.431 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-02-27 00:31:28.535 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-27 00:31:28.537 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2653 ms
+2026-02-27 00:31:29.352 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 5da0da0f-08f5-4e3f-8f6e-75d9eb9674fc
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-27 00:31:29.965 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@34279b8a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@687389a6, org.springframework.security.web.context.SecurityContextHolderFilter@578a5ce8, org.springframework.security.web.header.HeaderWriterFilter@16d431b4, org.springframework.web.filter.CorsFilter@8641b7d, org.springframework.security.web.authentication.logout.LogoutFilter@6cbb7a7d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@252ec02e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@16cb9989, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3dfd6220, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@37c7766e, org.springframework.security.web.session.SessionManagementFilter@7558633, org.springframework.security.web.access.ExceptionTranslationFilter@2589d787, org.springframework.security.web.access.intercept.AuthorizationFilter@5a592c70]
+2026-02-27 00:31:30.439 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-02-27 00:31:30.469 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-02-27 00:31:30.472 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 5.791 seconds (process running for 6.702)
+2026-02-27 00:31:30.650 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-27 00:31:30.650 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-27 00:31:30.652 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-02-27 00:31:30.757 INFO 
+                sid=- rid=4388df06 ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user=anon role=-
+                c.t.f.controller.AuthController - GET /login logout= err=null
+2026-02-27 00:31:32.544 INFO 
+                sid=- rid=9b482ec7 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-27 00:31:34.520 INFO 
+                sid=- rid=9b482ec7 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
+2026-02-27 00:31:37.911 INFO 
+                sid=CD849BC1DF9FCA85F3FACFC8E154B3B8 rid=1f89abc0 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-27 00:31:39.504 INFO 
+                sid=CD849BC1DF9FCA85F3FACFC8E154B3B8 rid=ec15063d ip=0:0:0:0:0:0:0:1 method=GET path=/bancos/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos/new
+2026-02-27 00:31:41.895 INFO 
+                sid=CD849BC1DF9FCA85F3FACFC8E154B3B8 rid=3f4f2b3d ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-27 00:31:42.823 INFO 
+                sid=CD849BC1DF9FCA85F3FACFC8E154B3B8 rid=153006a5 ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales
+2026-02-27 00:31:43.646 INFO 
+                sid=CD849BC1DF9FCA85F3FACFC8E154B3B8 rid=9815baa3 ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales/new
+2026-02-27 00:32:04.954 INFO 
+                sid=CD849BC1DF9FCA85F3FACFC8E154B3B8 rid=6499588b ip=0:0:0:0:0:0:0:1 method=POST path=/sucursales status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - POST /sucursales create form=com.tp.frontend.dto.Sucursal.SucursalRequest@1191c6e9
+2026-02-27 00:32:05.055 INFO 
+                sid=CD849BC1DF9FCA85F3FACFC8E154B3B8 rid=6499588b ip=0:0:0:0:0:0:0:1 method=POST path=/sucursales status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - POST /sucursales create OK
+2026-02-27 00:32:05.055 INFO 
+                sid=CD849BC1DF9FCA85F3FACFC8E154B3B8 rid=6e6ad4a6 ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales
+2026-02-27 00:32:17.701 INFO 
+                sid=CD849BC1DF9FCA85F3FACFC8E154B3B8 rid=e3b975d7 ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales/new
+2026-02-27 00:35:22.573 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-27 00:35:22.648 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 9412 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
+2026-02-27 00:35:22.648 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-27 00:35:25.938 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-02-27 00:35:25.965 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-27 00:35:25.965 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-27 00:35:25.965 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-02-27 00:35:26.192 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-27 00:35:26.195 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3432 ms
+2026-02-27 00:35:27.503 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 63866f4f-e100-441e-b0b8-a36039048944
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-27 00:35:28.220 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@afde064, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5a592c70, org.springframework.security.web.context.SecurityContextHolderFilter@1788cb61, org.springframework.security.web.header.HeaderWriterFilter@34c7232c, org.springframework.web.filter.CorsFilter@252ec02e, org.springframework.security.web.authentication.logout.LogoutFilter@216372b7, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@42c12b3e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6c0b51da, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7558633, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@11e9ac24, org.springframework.security.web.session.SessionManagementFilter@8b13d91, org.springframework.security.web.access.ExceptionTranslationFilter@350da119, org.springframework.security.web.access.intercept.AuthorizationFilter@65cc5252]
+2026-02-27 00:35:28.867 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-02-27 00:35:28.905 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-02-27 00:35:28.919 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 7.672 seconds (process running for 8.857)
+2026-02-27 00:35:30.515 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-27 00:35:30.516 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-27 00:35:30.518 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-02-27 00:35:30.636 INFO 
+                sid=- rid=ebb616e0 ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user=anon role=-
+                c.t.f.controller.AuthController - GET /login logout= err=null
+2026-02-27 00:35:32.785 INFO 
+                sid=- rid=86e7909e ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-27 00:35:34.650 INFO 
+                sid=- rid=86e7909e ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
+2026-02-27 00:35:37.960 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=9f70f912 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-27 00:35:39.959 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=28b9013c ip=0:0:0:0:0:0:0:1 method=GET path=/bancos/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos/new
+2026-02-27 00:35:41.199 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=7faac9a9 ip=0:0:0:0:0:0:0:1 method=GET path=/bancos status=
+                user=admin role=ADMIN
+                c.t.f.controller.BancoController - GET /bancos
+2026-02-27 00:35:42.144 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=a44b176a ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales
+2026-02-27 00:35:43.135 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=cdfa6ad9 ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales/new
+2026-02-27 00:35:59.599 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=89956915 ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales
+2026-02-27 00:36:02.055 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=65b38813 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes
+2026-02-27 00:36:03.910 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=ccf62dc0 ip=0:0:0:0:0:0:0:1 method=GET path=/vigilantes/new status=
+                user=admin role=ADMIN
+                c.t.f.c.VigilantesController - GET /vigilantes/new
+2026-02-27 00:36:06.855 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=bf75fb9e ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales
+2026-02-27 00:36:08.429 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=d725f4a8 ip=0:0:0:0:0:0:0:1 method=GET path=/sucursales/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.SucursalController - GET /sucursales/new
+2026-02-27 00:36:12.950 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=1b31d762 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos
+2026-02-27 00:36:15.285 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=009a4e67 ip=0:0:0:0:0:0:0:1 method=GET path=/contratos/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.ContratosController - GET /contratos/new
+2026-02-27 00:36:21.756 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=aacb948c ip=0:0:0:0:0:0:0:1 method=GET path=/bandas status=
+                user=admin role=ADMIN
+                c.t.f.controller.BandasController - GET /bandas
+2026-02-27 00:36:22.837 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=c7ca74d4 ip=0:0:0:0:0:0:0:1 method=GET path=/bandas/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.BandasController - GET /bandas/new
+2026-02-27 00:36:27.029 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=a95fe2a5 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
+                user=admin role=ADMIN
+                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
+2026-02-27 00:36:28.020 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=9ff8e44d ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas/new status=
+                user=admin role=ADMIN
+                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas/new
+2026-02-27 00:36:47.915 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=7b9b9662 ip=0:0:0:0:0:0:0:1 method=GET path=/personas-detenidas status=
+                user=admin role=ADMIN
+                c.t.f.c.PersonasDetenidasController - GET /personas-detenidas
+2026-02-27 00:36:50.188 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=dae79640 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos
+2026-02-27 00:36:52.059 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=abf1daad ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/new
+2026-02-27 00:36:56.132 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=3cdd05f3 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos
+2026-02-27 00:36:57.387 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=f953d7e2 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos
+2026-02-27 00:36:58.755 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=ad175db7 ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos/new
+2026-02-27 00:37:01.805 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=1a07d34a ip=0:0:0:0:0:0:0:1 method=GET path=/asaltos status=
+                user=admin role=ADMIN
+                c.t.f.controller.AsaltoController - GET /asaltos
+2026-02-27 00:37:03.004 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=9c32305d ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /jueces
+2026-02-27 00:37:03.964 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=1fa083e3 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /juez/new
+2026-02-27 00:37:17.138 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=edf4fcb4 ip=0:0:0:0:0:0:0:1 method=POST path=/jueces status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - POST /jueces create form=com.tp.frontend.dto.Juez.JuezRequest@17ca42e4
+2026-02-27 00:37:20.531 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=80a79a54 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /jueces
+2026-02-27 00:37:22.012 INFO 
+                sid=E4E77C62BC6B1F574CAF31DD08F258B3 rid=c32ba76c ip=0:0:0:0:0:0:0:1 method=GET path=/jueces/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /juez/new
+2026-02-27 00:41:36.553 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-27 00:41:36.637 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 792 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
+2026-02-27 00:41:36.639 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-27 00:41:39.622 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-02-27 00:41:39.646 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-27 00:41:39.651 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-27 00:41:39.652 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-02-27 00:41:39.803 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-27 00:41:39.806 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3051 ms
+2026-02-27 00:41:41.124 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: f0c6ed60-67d0-4f9e-8728-1db75a5c998b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-27 00:41:42.011 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@8641b7d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@37c7766e, org.springframework.security.web.context.SecurityContextHolderFilter@16cb9989, org.springframework.security.web.header.HeaderWriterFilter@7558633, org.springframework.web.filter.CorsFilter@3fb450d7, org.springframework.security.web.authentication.logout.LogoutFilter@37606fee, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@74f280bd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3815146b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6de43bc1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4b7ed03e, org.springframework.security.web.session.SessionManagementFilter@61394494, org.springframework.security.web.access.ExceptionTranslationFilter@16d431b4, org.springframework.security.web.access.intercept.AuthorizationFilter@11e9ac24]
+2026-02-27 00:41:42.766 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-02-27 00:41:42.818 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-02-27 00:41:42.836 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 7.401 seconds (process running for 8.499)
+2026-02-27 00:41:48.953 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-27 00:41:48.953 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-27 00:41:48.955 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-02-27 00:41:49.049 INFO 
+                sid=- rid=62194da7 ip=0:0:0:0:0:0:0:1 method=GET path=/login status=
+                user=anon role=-
+                c.t.f.controller.AuthController - GET /login logout= err=null
+2026-02-27 00:41:50.788 INFO 
+                sid=- rid=b0703ede ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-27 00:41:52.115 INFO 
+                sid=- rid=b0703ede ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - POST /auth/login OK user=admin role=ADMIN
+2026-02-27 00:41:56.292 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=a073be93 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /jueces
+2026-02-27 00:41:57.354 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=8931b08d ip=0:0:0:0:0:0:0:1 method=GET path=/jueces/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /juez/new
+2026-02-27 00:42:11.689 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=2367d831 ip=0:0:0:0:0:0:0:1 method=POST path=/jueces status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - POST /jueces create form=com.tp.frontend.dto.Juez.JuezRequest@11c93f31
+2026-02-27 00:42:11.798 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=6f78595b ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /jueces
+2026-02-27 00:42:17.625 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=5f2630c0 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces/6 status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /juez/6
+2026-02-27 00:42:20.257 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=93f0fce4 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /jueces
+2026-02-27 00:42:21.729 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=9cb9a5aa ip=0:0:0:0:0:0:0:1 method=GET path=/jueces/6 status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /juez/6
+2026-02-27 00:42:25.986 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=9adec3d2 ip=0:0:0:0:0:0:0:1 method=POST path=/jueces/6 status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - POST /juez/6 update=com.tp.frontend.dto.Juez.JuezUpdate@4fbf6fb0
+2026-02-27 00:42:26.035 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=70ebeb43 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /jueces
+2026-02-27 00:42:28.867 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=f7016cf1 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces/6 status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /juez/6
+2026-02-27 00:42:33.701 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=f447e873 ip=0:0:0:0:0:0:0:1 method=POST path=/jueces/6 status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - POST /juez/6 update=com.tp.frontend.dto.Juez.JuezUpdate@4fd4342b
+2026-02-27 00:42:33.745 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=PUT path=/jueces/6 status=400 contentType=application/json apiMessage='Validación inválida' rawSnippet='{"message":"Validación inválida","status":"BAD_REQUEST","timestamp":"2026-02-27T00:42:33.7238259-03:00","trace":null,"code":"VALIDATION_ERROR","fieldErrors":{"anosServicio":"Los años de servicio máximos son 45"}}'
+2026-02-27 00:42:33.745 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=PUT path=/jueces/6 exClass=com.tp.frontend.exception.ApiErrorException msg=Validación inválida
+com.tp.frontend.exception.ApiErrorException: Validación inválida
+	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$10(BaseApiClient.java:141)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onNext(FluxOnAssembly.java:539)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
+	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-27 00:42:42.270 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=033cfe73 ip=0:0:0:0:0:0:0:1 method=POST path=/jueces/6 status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - POST /juez/6 update=com.tp.frontend.dto.Juez.JuezUpdate@383722f3
+2026-02-27 00:42:42.301 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=cb15f468 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /jueces
+2026-02-27 00:42:52.114 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=81a7bcc7 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /jueces
+2026-02-27 00:42:56.458 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=3aa6847b ip=0:0:0:0:0:0:0:1 method=GET path=/juicios status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuicioController - GET /juicios
+2026-02-27 00:42:58.464 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=cd6166f1 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /jueces
+2026-02-27 00:42:59.239 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=8eb3e76f ip=0:0:0:0:0:0:0:1 method=GET path=/jueces/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /juez/new
+2026-02-27 00:43:01.625 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=10c34438 ip=0:0:0:0:0:0:0:1 method=GET path=/jueces status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuezController - GET /jueces
+2026-02-27 00:43:03.306 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=381b8250 ip=0:0:0:0:0:0:0:1 method=GET path=/juicios status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuicioController - GET /juicios
+2026-02-27 00:43:04.296 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=8e044e4b ip=0:0:0:0:0:0:0:1 method=GET path=/juicios/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuicioController - GET /juicios/new
+2026-02-27 00:43:09.328 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=ff5cc9ad ip=0:0:0:0:0:0:0:1 method=GET path=/juicios status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuicioController - GET /juicios
+2026-02-27 00:43:10.729 INFO 
+                sid=1037CCC7B92CA7F1439CD4CDD51B95BB rid=d8d567ec ip=0:0:0:0:0:0:0:1 method=GET path=/juicios/new status=
+                user=admin role=ADMIN
+                c.t.f.controller.JuicioController - GET /juicios/new
+2026-02-27 00:59:28.314 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-27 00:59:28.369 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Starting FrontEndApplication using Java 21.0.9 with PID 5772 (C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios\target\classes started by supervisor in C:\programacion 2\TP FINAL CON IVO\frontEnd_ApiUsuarios)
+2026-02-27 00:59:28.369 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-27 00:59:32.165 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-02-27 00:59:32.191 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-02-27 00:59:32.198 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-27 00:59:32.198 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-02-27 00:59:32.413 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-27 00:59:32.429 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3952 ms
+2026-02-27 00:59:33.527 WARN 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: d2a498eb-bb03-437f-a5ca-d627db3c43d8
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-02-27 00:59:34.070 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@42c12b3e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2dbfa972, org.springframework.security.web.context.SecurityContextHolderFilter@50ec4bfc, org.springframework.security.web.header.HeaderWriterFilter@4ce25e47, org.springframework.web.filter.CorsFilter@46f73ffa, org.springframework.security.web.authentication.logout.LogoutFilter@538a2f0e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@33d28f0a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@285a4fe3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2589d787, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@41aebbb4, org.springframework.security.web.session.SessionManagementFilter@350da119, org.springframework.security.web.access.ExceptionTranslationFilter@6de7778f, org.springframework.security.web.access.intercept.AuthorizationFilter@37606fee]
+2026-02-27 00:59:34.612 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-02-27 00:59:34.652 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-02-27 00:59:34.664 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                com.tp.frontend.FrontEndApplication - Started FrontEndApplication in 7.39 seconds (process running for 8.295)
+2026-02-27 00:59:41.600 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-27 00:59:41.601 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-27 00:59:41.602 INFO 
+                sid= rid= ip= method= path= status=
+                user= role=
+                o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-02-27 00:59:41.764 INFO 
+                sid=- rid=96d9abc9 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-27 00:59:42.400 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=POST path=/auth/login status=400 contentType=application/json apiMessage='Credenciales inválidas' rawSnippet='{"message":"Credenciales inválidas","status":"BAD_REQUEST","timestamp":"2026-02-27T00:59:42.3288358-03:00","trace":null,"code":"BAD_REQUEST","fieldErrors":{}}'
+2026-02-27 00:59:42.408 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=POST path=/auth/login exClass=com.tp.frontend.exception.ApiErrorException msg=Credenciales inválidas
+com.tp.frontend.exception.ApiErrorException: Credenciales inválidas
+	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$10(BaseApiClient.java:141)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onNext(FluxOnAssembly.java:539)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
+	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-27 00:59:42.411 WARN 
+                sid=- rid=96d9abc9 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=-
+                c.t.f.controller.AuthController - POST /auth/login ApiError status=400 code=BAD_REQUEST msg=Credenciales inválidas
+2026-02-27 00:59:43.846 INFO 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=ba21cfee ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-27 00:59:43.879 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=POST path=/auth/login status=400 contentType=application/json apiMessage='Credenciales inválidas' rawSnippet='{"message":"Credenciales inválidas","status":"BAD_REQUEST","timestamp":"2026-02-27T00:59:43.8782178-03:00","trace":null,"code":"BAD_REQUEST","fieldErrors":{}}'
+2026-02-27 00:59:43.879 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=POST path=/auth/login exClass=com.tp.frontend.exception.ApiErrorException msg=Credenciales inválidas
+com.tp.frontend.exception.ApiErrorException: Credenciales inválidas
+	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$10(BaseApiClient.java:141)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onNext(FluxOnAssembly.java:539)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
+	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-27 00:59:43.879 WARN 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=ba21cfee ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login ApiError status=400 code=BAD_REQUEST msg=Credenciales inválidas
+2026-02-27 00:59:44.893 INFO 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=bb6664c9 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-27 00:59:44.899 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=POST path=/auth/login status=400 contentType=application/json apiMessage='Credenciales inválidas' rawSnippet='{"message":"Credenciales inválidas","status":"BAD_REQUEST","timestamp":"2026-02-27T00:59:44.8993405-03:00","trace":null,"code":"BAD_REQUEST","fieldErrors":{}}'
+2026-02-27 00:59:44.899 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=POST path=/auth/login exClass=com.tp.frontend.exception.ApiErrorException msg=Credenciales inválidas
+com.tp.frontend.exception.ApiErrorException: Credenciales inválidas
+	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$10(BaseApiClient.java:141)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onNext(FluxOnAssembly.java:539)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
+	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-27 00:59:44.899 WARN 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=bb6664c9 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login ApiError status=400 code=BAD_REQUEST msg=Credenciales inválidas
+2026-02-27 00:59:49.696 INFO 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=f8fb49d0 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-27 00:59:49.714 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=POST path=/auth/login status=400 contentType=application/json apiMessage='Credenciales inválidas' rawSnippet='{"message":"Credenciales inválidas","status":"BAD_REQUEST","timestamp":"2026-02-27T00:59:49.7103655-03:00","trace":null,"code":"BAD_REQUEST","fieldErrors":{}}'
+2026-02-27 00:59:49.714 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=POST path=/auth/login exClass=com.tp.frontend.exception.ApiErrorException msg=Credenciales inválidas
+com.tp.frontend.exception.ApiErrorException: Credenciales inválidas
+	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$10(BaseApiClient.java:141)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onNext(FluxOnAssembly.java:539)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
+	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-27 00:59:49.715 WARN 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=f8fb49d0 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login ApiError status=400 code=BAD_REQUEST msg=Credenciales inválidas
+2026-02-27 00:59:50.477 INFO 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=3042cecd ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-27 00:59:50.492 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=POST path=/auth/login status=400 contentType=application/json apiMessage='Credenciales inválidas' rawSnippet='{"message":"Credenciales inválidas","status":"BAD_REQUEST","timestamp":"2026-02-27T00:59:50.4899323-03:00","trace":null,"code":"BAD_REQUEST","fieldErrors":{}}'
+2026-02-27 00:59:50.492 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=POST path=/auth/login exClass=com.tp.frontend.exception.ApiErrorException msg=Credenciales inválidas
+com.tp.frontend.exception.ApiErrorException: Credenciales inválidas
+	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$10(BaseApiClient.java:141)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onNext(FluxOnAssembly.java:539)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
+	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-27 00:59:50.492 WARN 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=3042cecd ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login ApiError status=400 code=BAD_REQUEST msg=Credenciales inválidas
+2026-02-27 00:59:51.145 INFO 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=3244d024 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-27 00:59:51.150 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=POST path=/auth/login status=400 contentType=application/json apiMessage='Credenciales inválidas' rawSnippet='{"message":"Credenciales inválidas","status":"BAD_REQUEST","timestamp":"2026-02-27T00:59:51.1509265-03:00","trace":null,"code":"BAD_REQUEST","fieldErrors":{}}'
+2026-02-27 00:59:51.150 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=POST path=/auth/login exClass=com.tp.frontend.exception.ApiErrorException msg=Credenciales inválidas
+com.tp.frontend.exception.ApiErrorException: Credenciales inválidas
+	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$10(BaseApiClient.java:141)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onNext(FluxOnAssembly.java:539)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
+	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-27 00:59:51.150 WARN 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=3244d024 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login ApiError status=400 code=BAD_REQUEST msg=Credenciales inválidas
+2026-02-27 00:59:51.769 INFO 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=3fbbd3a2 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-27 00:59:51.795 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=POST path=/auth/login status=400 contentType=application/json apiMessage='Credenciales inválidas' rawSnippet='{"message":"Credenciales inválidas","status":"BAD_REQUEST","timestamp":"2026-02-27T00:59:51.7920524-03:00","trace":null,"code":"BAD_REQUEST","fieldErrors":{}}'
+2026-02-27 00:59:51.795 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=POST path=/auth/login exClass=com.tp.frontend.exception.ApiErrorException msg=Credenciales inválidas
+com.tp.frontend.exception.ApiErrorException: Credenciales inválidas
+	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$10(BaseApiClient.java:141)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onNext(FluxOnAssembly.java:539)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
+	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-27 00:59:51.796 WARN 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=3fbbd3a2 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login ApiError status=400 code=BAD_REQUEST msg=Credenciales inválidas
+2026-02-27 00:59:52.504 INFO 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=36fa0a74 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-27 00:59:52.521 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=POST path=/auth/login status=400 contentType=application/json apiMessage='Credenciales inválidas' rawSnippet='{"message":"Credenciales inválidas","status":"BAD_REQUEST","timestamp":"2026-02-27T00:59:52.5214402-03:00","trace":null,"code":"BAD_REQUEST","fieldErrors":{}}'
+2026-02-27 00:59:52.521 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=POST path=/auth/login exClass=com.tp.frontend.exception.ApiErrorException msg=Credenciales inválidas
+com.tp.frontend.exception.ApiErrorException: Credenciales inválidas
+	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$10(BaseApiClient.java:141)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onNext(FluxOnAssembly.java:539)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
+	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-27 00:59:52.521 WARN 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=36fa0a74 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login ApiError status=400 code=BAD_REQUEST msg=Credenciales inválidas
+2026-02-27 00:59:53.151 INFO 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=5e331030 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-27 00:59:53.156 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=POST path=/auth/login status=400 contentType=application/json apiMessage='Credenciales inválidas' rawSnippet='{"message":"Credenciales inválidas","status":"BAD_REQUEST","timestamp":"2026-02-27T00:59:53.1568793-03:00","trace":null,"code":"BAD_REQUEST","fieldErrors":{}}'
+2026-02-27 00:59:53.156 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=POST path=/auth/login exClass=com.tp.frontend.exception.ApiErrorException msg=Credenciales inválidas
+com.tp.frontend.exception.ApiErrorException: Credenciales inválidas
+	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$10(BaseApiClient.java:141)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onNext(FluxOnAssembly.java:539)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
+	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-27 00:59:53.156 WARN 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=5e331030 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login ApiError status=400 code=BAD_REQUEST msg=Credenciales inválidas
+2026-02-27 00:59:53.674 INFO 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=5d561a38 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-27 00:59:53.692 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=POST path=/auth/login status=400 contentType=application/json apiMessage='Credenciales inválidas' rawSnippet='{"message":"Credenciales inválidas","status":"BAD_REQUEST","timestamp":"2026-02-27T00:59:53.6921259-03:00","trace":null,"code":"BAD_REQUEST","fieldErrors":{}}'
+2026-02-27 00:59:53.692 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=POST path=/auth/login exClass=com.tp.frontend.exception.ApiErrorException msg=Credenciales inválidas
+com.tp.frontend.exception.ApiErrorException: Credenciales inválidas
+	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$10(BaseApiClient.java:141)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onNext(FluxOnAssembly.java:539)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
+	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-27 00:59:53.692 WARN 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=5d561a38 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login ApiError status=400 code=BAD_REQUEST msg=Credenciales inválidas
+2026-02-27 00:59:54.309 INFO 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=b378fcab ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-27 00:59:54.327 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=POST path=/auth/login status=400 contentType=application/json apiMessage='Credenciales inválidas' rawSnippet='{"message":"Credenciales inválidas","status":"BAD_REQUEST","timestamp":"2026-02-27T00:59:54.3272647-03:00","trace":null,"code":"BAD_REQUEST","fieldErrors":{}}'
+2026-02-27 00:59:54.327 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=POST path=/auth/login exClass=com.tp.frontend.exception.ApiErrorException msg=Credenciales inválidas
+com.tp.frontend.exception.ApiErrorException: Credenciales inválidas
+	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$10(BaseApiClient.java:141)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onNext(FluxOnAssembly.java:539)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
+	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-27 00:59:54.327 WARN 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=b378fcab ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login ApiError status=400 code=BAD_REQUEST msg=Credenciales inválidas
+2026-02-27 00:59:54.871 INFO 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=f19b0536 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login user=admin passwordLength=9
+2026-02-27 00:59:54.879 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - BACKEND_ERROR method=POST path=/auth/login status=400 contentType=application/json apiMessage='Credenciales inválidas' rawSnippet='{"message":"Credenciales inválidas","status":"BAD_REQUEST","timestamp":"2026-02-27T00:59:54.8791402-03:00","trace":null,"code":"BAD_REQUEST","fieldErrors":{}}'
+2026-02-27 00:59:54.879 ERROR
+                sid= rid= ip= method= path= status=
+                user= role=
+                c.tp.frontend.client.BaseApiClient - FRONT_CLIENT_UNEXPECTED method=POST path=/auth/login exClass=com.tp.frontend.exception.ApiErrorException msg=Credenciales inválidas
+com.tp.frontend.exception.ApiErrorException: Credenciales inválidas
+	at com.tp.frontend.client.BaseApiClient.lambda$handleResponse$10(BaseApiClient.java:141)
+	at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:132)
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:122)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onNext(FluxOnAssembly.java:539)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:129)
+	at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107)
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:299)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337)
+	at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2097)
+	at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:145)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:415)
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:446)
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:500)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:780)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:114)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:286)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-02-27 00:59:54.879 WARN 
+                sid=8CA490F54D09AD7A767F5506498A9B26 rid=f19b0536 ip=0:0:0:0:0:0:0:1 method=POST path=/auth/login status=
+                user=admin role=
+                c.t.f.controller.AuthController - POST /auth/login ApiError status=400 code=BAD_REQUEST msg=Credenciales inválidas

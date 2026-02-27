@@ -1,4 +1,5 @@
 package com.tp.frontend.controller;
+
 //new
 import com.tp.frontend.dto.Asalto.AsaltoRequest;
 import com.tp.frontend.dto.Asalto.AsaltoResponse;
@@ -181,7 +182,7 @@ public class AsaltoController {
         try {
             asaltoService.create(token, form);
             log.info("POST /asaltos create OK");
-            return "redirect:/asaltos";
+            return "redirect:/asaltos?msg=Asalto registrado exitosamente";
 
         } catch (ApiErrorException ex) {
             log.warn("POST /asaltos create ApiError status={} code={} msg={}",
@@ -247,7 +248,7 @@ public class AsaltoController {
         try {
             asaltoService.update(token, id, update);
             log.info("POST /asaltos/{} update OK", id);
-            return "redirect:/asaltos/" + id;
+            return "redirect:/asaltos?msg=Asalto actualizado correctamente";
 
         } catch (ApiErrorException ex) {
             log.warn("POST /asaltos/{} update ApiError status={} code={} msg={}",
@@ -291,7 +292,7 @@ public class AsaltoController {
         try {
             asaltoService.delete(token, id);
             log.info("POST /asaltos/{}/delete OK", id);
-            return "redirect:/asaltos";
+            return "redirect:/asaltos?msg=Asalto eliminado correctamente";
 
         } catch (ApiErrorException ex) {
             log.warn("POST /asaltos/{}/delete ApiError status={} code={} msg={}",

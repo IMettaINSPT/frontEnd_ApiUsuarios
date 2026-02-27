@@ -32,7 +32,7 @@
 
             <div>
                 <label>Años de Servicio</label>
-                <input type="text" th:field="*{anosServicio}">
+                <input type="number" th:field="*{anosServicio}" min="0" max="45" placeholder="Rango 0 a 45">
                 <div class="error" th:if="${#fields.hasErrors('anosServicio')}" th:errors="*{anosServicio}"></div>
             </div>
 

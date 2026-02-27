@@ -67,7 +67,7 @@ public class BancoController {
         try {
             service.create(jwt(session), form);
             log.info("POST /bancos create OK");
-            return "redirect:/bancos";
+            return "redirect:/bancos?msg=Banco creado exitosamente";
 
         } catch (ApiErrorException ex) {
             log.warn("POST /bancos create ApiError status={} code={} msg={}",
@@ -121,7 +121,8 @@ public class BancoController {
         try {
             service.update(jwt(session), id, update);
             log.info("POST /bancos/{} update OK", id);
-            return "redirect:/bancos/" + id;
+            // Cambio: Redirige al listado con mensaje de éxito
+            return "redirect:/bancos?msg=Banco actualizado correctamente";
 
         } catch (ApiErrorException ex) {
             log.warn("POST /bancos/{} update ApiError status={} code={} msg={}",
@@ -161,7 +162,7 @@ public class BancoController {
         try {
             service.delete(jwt(session), id);
             log.info("POST /bancos/{}/delete OK", id);
-            return "redirect:/bancos";
+            return "redirect:/bancos?msg=Banco eliminado correctamente";
 
         } catch (ApiErrorException ex) {
             log.warn("POST /bancos/{}/delete ApiError status={} code={} msg={}",

@@ -13,13 +13,13 @@
 
             <div>
                 <label>Número de Banda</label>
-                <input type="text" th:field="*{numeroBanda}">
+                <input type="number" th:field="*{numeroBanda}" placeholder="Solo números">
                 <div class="error" th:if="${#fields.hasErrors('numeroBanda')}" th:errors="*{numeroBanda}"></div>
             </div>
 
             <div>
                 <label>Número de Miembros</label>
-                <input type="text" th:field="*{numeroMiembros}">
+                <input type="number" th:field="*{numeroMiembros}" min="2" max="500" placeholder="Rango 2 a 500">
                 <div class="error" th:if="${#fields.hasErrors('numeroMiembros')}" th:errors="*{numeroMiembros}"></div>
             </div>
 

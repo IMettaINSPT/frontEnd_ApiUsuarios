@@ -108,7 +108,7 @@ public class JuicioController {
         }
         try {
             juicioService.create(token, form);
-            return "redirect:/juicios";
+            return "redirect:/juicios?msg=Juicio registrado exitosamente";
         } catch (ApiErrorException ex) {
             handleBusinessError(ex, br);
             model.addAttribute("backendUrl", backendApiUrl);
@@ -162,7 +162,7 @@ public class JuicioController {
         }
         try {
             juicioService.update(token, id, update);
-            return "redirect:/juicios/" + id;
+            return "redirect:/juicios?msg=Juicio actualizado correctamente";
         } catch (ApiErrorException ex) {
             handleBusinessError(ex, br);
             model.addAttribute("item", juicioService.get(token, id));
@@ -213,9 +213,13 @@ public class JuicioController {
         String token = jwt(session);
         try {
             juicioService.delete(token, id);
-            return "redirect:/juicios";
+            return "redirect:/juicios?msg=Juicio eliminado correctamente";
         } catch (ApiErrorException ex) {
             model.addAttribute("item", juicioService.get(token, id));
+            model.addAttribute("deleteError",
+                    ex.getApiError() != null && ex.getApiError().getMessage() != null
+                            ? ex.getApiError().getMessage()
+                            : "No se pudo eliminar el juicio.");
             return "juicios/ConfirmarBorrado";
         }
     }

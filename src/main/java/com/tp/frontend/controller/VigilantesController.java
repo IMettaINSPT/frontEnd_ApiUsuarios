@@ -70,7 +70,7 @@ public class VigilantesController {
         try {
             service.create(jwt(session), form);
             log.info("POST /vigilantes create OK");
-            return "redirect:/vigilantes";
+            return "redirect:/vigilantes?msg=Vigilante creado exitosamente";
 
         } catch (ApiErrorException ex) {
             log.warn("POST /vigilantes create ApiError status={} code={} msg={}",
@@ -131,7 +131,7 @@ public class VigilantesController {
         try {
             service.update(jwt(session), id, update);
             log.info("POST /vigilantes/{} update OK", id);
-            return "redirect:/vigilantes/" + id;
+            return "redirect:/vigilantes?msg=Vigilante actualizado correctamente";
 
         } catch (ApiErrorException ex) {
             log.warn("POST /vigilantes/{} update ApiError status={} code={} msg={}",
@@ -169,7 +169,7 @@ public class VigilantesController {
         try {
             service.delete(jwt(session), id);
             log.info("POST /vigilantes/{}/delete OK", id);
-            return "redirect:/vigilantes";
+            return "redirect:/vigilantes?msg=Vigilante eliminado correctamente";
 
         } catch (ApiErrorException ex) {
             log.warn("POST /vigilantes/{}/delete ApiError status={} code={} msg={}",

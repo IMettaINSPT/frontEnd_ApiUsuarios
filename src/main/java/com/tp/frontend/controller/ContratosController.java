@@ -37,9 +37,9 @@ public class ContratosController {
     private final ErrorBinder errorBinder;
 
     public ContratosController(ContratoService contratoService,
-                              SucursalService sucursalService,
-                              VigilanteService vigilanteService,
-                              ErrorBinder errorBinder) {
+                               SucursalService sucursalService,
+                               VigilanteService vigilanteService,
+                               ErrorBinder errorBinder) {
         this.contratoService = contratoService;
         this.sucursalService = sucursalService;
         this.vigilanteService = vigilanteService;
@@ -178,7 +178,7 @@ public class ContratosController {
 
         try {
             contratoService.create(token, form);
-            return "redirect:/contratos";
+            return "redirect:/contratos?msg=Contrato creado exitosamente";
 
         } catch (ApiErrorException ex) {
             errorBinder.bind(ex, br);
@@ -245,7 +245,7 @@ public class ContratosController {
 
         try {
             contratoService.update(token, id, update);
-            return "redirect:/contratos/" + id;
+            return "redirect:/contratos?msg=Contrato actualizado correctamente";
 
         } catch (ApiErrorException ex) {
             errorBinder.bind(ex, br);
@@ -294,7 +294,7 @@ public class ContratosController {
 
         try {
             contratoService.delete(token, id);
-            return "redirect:/contratos";
+            return "redirect:/contratos?msg=Contrato eliminado correctamente";
 
         } catch (ApiErrorException ex) {
             var item = contratoService.get(token, id);

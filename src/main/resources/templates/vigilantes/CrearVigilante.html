@@ -5,28 +5,24 @@
 <section class="container">
     <h1>Crear Vigilante</h1>
 
+    <div class="card">
+        <form th:action="@{/vigilantes}" method="post" th:object="${form}" class="form">
+            <div>
+                <label>Código
+                    <input type="text" th:field="*{codigo}"></label>
+            </div>
 
+            <div>
+                <label>Edad</label>
+                <input type="number" th:field="*{edad}" min="18" max="70" placeholder="Rango 18 a 70">
+                <div class="error" th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}"></div>
+            </div>
 
-        <div class="card">
-            <form th:action="@{/vigilantes}" method="post" th:object="${form}" class="form">
-                <div>
-                    <label>Código
-                        <input type="text" th:field="*{codigo}"></label>
-                </div>
-
-                <div>
-                    <label>Edad</label>
-                    <input type="text" th:field="*{edad}">
-                </div>
-
-
-                <div class="actions">
-                    <button class="btn btn-primary" type="submit">Guardar</button>
-                    <a class="btn" th:href="@{/vigilantes}">Cancelar</a>
-                </div>
-            </form>
-        </div>
-    </section>
-    </html>
-
-
+            <div class="actions">
+                <button class="btn btn-primary" type="submit">Guardar</button>
+                <a class="btn" th:href="@{/vigilantes}">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</section>
+</html>

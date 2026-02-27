@@ -93,7 +93,7 @@ public class PersonasDetenidasController {
         try {
             service.create(token, form);
             log.info("POST /personas-detenidas create OK");
-            return "redirect:/personas-detenidas";
+            return "redirect:/personas-detenidas?msg=Persona detenida registrada exitosamente";
 
         } catch (ApiErrorException ex) {
             log.warn("POST /personas-detenidas create ApiError status={} code={} msg={}",
@@ -158,7 +158,7 @@ public class PersonasDetenidasController {
         try {
             service.update(token, id, update);
             log.info("POST /personas-detenidas/{} update OK", id);
-            return "redirect:/personas-detenidas/" + id;
+            return "redirect:/personas-detenidas?msg=Persona detenida actualizada correctamente";
 
         } catch (ApiErrorException ex) {
             log.warn("POST /personas-detenidas/{} update ApiError status={} code={} msg={}",
@@ -201,7 +201,7 @@ public class PersonasDetenidasController {
         try {
             service.delete(token, id);
             log.info("POST /personas-detenidas/{}/delete OK", id);
-            return "redirect:/personas-detenidas";
+            return "redirect:/personas-detenidas?msg=Persona detenida eliminada correctamente";
 
         } catch (ApiErrorException ex) {
             log.warn("POST /personas-detenidas/{}/delete ApiError status={} code={} msg={}",

@@ -72,7 +72,7 @@ public class JuezController {
 
         try {
             service.create(jwt(session), form);
-            return "redirect:/jueces";
+            return "redirect:/jueces?msg=Juez creado exitosamente";
         } catch (ApiErrorException ex) {
             errorBinder.bind(ex, br);
             return "juez/CrearJuez";
@@ -119,7 +119,7 @@ public class JuezController {
 
         try {
             service.update(token, id, update);
-            return "redirect:/jueces";
+            return "redirect:/jueces?msg=Juez actualizado correctamente";
         } catch (ApiErrorException ex) {
             errorBinder.bind(ex, br);
             model.addAttribute("item", service.get(token, id));
@@ -144,9 +144,13 @@ public class JuezController {
         String token = jwt(session);
         try {
             service.delete(token, id);
-            return "redirect:/jueces";
+            return "redirect:/jueces?msg=Juez eliminado correctamente";
         } catch (ApiErrorException ex) {
             model.addAttribute("item", service.get(token, id));
+            model.addAttribute("deleteError",
+                    ex.getApiError() != null && ex.getApiError().getMessage() != null
+                            ? ex.getApiError().getMessage()
+                            : "No se pudo eliminar el juez.");
             return "juez/ConfirmarBorrado";
         }
     }
