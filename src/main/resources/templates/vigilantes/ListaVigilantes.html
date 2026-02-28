@@ -33,7 +33,8 @@
                         <option th:each="c : ${v.contratos}"
                                 th:text="${c.numContrato} + ' - ' +
                                          ${#temporals.format(c.fechaContrato, 'dd/MM/yyyy')} + ' - ' +
-                                         ${#temporals.format(c.fechaFin, 'dd/MM/yyyy')}">
+                                         (${c.fechaFin != null} ? ${#temporals.format(c.fechaFin, 'dd/MM/yyyy')} : 'Vigencia indefinida')">
+
                         </option>
                     </select>
                     <span th:if="${#lists.isEmpty(v.contratos)}" class="muted">Sin contratos</span>
