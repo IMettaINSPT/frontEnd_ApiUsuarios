@@ -13,7 +13,9 @@ import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -57,15 +59,22 @@ public class AuthController {
     @GetMapping("/login")
     public String login(@RequestParam(required = false) String logout,
                         @RequestParam(required = false) String err,
-                        Model model) {
+                        Model model,
+                        Authentication authentication) {
 
         log.info("GET /login logout={} err={}", logout, err);
 
-        // Si querés mostrar un mensaje arriba (tu HTML actual no lo muestra),
-        // podés agregarlo luego en la vista.
+        // 🟢 Si ya está autenticado → redirigir
+        if (authentication != null &&
+                authentication.isAuthenticated() &&
+                !(authentication instanceof AnonymousAuthenticationToken)) {
+
+            log.info("GET /login - Usuario ya autenticado, redirigiendo");
+
+            return "redirect:/dashboard";
+        }
+
         if (logout != null) {
-            // mejor como global error/info si querés:
-            // model.addAttribute("msg", "Gracias por visitar...");
             model.addAttribute("logout", true);
         }
 
