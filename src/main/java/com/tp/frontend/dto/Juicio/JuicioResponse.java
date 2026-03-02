@@ -10,9 +10,11 @@ public class JuicioResponse {
     private String expediente;
     private LocalDate fechaJuicio;
 
-
     private Boolean condenado;
 
+    // NUEVOS CAMPOS AGREGADOS PARA COINCIDIR CON EL BACKEND
+    private LocalDate fechaInicioCondena;
+    private Integer tiempoCondenaMeses;
 
     private String situacionPenal;
     private String detallePena;
@@ -32,7 +34,6 @@ public class JuicioResponse {
     public LocalDate getFechaJuicio() { return fechaJuicio; }
     public void setFechaJuicio(LocalDate fechaJuicio) { this.fechaJuicio = fechaJuicio; }
 
-
     public Boolean getCondenado() { return condenado; }
 
     /**
@@ -44,6 +45,17 @@ public class JuicioResponse {
         if (condenado != null) {
             this.situacionPenal = condenado ? "CONDENADO" : "ABSUELTO";
         }
+    }
+
+    // NUEVOS GETTERS Y SETTERS
+    public LocalDate getFechaInicioCondena() { return fechaInicioCondena; }
+    public void setFechaInicioCondena(LocalDate fechaInicioCondena) {
+        this.fechaInicioCondena = fechaInicioCondena;
+    }
+
+    public Integer getTiempoCondenaMeses() { return tiempoCondenaMeses; }
+    public void setTiempoCondenaMeses(Integer tiempoCondenaMeses) {
+        this.tiempoCondenaMeses = tiempoCondenaMeses;
     }
 
     public String getSituacionPenal() {
