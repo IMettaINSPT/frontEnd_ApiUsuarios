@@ -2,7 +2,7 @@ package com.tp.frontend.controller;
 
 import com.tp.frontend.dto.Login.LoginRequest;
 import com.tp.frontend.dto.Login.LoginResponse;
-import com.tp.frontend.dto.Login.MeResponse;
+import com.tp.frontend.dto.User.UserResponse; // 🟢 Cambio: Usamos UserResponse
 import com.tp.frontend.exception.ApiErrorException;
 import com.tp.frontend.service.AuthService;
 import com.tp.frontend.web.SessionKeys;
@@ -43,19 +43,11 @@ public class AuthController {
         this.authService = authService;
     }
 
-    /**
-     * Asegura que SIEMPRE exista "form" para templates/login.html (th:object="${form}").
-     * Evita: "Neither BindingResult nor plain target object for bean name 'form'..."
-     */
     @ModelAttribute("form")
     public LoginRequest form() {
         return new LoginRequest();
     }
 
-    /**
-     * Compatibilidad: tu app tal vez redirige a /login por Spring Security.
-     * Renderiza templates/login.html.
-     */
     @GetMapping("/login")
     public String login(@RequestParam(required = false) String logout,
                         @RequestParam(required = false) String err,
@@ -64,31 +56,18 @@ public class AuthController {
 
         log.info("GET /login logout={} err={}", logout, err);
 
-        // 🟢 Si ya está autenticado → redirigir
         if (authentication != null &&
                 authentication.isAuthenticated() &&
                 !(authentication instanceof AnonymousAuthenticationToken)) {
-
-            log.info("GET /login - Usuario ya autenticado, redirigiendo");
-
             return "redirect:/dashboard";
         }
 
-        if (logout != null) {
-            model.addAttribute("logout", true);
-        }
-
-        if (err != null) {
-            model.addAttribute("err", err);
-        }
+        if (logout != null) model.addAttribute("logout", true);
+        if (err != null) model.addAttribute("err", err);
 
         return "login";
     }
 
-    /**
-     * Endpoint que usa tu login.html: th:action="@{/auth/login}"
-     * POST con DTO + BindingResult para que el HTML muestre errores.
-     */
     @PostMapping("/auth/login")
     public String doLogin(@Valid @ModelAttribute("form") LoginRequest form,
                           BindingResult br,
@@ -99,40 +78,37 @@ public class AuthController {
 
         String username = safeUsername(form);
         MDC.put("user", username);
-        log.info("POST /auth/login user={} passwordLength={}",
-                username,
-                form != null && form.getPassword() != null ? form.getPassword().length() : 0);
 
-        // Validación SSR (@Valid). Si falla, vuelve a login sin pegarle al backend.
         if (br.hasErrors()) {
-            log.info("POST /auth/login SSR validation errors={}", br.getErrorCount());
             return "login";
         }
 
         try {
-            LoginResponse login = authService.login(form); // <<< tu AuthService debe tener esta sobrecarga
-            String jwt = login != null ? login.getAccessToken() : null;
+            // 1. Login (Obtenemos token)
+            LoginResponse login = authService.login(form);
+            String jwt = login != null ? login.getToken() : null; // 🟢 Cambio: .getToken() según tu record
 
             if (jwt == null || jwt.isBlank()) {
-                log.warn("POST /auth/login sin token user={}", username);
-                br.reject("auth.error", "No se pudo iniciar sesión. Intente nuevamente.");
+                br.reject("auth.error", "No se pudo iniciar sesión.");
                 return "login";
             }
 
-            MeResponse me = authService.me(jwt);
-            if (me == null || me.getUsername() == null || me.getRol() == null) {
-                log.error("POST /auth/login /me inválido user={} me={}", username, me);
-                br.reject("auth.error", "No se pudo validar la sesión. Intente nuevamente.");
+            // 2. Perfil (Usamos UserResponse con el campo 'rol' unificado)
+            UserResponse user = authService.me(jwt);
+            if (user == null || user.getUsername() == null || user.getRol() == null) {
+                br.reject("auth.error", "No se pudo validar el perfil.");
                 return "login";
             }
 
-            String meUsername = me.getUsername();
-            String role = me.getRol();
+            String meUsername = user.getUsername();
+            String role = user.getRol(); // 🟢 Coherencia: campo 'rol' del Back
 
+            // 3. Crear Autoridades con ROLE_
+            var authority = new SimpleGrantedAuthority("ROLE_" + role);
             var auth = new UsernamePasswordAuthenticationToken(
-                    meUsername,
+                    user, // 🟢 Guardamos el objeto completo como Principal
                     null,
-                    List.of(new SimpleGrantedAuthority("ROLE_" + role))
+                    List.of(authority)
             );
 
             SecurityContext context = SecurityContextHolder.createEmptyContext();
@@ -140,70 +116,33 @@ public class AuthController {
             SecurityContextHolder.setContext(context);
             securityContextRepo.saveContext(context, request, response);
 
+            // 4. Sesión HTTP
             session.setAttribute(SessionKeys.JWT, jwt);
             session.setAttribute(SessionKeys.USERNAME, meUsername);
             session.setAttribute(SessionKeys.ROLE, role);
 
             log.info("POST /auth/login OK user={} role={}", meUsername, role);
 
+            // Redirección basada en rol
             if ("VIGILANTE".equalsIgnoreCase(role)) return "redirect:/vigilantes/me";
             return "redirect:/dashboard";
 
         } catch (ApiErrorException ex) {
-            log.warn("POST /auth/login ApiError status={} code={} msg={}",
-                    ex.getHttpStatus(),
-                    ex.getApiError() != null ? ex.getApiError().getCode() : null,
-                    ex.getApiError() != null ? ex.getApiError().getMessage() : ex.getMessage());
-
-            // Para tu login.html (usa #fields.globalErrors())
             br.reject("auth.error", "Usuario o contraseña incorrectos.");
-            // opcional por si querés debug:
-            model.addAttribute("apiError", ex.getApiError());
             return "login";
-
         } catch (WebClientRequestException ex) {
-            log.error("POST /auth/login backend no disponible user={}", username, ex);
-            br.reject("auth.error", "No se puede conectar al backend. Verifique que esté activo.");
+            br.reject("auth.error", "Backend no disponible.");
             return "login";
-
         } catch (Exception ex) {
-            log.error("POST /auth/login unexpected user={}", username, ex);
-            br.reject("auth.error", "Ocurrió un error inesperado al iniciar sesión.");
+            log.error("Error inesperado", ex);
+            br.reject("auth.error", "Error inesperado al iniciar sesión.");
             return "login";
-
         } finally {
             MDC.remove("user");
         }
     }
 
-    /**
-     * Compatibilidad: si en algún lado todavía posteás a /do-login, lo redirigimos al nuevo flujo.
-     * (Podés borrarlo cuando ya no lo use nadie.)
-     */
-    @PostMapping("/do-login")
-    public String doLoginCompat(@RequestParam String username,
-                                @RequestParam String password,
-                                HttpSession session,
-                                Model model,
-                                HttpServletRequest request,
-                                HttpServletResponse response) {
-
-        log.info("POST /do-login (compat) user={} passwordLength={}", username, password != null ? password.length() : 0);
-
-        LoginRequest form = new LoginRequest();
-        form.setUsername(username);
-        form.setPassword(password);
-
-        // Reutiliza el POST principal (sin @Valid acá; ya tenés constraints en HTML/JS)
-        return doLogin(form, new org.springframework.validation.BeanPropertyBindingResult(form, "form"),
-                session, model, request, response);
-    }
-
     private String safeUsername(LoginRequest form) {
-        try {
-            return form != null && form.getUsername() != null ? form.getUsername() : "null";
-        } catch (Exception e) {
-            return "unknown";
-        }
+        return form != null && form.getUsername() != null ? form.getUsername() : "null";
     }
 }

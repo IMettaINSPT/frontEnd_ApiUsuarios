@@ -15,50 +15,41 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
         http
-                // ---------------------------------
-                // CSRF
-                // ---------------------------------
-                .csrf(csrf -> csrf.disable()) // OK para MVC + API backend separado
-
-                // ---------------------------------
-                // AUTORIZACIÓN
-                // ---------------------------------
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/login",
-                                "/auth/login",   // <-- agregar
-                                "/do-login",     // <-- opcional (tu compat)
+                                "/auth/login",
                                 "/logout-success",
                                 "/error",
                                 "/css/**",
                                 "/js/**",
-                                "/img/**",       // <-- agregar (tu template usa /img/)
+                                "/img/**",
                                 "/images/**",
-                                "/favicon.ico"
+                                "/favicon.ico",
+                                "/webjars/**" // Agregado por si usas Bootstrap vía Maven
                         ).permitAll()
-                        .requestMatchers("/users/me").authenticated()
-                        .requestMatchers("/users/**").hasAnyRole("ADMIN", "INVESTIGADOR")
+
+                        // Perfil propio
+                        .requestMatchers("/usuarios/me").authenticated()
+
+                        // Gestión de usuarios (Solo Admin e Investigador para ver)
+                        .requestMatchers("/usuarios/**").hasAnyRole("ADMIN", "INVESTIGADOR")
+
+                        // El resto requiere estar logueado
                         .anyRequest().authenticated()
                 )
-
-                // ---------------------------------
-                // LOGIN
-                // ---------------------------------
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .loginProcessingUrl("/login")
+                        .loginProcessingUrl("/login") // El POST del formulario de login
                         .defaultSuccessUrl("/", true)
                         .failureUrl("/login?error")
                         .permitAll()
                 )
-
-                // ---------------------------------
-                // LOGOUT
-                // ---------------------------------
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/login?logout")
@@ -66,19 +57,11 @@ public class SecurityConfig {
                         .deleteCookies("JSESSIONID")
                         .permitAll()
                 )
-
-                // ---------------------------------
-                // SESIÓN
-                // ---------------------------------
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                 )
-
-                // ---------------------------------
-                // ACCESO DENEGADO (opcional, PRO)
-                // ---------------------------------
                 .exceptionHandling(ex -> ex
-                        .accessDeniedPage("/") // o "/error/403" si querés
+                        .accessDeniedPage("/?error=403")
                 );
 
         return http.build();
