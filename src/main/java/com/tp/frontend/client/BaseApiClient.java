@@ -33,7 +33,7 @@ public abstract class BaseApiClient {
     /**
      * Timeouts: ajustalo a gusto. Esto cubre "no me responde" (back caído/lento).
      */
-    private static final Duration DEFAULT_TIMEOUT = Duration.ofSeconds(10);
+    private static final Duration DEFAULT_TIMEOUT = Duration.ofSeconds(6000);
 
     /**
      * Para no loguear bodies gigantes.
