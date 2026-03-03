@@ -70,6 +70,12 @@ public class AuthController {
                 !(authentication instanceof AnonymousAuthenticationToken)) {
 
             log.info("GET /login - Usuario ya autenticado, redirigiendo");
+            var roles = authentication.getAuthorities();
+            boolean esVigilante = roles.stream()
+                    .anyMatch(a -> a.getAuthority().equals("ROLE_VIGILANTE"));
+            if (esVigilante) {
+                return "redirect:/vigilantes/me";
+            }
 
             return "redirect:/dashboard";
         }
