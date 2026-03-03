@@ -89,7 +89,7 @@ public class UsersController {
     // CREATE
     // =========================
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','SUPERADMIN')")
     @GetMapping("/new")
     public String newForm(Model model, HttpSession session) {
         String token = jwt(session);
@@ -101,7 +101,7 @@ public class UsersController {
         return "users/CrearUsuario";
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','SUPERADMIN')")
     @PostMapping
     public String create(@Valid @ModelAttribute("form") UserRequest form,
                          BindingResult br,
@@ -197,7 +197,7 @@ public class UsersController {
     // UPDATE
     // =========================
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','SUPERADMIN')")
     @PostMapping("/{id}")
     public String update(@PathVariable Long id,
                          @Valid @ModelAttribute("update") UserUpdate update,
@@ -253,7 +253,7 @@ public class UsersController {
     // DELETE
     // =========================
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','SUPERADMIN')")
     @GetMapping("/{id}/confirm-delete")
     public String confirmDelete(@PathVariable Long id, Model model, HttpSession session) {
         String token = jwt(session);
@@ -268,7 +268,7 @@ public class UsersController {
         }
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN','SUPERADMIN')")
     @PostMapping("/{id}/delete")
     public String delete(@PathVariable Long id, HttpSession session, Model model) {
         String token = jwt(session);

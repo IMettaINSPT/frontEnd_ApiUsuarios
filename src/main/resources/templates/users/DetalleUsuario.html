@@ -8,7 +8,7 @@
 
   <div class="card" style="margin-top:16px;">
     <div class="card-title">
-      <span sec:authorize="hasRole('ADMIN')">Editar Usuario</span>
+      <span sec:authorize="hasAnyRole('ADMIN','SUPERADMIN')">Editar Usuario</span>
       <span sec:authorize="hasRole('INVESTIGADOR')">📄 Ficha de Consulta</span>
     </div>
     <br>
@@ -36,7 +36,7 @@
         <div th:each="e : ${#fields.globalErrors()}" th:text="${e.defaultMessage}"></div>
       </div>
 
-      <div sec:authorize="hasRole('ADMIN')">
+      <div sec:authorize="hasAnyRole('ADMIN','SUPERADMIN')">
         <label>Nueva Contraseña (dejar vacío para no cambiar)</label>
         <input type="password" th:field="*{password}">
         <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
@@ -58,6 +58,7 @@
         <select id="rol" class="form-select" th:field="*{rol}" data-required
                 th:disabled="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
           <option value="">-- Seleccionar --</option>
+          <option value="SUPERADMIN">SUPER_ADMIN</option>
           <option value="ADMIN">ADMIN</option>
           <option value="INVESTIGADOR">INVESTIGADOR</option>
           <option value="VIGILANTE">VIGILANTE</option>
@@ -86,7 +87,7 @@
       </div>
 
       <div class="actions">
-        <button sec:authorize="hasRole('ADMIN')" class="btn btn-primary" type="submit">Guardar cambios</button>
+        <button sec:authorize="hasAnyRole('ADMIN','SUPERADMIN')" class="btn btn-primary" type="submit">Guardar cambios</button>
         <a class="btn" th:href="@{/users}">Volver al listado</a>
       </div>
     </form>
