@@ -72,6 +72,8 @@ public class SecurityConfig {
                 // ---------------------------------
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+                        .invalidSessionUrl("/login") // <--- ESTO SOLUCIONA TU PROBLEMA
+                        .maximumSessions(1) // Opcional: evita múltiples sesiones del mismo usuario
                 )
 
                 // ---------------------------------
