@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout('Error en el sistema', ~{::section})}">
+
+<section class="container">
+    <style>
+        .error-page-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px;
+            gap: 40px;
+        }
+
+        .robot-container {
+            flex-shrink: 0;
+        }
+
+        .robot-img {
+            /* 6000px era demasiado, 400px es un tamaño grande y visible */
+            width: 400px;
+            height: auto;
+            display: block;
+        }
+
+        .speech-bubble {
+            position: relative;
+            background: #2d5a88;
+            border-radius: 25px;
+            padding: 30px;
+            color: white;
+            max-width: 450px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .speech-bubble:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 0; height: 0;
+            border: 20px solid transparent;
+            border-right-color: #2d5a88;
+            border-left: 0;
+            margin-top: -20px;
+            margin-left: -20px;
+        }
+
+        .bubble-header {
+            display: block;
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffcc00;
+        }
+
+        .bubble-body {
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .error-metadata {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.9rem;
+            color: #a0c4ff;
+        }
+    </style>
+
+    <div class="error-page-wrapper">
+        <div class="robot-container">
+            <img th:src="@{/img/error.png}" alt="Error Robot" class="robot-img">
+        </div>
+
+        <div class="speech-bubble">
+            <span class="bubble-header">¡Ups! Algo salió mal</span>
+            <p class="bubble-body" th:text="${errorMessage}">
+                Error interno del servidor.
+            </p>
+
+            <div class="error-metadata">
+                <p th:if="${rid != null}">RID: <span th:text="${rid}">-</span></p>
+                <p th:if="${status != null}">Status: <span th:text="${status}">500</span></p>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+</html>
