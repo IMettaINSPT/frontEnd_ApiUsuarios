@@ -17,6 +17,7 @@
                 <th>Código</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
+                <th>Con Tobillera</th>
                 <th>Nro de Banda</th>
                 <th>Historial de Asaltos</th>
                 <th>Acciones</th>
@@ -28,7 +29,7 @@
                 <td th:text="${p.codigo}">ABC123</td>
                 <td th:text="${p.nombre}">Nombre</td>
                 <td th:text="${p.apellido}">Apellido</td>
-
+                <td th:text="${p.conTobillera}">Apellido</td>
                 <td th:text="${p.banda != null ? p.banda.numeroBanda : 'Sin banda asignada'}">Sin banda asignada</td>
 
                 <td>

@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{fragments/layout :: layout('Detalle Persona detenida', ~{::section})}">
+      th:replace="~{fragments/layout :: layout('Detalle Persona detenida', ~{::section})}"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <section class="container">
     <h1>Detalle Persona detenida</h1>
@@ -67,7 +68,16 @@
                 <input type="text" th:field="*{apellido}"
                        th:readonly="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
             </div>
+            <div>
+                <label>Con Tobillera</label>
+                <select th:field="*{conTobillera}"
+                        th:disabled="${#authorization.expression('hasRole(''INVESTIGADOR'')')}">
 
+                <option th:value="true">SI</option>
+                    <option th:value="false">NO</option>
+                </select>
+                <div class="error" th:if="${#fields.hasErrors('conTobillera')}" th:errors="*{conTobillera}"></div>
+            </div>
             <div>
                 <label>Número de Banda</label>
                 <select th:field="*{bandaId}"

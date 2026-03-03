@@ -10,6 +10,9 @@ public class PersonaDetenidaRequest {
     @NotBlank(message="El nombre es obligatorio")
     private String nombre;
 
+    @NotNull(message="EL uso o no de tobillera es obligatorio de indicar")
+    private Boolean conTobillera;
+
     @NotBlank(message="El apellido es obligatorio")
     private String apellido;
 
@@ -26,4 +29,12 @@ public class PersonaDetenidaRequest {
 
     public Long getBandaId() { return bandaId; }
     public void setBandaId(Long bandaId) { this.bandaId = bandaId; }
+
+    public Boolean getConTobillera() {
+        return conTobillera;
+    }
+
+    public void setConTobillera(Boolean conTobillera) {
+        this.conTobillera = conTobillera;
+    }
 }

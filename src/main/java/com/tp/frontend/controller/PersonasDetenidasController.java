@@ -128,8 +128,9 @@ public class PersonasDetenidasController {
                 item.codigo(),
                 item.nombre(),
                 item.apellido(),
+                item.conTobillera(),
                 item.banda() != null ? item.banda().getId() : null
-        );
+                );
         model.addAttribute("item", item);
         model.addAttribute("update", update);
 

@@ -10,7 +10,8 @@ public record PersonaDetenidaUpdate (
           String nombre,
         @NotBlank(message="El apellido es obligatorio")
           String apellido,
+        Boolean conTobillera,
 
-          Long bandaId
+        Long bandaId
 ){
 }

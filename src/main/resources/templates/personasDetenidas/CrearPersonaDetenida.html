@@ -24,7 +24,14 @@
                 </select>
                 <div class="error" th:if="${#fields.hasErrors('bandaId')}" th:errors="*{bandaId}"></div>
             </div>
-
+            <div>
+                <label>Con tobillera</label>
+                <select th:field="*{conTobillera}">
+                    <option th:value="true">SI</option>
+                    <option th:value="false">NO</option>
+                </select>
+                <div class="error" th:if="${#fields.hasErrors('conTobillera')}" th:errors="*{conTobillera}"></div>
+            </div>
             <div th:if="${!hayBandas}" class="error">
                 No hay bandas disponibles.
             </div>

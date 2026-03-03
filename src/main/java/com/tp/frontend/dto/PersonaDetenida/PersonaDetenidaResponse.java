@@ -10,5 +10,6 @@ public record PersonaDetenidaResponse(
         String nombre,
         String apellido,
         BandaResponse banda,
+        Boolean conTobillera,
         List<AsaltoResponse> asaltos
 ) {}

@@ -13,7 +13,7 @@ public class ContratoRequest {
 
     private LocalDate fechaFin;
 
-    @NotNull(message="EL uso o no de arma es obligatorio de indicar")
+    @NotNull(message="EL uso o no de tobiller es obligatorio de indicar")
     private Boolean conArma;
 
 
