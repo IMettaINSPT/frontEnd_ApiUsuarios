@@ -30,7 +30,7 @@ public class DashboardController {
         return (String) session.getAttribute(SessionKeys.JWT);
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN','INVESTIGADOR')")
+    @PreAuthorize("hasAnyRole('ADMIN','SUPERADMIN','INVESTIGADOR')")
     @GetMapping("/dashboard")
     public String dashboard(HttpSession session, Model model) throws Exception {
         var summary = service.summary(jwt(session));
